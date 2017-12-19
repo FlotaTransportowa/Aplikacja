@@ -18,25 +18,7 @@
      -fx-width: 100%;
      -fx-transition: all 0.3s;
 }
-
 .button:hover
 {
      -fx-background-color: #368ab5;
-}
-
-.button-grey
-{
-    -fx-border-width: 1px ;
-     -fx-border-color: #cccccc;
-     -fx-background-color: #d5d5d5;
-     -fx-padding: 5px;
-     -fx-color: #fff;
-     -fx-border-radius: 2px;
-     -fx-width: 100%;
-     -fx-transition: all 0.3s;
-}
-
-.button-grey:hover
-{
-     -fx-background-color: #d5d5d5;
 }

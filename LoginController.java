@@ -9,5 +9,6 @@ public class LoginController {
     @FXML private void check() {
         String userString = login.getText();
         String passwordString = password.getText();
+        password.setText(userString);
     }
 }
