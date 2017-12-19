@@ -27,5 +27,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="commons-io-2.6" level="project" />
+    <orderEntry type="library" name="commons-io-2.6" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.45-bin" level="project" />
   </component>
 </module>
