@@ -1,28 +1,58 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import javax.persistence.*;
 import java.sql.SQLException;
 
+@Entity
 public class Account {
-    public static boolean getAccount(String login, String passw) throws SQLException {
-        int counter = 0;
-        Connection conn = null;
-        ResultSet res = null;
-        try {
-            conn = ConnectionConfig.getConnection();
-            PreparedStatement statement = conn.prepareStatement("SELECT idPracownik FROM kontaSystemowe WHERE login = '" + login + "' AND haslo = '" + passw + "'");
-            res = statement.executeQuery();
+    @Id
+    @GeneratedValue
+    private long id;
+    private String login;
+    private String password;
 
-            while(res.next()){
-                counter++;
-            }
-        }catch (Exception e){
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public static Account getAccount(String login, String passw) throws SQLException {
+        Account account = null;
+        try {
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+            entityManager.getTransaction().begin();
+            TypedQuery<Account> query = entityManager.createQuery("select a from Account a where a.login = :log and a.password = :pass", Account.class);
+            query.setParameter("log", login);
+            query.setParameter("pass", passw);
+            account = query.getSingleResult();
+            entityManager.getTransaction().commit();
+
+            entityManager.close();
+            entityManagerFactory.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        if(counter == 1)
-            return true;
-        return false;
+        return account;
     }
 }

@@ -3,6 +3,7 @@ package controllers;
 import database.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -24,11 +25,23 @@ public class LoginController extends Controller {
         String userString = login.getText();
         String passwordString = password.getText();
 
-        if(Account.getAccount(userString, HashPassword.hashPassword(passwordString)))
+        Account account = Account.getAccount(userString, HashPassword.hashPassword(passwordString));
+
+        if(account != null)
         {
-            System.out.println("Zalogowano");
+            System.out.println("Zalogowano jako " + account.getLogin());
             initSystem();
             mainController.logIn("Kierownik");
+        }
+        else{
+            /////////////////////////////////////////////
+            // Komunikat błędu
+            /////////////////////////////////////////////
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd logowania");
+            alert.setHeaderText("Niepoprawny login lub hasło");
+            //alert.setContentText("©2017 \nDaniel Dymiński\nNorbert Gil\nMaksymilian Jagodziński\nHubert Januszek ");
+            alert.showAndWait();
         }
     }
 
