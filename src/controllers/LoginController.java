@@ -1,6 +1,7 @@
 package controllers;
 
 import database.Account;
+import database.Employee;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -11,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import security.HashPassword;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -31,7 +36,23 @@ public class LoginController extends Controller {
         {
             System.out.println("Zalogowano jako " + account.getLogin());
             initSystem();
-            mainController.logIn("Kierownik");
+
+
+            long idEmployee = account.getId();
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+            entityManager.getTransaction().begin();
+            TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
+            query.setParameter("id", idEmployee);
+            Employee employee = query.getSingleResult();
+            entityManager.getTransaction().commit();
+
+            entityManager.close();
+            entityManagerFactory.close();
+
+
+            mainController.logIn(employee.getStation());
         }
         else{
             /////////////////////////////////////////////

@@ -52,7 +52,7 @@ public class MainController {
     {
         topMenuBar.setVisible(true);
         mainPane.setLayoutY(26);
-        if(Type.equals("Kierownik"))
+        if(Type.equals("kierownik"))
         {
 
         }
