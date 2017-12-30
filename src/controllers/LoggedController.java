@@ -62,6 +62,18 @@ public class LoggedController extends Controller {
         }
     }
 
+    @FXML void showEmployee() throws IOException {
+        try {
+            Tab newShowEmployeeTab = new Tab("Pracownicy floty");
+            tabMenu.getTabs().add(newShowEmployeeTab);
+            newShowEmployeeTab.setContent((Node) FXMLLoader.load(this.getClass().getResource("/fxml/showEmployeeForm.fxml")));
+            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
+            selectionModel.select(newShowEmployeeTab);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML void viewTasksList() throws IOException {
         try {
             Tab newTaskTab = new Tab("Lista zleceń");
