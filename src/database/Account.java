@@ -55,4 +55,21 @@ public class Account {
         }
         return account;
     }
+
+    public static String getEmployeeType(Account account){
+        long idEmployee = account.getId();
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
+        query.setParameter("id", idEmployee);
+        Employee employee = query.getSingleResult();
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return employee.getStation();
+    }
 }
