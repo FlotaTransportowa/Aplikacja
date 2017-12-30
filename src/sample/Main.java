@@ -243,5 +243,6 @@ public class Main extends Application {
     public static void main(String[] args) throws NoSuchAlgorithmException {
 //        createBasic(); // tworzenie rekodrów
         launch(args); //Uruchomienie okienka aplikacji
+
     }
 }
