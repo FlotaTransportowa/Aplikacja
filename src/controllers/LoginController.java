@@ -45,7 +45,6 @@ public class LoginController extends Controller {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Błąd logowania");
             alert.setHeaderText("Niepoprawny login lub hasło");
-            //alert.setContentText("©2017 \nDaniel Dymiński\nNorbert Gil\nMaksymilian Jagodziński\nHubert Januszek ");
             alert.showAndWait();
         }
     }

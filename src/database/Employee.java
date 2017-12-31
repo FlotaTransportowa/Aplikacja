@@ -12,7 +12,6 @@ public abstract class Employee {
     private long id;
     private String firstName;
     private String lastName;
-    private String station;
     private int age;
     private String gender;
     private String email;
@@ -65,14 +64,6 @@ public abstract class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getStation() {
-        return station;
-    }
-
-    public void setStation(String station) {
-        this.station = station;
     }
 
     public int getAge() {

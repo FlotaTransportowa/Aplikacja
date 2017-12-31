@@ -1,5 +1,6 @@
 package controllers;
 
+import database.Employee;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.fxml.FXML;
@@ -52,8 +53,7 @@ public class MainController {
     {
         topMenuBar.setVisible(true);
         mainPane.setLayoutY(26);
-        if(Type.equals("kierownik"))
-        {
+        if(Type.equals("Principal")){ //kierownik
 
         }
     }

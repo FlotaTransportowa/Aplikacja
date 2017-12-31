@@ -70,6 +70,6 @@ public class Account {
         entityManager.close();
         entityManagerFactory.close();
 
-        return employee.getStation();
+        return employee.getClass().getSimpleName();
     }
 }

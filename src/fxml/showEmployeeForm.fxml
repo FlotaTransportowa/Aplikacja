@@ -4,14 +4,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEmployeeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEmployeeController">
    <children>
-      <TableView prefHeight="200.0" prefWidth="200.0">
+      <TableView prefHeight="400.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn maxWidth="500.0" prefWidth="500.0" text="Imię" />
+          <TableColumn maxWidth="500.0" prefWidth="500.0" text="Nazwisko" />
+            <TableColumn maxWidth="500.0" prefWidth="500.0" text="Stanowisko" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
    </children>
 </AnchorPane>
