@@ -1,0 +1,5 @@
+<root>
+    <item name='javax.swing.text.TableView'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
