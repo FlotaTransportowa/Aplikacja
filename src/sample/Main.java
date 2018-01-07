@@ -2,11 +2,16 @@ package sample;
 
 import database.*;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.dom4j.dom.DOMNodeHelper;
+import models.EmployeeModel;
+import models.MachineModel;
+import models.TrackModel;
 import security.HashPassword;
 
 import javax.crypto.Mac;
@@ -14,6 +19,7 @@ import javax.persistence.*;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -64,6 +70,24 @@ public class Main extends Application {
         return employee;
     }
 
+    public static void create(List<Object> lista){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+
+        for (Iterator<Object> i = lista.iterator(); i.hasNext();) {
+            Object item = i.next();
+            entityManager.persist(item);
+        }
+
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+
     public static void createBasic() throws NoSuchAlgorithmException {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
@@ -77,7 +101,6 @@ public class Main extends Application {
         employee.setLastName("Januszek");
         employee.setAge(22);
         employee.setEmail("aaa");
-        employee.setStation("kierownik");
         employee.setSalary(3000.0);
         employee.setGender("M");
         employee.setAccount(account);
@@ -240,9 +263,83 @@ public class Main extends Application {
         entityManagerFactory.close();
     }
 
+    public static void useCreateMethod() throws NoSuchAlgorithmException{
+        Driver employee = new Driver();
+        Account account = new Account();
+        //ustawiamy pola pracownika
+        employee.setFirstName("Adam");
+        employee.setLastName("Kowalski");
+        employee.setAge(30);
+        employee.setEmail("123@wp.pl");
+        employee.setSalary(2000.0);
+        employee.setGender("M");
+        employee.setAccount(account);
+        //ustawiamy login i haslo dla konta
+        account.setLogin("adam");
+        account.setPassword(HashPassword.hashPassword("kowalski"));
+        //tworzymy liste telefonow
+        Phone phone1 = new Phone();
+        phone1.setType("służbowy");
+        phone1.setNumber("123-000-123");
+
+        List<Phone> phones = new ArrayList<>();
+        phones.add(phone1);
+        //ustawiamy liste telefonow dla pracownika
+        employee.setPhones(phones);
+        //tworzymy adres
+        Address address = new Address();
+        address.setLocality("Staszów");
+        address.setPostalCode("12-002");
+        address.setStreet("-");
+        address.setApartmentNumber("89a");
+        employee.setAddress(address);
+
+        Permission permission1 = new Permission();
+        Permission permission2 = new Permission();
+
+        permission1.setName("Uprawnienie 1");
+        permission1.setDescription("Uprawnienie do prowadzenia...");
+
+        permission2.setName("Uprawnienie 2");
+        permission2.setDescription("Uprawnienie do operowania...");
+        List<Permission> permissions = new ArrayList<>();
+        permissions.add(permission1);
+        permissions.add(permission2);
+
+        employee.setPermissions(permissions);
+
+        List<Object> lista = new ArrayList<>();
+        lista.add(employee);
+        lista.add(account);
+        lista.add(phone1);
+        lista.add(address);
+        lista.add(permission1);
+        lista.add(permission2);
+
+        create(lista);
+    }
+
+    public static ObservableList<Object> getAll(){
+        ObservableList<Object> list = FXCollections.observableArrayList();
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        TypedQuery<Object> query = entityManager.createQuery("select e from Employee e", Object.class);
+        List<Object> listOfObjects = query.getResultList();
+        entityManager.getTransaction().commit();
+
+        list.addAll(listOfObjects);
+
+        entityManager.close();
+        entityManagerFactory.close();
+        return list;
+    }
+
     public static void main(String[] args) throws NoSuchAlgorithmException {
 //        createBasic(); // tworzenie rekodrów
         launch(args); //Uruchomienie okienka aplikacji
+
 
     }
 }
