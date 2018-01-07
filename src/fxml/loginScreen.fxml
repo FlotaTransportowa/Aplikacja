@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #202836;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #202836;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
       <ImageView fx:id="imageView" onMouseClicked="#check" opacity="0.13" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,8 +26,8 @@
       </ImageView>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="275.0" prefWidth="252.0" style="-fx-background-color: #fff;">
          <children>
-            <TextField fx:id="login" layoutX="14.0" layoutY="74.0" prefHeight="25.0" prefWidth="224.0" promptText="Wpisz identyfikator" styleClass="input" stylesheets="@../resources/general.css" />
-            <PasswordField fx:id="password" layoutX="14.0" layoutY="141.0" prefHeight="29.0" prefWidth="224.0" promptText="Wpisz hasło" />
+            <TextField fx:id="login" layoutX="14.0" layoutY="74.0" prefHeight="25.0" prefWidth="224.0" promptText="Wpisz identyfikator" styleClass="input" stylesheets="@../resources/general.css" text="kierownik" />
+            <PasswordField fx:id="password" layoutX="14.0" layoutY="141.0" prefHeight="29.0" prefWidth="224.0" promptText="Wpisz hasło" text="password" />
             <Button layoutX="14.0" layoutY="189.0" mnemonicParsing="false" onAction="#check" onMouseClicked="#check" prefHeight="29.0" prefWidth="224.0" stylesheets="@../resources/general.css" text="ZALOGUJ SIĘ" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                <font>
                   <Font name="Roboto" size="12.0" />
