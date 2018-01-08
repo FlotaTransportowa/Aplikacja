@@ -5,6 +5,7 @@ import database.Employee;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -25,6 +26,7 @@ public class LoginController extends Controller {
     @FXML private TextField password;
     @FXML private ImageView imageView;
     @FXML private StackPane stackPane;
+
 
     @FXML private void check() throws IOException, SQLException, NoSuchAlgorithmException {
         String userString = login.getText();

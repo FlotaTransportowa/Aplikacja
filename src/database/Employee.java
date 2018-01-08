@@ -1,12 +1,13 @@
 package database;
 
 import javax.persistence.*;
+import java.sql.SQLException;
 import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeOfEmployee")
-public abstract class Employee {
+public class Employee {
     @Id
     @GeneratedValue
     private long id;
@@ -105,5 +106,29 @@ public abstract class Employee {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    private static EntityManager entityManager;
+    public static List<Employee> findAllEmployees() {
+            EntityManagerFactory factory = Persistence
+                    .createEntityManagerFactory("myDatabase");
+            entityManager = factory.createEntityManager();
+            entityManager.getTransaction().begin();
+            List<Employee> listPersons = entityManager.createQuery(
+                    "SELECT p FROM Employee p").getResultList();
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            factory.close();
+            /*if (listPersons == null) {
+                System.out.println("No persons found . ");
+            } else {
+                for (Employee person : listPersons) {
+                    System.out.print("Person name= " + person.getFirstName()
+                            + ", gender" + person.getGender() + ", birthday="
+                            + person.getLastName());
+                }
+            }*/
+            return listPersons;
+        }
+
 
 }

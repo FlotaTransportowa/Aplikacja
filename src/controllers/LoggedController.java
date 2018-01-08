@@ -40,6 +40,7 @@ public class LoggedController extends Controller {
         observableList.setAll(stringList);
         lastTasks.setItems(observableList);
         accord.setExpandedPane(pane1);
+
     }
 
     @FXML public void lastTasksClicked(MouseEvent arg0) {
@@ -61,6 +62,8 @@ public class LoggedController extends Controller {
             e.printStackTrace();
         }
     }
+
+
 
     @FXML void showEmployee() throws IOException {
         try {
