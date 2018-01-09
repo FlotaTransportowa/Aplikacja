@@ -34,7 +34,7 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
     public static Account getAccount(String login, String passw) throws SQLException {
         Account account = null;
         try {

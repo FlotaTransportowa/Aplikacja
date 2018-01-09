@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class EmployeeModel {
-    public ObservableList<Employee> getAllEmployees(){
+    public static ObservableList<Employee> getAllEmployees(){
         ObservableList<Employee> employees = FXCollections.observableArrayList();
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

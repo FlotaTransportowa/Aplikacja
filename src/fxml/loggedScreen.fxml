@@ -24,7 +24,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoggedController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoggedController">
    <children>
       <Text opacity="0.19" strokeType="OUTSIDE" strokeWidth="0.0" text="WSZYSTKIE KARTY ZAMKNIĘTE" textAlignment="CENTER" wrappingWidth="1028.13671875" y="300.0">
          <font>
@@ -110,7 +110,7 @@
                       <RowConstraints maxHeight="712.0" minHeight="10.0" prefHeight="634.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Pane prefHeight="254.0" prefWidth="257.0" style="-fx-background-color: #fff;" />
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="257.0" style="-fx-background-color: #fff;" />
                         <Accordion fx:id="accord" GridPane.rowIndex="1">
                           <panes>
                             <TitledPane fx:id="pane1" text="Zlecenia">
@@ -165,6 +165,7 @@
                                  <content>
                                     <FlowPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
+                                          <Button mnemonicParsing="false" onAction="#addNewEmployee" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Dodaj pracownika" />
                                           <Button mnemonicParsing="false" onAction="#showEmployee" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Wyświetl pracowników" />
                                        </children>
                                     </FlowPane>

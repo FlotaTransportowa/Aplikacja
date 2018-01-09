@@ -4,15 +4,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.cell.TextFieldTableCell?>
 
 <AnchorPane prefHeight="441.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEmployeeController">
    <children>
       <VBox prefHeight="441.0" prefWidth="1006.0">
          <children>
-            <TableView fx:id="employeeTable" editable="true" prefHeight="426.0" prefWidth="1006.0">
+            <TableView fx:id="employeeTable" prefHeight="426.0" prefWidth="1006.0">
               <columns>
                 <TableColumn id="col1" editable="true" maxWidth="500.0" prefWidth="500.0" text="Imię">
                   <cellValueFactory>
@@ -30,10 +30,15 @@
                         <TextFieldTableCell fx:factory="forTableColumn" />
                     </cellFactory>
                 </TableColumn>
-                  <TableColumn id="col3" maxWidth="500.0" prefWidth="500.0" text="Wiek">
+                  <TableColumn id="col3" maxWidth="500.0" prefWidth="500.0" text="Stanowisko">
                       <cellValueFactory>
-                          <PropertyValueFactory property="age" />
+                          <PropertyValueFactory property="type" />
                       </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn id="col4" maxWidth="500.0" prefWidth="500.0" text="Edycja">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="editButton" />
+                     </cellValueFactory>
                   </TableColumn>
               </columns>
                <columnResizePolicy>

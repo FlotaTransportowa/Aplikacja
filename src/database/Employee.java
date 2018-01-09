@@ -1,13 +1,18 @@
 package database;
 
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+
 import javax.persistence.*;
+
+import javafx.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeOfEmployee")
-public class Employee {
+public abstract class Employee {
     @Id
     @GeneratedValue
     private long id;
@@ -15,6 +20,7 @@ public class Employee {
     private String lastName;
     private int age;
     private String gender;
+    private String type;
     private String email;
     private double salary;
     @OneToOne
@@ -26,6 +32,9 @@ public class Employee {
     @OneToOne
     @JoinColumn(name = "addressId") //pracownik zawiera referencję do konta
     private Address address;
+
+    @Transient
+    private Button editButton = new Button("Edytuj");
 
     public List<Phone> getPhones() {
         return phones;
@@ -107,28 +116,24 @@ public class Employee {
         this.address = address;
     }
 
-    private static EntityManager entityManager;
-    public static List<Employee> findAllEmployees() {
-            EntityManagerFactory factory = Persistence
-                    .createEntityManagerFactory("myDatabase");
-            entityManager = factory.createEntityManager();
-            entityManager.getTransaction().begin();
-            List<Employee> listPersons = entityManager.createQuery(
-                    "SELECT p FROM Employee p").getResultList();
-            entityManager.getTransaction().commit();
-            entityManager.close();
-            factory.close();
-            /*if (listPersons == null) {
-                System.out.println("No persons found . ");
-            } else {
-                for (Employee person : listPersons) {
-                    System.out.print("Person name= " + person.getFirstName()
-                            + ", gender" + person.getGender() + ", birthday="
-                            + person.getLastName());
-                }
-            }*/
-            return listPersons;
-        }
+    public Button getEditButton() {
+        return editButton;
+    }
 
+    public void setEditButton(Button editButton) {
+        this.editButton = editButton;
+    }
 
+/*    public EventHandler<ActionEvent> editAction(ActionEvent event){
+
+        System.out.println(this.getId());
+    }*/
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
