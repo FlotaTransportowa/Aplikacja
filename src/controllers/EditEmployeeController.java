@@ -40,10 +40,12 @@ public class EditEmployeeController {
             phoneHBox3.setDisable(false);
         }
     }
+
     @FXML private  void remove2ndPhoneBox(){
         phoneHBox2.setVisible(false);
         phoneHBox2.setDisable(true);
     }
+
     @FXML private  void remove3rdPhoneBox(){
         phoneHBox3.setVisible(false);
         phoneHBox3.setDisable(true);

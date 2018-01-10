@@ -62,7 +62,7 @@ public class LoginController extends Controller {
         mainController.setAccountLogin(Login);
         mainController.setAccountLogin(Type);
         //tutaj
-        loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeType(account));
+        loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeTypePL(account));
     }
     @FXML private void checkKey() {}
     public void initialize()
