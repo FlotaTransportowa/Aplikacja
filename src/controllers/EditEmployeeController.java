@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.HBox;
 
-public class editEmployeeController {
+public class EditEmployeeController {
     @FXML
     private ChoiceBox phoneTypeChoiseBox,phoneTypeChoiseBox1,phoneTypeChoiseBox2;
 

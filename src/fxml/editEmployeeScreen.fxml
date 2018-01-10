@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="406.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.editEmployeeController">
+<AnchorPane prefHeight="406.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditEmployeeController">
    <children>
       <GridPane layoutX="35.0" layoutY="32.0" prefHeight="244.0" prefWidth="330.0">
         <columnConstraints>

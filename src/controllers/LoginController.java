@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import models.AccountModel;
 import security.HashPassword;
 
 import javax.persistence.EntityManager;
@@ -26,18 +27,18 @@ public class LoginController extends Controller {
     @FXML private TextField password;
     @FXML private ImageView imageView;
     @FXML private StackPane stackPane;
+    private Account account = null;
 
 
     @FXML private void check() throws IOException, SQLException, NoSuchAlgorithmException {
         String userString = login.getText();
         String passwordString = password.getText();
 
-        Account account = Account.getAccount(userString, HashPassword.hashPassword(passwordString));
+        account = Account.getAccount(userString, HashPassword.hashPassword(passwordString));
 
         if(account != null)
         {
-            System.out.println("Zalogowano jako " + account.getLogin());
-            initSystem(account.getLogin(), account.getEmployeeType(account));
+            initSystem(account.getLogin(), AccountModel.getEmployeeType(account));
             mainController.logIn();
         }
         else{
@@ -60,8 +61,8 @@ public class LoginController extends Controller {
         mainController.setLoggedController(loggedController);
         mainController.setAccountLogin(Login);
         mainController.setAccountLogin(Type);
-        System.out.println("Login: " + mainController.getAccountLogin() + " Typ konta: " + mainController.getAccountType());
-        loggedController.setAccountDetails(mainController.getAccountLogin(), mainController.getAccountType());
+        //tutaj
+        loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeType(account));
     }
     @FXML private void checkKey() {}
     public void initialize()

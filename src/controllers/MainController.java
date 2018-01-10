@@ -41,10 +41,11 @@ public class MainController {
         loginController.setMainController(this);
     }
 
-    String getAccountLogin() { return AccountLogin; }
-    String getAccountType() { return AccountType; }
+
     void setAccountLogin(String Login) { AccountLogin = Login; }
     void setAccountType(String Type) { AccountType = Type; }
+    String getAccountLogin() { return AccountLogin; }
+    String getAccountType() { return AccountType; }
 
     void setScreen(StackPane pane) {
 
