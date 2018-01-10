@@ -19,6 +19,9 @@ import java.io.IOException;
 
 public class MainController {
 
+    private String AccountType = "";
+    private String AccountLogin = "";
+
     @FXML
         private LoggedController loggedController;
     @FXML
@@ -38,6 +41,11 @@ public class MainController {
         loginController.setMainController(this);
     }
 
+    String getAccountLogin() { return AccountLogin; }
+    String getAccountType() { return AccountType; }
+    void setAccountLogin(String Login) { AccountLogin = Login; }
+    void setAccountType(String Type) { AccountType = Type; }
+
     void setScreen(StackPane pane) {
 
         mainPane.getChildren().clear();
@@ -52,17 +60,18 @@ public class MainController {
         mainPane.getChildren().add(pane);
     }
 
-    void logIn(String Type)
+    void logIn()
     {
         topMenuBar.setVisible(true);
         mainPane.setLayoutY(26);
-        if(Type.equals("Principal")){ //kierownik
-
-        }
     }
 
     @FXML void logout(){
         try {
+            topMenuBar.setVisible(false);
+            mainPane.setLayoutY(0);
+            AccountLogin = "";
+            AccountType = "";
             initialize();
         } catch (Exception e) {
             e.printStackTrace();

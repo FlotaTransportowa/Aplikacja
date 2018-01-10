@@ -37,8 +37,8 @@ public class LoginController extends Controller {
         if(account != null)
         {
             System.out.println("Zalogowano jako " + account.getLogin());
-            initSystem();
-            mainController.logIn(account.getEmployeeType(account));
+            initSystem(account.getLogin(), account.getEmployeeType(account));
+            mainController.logIn();
         }
         else{
             /////////////////////////////////////////////
@@ -51,13 +51,17 @@ public class LoginController extends Controller {
         }
     }
 
-    private void initSystem() throws IOException {
+    private void initSystem(String Login, String Type) throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/loggedScreen.fxml"));
         AnchorPane pane = loader.load();
         mainController.setScreen(pane);
         LoggedController loggedController = loader.getController();
         loggedController.setMainController(mainController);
         mainController.setLoggedController(loggedController);
+        mainController.setAccountLogin(Login);
+        mainController.setAccountLogin(Type);
+        System.out.println("Login: " + mainController.getAccountLogin() + " Typ konta: " + mainController.getAccountType());
+        loggedController.setAccountDetails(mainController.getAccountLogin(), mainController.getAccountType());
     }
     @FXML private void checkKey() {}
     public void initialize()

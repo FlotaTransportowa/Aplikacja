@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +25,14 @@ public class LoggedController extends Controller {
     @FXML private ListView lastTasks;
     @FXML private SplitPane splitPane;
     private List<String> stringList  = new ArrayList<>(5);
+    @FXML private Slider sizeOfTrasyTable;
+    @FXML private TextField sizeOfTrasyTableTextField;
+    @FXML private ToggleButton zgloszenieToggleButton;
+    @FXML private ToggleButton zgloszenieToggleButton2;
+    @FXML private ToggleButton zgloszenieToggleButton3;
+    @FXML private SegmentedButton zgloszenieSegmentButton;
+    @FXML private Text login;
+    @FXML private Text typKonta;
 
     @FXML
     private Accordion accord;
@@ -31,7 +43,8 @@ public class LoggedController extends Controller {
         tabMenu.getTabs().clear();
     }
 
-    @FXML void initialize() throws Exception {
+    @FXML void initialize() throws Exception
+    {
         ObservableList observableList = FXCollections.observableArrayList();
         stringList.add("Przewóz materiałów");
         stringList.add("Transport sprzętu budowlanego do Kielc");
@@ -41,6 +54,19 @@ public class LoggedController extends Controller {
         lastTasks.setItems(observableList);
         accord.setExpandedPane(pane1);
 
+        sizeOfTrasyTable.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                sizeOfTrasyTableTextField.setText(Integer.toString(newValue.intValue()));
+            }
+        });
+        zgloszenieSegmentButton.getButtons().addAll(zgloszenieToggleButton, zgloszenieToggleButton2, zgloszenieToggleButton3);
+    }
+
+    @FXML void setAccountDetails(String Login, String Type) throws IOException {
+        login.setText(Login);
+        typKonta.setText(Type);
     }
 
     @FXML public void lastTasksClicked(MouseEvent arg0) {
@@ -101,4 +127,12 @@ public class LoggedController extends Controller {
         }
     }
 
+    @FXML void logOut() throws IOException {
+        mainController.logout();
+    }
+
+    @FXML void changeSizeOfTrasyTable() throws IOException {
+        double value = sizeOfTrasyTable.getValue();
+        sizeOfTrasyTableTextField.setText(Double.toString(value));
+    }
 }
