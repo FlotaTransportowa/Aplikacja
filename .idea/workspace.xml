@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/editEmployeeController.java" afterPath="$PROJECT_DIR$/src/controllers/EditEmployeeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/controllers/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MainController.java" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Account.java" afterPath="$PROJECT_DIR$/src/database/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/editEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/editEmployeeScreen.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
@@ -693,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515579220808</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Hubert Januszek update">
+      <created>1515611579675</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1515611579675</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -780,7 +782,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="update Hubert Januszek" />
     <MESSAGE value="update Daniel" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Daniel" />
+    <MESSAGE value="Hubert Januszek update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hubert Januszek update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
