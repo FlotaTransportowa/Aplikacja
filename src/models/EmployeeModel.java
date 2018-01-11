@@ -86,7 +86,7 @@ public class EmployeeModel {
     public static boolean validatePhoneNumbers(ArrayList<String> telefony){
         boolean validateFlag = true;
         for(int i =0; i<telefony.size(); i++){
-            if(!Validation.regexChecker(Pattern.phoneNumberPattern, telefony.get(i)) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, telefony.get(i)) || telefony.get(i).isEmpty()){
+            if(!Validation.regexChecker(Pattern.phoneNumberPattern, telefony.get(i)) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, telefony.get(i))){
                 System.out.println("Źle: " + telefony.get(i));
                 validateFlag = false;
             }
