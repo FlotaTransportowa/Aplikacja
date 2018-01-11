@@ -25,6 +25,9 @@ public class AddEmployeeController {
     @FXML private TextField addLocalityField;
     @FXML private TextField addStreetField;
     @FXML private TextField addHousenumField;
+    @FXML private TextField phone1;
+    @FXML private TextField phone2;
+    @FXML private TextField phone3;
     @FXML private RadioButton woman;
     @FXML private RadioButton man;
 
@@ -93,8 +96,16 @@ public class AddEmployeeController {
         lista.add(addHousenumField.getText());
         System.out.println(typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString()); //Wybrany typ pracownika
         System.out.println(group.getSelectedToggle().getUserData().toString()); //Wybrana płeć
-        if(EmployeeModel.validateBasicData(lista)){
-            System.out.println("Jest dobrze");
-        }
+        ArrayList<String> tel = new ArrayList<>();
+        if(!phoneHBox1.isDisable())
+            tel.add(phone1.getText());
+        if(!phoneHBox2.isDisable())
+            tel.add(phone2.getText());
+        if(!phoneHBox3.isDisable())
+            tel.add(phone3.getText());
+        if(EmployeeModel.validateBasicData(lista))
+            System.out.println("Basic data is correct!");
+        if(EmployeeModel.validatePhoneNumbers(tel))
+            System.out.println("Phone numbers are correct!");
     }
 }

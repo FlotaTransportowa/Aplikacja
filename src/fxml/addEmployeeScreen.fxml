@@ -28,10 +28,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="addNameField" GridPane.columnIndex="1" />
+            <TextField fx:id="addNameField" text="Jan" GridPane.columnIndex="1" />
             <Label text="Imię" />
             <Label text="Nazwisko" GridPane.rowIndex="1" />
-            <TextField fx:id="addSurnameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="addSurnameField" text="Nowak" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Wiek" GridPane.rowIndex="2" />
             <Label text="E-mail" GridPane.rowIndex="3" />
             <Label text="Płeć" GridPane.rowIndex="4" />
@@ -42,9 +42,9 @@
                </children>
             </VBox>
             <Label text="Pensja" GridPane.rowIndex="5" />
-            <TextField fx:id="addAgeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="addEmailField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="addSalaryField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="addAgeField" text="25" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="addEmailField" text="abc@interia.pl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addSalaryField" text="2500" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <GridPane layoutX="386.0" layoutY="32.0" prefHeight="159.0" prefWidth="238.0">
@@ -63,31 +63,31 @@
             <Label text="Miejscowość" GridPane.rowIndex="1" />
             <Label text="Ulica" GridPane.rowIndex="2" />
             <Label text="Numer domu" GridPane.rowIndex="3" />
-            <TextField fx:id="addPostalCodeField" GridPane.columnIndex="1" />
-            <TextField fx:id="addLocalityField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="addStreetField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="addHousenumField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addPostalCodeField" text="25-031" GridPane.columnIndex="1" />
+            <TextField fx:id="addLocalityField" text="Warszawa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="addStreetField" text="Wojska Polskiego" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="addHousenumField" text="23/12" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <VBox layoutX="33.0" layoutY="289.0" prefHeight="111.0" prefWidth="420.0">
          <children>
             <HBox fx:id="phoneHBox1" prefHeight="80.0" prefWidth="433.0">
                <children>
-                  <TextField />
+                  <TextField fx:id="phone1" />
                   <ChoiceBox fx:id="phoneTypeChoiseBox" prefWidth="150.0" />
                   <Button mnemonicParsing="false" onAction="#addAction" prefHeight="31.0" prefWidth="43.0" text="+" />
                </children>
             </HBox>
             <HBox fx:id="phoneHBox2" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
                <children>
-                  <TextField />
+                  <TextField fx:id="phone2" />
                   <ChoiceBox fx:id="phoneTypeChoiseBox1" prefWidth="150.0" />
                   <Button mnemonicParsing="false" onAction="#remove2ndPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
                </children>
             </HBox>
             <HBox fx:id="phoneHBox3" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
                <children>
-                  <TextField />
+                  <TextField fx:id="phone3" />
                   <ChoiceBox fx:id="phoneTypeChoiseBox2" prefWidth="150.0" />
                   <Button mnemonicParsing="false" onAction="#remove3rdPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
                </children>
