@@ -2,17 +2,32 @@ package controllers;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
-public class NewTaskController extends  Controller {
+import java.io.IOException;
 
-    @FXML
-    private TextField imie;
-    @FXML
-    private TextField nazwisko;
+public class NewTaskController extends  Controller
+{
+    @FXML private TextField newTaskTitle;
+    //@FXML private DataPicker newTaskDate;
+    @FXML private ChoiceBox newTaskType;
+    @FXML private ChoiceBox newTaskLocation;
+    @FXML private TextArea newTaskComment;
+    @FXML private Text newTaskStatus;
 
-    @FXML void initialize() throws Exception {
-        imie.setText("coś tam");
+    @FXML void initialize() throws Exception
+    {
+    }
 
+    @FXML void cancelTask() throws IOException
+    {
+
+    }
+
+    @FXML void addTask() throws IOException
+    {
     }
 }

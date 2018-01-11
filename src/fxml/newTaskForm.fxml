@@ -1,13 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewTaskController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewTaskController">
    <children>
-      <Arc fill="DODGERBLUE" layoutX="346.0" layoutY="224.0" length="270.0" radiusX="100.0" radiusY="100.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-      <TextField fx:id="imie" layoutX="59.0" layoutY="79.0" />
-      <TextField fx:id="nazwisko" layoutX="59.0" layoutY="142.0" />
+      <Pane layoutX="15.0" layoutY="14.0" prefHeight="344.0" prefWidth="980.0" style="-fx-border-width: 1px; -fx-border-color: rgb(230,230,230); -fx-background-color: #fff;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Pane prefHeight="56.0" prefWidth="980.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">
+               <children>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#cancelTask" prefHeight="29.0" prefWidth="67.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
+                  <Text fx:id="newTaskStatus" layoutX="462.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodawanie . . . (10%)">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="846.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="29.0" prefWidth="120.0" stylesheets="@../resources/general.css" text="Zapisz zlecenie" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font name="Roboto" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <TextField fx:id="newTaskTitle" layoutX="5.0" layoutY="63.0" prefHeight="34.0" prefWidth="1141.0" promptText="Wpisz nazwe dla konkretnego zlecenia" style="-fx-border-width: 0px; -fx-background-color: transparent;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Separator layoutX="14.0" layoutY="97.0" prefHeight="13.0" prefWidth="950.0">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Separator>
+            <Text fill="#656565" layoutX="14.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ zlecenia">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Separator layoutX="14.0" layoutY="139.0" prefWidth="950.0">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Separator>
+            <Text fill="#656565" layoutX="509.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deadline">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="#656565" layoutX="14.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Separator layoutX="14.0" layoutY="181.0" prefWidth="950.0">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Separator>
+            <Text fill="#656565" layoutX="13.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Komentarz">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="newTaskComment" layoutX="116.0" layoutY="194.0" prefHeight="132.0" prefWidth="848.0" promptText="Dopisz komentarz..." style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextArea>
+            <DatePicker fx:id="newTaskDate" layoutX="586.0" layoutY="110.0" prefHeight="27.0" prefWidth="378.0" style="-fx-border-color: rgb(230,230,230);" />
+            <ChoiceBox fx:id="newTaskType" layoutX="116.0" layoutY="111.0" prefHeight="25.0" prefWidth="375.0" />
+            <ChoiceBox fx:id="newTaskLocation" layoutX="116.0" layoutY="153.0" prefHeight="25.0" prefWidth="848.0" />
+            <Separator layoutX="497.0" layoutY="103.0" orientation="VERTICAL" prefHeight="41.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -9,6 +9,7 @@ public class Order {
     @Id
     @GeneratedValue
     private long id;
+    private String title;
     private String type;
     @Temporal(TemporalType.DATE)
     private Date timeLimitForCompletion;
@@ -55,5 +56,13 @@ public class Order {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
