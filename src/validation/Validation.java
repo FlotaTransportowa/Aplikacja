@@ -12,6 +12,7 @@ public class Validation {
 
             return regexMatcher.find();
         }
+
         public static boolean isInteger(String s) {
             try {
                 Integer.parseInt(s);
@@ -22,6 +23,7 @@ public class Validation {
             }
             return true;
         }
+
         public static boolean isDouble(String s) {
             try {
                 Double.parseDouble(s);

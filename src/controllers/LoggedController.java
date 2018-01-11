@@ -10,14 +10,12 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class LoggedController extends Controller {
 
@@ -93,7 +91,7 @@ public class LoggedController extends Controller {
         try {
             Tab newTaskTab = new Tab("Dodaj pracownika");
             tabMenu.getTabs().add(newTaskTab);
-            newTaskTab.setContent((Node) FXMLLoader.load(this.getClass().getResource("/fxml/editEmployeeScreen.fxml")));
+            newTaskTab.setContent((Node) FXMLLoader.load(this.getClass().getResource("/fxml/addEmployeeScreen.fxml")));
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newTaskTab);
         } catch (IOException e) {
