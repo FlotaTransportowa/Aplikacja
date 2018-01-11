@@ -92,7 +92,7 @@ public class AddEmployeeController {
         lista.add(addStreetField.getText());
         lista.add(addHousenumField.getText());
         System.out.println(typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString()); //Wybrany typ pracownika
-        System.out.println(group.getSelectedToggle().getUserData().toString());
+        System.out.println(group.getSelectedToggle().getUserData().toString()); //Wybrana płeć
         if(EmployeeModel.validateBasicData(lista)){
             System.out.println("Jest dobrze");
         }
