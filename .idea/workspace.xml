@@ -7,32 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/database/OrderDone.java" afterPath="$PROJECT_DIR$/src/database/OrderReport.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Aplikacja.iml" afterPath="$PROJECT_DIR$/Aplikacja.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AddEmployeeController.java" afterPath="$PROJECT_DIR$/src/controllers/AddEmployeeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/Controller.java" afterPath="$PROJECT_DIR$/src/controllers/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/controllers/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MainController.java" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Account.java" afterPath="$PROJECT_DIR$/src/database/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/NotifyAccident.java" afterPath="$PROJECT_DIR$/src/database/NotifyAccident.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/NotifyDefect.java" afterPath="$PROJECT_DIR$/src/database/NotifyDefect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/NotifyTheft.java" afterPath="$PROJECT_DIR$/src/database/NotifyTheft.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Order.java" afterPath="$PROJECT_DIR$/src/database/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Permission.java" afterPath="$PROJECT_DIR$/src/database/Permission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Phone.java" afterPath="$PROJECT_DIR$/src/database/Phone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/ReportSuperQuarterly.java" afterPath="$PROJECT_DIR$/src/database/ReportSuperQuarterly.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/addEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/addEmployeeScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/loggedScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/loggedScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/loginScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/loginScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/AccountModel.java" afterPath="$PROJECT_DIR$/src/models/AccountModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/EmployeeModel.java" afterPath="$PROJECT_DIR$/src/models/EmployeeModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/MachineModel.java" afterPath="$PROJECT_DIR$/src/models/MachineModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/TrackModel.java" afterPath="$PROJECT_DIR$/src/models/TrackModel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
+    <ignored path=".idea/artifacts/Odpalamy.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,12 +29,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Odpalamy.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/artifacts/Odpalamy.xml">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-23201">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1515882582941" expanded="true" signature="71477:71495" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71477:71508" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71477:71523" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71558:73769" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71571:73754" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71625:71966" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71644:71951" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71753:71931" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71793:71897" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="71814:71875" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72016:72343" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72035:72328" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72130:72308" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72170:72274" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72191:72252" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72394:72659" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72413:72644" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72446:72624" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72486:72590" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72507:72568" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72702:73008" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72721:72993" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72795:72973" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72835:72939" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="72856:72917" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73059:73371" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73078:73356" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73158:73336" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73198:73302" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73219:73280" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73423:73740" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73442:73725" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73527:73705" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73567:73671" ph="..." />
+                <marker date="1515882582941" expanded="true" signature="73588:73649" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addEmployeeScreen.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fxml/addEmployeeScreen.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="75" column="62" lean-forward="false" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
               <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/GlobalManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" />
         <option value="$PROJECT_DIR$/../soft/hibernate-release-4.3.5.Final/lib/required/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/EntityManagerFactory.class" />
         <option value="$PROJECT_DIR$/../soft/hibernate-release-4.3.5.Final/lib/required/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/EntityManager.class" />
-        <option value="$PROJECT_DIR$/src/sample/GlobalManager.java" />
         <option value="$PROJECT_DIR$/src/models/AccountModel.java" />
         <option value="$PROJECT_DIR$/src/models/MachineModel.java" />
         <option value="$PROJECT_DIR$/src/models/TrackModel.java" />
@@ -145,6 +184,7 @@
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/controllers/AddEmployeeController.java" />
         <option value="$PROJECT_DIR$/src/models/EmployeeModel.java" />
+        <option value="$PROJECT_DIR$/src/sample/GlobalManager.java" />
       </list>
     </option>
   </component>
@@ -381,24 +421,6 @@
             <path>
               <item name="Aplikacja2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Aplikacja2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Aplikacja2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Aplikacja2" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Aplikacja2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Aplikacja2" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Aplikacja2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Aplikacja2" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Aplikacja" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Aplikacja2" type="b2602c69:ProjectViewProjectNode" />
@@ -792,7 +814,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515662840390</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Hubert Januszek update">
+      <created>1515882147458</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1515882147458</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -808,19 +837,20 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3073593" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27654868" sideWeight="0.503937" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3181818" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17207792" sideWeight="0.496063" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3181818" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17207792" sideWeight="0.49413645" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3181818" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2943723" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14765458" sideWeight="0.49473685" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25827813" sideWeight="0.49816272" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -834,7 +864,6 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.052564103" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="121" y="180" width="1096" height="148" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16587926" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25827813" sideWeight="0.49816272" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -894,14 +923,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/database/Machine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/MachineType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1070,17 +1091,6 @@
           <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxml/addEmployeeScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="75" column="62" lean-forward="false" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
@@ -1255,16 +1265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GlobalManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1340,9 +1340,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/artifacts/Odpalamy.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23201">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1515882582941" expanded="true" signature="71477:71495" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71477:71508" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71477:71523" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71558:73769" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71571:73754" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71625:71966" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71644:71951" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71753:71931" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71793:71897" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="71814:71875" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72016:72343" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72035:72328" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72130:72308" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72170:72274" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72191:72252" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72394:72659" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72413:72644" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72446:72624" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72486:72590" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72507:72568" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72702:73008" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72721:72993" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72795:72973" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72835:72939" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="72856:72917" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73059:73371" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73078:73356" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73158:73336" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73198:73302" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73219:73280" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73423:73740" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73442:73725" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73527:73705" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73567:73671" ph="..." />
+            <marker date="1515882582941" expanded="true" signature="73588:73649" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/addEmployeeScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="75" column="62" lean-forward="false" selection-start-line="75" selection-start-column="62" selection-end-line="75" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/GlobalManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
