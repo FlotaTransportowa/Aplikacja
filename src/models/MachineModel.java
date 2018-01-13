@@ -1,10 +1,9 @@
 package models;
 
-import database.Employee;
 import database.Machine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.GlobalManager;
+import manager.GlobalManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

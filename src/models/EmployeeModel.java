@@ -3,13 +3,11 @@ package models;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.GlobalManager;
+import manager.GlobalManager;
 import validation.Pattern;
 import validation.Validation;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;

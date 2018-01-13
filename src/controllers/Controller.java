@@ -1,11 +1,9 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import sample.GlobalManager;
+import manager.GlobalManager;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.Iterator;
 import java.util.List;
 

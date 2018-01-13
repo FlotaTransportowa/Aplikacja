@@ -1,10 +1,9 @@
 package models;
 
 import database.Phone;
-import database.Track;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.GlobalManager;
+import manager.GlobalManager;
 import validation.Pattern;
 import validation.Validation;
 

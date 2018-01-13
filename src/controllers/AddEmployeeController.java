@@ -1,19 +1,12 @@
 package controllers;
 
-import database.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import models.AddressModel;
-import models.BaseModel;
 import models.EmployeeModel;
 import models.PhoneModel;
-import sample.GlobalManager;
-import security.HashPassword;
-import validation.Validation;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;

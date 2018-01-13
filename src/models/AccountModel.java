@@ -2,11 +2,8 @@ package models;
 
 import database.Account;
 import database.Employee;
-import sample.GlobalManager;
+import manager.GlobalManager;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.sql.SQLException;
 

@@ -1,9 +1,6 @@
 package database;
 
-import sample.GlobalManager;
-
 import javax.persistence.*;
-import java.sql.SQLException;
 
 @Entity
 public class Account {
