@@ -73,7 +73,7 @@
          <children>
             <HBox fx:id="phoneHBox1" prefHeight="80.0" prefWidth="433.0">
                <children>
-                  <TextField fx:id="phone1" />
+                  <TextField fx:id="phone1" text="41-234-22-22"/>
                   <ChoiceBox fx:id="phoneTypeChoiseBox" prefWidth="150.0" />
                   <Button mnemonicParsing="false" onAction="#addAction" prefHeight="31.0" prefWidth="43.0" text="+" />
                </children>

@@ -1,9 +1,9 @@
 package models;
 
-import database.Employee;
+import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
+import sample.GlobalManager;
 import validation.Pattern;
 import validation.Validation;
 
@@ -14,11 +14,11 @@ import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeModel {
-    public static ObservableList<Employee> getAllEmployees(){
+public class EmployeeModel implements BaseModel<Employee>{
+    @Override
+    public ObservableList<Employee> getAll() {
         ObservableList<Employee> employees = FXCollections.observableArrayList();
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = GlobalManager.getManager();
 
         entityManager.getTransaction().begin();
         TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e", Employee.class);
@@ -26,13 +26,11 @@ public class EmployeeModel {
         entityManager.getTransaction().commit();
 
         employees.addAll(employees1);
-
-        entityManager.close();
-        entityManagerFactory.close();
         return employees;
     }
 
-    public static boolean validateBasicData(ArrayList<String> lista){
+    @Override
+    public boolean valid(ArrayList<String> lista) {
         boolean validateFlag = true;
 
         if(!Validation.regexChecker(Pattern.stringPattern, lista.get(0)) || lista.get(0).isEmpty()){
@@ -55,41 +53,10 @@ public class EmployeeModel {
             System.out.println("Błąd z emailem");
             validateFlag = false;
         }
-        if(!Validation.isDouble(lista.get(4)) || lista.get(4).isEmpty()){
+        if(!Validation.isDouble(lista.get(4)) || lista.get(4).isEmpty()) {
             //ustaw TextField Pensja na czerwono
             System.out.println("Błąd z pensją");
             validateFlag = false;
-        }
-        if(!Validation.regexChecker(Pattern.postalCodePattern, lista.get(5)) || lista.get(5).isEmpty()){
-            //ustaw TextField kod pocztowy na czerwono
-            System.out.println("Błąd z kodem");
-            validateFlag = false;
-        }
-        if(!Validation.regexChecker(Pattern.stringPattern, lista.get(6)) || lista.get(6).isEmpty()){
-            //ustaw TextField miejscowosc na czerwono
-            System.out.println("Błąd z miejsowością");
-            validateFlag = false;
-        }
-        if(!Validation.regexChecker(Pattern.stringPattern, lista.get(7)) || lista.get(7).isEmpty()){
-            //ustaw TextField ulica na czerwono
-            System.out.println("Błąd z ulicą");
-            validateFlag = false;
-        }
-        if(lista.get(8).isEmpty()){
-            //ustaw TextField nrDomu na czerwono
-            System.out.println("Błąd z numerem domu");
-            validateFlag = false;
-        }
-        return validateFlag;
-    }
-
-    public static boolean validatePhoneNumbers(ArrayList<String> telefony){
-        boolean validateFlag = true;
-        for(int i =0; i<telefony.size(); i++){
-            if(!Validation.regexChecker(Pattern.phoneNumberPattern, telefony.get(i)) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, telefony.get(i))){
-                System.out.println("Źle: " + telefony.get(i));
-                validateFlag = false;
-            }
         }
         return validateFlag;
     }

@@ -31,7 +31,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.SegmentedButton?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoggedController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoggedController">
    <children>
       <Text opacity="0.19" strokeType="OUTSIDE" strokeWidth="0.0" text="WSZYSTKIE KARTY ZAMKNIĘTE" textAlignment="CENTER" wrappingWidth="1028.13671875" y="300.0">
          <font>

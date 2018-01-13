@@ -1,16 +1,21 @@
 package controllers;
 
-import database.Driver;
-import database.Employee;
+import database.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import models.AddressModel;
+import models.BaseModel;
 import models.EmployeeModel;
+import models.PhoneModel;
+import sample.GlobalManager;
+import security.HashPassword;
 import validation.Validation;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class AddEmployeeController {
@@ -83,19 +88,21 @@ public class AddEmployeeController {
         phoneHBox3.setDisable(true);
     }
 
-    @FXML private void checkClick(){
+    @FXML private void checkClick() throws NoSuchAlgorithmException {
+        EmployeeModel employeeModel = new EmployeeModel();
+        PhoneModel phoneModel = new PhoneModel();
+        AddressModel addressModel = new AddressModel();
         ArrayList<String> lista = new ArrayList<>();
+        ArrayList<String> lista2 = new ArrayList<>();
         lista.add(addNameField.getText());
         lista.add(addSurnameField.getText());
         lista.add(addAgeField.getText());
         lista.add(addEmailField.getText());
         lista.add(addSalaryField.getText());
-        lista.add(addPostalCodeField.getText());
-        lista.add(addLocalityField.getText());
-        lista.add(addStreetField.getText());
-        lista.add(addHousenumField.getText());
-        System.out.println(typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString()); //Wybrany typ pracownika
-        System.out.println(group.getSelectedToggle().getUserData().toString()); //Wybrana płeć
+        lista2.add(addPostalCodeField.getText());
+        lista2.add(addLocalityField.getText());
+        lista2.add(addStreetField.getText());
+        lista2.add(addHousenumField.getText());
         ArrayList<String> tel = new ArrayList<>();
         if(!phoneHBox1.isDisable())
             tel.add(phone1.getText());
@@ -103,9 +110,7 @@ public class AddEmployeeController {
             tel.add(phone2.getText());
         if(!phoneHBox3.isDisable())
             tel.add(phone3.getText());
-        if(EmployeeModel.validateBasicData(lista))
-            System.out.println("Basic data is correct!");
-        if(EmployeeModel.validatePhoneNumbers(tel))
-            System.out.println("Phone numbers are correct!");
+        if(employeeModel.valid(lista) && phoneModel.valid(tel) && addressModel.valid(lista2))
+            System.out.println("Correct!");
     }
 }

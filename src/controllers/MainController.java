@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import models.EmployeeModel;
+import sample.GlobalManager;
 
 import java.io.IOException;
 
