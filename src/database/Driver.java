@@ -5,10 +5,8 @@ import java.util.List;
 
 @Entity
 public class Driver extends Employee {
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId")
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Permission> permissions;
-    private boolean busy;
 
     public Driver(){
         super(" ", "", 0, "", "", "", 0.0);

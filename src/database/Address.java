@@ -1,8 +1,7 @@
 package database;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Address {
@@ -13,6 +12,12 @@ public class Address {
     private String postalCode;
     private String street;
     private String apartmentNumber;
+
+    @OneToMany(mappedBy = "addressOfEmployee")
+    private List<Employee> employees;
+
+    @OneToMany(mappedBy = "addressOfOrder")
+    private List<Order> orders;
 
     public Address(){}
 

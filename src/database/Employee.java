@@ -24,14 +24,14 @@ public abstract class Employee {
     private String email;
     private double salary;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId") //pracownik zawiera referencję do konta
+    @JoinColumn(name = "accountId")
     private Account account;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId") //telefony posiadaja identyfikatory wlasciciela - database view
+    @JoinColumn(name = "employeeId")
     private List<Phone> phones;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addressId") //pracownik zawiera referencję do konta
-    private Address address;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "addressID", referencedColumnName = "id")
+    private Address addressOfEmployee;
 
     public Employee(String firstName, String lastName, int age, String gender, String type, String email, double salary) {
         this.firstName = firstName;
@@ -119,11 +119,11 @@ public abstract class Employee {
     }
 
     public Address getAddress() {
-        return address;
+        return addressOfEmployee;
     }
 
     public void setAddress(Address address) {
-        this.address = address;
+        this.addressOfEmployee = address;
     }
 
     public Button getEditButton() {

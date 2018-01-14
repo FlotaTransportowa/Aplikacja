@@ -14,9 +14,9 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date timeLimitForCompletion;
     private String comment;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addressId")
-    private Address address;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "addressID", referencedColumnName = "id")
+    private Address addressOfOrder;
 
     public long getId() {
         return id;
@@ -51,11 +51,11 @@ public class Order {
     }
 
     public Address getAddress() {
-        return address;
+        return addressOfOrder;
     }
 
     public void setAddress(Address address) {
-        this.address = address;
+        this.addressOfOrder = address;
     }
 
     public String getTitle() {
