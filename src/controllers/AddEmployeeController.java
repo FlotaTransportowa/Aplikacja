@@ -1,5 +1,6 @@
 package controllers;
 
+import database.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,8 +11,9 @@ import models.PhoneModel;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class AddEmployeeController {
+public class AddEmployeeController extends Controller{
     @FXML
     private ChoiceBox phoneTypeChoiseBox,phoneTypeChoiseBox1,phoneTypeChoiseBox2, typeOfEmployeeChoiceBox;
     @FXML private TextField addNameField;
@@ -28,6 +30,7 @@ public class AddEmployeeController {
     @FXML private TextField phone3;
     @FXML private RadioButton woman;
     @FXML private RadioButton man;
+    @FXML private Driver employeer = null;
 
     @FXML private ToggleGroup group = new ToggleGroup();
 
@@ -97,13 +100,39 @@ public class AddEmployeeController {
         lista2.add(addStreetField.getText());
         lista2.add(addHousenumField.getText());
         ArrayList<String> tel = new ArrayList<>();
-        if(!phoneHBox1.isDisable())
+        ArrayList<String> telType = new ArrayList<>();
+        if(!phoneHBox1.isDisable()) {
             tel.add(phone1.getText());
-        if(!phoneHBox2.isDisable())
+            telType.add(phoneTypeChoiseBox.getItems().get(0).toString());
+        }
+        if(!phoneHBox2.isDisable()) {
             tel.add(phone2.getText());
-        if(!phoneHBox3.isDisable())
+            telType.add(phoneTypeChoiseBox.getItems().get(1).toString());
+        }
+        if(!phoneHBox3.isDisable()) {
             tel.add(phone3.getText());
-        if(employeeModel.valid(lista) && phoneModel.valid(tel) && addressModel.valid(lista2))
+            telType.add(phoneTypeChoiseBox.getItems().get(2).toString());
+        }
+        if(employeeModel.valid(lista) && phoneModel.valid(tel) && addressModel.valid(lista2)) {
             System.out.println("Correct!");
+            String type = typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString();
+            String gender = group.getSelectedToggle().getUserData().toString();
+
+            if(type.equals("Dyspozytor")){
+                employeer = new Dispatcher();
+            } else if(type.equals("Kierownik")){
+                employeer = new Principal();
+            }else
+                employeer = new Driver();
+
+            //dodaję na sztywno bo nie ma jeszcze odpowiedniego widoczku(nad nim musimy się poważniej zastanowić)
+            Permission permission1 = new Permission();
+            permission1.setName("Prawo jazdy kat. B");
+            permission1.setDescription("Uprawnienie do prowadzenia...");
+            ArrayList<Permission> listOfPerms = new ArrayList<>();
+            listOfPerms.add(permission1);
+
+            create(employeeModel.consist(employeer, type, gender, lista, lista2, tel, telType, listOfPerms));
+        }
     }
 }

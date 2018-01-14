@@ -3,8 +3,10 @@ package models;
 import database.Account;
 import database.Employee;
 import manager.GlobalManager;
+import security.HashPassword;
 
 import javax.persistence.TypedQuery;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class AccountModel {
@@ -46,5 +48,12 @@ public class AccountModel {
         GlobalManager.getManager().getTransaction().commit();
 
         return employee.getType();
+    }
+
+    public static Account generate(String surname) throws NoSuchAlgorithmException {
+        Account account = new Account();
+        account.setLogin(surname);
+        account.setPassword(HashPassword.hashPassword(surname));
+        return account;
     }
 }

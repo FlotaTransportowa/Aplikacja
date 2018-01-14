@@ -11,6 +11,7 @@ public abstract class Controller {
     @FXML
     protected MainController mainController;
     public static EntityManager entityManager = GlobalManager.getManager();
+
     void setMainController(MainController par)
     {
         this.mainController=par;
@@ -25,5 +26,6 @@ public abstract class Controller {
         }
 
         entityManager.getTransaction().commit();
+
     }
 }
