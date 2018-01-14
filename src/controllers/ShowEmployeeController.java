@@ -6,11 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import models.BaseModel;
 import models.EmployeeModel;
-
-
-
-import static sample.Main.returnEmployee;
 
 
 public class ShowEmployeeController extends Controller {
@@ -18,8 +15,9 @@ public class ShowEmployeeController extends Controller {
     @FXML private TableView<Employee> employeeTable;
     private TableColumn employeeEdit;
     private  ObservableList<Employee> data;
+    private EmployeeModel employeeModel = new EmployeeModel();
     @FXML void initialize() throws Exception {
-        data=FXCollections.observableArrayList(EmployeeModel.getAllEmployees());
+        data=FXCollections.observableArrayList(employeeModel.getAll());
         employeeTable.setItems(data);
 
         for (Employee e:data

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class OrderDone {
+public class OrderReport {
     @Id
     @GeneratedValue
     private long id;

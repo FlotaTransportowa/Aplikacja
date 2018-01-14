@@ -18,6 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.awt.*;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -34,7 +35,7 @@ public class LoginController extends Controller {
         String userString = login.getText();
         String passwordString = password.getText();
 
-        account = Account.getAccount(userString, HashPassword.hashPassword(passwordString));
+        account = AccountModel.getAccount(userString, HashPassword.hashPassword(passwordString));
 
         if(account != null)
         {
@@ -42,9 +43,6 @@ public class LoginController extends Controller {
             mainController.logIn();
         }
         else{
-            /////////////////////////////////////////////
-            // Komunikat błędu
-            /////////////////////////////////////////////
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Błąd logowania");
             alert.setHeaderText("Niepoprawny login lub hasło");
@@ -61,7 +59,6 @@ public class LoginController extends Controller {
         mainController.setLoggedController(loggedController);
         mainController.setAccountLogin(Login);
         mainController.setAccountLogin(Type);
-        //tutaj
         loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeTypePL(account));
     }
     @FXML private void checkKey() {}

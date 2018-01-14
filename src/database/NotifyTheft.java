@@ -1,6 +1,7 @@
 package database;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 public class NotifyTheft extends Notification{
