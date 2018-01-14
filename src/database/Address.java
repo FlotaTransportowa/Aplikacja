@@ -14,6 +14,15 @@ public class Address {
     private String street;
     private String apartmentNumber;
 
+    public Address(){}
+
+    public Address(String locality, String postalCode, String street, String apartmentNumber) {
+        this.locality = locality;
+        this.postalCode = postalCode;
+        this.street = street;
+        this.apartmentNumber = apartmentNumber;
+    }
+
     public long getId() {
         return id;
     }

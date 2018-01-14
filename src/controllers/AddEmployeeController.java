@@ -5,10 +5,12 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import models.AccountModel;
 import models.AddressModel;
 import models.EmployeeModel;
 import models.PhoneModel;
 
+import java.nio.file.AccessDeniedException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,51 +90,66 @@ public class AddEmployeeController extends Controller{
         EmployeeModel employeeModel = new EmployeeModel();
         PhoneModel phoneModel = new PhoneModel();
         AddressModel addressModel = new AddressModel();
-        ArrayList<String> lista = new ArrayList<>();
-        ArrayList<String> lista2 = new ArrayList<>();
-        lista.add(addNameField.getText());
-        lista.add(addSurnameField.getText());
-        lista.add(addAgeField.getText());
-        lista.add(addEmailField.getText());
-        lista.add(addSalaryField.getText());
-        lista2.add(addPostalCodeField.getText());
-        lista2.add(addLocalityField.getText());
-        lista2.add(addStreetField.getText());
-        lista2.add(addHousenumField.getText());
-        ArrayList<String> tel = new ArrayList<>();
-        ArrayList<String> telType = new ArrayList<>();
-        if(!phoneHBox1.isDisable()) {
-            tel.add(phone1.getText());
-            telType.add(phoneTypeChoiseBox.getItems().get(0).toString());
-        }
-        if(!phoneHBox2.isDisable()) {
-            tel.add(phone2.getText());
-            telType.add(phoneTypeChoiseBox.getItems().get(1).toString());
-        }
-        if(!phoneHBox3.isDisable()) {
-            tel.add(phone3.getText());
-            telType.add(phoneTypeChoiseBox.getItems().get(2).toString());
-        }
-        if(employeeModel.valid(lista) && phoneModel.valid(tel) && addressModel.valid(lista2)) {
+        Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
+        ArrayList<Phone> phones = new ArrayList<>();
+
+        if(employeeModel.valid(addNameField.getText(), addSurnameField.getText(), addAgeField.getText(), addEmailField.getText(), addSalaryField.getText()) && addressModel.valid(addPostalCodeField.getText(), addLocalityField.getText(), addStreetField.getText(), addHousenumField.getText())) {
             System.out.println("Correct!");
+
+            if(!phoneHBox1.isDisable()) {
+                if(phoneModel.valid(phone1.getText(), phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
+                    numberOfPhone1 = new Phone();
+                    numberOfPhone1.setNumber(phone1.getText());
+                    numberOfPhone1.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+                    phones.add(numberOfPhone1);
+                }
+            }
+            if(!phoneHBox2.isDisable()) {
+                if(phoneModel.valid(phone2.getText(), phoneTypeChoiseBox1.getSelectionModel().getSelectedItem().toString())){
+                    numberOfPhone2 = new Phone();
+                    numberOfPhone2.setNumber(phone1.getText());
+                    numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+                    phones.add(numberOfPhone2);
+                }
+            }
+            if(!phoneHBox3.isDisable()) {
+                if(phoneModel.valid(phone3.getText(), phoneTypeChoiseBox2.getSelectionModel().getSelectedItem().toString())){
+                    numberOfPhone3 = new Phone();
+                    numberOfPhone3.setNumber(phone1.getText());
+                    numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+                    phones.add(numberOfPhone3);
+                }
+            }
+
             String type = typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString();
             String gender = group.getSelectedToggle().getUserData().toString();
 
             if(type.equals("Dyspozytor")){
-                employeer = new Dispatcher();
+                employeer = new Dispatcher(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
             } else if(type.equals("Kierownik")){
-                employeer = new Principal();
+                employeer = new Principal(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
             }else
-                employeer = new Driver();
+                employeer = new Driver(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
 
-            //dodaję na sztywno bo nie ma jeszcze odpowiedniego widoczku(nad nim musimy się poważniej zastanowić)
+            Address address = new Address(addLocalityField.getText(), addPostalCodeField.getText(), addStreetField.getText(), addHousenumField.getText());
+            employeer.setAddress(address);
+            employeer.setPhones(phones);
+
             Permission permission1 = new Permission();
             permission1.setName("Prawo jazdy kat. B");
             permission1.setDescription("Uprawnienie do prowadzenia...");
             ArrayList<Permission> listOfPerms = new ArrayList<>();
             listOfPerms.add(permission1);
 
-            create(employeeModel.consist(employeer, type, gender, lista, lista2, tel, telType, listOfPerms));
+            employeer.setPermissions(listOfPerms);
+
+            //dodaję na sztywno bo nie ma jeszcze odpowiedniego widoczku(nad nim musimy się poważniej zastanowić)
+
+            AccountModel accountModel = new AccountModel();
+            Account account = accountModel.generate(employeer.getLastName());
+            employeer.setAccount(account);
+
+            employeeModel.pushToDatabase(employeer);
         }
     }
 }

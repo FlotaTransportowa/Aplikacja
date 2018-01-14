@@ -14,25 +14,24 @@ public class AddressModel implements BaseModel<Address>{
         return null;
     }
 
-    @Override
-    public boolean valid(ArrayList<String> lista) {
+    public boolean valid(String postal, String locality, String street, String houseNum) {
         boolean validateFlag = true;
-        if(!Validation.regexChecker(Pattern.postalCodePattern, lista.get(0)) || lista.get(0).isEmpty()){
+        if(!Validation.regexChecker(Pattern.postalCodePattern, postal) || postal.isEmpty()){
             //ustaw TextField kod pocztowy na czerwono
             System.out.println("Błąd z kodem");
             validateFlag = false;
         }
-        if(!Validation.regexChecker(Pattern.stringPattern, lista.get(1)) || lista.get(1).isEmpty()){
+        if(!Validation.regexChecker(Pattern.stringPattern, locality) || locality.isEmpty()){
             //ustaw TextField miejscowosc na czerwono
             System.out.println("Błąd z miejsowością");
             validateFlag = false;
         }
-        if(!Validation.regexChecker(Pattern.stringPattern, lista.get(2)) || lista.get(2).isEmpty()){
+        if(!Validation.regexChecker(Pattern.stringPattern, street) || street.isEmpty()){
             //ustaw TextField ulica na czerwono
             System.out.println("Błąd z ulicą");
             validateFlag = false;
         }
-        if(lista.get(3).isEmpty()){
+        if(houseNum.isEmpty()){
             //ustaw TextField nrDomu na czerwono
             System.out.println("Błąd z numerem domu");
             validateFlag = false;

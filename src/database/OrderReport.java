@@ -12,10 +12,10 @@ public class OrderReport {
     private double fuel;
     private double kilometers;
     private double profit;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "driverId")
     private Driver driver;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId")
     private Order order;
 

@@ -14,7 +14,7 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date timeLimitForCompletion;
     private String comment;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressId")
     private Address address;
 

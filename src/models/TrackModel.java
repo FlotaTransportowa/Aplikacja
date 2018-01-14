@@ -24,9 +24,4 @@ public class TrackModel implements BaseModel<Track>{
         tracks.addAll(tracks1);
         return tracks;
     }
-
-    @Override
-    public boolean valid(ArrayList<String> lista) {
-        return false;
-    }
 }

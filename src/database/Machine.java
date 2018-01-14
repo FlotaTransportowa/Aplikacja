@@ -11,7 +11,7 @@ public class Machine {
     private String registrationNumber;
     private boolean busy;
     private boolean efficient;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "typeId")
     private MachineType type;
 

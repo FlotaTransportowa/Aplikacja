@@ -26,9 +26,4 @@ public class MachineModel implements BaseModel<Machine>{
         machines.addAll(machines1);
         return machines;
     }
-
-    @Override
-    public boolean valid(ArrayList<String> lista) {
-        return false;
-    }
 }

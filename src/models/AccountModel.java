@@ -5,21 +5,23 @@ import database.Employee;
 import manager.GlobalManager;
 import security.HashPassword;
 
+import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class AccountModel {
     public static Account getAccount(String login, String passw) throws SQLException {
+        EntityManager entityManager = GlobalManager.getManager();
         Account account = null;
         try {
 
-            GlobalManager.getManager().getTransaction().begin();
-            TypedQuery<Account> query = GlobalManager.getManager().createQuery("select a from Account a where a.login = :log and a.password = :pass", Account.class);
+            entityManager.getTransaction().begin();
+            TypedQuery<Account> query = entityManager.createQuery("select a from Account a where a.login = :log and a.password = :pass", Account.class);
             query.setParameter("log", login);
             query.setParameter("pass", passw);
             account = query.getSingleResult();
-            GlobalManager.getManager().getTransaction().commit();
+            entityManager.getTransaction().commit();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -27,25 +29,27 @@ public class AccountModel {
         return account;
     }
     public static String getEmployeeType(Account account){
+        EntityManager entityManager = GlobalManager.getManager();
         long idEmployee = account.getId();
 
-        GlobalManager.getManager().getTransaction().begin();
-        TypedQuery<Employee> query = GlobalManager.getManager().createQuery("select e from Employee e where e.id = :id", Employee.class);
+        entityManager.getTransaction().begin();
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
         query.setParameter("id", idEmployee);
         Employee employee = query.getSingleResult();
-        GlobalManager.getManager().getTransaction().commit();
+        entityManager.getTransaction().commit();
 
         return employee.getClass().getSimpleName();
     }
 
     public static String getEmployeeTypePL(Account account){
+        EntityManager entityManager = GlobalManager.getManager();
         long idEmployee = account.getId();
 
-        GlobalManager.getManager().getTransaction().begin();
-        TypedQuery<Employee> query = GlobalManager.getManager().createQuery("select e from Employee e where e.id = :id", Employee.class);
+        entityManager.getTransaction().begin();
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
         query.setParameter("id", idEmployee);
         Employee employee = query.getSingleResult();
-        GlobalManager.getManager().getTransaction().commit();
+        entityManager.getTransaction().commit();
 
         return employee.getType();
     }

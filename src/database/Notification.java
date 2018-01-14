@@ -14,10 +14,10 @@ public abstract class Notification {
     private Date date;
     private String description;
     private String status;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "machineId")
     private Machine machine;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employeeId")
     private Employee employee;
 

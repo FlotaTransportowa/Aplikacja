@@ -23,15 +23,25 @@ public abstract class Employee {
     private String type;
     private String email;
     private double salary;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountId") //pracownik zawiera referencję do konta
     private Account account;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "employeeId") //telefony posiadaja identyfikatory wlasciciela - database view
     private List<Phone> phones;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressId") //pracownik zawiera referencję do konta
     private Address address;
+
+    public Employee(String firstName, String lastName, int age, String gender, String type, String email, double salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.type = type;
+        this.email = email;
+        this.salary = salary;
+    }
 
     @Transient
     private Button editButton = new Button("Edytuj");

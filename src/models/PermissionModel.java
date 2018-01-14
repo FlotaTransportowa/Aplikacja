@@ -28,8 +28,4 @@ public class PermissionModel implements BaseModel<Permission>{
         return perms;
     }
 
-    @Override
-    public boolean valid(ArrayList<String> lista) {
-        return false;
-    }
 }
