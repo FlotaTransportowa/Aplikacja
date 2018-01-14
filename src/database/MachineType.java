@@ -1,6 +1,7 @@
 package database;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class MachineType {
@@ -10,6 +11,8 @@ public class MachineType {
     private String mark;
     private String model;
     private String type;
+    @OneToMany(mappedBy = "type")
+    private List<Machine> machines;
 
     public long getId() {
         return id;
