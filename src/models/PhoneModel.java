@@ -27,12 +27,17 @@ public class PhoneModel implements BaseModel<Phone>{
         return phones;
     }
 
-    @Override
-    public boolean valid(ArrayList<String> lista) {
+    public boolean valid(String phoneNum, String type) {
         boolean validateFlag = true;
-        for(int i =0; i<lista.size(); i++){
-            if(!Validation.regexChecker(Pattern.phoneNumberPattern, lista.get(i)) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, lista.get(i))){
-                System.out.println("Zły telefon z formularza " + (i+1) + " : " + lista.get(i));
+        if(type.equals("Domowy")){
+            if(!Validation.regexChecker(Pattern.phoneNumberHomePattern, phoneNum))
+                validateFlag = false;
+        } else if(type.equals("Komórkowy")){
+            if(!Validation.regexChecker(Pattern.phoneNumberPattern, phoneNum)){
+                validateFlag = false;
+            }
+        }else {
+            if(!Validation.regexChecker(Pattern.phoneNumberPattern, phoneNum) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, phoneNum)){
                 validateFlag = false;
             }
         }

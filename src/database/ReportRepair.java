@@ -1,5 +1,6 @@
 package database;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Entity
 public class ReportRepair extends Report{
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "reportId")
     private List<RepairPart> repairParts;
     private double repairCost;

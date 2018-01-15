@@ -13,24 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MachineModel implements BaseModel<Machine>{
-
-    public ObservableList<Machine> getAllMachines(){
-        ObservableList<Machine> machines = FXCollections.observableArrayList();
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        entityManager.getTransaction().begin();
-        TypedQuery<Machine> query = entityManager.createQuery("select m from Machine m", Machine.class);
-        List<Machine> machines1 = query.getResultList();
-        entityManager.getTransaction().commit();
-
-        machines.addAll(machines1);
-
-        entityManager.close();
-        entityManagerFactory.close();
-        return machines;
-    }
-
     @Override
     public ObservableList<Machine> getAll() {
         ObservableList<Machine> machines = FXCollections.observableArrayList();
@@ -43,10 +25,5 @@ public class MachineModel implements BaseModel<Machine>{
 
         machines.addAll(machines1);
         return machines;
-    }
-
-    @Override
-    public boolean valid(ArrayList<String> lista) {
-        return false;
     }
 }

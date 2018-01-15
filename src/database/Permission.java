@@ -1,9 +1,7 @@
 package database;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Permission {
@@ -12,6 +10,10 @@ public class Permission {
     private long id;
     private String name;
     private String description;
+    @ManyToMany(mappedBy = "permissions")
+    private List<Driver> drivers;
+
+    public Permission(){}
 
     public long getId() {
         return id;
@@ -35,5 +37,13 @@ public class Permission {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
     }
 }

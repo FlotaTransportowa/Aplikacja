@@ -1,5 +1,6 @@
 package controllers;
 
+import database.Employee;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoggedController extends Controller {
+
+    private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
 
     @FXML private TabPane tabMenu;
     @FXML private ListView lastTasks;
@@ -91,7 +94,25 @@ public class LoggedController extends Controller {
         try {
             Tab newTaskTab = new Tab("Dodaj pracownika");
             tabMenu.getTabs().add(newTaskTab);
-            newTaskTab.setContent((Node) FXMLLoader.load(this.getClass().getResource("/fxml/addEmployeeScreen.fxml")));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
+            newTaskTab.setContent((Node) loader.load());
+            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
+            selectionModel.select(newTaskTab);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editEmployee(Employee employee) throws IOException {
+        try {
+            Tab newTaskTab = new Tab("Edytuj pracownika");
+            tabMenu.getTabs().add(newTaskTab);
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
+            newTaskTab.setContent((Node) loader.load());
+
+            AddEmployeeController addEmployeeController = loader.getController();
+            addEmployeeControllers.add(addEmployeeController);
+            addEmployeeController.setToEmployee(employee);
+
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newTaskTab);
         } catch (IOException e) {
@@ -105,7 +126,12 @@ public class LoggedController extends Controller {
         try {
             Tab newShowEmployeeTab = new Tab("Pracownicy floty");
             tabMenu.getTabs().add(newShowEmployeeTab);
-            newShowEmployeeTab.setContent((Node) FXMLLoader.load(this.getClass().getResource("/fxml/showEmployeeForm.fxml")));
+
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showEmployeeForm.fxml"));
+            newShowEmployeeTab.setContent((Node) loader.load());
+
+            ShowEmployeeController showEmployeeController = loader.getController();
+            showEmployeeController.setLoggedController(this);
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newShowEmployeeTab);
         } catch (IOException e) {
@@ -117,7 +143,8 @@ public class LoggedController extends Controller {
         try {
             Tab newTaskTab = new Tab("Lista zleceń");
             tabMenu.getTabs().add(newTaskTab);
-            newTaskTab.setContent((Node) FXMLLoader.load(this.getClass().getResource("/fxml/newTaskForm.fxml")));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/newTaskForm.fxml"));
+            newTaskTab.setContent((Node) loader.load());
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newTaskTab);
         } catch (IOException e) {

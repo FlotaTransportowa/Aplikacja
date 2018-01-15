@@ -10,13 +10,13 @@ public class Track {
     private long id;
     private boolean executed;
     private boolean assigned;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "driverId")
     private Driver driver;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "machineId")
     private Machine machine;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "trackId")
     private List<Order> orders;
 

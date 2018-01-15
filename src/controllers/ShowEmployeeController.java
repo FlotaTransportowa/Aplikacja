@@ -6,11 +6,18 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import manager.GlobalManager;
 import models.BaseModel;
 import models.EmployeeModel;
 
+import java.io.IOException;
+import java.util.List;
+
 
 public class ShowEmployeeController extends Controller {
+
+    private LoggedController loggedController;
+    private List<AddEmployeeController> addEmployeeControllers;
 
     @FXML private TableView<Employee> employeeTable;
     private TableColumn employeeEdit;
@@ -22,7 +29,26 @@ public class ShowEmployeeController extends Controller {
 
         for (Employee e:data
              ) {
-            e.getEditButton().setOnAction(ev->{System.out.println(e.getId());}
+            e.getEditButton().setOnAction(ev->{
+                        if(e==null)
+                            System.out.println(e.getId());
+                        else
+                        try {
+                            loggedController.editEmployee(e);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+            );
+            e.getDeleteButton().setOnAction(ev->{
+                        System.out.println("Usunięto "+e.getId());
+                        GlobalManager.getManager().remove(e);
+                        try {
+                            initialize();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                    }
             );
         }
         employeeEdit = getTableColumnByName(employeeTable,"col4");
@@ -43,5 +69,9 @@ public class ShowEmployeeController extends Controller {
         for (TableColumn<T, ?> col : tableView.getColumns())
             if (col.getText().equals(name)) return col ;
         return null ;
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
     }
 }

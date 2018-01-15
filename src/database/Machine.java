@@ -11,8 +11,8 @@ public class Machine {
     private String registrationNumber;
     private boolean busy;
     private boolean efficient;
-    @OneToOne
-    @JoinColumn(name = "typeId")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "typeId", referencedColumnName = "id")
     private MachineType type;
 
     public MachineType getType() {

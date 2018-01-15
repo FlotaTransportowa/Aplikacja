@@ -23,18 +23,30 @@ public abstract class Employee {
     private String type;
     private String email;
     private double salary;
-    @OneToOne
-    @JoinColumn(name = "accountId") //pracownik zawiera referencję do konta
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountId")
     private Account account;
-    @OneToMany
-    @JoinColumn(name = "employeeId") //telefony posiadaja identyfikatory wlasciciela - database view
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employeeId")
     private List<Phone> phones;
-    @OneToOne
-    @JoinColumn(name = "addressId") //pracownik zawiera referencję do konta
-    private Address address;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "addressID", referencedColumnName = "id")
+    private Address addressOfEmployee;
+
+    public Employee(String firstName, String lastName, int age, String gender, String type, String email, double salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.type = type;
+        this.email = email;
+        this.salary = salary;
+    }
 
     @Transient
     private Button editButton = new Button("Edytuj");
+    @Transient
+    private Button deleteButton = new Button("Usuń");
 
     public List<Phone> getPhones() {
         return phones;
@@ -109,11 +121,11 @@ public abstract class Employee {
     }
 
     public Address getAddress() {
-        return address;
+        return addressOfEmployee;
     }
 
     public void setAddress(Address address) {
-        this.address = address;
+        this.addressOfEmployee = address;
     }
 
     public Button getEditButton() {
@@ -122,6 +134,14 @@ public abstract class Employee {
 
     public void setEditButton(Button editButton) {
         this.editButton = editButton;
+    }
+
+    public Button getDeleteButton() {
+        return deleteButton;
+    }
+
+    public void setDeleteButton(Button deleteButton) {
+        this.deleteButton = deleteButton;
     }
 
 /*    public EventHandler<ActionEvent> editAction(ActionEvent event){

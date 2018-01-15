@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="406.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEmployeeController">
+<AnchorPane prefHeight="554.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEmployeeController">
    <children>
       <GridPane layoutX="35.0" layoutY="32.0" prefHeight="244.0" prefWidth="330.0">
         <columnConstraints>
@@ -28,10 +28,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="addNameField" text="Jan" GridPane.columnIndex="1" />
+            <TextField fx:id="addNameField" text="Andrzej" GridPane.columnIndex="1" />
             <Label text="Imię" />
             <Label text="Nazwisko" GridPane.rowIndex="1" />
-            <TextField fx:id="addSurnameField" text="Nowak" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="addSurnameField" text="Kowalski" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Wiek" GridPane.rowIndex="2" />
             <Label text="E-mail" GridPane.rowIndex="3" />
             <Label text="Płeć" GridPane.rowIndex="4" />
@@ -42,9 +42,9 @@
                </children>
             </VBox>
             <Label text="Pensja" GridPane.rowIndex="5" />
-            <TextField fx:id="addAgeField" text="25" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="addEmailField" text="abc@interia.pl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="addSalaryField" text="2500" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="addAgeField" text="30" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="addEmailField" text="abc@onet.pl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addSalaryField" text="2200" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <GridPane layoutX="386.0" layoutY="32.0" prefHeight="159.0" prefWidth="238.0">
@@ -64,7 +64,7 @@
             <Label text="Ulica" GridPane.rowIndex="2" />
             <Label text="Numer domu" GridPane.rowIndex="3" />
             <TextField fx:id="addPostalCodeField" text="25-031" GridPane.columnIndex="1" />
-            <TextField fx:id="addLocalityField" text="Warszawa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="addLocalityField" text="Poznań" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="addStreetField" text="Wojska Polskiego" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="addHousenumField" text="23/12" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
@@ -73,7 +73,7 @@
          <children>
             <HBox fx:id="phoneHBox1" prefHeight="80.0" prefWidth="433.0">
                <children>
-                  <TextField fx:id="phone1" text="41-234-22-22"/>
+                  <TextField fx:id="phone1" text="41-234-22-22" />
                   <ChoiceBox fx:id="phoneTypeChoiseBox" prefWidth="150.0" />
                   <Button mnemonicParsing="false" onAction="#addAction" prefHeight="31.0" prefWidth="43.0" text="+" />
                </children>
@@ -92,7 +92,7 @@
                   <Button mnemonicParsing="false" onAction="#remove3rdPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#checkClick" text="Dalej" />
+            <Button fx:id="actionButton" mnemonicParsing="false" onAction="#checkClick" text="Dalej" />
          </children>
       </VBox>
       <GridPane layoutX="386.0" layoutY="191.0" prefHeight="90.0" prefWidth="238.0">
