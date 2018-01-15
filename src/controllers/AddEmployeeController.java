@@ -100,12 +100,12 @@ public class AddEmployeeController extends Controller{
         if(employeeModel.valid(addNameField.getText(), addSurnameField.getText(), addAgeField.getText(), addEmailField.getText(), addSalaryField.getText()) && addressModel.valid(addPostalCodeField.getText(), addLocalityField.getText(), addStreetField.getText(), addHousenumField.getText())) {
             System.out.println("Correct!");
 
-            phones = getPhone(phoneModel);
+            phones = getPhones(phoneModel);
             Address address = getAdress();
-            
+
             String type = getType();
             String gender = getGender();
-            setEmployeer(type,gender);
+            newEmployeer(type,gender);
 
 
             employeer.setAddress(address);
@@ -121,7 +121,7 @@ public class AddEmployeeController extends Controller{
         }
     }
 
-    private ArrayList<Phone> getPhone(PhoneModel phoneModel)
+    private ArrayList<Phone> getPhones(PhoneModel phoneModel)
     {
         Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
         ArrayList<Phone> phones = new ArrayList<>();
@@ -136,7 +136,7 @@ public class AddEmployeeController extends Controller{
         if(!phoneHBox2.isDisable()) {
             if(phoneModel.valid(phone2.getText(), phoneTypeChoiseBox1.getSelectionModel().getSelectedItem().toString())){
                 numberOfPhone2 = new Phone();
-                numberOfPhone2.setNumber(phone1.getText());
+                numberOfPhone2.setNumber(phone2.getText());
                 numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
                 phones.add(numberOfPhone2);
             }
@@ -144,7 +144,7 @@ public class AddEmployeeController extends Controller{
         if(!phoneHBox3.isDisable()) {
             if(phoneModel.valid(phone3.getText(), phoneTypeChoiseBox2.getSelectionModel().getSelectedItem().toString())){
                 numberOfPhone3 = new Phone();
-                numberOfPhone3.setNumber(phone1.getText());
+                numberOfPhone3.setNumber(phone3.getText());
                 numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
                 phones.add(numberOfPhone3);
             }
@@ -153,7 +153,7 @@ public class AddEmployeeController extends Controller{
         return phones;
     }
 
-    private void setEmployeer(String type,String gender){
+    private void newEmployeer(String type, String gender){
         switch (type){
             case "Dyspozytor":
                 employeer = new Dispatcher(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
@@ -168,7 +168,16 @@ public class AddEmployeeController extends Controller{
                 employeer = null;
         }
     }
-
+    private void setEmployeer()
+    {
+        employeer.setFirstName(addNameField.getText());
+        employeer.setLastName(addSurnameField.getText());
+        employeer.setAge(Integer.valueOf(addAgeField.getText()));
+        employeer.setGender(getGender());
+        employeer.setType(getType());
+        employeer.setEmail(addEmailField.getText());
+        employeer.setSalary(Double.parseDouble(addSalaryField.getText()));
+    }
     private String getType()
     {
         return typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString();
@@ -219,8 +228,8 @@ public class AddEmployeeController extends Controller{
         if(phones.size()>2){
             phoneHBox3.setDisable(false);
             phoneHBox3.setVisible(true);
-            phone1.setText(phones.get(2).getNumber());
-            phoneTypeChoiseBox.getSelectionModel().select(phones.get(2).getType());
+            phone3.setText(phones.get(2).getNumber());
+            phoneTypeChoiseBox2.getSelectionModel().select(phones.get(2).getType());
         }
     }
     private void setType(String type)
@@ -243,8 +252,14 @@ public class AddEmployeeController extends Controller{
 
         actionButton.setText("Zapisz");
         actionButton.setOnAction(e->{
-            ;
+            EmployeeModel employeeModel = new EmployeeModel();
 
+            setEmployeer();
+            employeer.setAddress(getAdress());
+            PhoneModel phoneModel = new PhoneModel();
+            employeer.setPhones(getPhones(phoneModel));
+
+            employeeModel.pushToDatabase(employeer);
         });
     }
 
