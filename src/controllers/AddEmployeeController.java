@@ -135,15 +135,7 @@ public class AddEmployeeController extends Controller{
             employeer.setAddress(address);
             employeer.setPhones(phones);
 
-            Permission permission1 = new Permission();
-            permission1.setName("Prawo jazdy kat. B");
-            permission1.setDescription("Uprawnienie do prowadzenia...");
-            ArrayList<Permission> listOfPerms = new ArrayList<>();
-            listOfPerms.add(permission1);
-
-            employeer.setPermissions(listOfPerms);
-
-            //dodaję na sztywno bo nie ma jeszcze odpowiedniego widoczku(nad nim musimy się poważniej zastanowić)
+            //tu dodajemy gołego pracownika bez uprawnień, by potem móc je nadać w osobnej karcie
 
             AccountModel accountModel = new AccountModel();
             Account account = accountModel.generate(employeer.getLastName());
