@@ -237,6 +237,22 @@ public class AddEmployeeController extends Controller{
         typeOfEmployeeChoiceBox.getSelectionModel().select(type);
     }
 
+    private void pushToDatabase()
+    {
+        EmployeeModel employeeModel = new EmployeeModel();
+        switch (getType()){
+            case "Kierowca":
+                employeeModel.pushToDatabase((Driver) employeer);
+                break;
+            case "Kierownik":
+                employeeModel.pushToDatabase((Principal) employeer);
+                break;
+            case "Dyspozytor":
+                employeeModel.pushToDatabase((Dispatcher) employeer);
+                break;
+        }
+
+    }
     public void setToEmployee(Employee employee)
     {
         this.employeer = (Driver) employee;
@@ -252,14 +268,14 @@ public class AddEmployeeController extends Controller{
 
         actionButton.setText("Zapisz");
         actionButton.setOnAction(e->{
-            EmployeeModel employeeModel = new EmployeeModel();
+            //EmployeeModel employeeModel = new EmployeeModel();
 
             setEmployeer();
             employeer.setAddress(getAdress());
             PhoneModel phoneModel = new PhoneModel();
             employeer.setPhones(getPhones(phoneModel));
 
-            employeeModel.pushToDatabase(employeer);
+            pushToDatabase();
         });
     }
 
