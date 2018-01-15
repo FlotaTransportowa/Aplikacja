@@ -10,12 +10,14 @@ import models.AddressModel;
 import models.EmployeeModel;
 import models.PhoneModel;
 
-import java.nio.file.AccessDeniedException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddEmployeeController extends Controller{
+    private LoggedController loggedController;
+    //private Employee employee;
+
     @FXML
     private ChoiceBox phoneTypeChoiseBox,phoneTypeChoiseBox1,phoneTypeChoiseBox2, typeOfEmployeeChoiceBox;
     @FXML private TextField addNameField;
@@ -40,19 +42,21 @@ public class AddEmployeeController extends Controller{
     @FXML private HBox phoneHBox2;
     @FXML private HBox phoneHBox3;
 
+    @FXML private Button actionButton;
+
     @FXML
     void initialize(){
         typeOfEmployeeChoiceBox.setItems(FXCollections.observableArrayList(
                 "Kierowca", "Dyspozytor", "Kierownik")
         );
         phoneTypeChoiseBox.setItems(FXCollections.observableArrayList(
-                "Domowy", "Służbowy", "Komórkowy")
+                "domowy", "służbowy", "komórkowy")
         );
         phoneTypeChoiseBox1 .setItems(FXCollections.observableArrayList(
-                "Domowy", "Służbowy", "Komórkowy")
+                "domowy", "służbowy", "komórkowy")
         );
         phoneTypeChoiseBox2.setItems(FXCollections.observableArrayList(
-                "Domowy", "Służbowy", "Komórkowy")
+                "domowy", "służbowy", "komórkowy")
         );
         phoneTypeChoiseBox.getSelectionModel().selectFirst();
         phoneTypeChoiseBox1.getSelectionModel().selectFirst();
@@ -90,48 +94,20 @@ public class AddEmployeeController extends Controller{
         EmployeeModel employeeModel = new EmployeeModel();
         PhoneModel phoneModel = new PhoneModel();
         AddressModel addressModel = new AddressModel();
-        Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
-        ArrayList<Phone> phones = new ArrayList<>();
+        //Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
+        ArrayList<Phone> phones ;//= new ArrayList<>();
 
         if(employeeModel.valid(addNameField.getText(), addSurnameField.getText(), addAgeField.getText(), addEmailField.getText(), addSalaryField.getText()) && addressModel.valid(addPostalCodeField.getText(), addLocalityField.getText(), addStreetField.getText(), addHousenumField.getText())) {
             System.out.println("Correct!");
 
-            if(!phoneHBox1.isDisable()) {
-                if(phoneModel.valid(phone1.getText(), phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
-                    numberOfPhone1 = new Phone();
-                    numberOfPhone1.setNumber(phone1.getText());
-                    numberOfPhone1.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
-                    phones.add(numberOfPhone1);
-                }
-            }
-            if(!phoneHBox2.isDisable()) {
-                if(phoneModel.valid(phone2.getText(), phoneTypeChoiseBox1.getSelectionModel().getSelectedItem().toString())){
-                    numberOfPhone2 = new Phone();
-                    numberOfPhone2.setNumber(phone1.getText());
-                    numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
-                    phones.add(numberOfPhone2);
-                }
-            }
-            if(!phoneHBox3.isDisable()) {
-                if(phoneModel.valid(phone3.getText(), phoneTypeChoiseBox2.getSelectionModel().getSelectedItem().toString())){
-                    numberOfPhone3 = new Phone();
-                    numberOfPhone3.setNumber(phone1.getText());
-                    numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
-                    phones.add(numberOfPhone3);
-                }
-            }
+            phones = getPhone(phoneModel);
+            Address address = getAdress();
+            
+            String type = getType();
+            String gender = getGender();
+            setEmployeer(type,gender);
 
-            String type = typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString();
-            String gender = group.getSelectedToggle().getUserData().toString();
 
-            if(type.equals("Dyspozytor")){
-                employeer = new Dispatcher(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
-            } else if(type.equals("Kierownik")){
-                employeer = new Principal(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
-            }else
-                employeer = new Driver(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
-
-            Address address = new Address(addLocalityField.getText(), addPostalCodeField.getText(), addStreetField.getText(), addHousenumField.getText());
             employeer.setAddress(address);
             employeer.setPhones(phones);
 
@@ -144,4 +120,132 @@ public class AddEmployeeController extends Controller{
             employeeModel.pushToDatabase(employeer);
         }
     }
+
+    private ArrayList<Phone> getPhone(PhoneModel phoneModel)
+    {
+        Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
+        ArrayList<Phone> phones = new ArrayList<>();
+        if(!phoneHBox1.isDisable()) {
+            if(phoneModel.valid(phone1.getText(), phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
+                numberOfPhone1 = new Phone();
+                numberOfPhone1.setNumber(phone1.getText());
+                numberOfPhone1.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+                phones.add(numberOfPhone1);
+            }
+        }
+        if(!phoneHBox2.isDisable()) {
+            if(phoneModel.valid(phone2.getText(), phoneTypeChoiseBox1.getSelectionModel().getSelectedItem().toString())){
+                numberOfPhone2 = new Phone();
+                numberOfPhone2.setNumber(phone1.getText());
+                numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+                phones.add(numberOfPhone2);
+            }
+        }
+        if(!phoneHBox3.isDisable()) {
+            if(phoneModel.valid(phone3.getText(), phoneTypeChoiseBox2.getSelectionModel().getSelectedItem().toString())){
+                numberOfPhone3 = new Phone();
+                numberOfPhone3.setNumber(phone1.getText());
+                numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+                phones.add(numberOfPhone3);
+            }
+
+        }
+        return phones;
+    }
+
+    private void setEmployeer(String type,String gender){
+        switch (type){
+            case "Dyspozytor":
+                employeer = new Dispatcher(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
+                break;
+            case "Kierownik":
+                employeer = new Principal(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
+                break;
+            case "Kierowca":
+                employeer = new Driver(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
+                break;
+            default:
+                employeer = null;
+        }
+    }
+
+    private String getType()
+    {
+        return typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString();
+    }
+
+    private String getGender()
+    {
+        return group.getSelectedToggle().getUserData().toString();
+    }
+    private Address getAdress()
+    {
+        return new Address(addLocalityField.getText(), addPostalCodeField.getText(), addStreetField.getText(), addHousenumField.getText());
+    }
+    private void setEmployee(Employee employee)
+    {
+        addNameField.setText(employee.getFirstName());
+        addSurnameField.setText(employee.getLastName());
+        addAgeField.setText(String.valueOf(employee.getAge()));
+        addEmailField.setText(employee.getEmail());
+        if (employee.getGender().equals("Mężczyzna")) {
+            man.setSelected(true);
+        } else {
+            woman.setSelected(true);
+        }
+        addSalaryField.setText(String.valueOf(employee.getSalary()));
+    }
+    private void setAdress(Address address)
+    {
+        addPostalCodeField.setText(address.getPostalCode());
+        addLocalityField.setText(address.getLocality());
+        addStreetField.setText(address.getStreet());
+        addHousenumField.setText(address.getApartmentNumber());
+    }
+    private void setPhones(List<Phone> phones)
+    {
+        if(phones.size()>0){
+            phoneHBox1.setDisable(false);
+            phoneHBox1.setVisible(true);
+            phone1.setText(phones.get(0).getNumber());
+            phoneTypeChoiseBox.getSelectionModel().select(phones.get(0).getType());
+        }
+        if(phones.size()>1){
+            phoneHBox2.setDisable(false);
+            phoneHBox2.setVisible(true);
+            phone2.setText(phones.get(1).getNumber());
+            phoneTypeChoiseBox1.getSelectionModel().select(phones.get(1).getType());
+        }
+        if(phones.size()>2){
+            phoneHBox3.setDisable(false);
+            phoneHBox3.setVisible(true);
+            phone1.setText(phones.get(2).getNumber());
+            phoneTypeChoiseBox.getSelectionModel().select(phones.get(2).getType());
+        }
+    }
+    private void setType(String type)
+    {
+        typeOfEmployeeChoiceBox.getSelectionModel().select(type);
+    }
+
+    public void setToEmployee(Employee employee)
+    {
+        this.employeer = (Driver) employee;
+        setEmployee(employee);
+
+        Address address = employee.getAddress();
+        setAdress(address);
+
+        List<Phone> phones = employee.getPhones();
+        setPhones(phones);
+
+        setType(employee.getType());
+
+        actionButton.setText("Zapisz");
+        actionButton.setOnAction(e->{
+            ;
+
+        });
+    }
+
 }

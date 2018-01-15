@@ -45,6 +45,8 @@ public abstract class Employee {
 
     @Transient
     private Button editButton = new Button("Edytuj");
+    @Transient
+    private Button deleteButton = new Button("Usuń");
 
     public List<Phone> getPhones() {
         return phones;
@@ -132,6 +134,14 @@ public abstract class Employee {
 
     public void setEditButton(Button editButton) {
         this.editButton = editButton;
+    }
+
+    public Button getDeleteButton() {
+        return deleteButton;
+    }
+
+    public void setDeleteButton(Button deleteButton) {
+        this.deleteButton = deleteButton;
     }
 
 /*    public EventHandler<ActionEvent> editAction(ActionEvent event){
