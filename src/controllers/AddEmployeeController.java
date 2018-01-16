@@ -34,7 +34,7 @@ public class AddEmployeeController extends Controller{
     @FXML private TextField phone3;
     @FXML private RadioButton woman;
     @FXML private RadioButton man;
-    @FXML private Driver employeer = null;
+    @FXML private Employee employeer = null;
 
     @FXML private ToggleGroup group = new ToggleGroup();
 
@@ -268,8 +268,6 @@ public class AddEmployeeController extends Controller{
 
         actionButton.setText("Zapisz");
         actionButton.setOnAction(e->{
-            //EmployeeModel employeeModel = new EmployeeModel();
-
             setEmployeer();
             employeer.setAddress(getAdress());
             PhoneModel phoneModel = new PhoneModel();

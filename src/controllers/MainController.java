@@ -76,8 +76,8 @@ public class MainController {
     }
 
     @FXML void exitApp(){
-
-        Platform.exit();
+        System.exit(0);
+        //Platform.exit();
     }
 
     @FXML void setLoggedController(LoggedController loggedController) throws IOException {
