@@ -3,13 +3,17 @@ package controllers;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import models.AccountModel;
 import models.AddressModel;
 import models.EmployeeModel;
 import models.PhoneModel;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +47,8 @@ public class AddEmployeeController extends Controller{
     @FXML private HBox phoneHBox3;
 
     @FXML private Button actionButton;
+
+    @FXML private AnchorPane anchorPane;
 
     @FXML
     void initialize(){
@@ -114,10 +120,19 @@ public class AddEmployeeController extends Controller{
             //tu dodajemy gołego pracownika bez uprawnień, by potem móc je nadać w osobnej karcie
 
             AccountModel accountModel = new AccountModel();
-            Account account = accountModel.generate(employeer.getLastName());
+            Account account = accountModel.generate(employeer.getLastName()+employeer.getFirstName());
+            if(account != null)
             employeer.setAccount(account);
 
             employeeModel.pushToDatabase(employeer);
+
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermisionScreen.fxml"));
+            anchorPane.getChildren().clear();
+            try {
+                anchorPane.getChildren().add(loader.load());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -276,5 +291,6 @@ public class AddEmployeeController extends Controller{
             pushToDatabase();
         });
     }
+
 
 }

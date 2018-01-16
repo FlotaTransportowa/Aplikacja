@@ -50,6 +50,14 @@ public class ShowEmployeeController extends Controller {
                         }
                     }
             );
+            e.getPermissionButton().setOnAction(ev->{
+                        try {
+                            loggedController.addEmployeePermission(e);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+            );
         }
         employeeEdit = getTableColumnByName(employeeTable,"col4");
     }

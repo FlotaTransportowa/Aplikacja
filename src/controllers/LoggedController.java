@@ -96,6 +96,8 @@ public class LoggedController extends Controller {
             tabMenu.getTabs().add(newTaskTab);
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
             newTaskTab.setContent((Node) loader.load());
+
+            addEmployeeControllers.add(loader.getController());
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newTaskTab);
         } catch (IOException e) {
@@ -139,12 +141,44 @@ public class LoggedController extends Controller {
         }
     }
 
+    void addEmployeePermission(Employee employee) throws IOException {
+        try {
+            Tab newShowEmployeeTab = new Tab("Dodawanie uprawnień");
+            tabMenu.getTabs().add(newShowEmployeeTab);
+
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermisionScreen.fxml"));
+            newShowEmployeeTab.setContent((Node) loader.load());
+
+//            ShowEmployeeController showEmployeeController = loader.getController();
+//            showEmployeeController.setLoggedController(this);
+
+            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
+            selectionModel.select(newShowEmployeeTab);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML void viewTasksList() throws IOException {
         try {
             Tab newTaskTab = new Tab("Lista zleceń");
             tabMenu.getTabs().add(newTaskTab);
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/newTaskForm.fxml"));
             newTaskTab.setContent((Node) loader.load());
+            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
+            selectionModel.select(newTaskTab);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addPermissions() throws IOException {
+        try {
+            Tab newTaskTab = new Tab("Edytuj pracownika");
+            tabMenu.getTabs().add(newTaskTab);
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionsForm.fxml"));
+            newTaskTab.setContent((Node) loader.load());
+
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newTaskTab);
         } catch (IOException e) {

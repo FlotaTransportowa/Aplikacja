@@ -15,7 +15,7 @@ public class AccountModel {
         EntityManager entityManager = GlobalManager.getManager();
         Account account = null;
         try {
-
+            System.out.println(login + " " + passw);
             entityManager.getTransaction().begin();
             TypedQuery<Account> query = entityManager.createQuery("select a from Account a where a.login = :log and a.password = :pass", Account.class);
             query.setParameter("log", login);
@@ -54,10 +54,26 @@ public class AccountModel {
         return employee.getType();
     }
 
-    public static Account generate(String surname) throws NoSuchAlgorithmException {
+    public static Account generate(String login) throws NoSuchAlgorithmException {
+        EntityManager entityManager = GlobalManager.getManager();
+        Account accountExist;
         Account account = new Account();
-        account.setLogin(surname);
-        account.setPassword(HashPassword.hashPassword(surname));
+        entityManager.getTransaction().begin();
+        TypedQuery<Account> query = entityManager.createQuery("select a from Account a where a.login= :sur", Account.class);
+        query.setParameter("sur", login);
+
+        try{
+            accountExist = query.getSingleResult();
+            if(accountExist != null)
+                return null;
+        }catch(Exception e){
+
+        }
+
+        entityManager.getTransaction().commit();
+
+        account.setLogin(login);
+        account.setPassword(HashPassword.hashPassword(login));
         return account;
     }
 }

@@ -47,6 +47,8 @@ public abstract class Employee {
     private Button editButton = new Button("Edytuj");
     @Transient
     private Button deleteButton = new Button("Usuń");
+    @Transient
+    private Button permissionButton = new Button("Uprawnienia");
 
     public List<Phone> getPhones() {
         return phones;
@@ -140,11 +142,20 @@ public abstract class Employee {
         return deleteButton;
     }
 
+
     public void setDeleteButton(Button deleteButton) {
         this.deleteButton = deleteButton;
     }
 
-/*    public EventHandler<ActionEvent> editAction(ActionEvent event){
+    public Button getPermissionButton() {
+        return permissionButton;
+    }
+
+    public void setPermissionButton(Button permissionButton) {
+        this.permissionButton = permissionButton;
+    }
+
+    /*    public EventHandler<ActionEvent> editAction(ActionEvent event){
 
         System.out.println(this.getId());
     }*/

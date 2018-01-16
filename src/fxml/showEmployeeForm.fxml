@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="441.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEmployeeController">
+<AnchorPane prefHeight="441.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEmployeeController">
    <children>
       <VBox prefHeight="441.0" prefWidth="1006.0">
          <children>
@@ -43,6 +43,11 @@
                   <TableColumn id="col4" maxWidth="500.0" prefWidth="500.0" text="Usuń">
                      <cellValueFactory>
                         <PropertyValueFactory property="deleteButton" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn id="col4" maxWidth="500.0" prefWidth="500.0" text="Uprawnienia">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="permissionButton" />
                      </cellValueFactory>
                   </TableColumn>
               </columns>
