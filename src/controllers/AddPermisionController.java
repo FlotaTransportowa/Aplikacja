@@ -1,7 +1,6 @@
 package controllers;
 
 import database.Driver;
-import database.Employee;
 import database.Permission;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +16,7 @@ import java.util.List;
 public class AddPermisionController {
     @FXML private Label label;
     @FXML private VBox  vBox;
+    @FXML private  HBox addNewHBox;
 
     private Driver driver;
     private List<PermissionController> permissionControllers = new ArrayList<PermissionController>();
@@ -58,7 +58,7 @@ public class AddPermisionController {
         permissionController.setDriver(driver);
         permissionController.setPermission(permission);
         permissionController.setAddPermisionController(this);
-        permissionController.newForm();
+        permissionController.deleteForm();
         return node;
     }
 
@@ -67,6 +67,9 @@ public class AddPermisionController {
         HBox node = loader.load();
         PermissionController permissionController = loader.getController();
         permissionControllers.add(permissionController);
+        permissionController.setAddPermisionController(this);
+        permissionController.setDriver(driver);
+        permissionController.newForm();
 
         return node;
     }
@@ -83,5 +86,9 @@ public class AddPermisionController {
     private void getFromDBPermission()
     {
         permissions=driver.getPermissions();
+    }
+
+    public void createNewPermission() throws IOException {
+        addNewHBox.getChildren().add(newPermissionForm());
     }
 }

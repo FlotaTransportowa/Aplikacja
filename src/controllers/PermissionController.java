@@ -26,7 +26,7 @@ public class PermissionController {
 
         permissions = permissionModel.getAll();
         choiceBox.setItems(FXCollections.observableArrayList(permissions));
-        button.setText("Dodaj");
+
     }
 
     public Permission getPermision()
@@ -58,8 +58,20 @@ public class PermissionController {
     public void setAddPermisionController(AddPermisionController addPermisionController) {
         this.addPermisionController = addPermisionController;
     }
-
-    public void newForm() {
+    public void newForm()
+    {
+        button.setText("Dodaj");
+        button.setOnAction(e->{
+            Permission perm = (Permission) choiceBox.getSelectionModel().getSelectedItem();
+            DriverModel.addDriverPermission(driver,perm);
+            try {
+                addPermisionController.createCurrentPermissions();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+    }
+    public void deleteForm() {
         choiceBox.setDisable(true);
         choiceBox.getSelectionModel().select(permission);
         button.setText("Usuń");

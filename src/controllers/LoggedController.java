@@ -151,6 +151,7 @@ public class LoggedController extends Controller {
             AddPermisionController addPermisionController = loader.getController();
             addPermisionController.setDriver((Driver) employee);
             addPermisionController.createCurrentPermissions();
+            addPermisionController.createNewPermission();
 
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newShowEmployeeTab);
