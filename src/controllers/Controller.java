@@ -17,4 +17,7 @@ public abstract class Controller {
         this.mainController=par;
     }
 
+    @FXML private void cancelSelectedView(){
+    }
+
 }

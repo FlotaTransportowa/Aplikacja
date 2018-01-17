@@ -53,14 +53,6 @@ public class Order {
         this.comment = comment;
     }
 
-    public Address getAddress() {
-        return addressOfOrder;
-    }
-
-    public void setAddress(Address address) {
-        this.addressOfOrder = address;
-    }
-
     public String getTitle() {
         return title;
     }

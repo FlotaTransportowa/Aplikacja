@@ -6,6 +6,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -194,5 +196,8 @@ public class LoggedController extends Controller {
     @FXML void changeSizeOfTrasyTable() throws IOException {
         double value = sizeOfTrasyTable.getValue();
         sizeOfTrasyTableTextField.setText(Double.toString(value));
+    }
+
+    @FXML public void cancelSelectedView(){
     }
 }
