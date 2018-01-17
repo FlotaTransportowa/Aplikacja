@@ -133,11 +133,12 @@ public class LoggedController extends Controller {
     public void editEmployee(Employee employee) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
-            addNewTab((Node) loader.load(),"Edytuj pracownika");
+            addNewTab(loader,"Edytuj pracownika");
 
             AddEmployeeController addEmployeeController = loader.getController();
             addEmployeeControllers.add(addEmployeeController);
             addEmployeeController.setToEmployee(employee);
+            addEmployeeController.setLoggedController(this);
 
         } catch (IOException e) {
             e.printStackTrace();
