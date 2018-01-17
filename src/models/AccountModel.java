@@ -64,13 +64,15 @@ public class AccountModel {
 
         try{
             accountExist = query.getSingleResult();
-            if(accountExist != null)
+            if(accountExist != null) {
+                entityManager.getTransaction().commit();
                 return null;
+            }
         }catch(Exception e){
 
         }
 
-        entityManager.getTransaction().commit();
+
 
         account.setLogin(login);
         account.setPassword(HashPassword.hashPassword(login));

@@ -4,6 +4,8 @@ import database.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import manager.GlobalManager;
@@ -20,7 +22,7 @@ public class ShowEmployeeController extends Controller {
 
     @FXML private TableView<Employee> employeeTable;
     private TableColumn employeeEdit;
-    private  ObservableList<Employee> data;
+    private static ObservableList<Employee> data;
     private EmployeeModel employeeModel = new EmployeeModel();
     @FXML void initialize() throws Exception {
         data=FXCollections.observableArrayList(employeeModel.getAll());
@@ -28,7 +30,11 @@ public class ShowEmployeeController extends Controller {
 
         for (Employee e:data
              ) {
-            e.getEditButton().setOnAction(ev->{
+            ButtonBar buttonBar = e.getButtonBar();
+            if(buttonBar.getButtons().size()>0)
+                continue;
+            Button editButton = new Button("Edytuj");
+            editButton.setOnAction(ev->{
                         if(e==null)
                             System.out.println(e.getId());
                         else
@@ -39,7 +45,8 @@ public class ShowEmployeeController extends Controller {
                         }
                     }
             );
-            e.getDeleteButton().setOnAction(ev->{
+            Button deleteButton = new Button("Usuń");
+            deleteButton.setOnAction(ev->{
                         System.out.println("Usunięto "+e.getId());
                         GlobalManager.getManager().remove(e);
                         try {
@@ -49,7 +56,8 @@ public class ShowEmployeeController extends Controller {
                         }
                     }
             );
-            e.getPermissionButton().setOnAction(ev->{
+            Button permissionButton = new Button("Uprawnienia");
+            permissionButton.setOnAction(ev->{
                         try {
                             loggedController.addEmployeePermission(e);
                         } catch (IOException e1) {
@@ -57,20 +65,16 @@ public class ShowEmployeeController extends Controller {
                         }
                     }
             );
+
+            ButtonBar.setButtonData(editButton, ButtonBar.ButtonData.BIG_GAP);
+            ButtonBar.setButtonData(deleteButton, ButtonBar.ButtonData.BIG_GAP);
+            ButtonBar.setButtonData(permissionButton, ButtonBar.ButtonData.BIG_GAP);
+            buttonBar.getButtons().addAll(editButton,deleteButton,permissionButton);
         }
-        employeeEdit = getTableColumnByName(employeeTable,"col4");
+        //employeeEdit = getTableColumnByName(employeeTable,"col4");
     }
 
-    @FXML
-    void saveData(){
 
-        data = employeeTable.getItems();
-        for (Employee e: data
-             ) {
-            System.out.println(e.getId()+" "+e.getLastName());
-        }
-        System.out.println("Zapisano");
-    }
 
     private <T> TableColumn<T, ?> getTableColumnByName(TableView<T> tableView, String name) {
         for (TableColumn<T, ?> col : tableView.getColumns())

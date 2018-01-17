@@ -22,6 +22,7 @@ import java.util.List;
 public class LoggedController extends Controller {
 
     private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
+    private List<ShowEmployeeController> showEmployeeControllerList = new ArrayList<>();
 
     @FXML private TabPane tabMenu;
     @FXML private ListView lastTasks;
@@ -132,6 +133,7 @@ public class LoggedController extends Controller {
             newShowEmployeeTab.setContent((Node) loader.load());
 
             ShowEmployeeController showEmployeeController = loader.getController();
+            showEmployeeControllerList.add(showEmployeeController);
             showEmployeeController.setLoggedController(this);
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newShowEmployeeTab);
