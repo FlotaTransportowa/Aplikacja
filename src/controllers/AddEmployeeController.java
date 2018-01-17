@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddPermission extends Controller{
+public class AddEmployeeController extends Controller{
     private LoggedController loggedController;
     //private Employee employee;
 
@@ -74,7 +74,7 @@ public class AddPermission extends Controller{
     }
 
     @FXML
-    private void addAction(){
+    private void addPhoneAction(){
         if(!phoneHBox2.isVisible()){
             phoneHBox2.setVisible(true);
             phoneHBox2.setDisable(false);
@@ -99,7 +99,8 @@ public class AddPermission extends Controller{
         EmployeeModel employeeModel = new EmployeeModel();
         PhoneModel phoneModel = new PhoneModel();
         AddressModel addressModel = new AddressModel();
-        ArrayList<Phone> phones ;
+        //Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
+        ArrayList<Phone> phones ;//= new ArrayList<>();
 
         if(employeeModel.valid(addNameField.getText(), addSurnameField.getText(), addAgeField.getText(), addEmailField.getText(), addSalaryField.getText()) && addressModel.valid(addPostalCodeField.getText(), addLocalityField.getText(), addStreetField.getText(), addHousenumField.getText())) {
             System.out.println("Correct!");
@@ -119,18 +120,24 @@ public class AddPermission extends Controller{
 
             AccountModel accountModel = new AccountModel();
             Account account = accountModel.generate(employeer.getLastName()+employeer.getFirstName());
-            if(account != null)
-            employeer.setAccount(account);
+            if(account != null) {
+                employeer.setAccount(account);
 
-            employeeModel.pushToDatabase(employeer);
-
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));
+                employeeModel.pushToDatabase(employeer);
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Błąd dodawania pracownika");
+                alert.setHeaderText("Pracwonik istnieje w systemie");
+                alert.showAndWait();
+            }
+            /*FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));
             anchorPane.getChildren().clear();
             try {
                 anchorPane.getChildren().add(loader.load());
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 
@@ -181,7 +188,6 @@ public class AddPermission extends Controller{
                 employeer = null;
         }
     }
-
     private void setEmployeer()
     {
         employeer.setFirstName(addNameField.getText());
@@ -267,7 +273,6 @@ public class AddPermission extends Controller{
         }
 
     }
-
     public void setToEmployee(Employee employee)
     {
         this.employeer = (Driver) employee;

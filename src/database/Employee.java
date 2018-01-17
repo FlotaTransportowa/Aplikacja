@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javax.persistence.*;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.ButtonBar;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -44,11 +46,8 @@ public abstract class Employee {
     }
 
     @Transient
-    private Button editButton = new Button("Edytuj");
-    @Transient
-    private Button deleteButton = new Button("Usuń");
-    @Transient
-    private Button permissionButton = new Button("Uprawnienia");
+    private ButtonBar buttonBar = new ButtonBar();
+
 
     public List<Phone> getPhones() {
         return phones;
@@ -130,35 +129,15 @@ public abstract class Employee {
         this.addressOfEmployee = address;
     }
 
-    public Button getEditButton() {
-        return editButton;
+
+
+    public ButtonBar getButtonBar() {
+        return buttonBar;
     }
 
-    public void setEditButton(Button editButton) {
-        this.editButton = editButton;
+    public void setButtonBar(ButtonBar buttonBar) {
+        this.buttonBar = buttonBar;
     }
-
-    public Button getDeleteButton() {
-        return deleteButton;
-    }
-
-
-    public void setDeleteButton(Button deleteButton) {
-        this.deleteButton = deleteButton;
-    }
-
-    public Button getPermissionButton() {
-        return permissionButton;
-    }
-
-    public void setPermissionButton(Button permissionButton) {
-        this.permissionButton = permissionButton;
-    }
-
-    /*    public EventHandler<ActionEvent> editAction(ActionEvent event){
-
-        System.out.println(this.getId());
-    }*/
 
     public String getType() {
         return type;

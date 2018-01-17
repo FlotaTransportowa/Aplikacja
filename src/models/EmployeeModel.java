@@ -60,4 +60,23 @@ public class EmployeeModel implements BaseModel<Employee>{
         }
         return validateFlag;
     }
+
+
+    public static void addPermission(Driver driver, Permission permission)
+    {
+        if(driver.getPermissions()==null){
+            List<Permission> permissions = new ArrayList<Permission>();
+            permissions.add(permission);
+            driver.setPermissions(permissions);
+        }
+        if(!driver.getPermissions().contains(permission))        {
+            driver.getPermissions().add(permission);
+        }
+    }
+
+    public static void getPermission()
+    {
+
+    }
+
 }

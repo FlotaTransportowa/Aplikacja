@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="554.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPermission">
+<AnchorPane fx:id="anchorPane" prefHeight="554.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEmployeeController">
    <children>
       <GridPane layoutX="35.0" layoutY="32.0" prefHeight="244.0" prefWidth="330.0">
         <columnConstraints>
@@ -75,7 +75,7 @@
                <children>
                   <TextField fx:id="phone1" text="41-234-22-22" />
                   <ChoiceBox fx:id="phoneTypeChoiseBox" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" onAction="#addAction" prefHeight="31.0" prefWidth="43.0" text="+" />
+                  <Button mnemonicParsing="false" onAction="#addPhoneAction" prefHeight="31.0" prefWidth="43.0" text="+" />
                </children>
             </HBox>
             <HBox fx:id="phoneHBox2" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
