@@ -1,6 +1,8 @@
 package models;
 
 import database.Account;
+import database.Driver;
+import database.Employee;
 import database.Permission;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +30,22 @@ public class PermissionModel implements BaseModel<Permission>{
         perms.addAll(perms1);
         return perms;
     }
+
+    public ObservableList getAllWhere(Driver driver) {
+        ObservableList<Permission> perms = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+
+        entityManager.getTransaction().begin();
+        TypedQuery<Permission> query = entityManager.createQuery("select e from Permission e where drivers_id : driverId", Permission.class);
+        query.setParameter("driverId", driver);
+        List<Permission> perms1 = query.getResultList();
+        entityManager.getTransaction().commit();
+
+        perms.addAll(perms1);
+        return perms;
+    }
+
+
 
     public Permission getPermision(String perm)
     {

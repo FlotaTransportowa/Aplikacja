@@ -1,5 +1,6 @@
 package controllers;
 
+import database.Driver;
 import database.Employee;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class LoggedController extends Controller {
 
-    private List<AddPermission> addEmployeeControllers = new ArrayList<>();
+    private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
 
     @FXML private TabPane tabMenu;
     @FXML private ListView lastTasks;
@@ -111,7 +112,7 @@ public class LoggedController extends Controller {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
             newTaskTab.setContent((Node) loader.load());
 
-            AddPermission addEmployeeController = loader.getController();
+            AddEmployeeController addEmployeeController = loader.getController();
             addEmployeeControllers.add(addEmployeeController);
             addEmployeeController.setToEmployee(employee);
 
@@ -150,10 +151,8 @@ public class LoggedController extends Controller {
             newShowEmployeeTab.setContent((Node) loader.load());
 
             AddPermisionController addPermisionController = loader.getController();
-            addPermisionController.setEmployee(employee);
-
-//            ShowEmployeeController showEmployeeController = loader.getController();
-//            showEmployeeController.setLoggedController(this);
+            addPermisionController.setDriver((Driver) employee);
+            addPermisionController.createCurrentPermissions();
 
             SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
             selectionModel.select(newShowEmployeeTab);

@@ -16,7 +16,7 @@ import java.util.List;
 public class ShowEmployeeController extends Controller {
 
     private LoggedController loggedController;
-    private List<AddPermission> addEmployeeControllers;
+    private List<AddEmployeeController> addEmployeeControllers;
 
     @FXML private TableView<Employee> employeeTable;
     private TableColumn employeeEdit;
