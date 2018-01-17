@@ -107,4 +107,8 @@ public class MainController {
         return this.stageWidthProperty;
     }
 
+    @FXML void welcomePanelMenuItemOpen()
+    {
+        loggedController.addNewTab(loggedController.getWelcomePanel(),"Karta powitalna");
+    }
 }

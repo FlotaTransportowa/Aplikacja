@@ -74,7 +74,7 @@ public class AddEmployeeController extends Controller{
     }
 
     @FXML
-    private void addAction(){
+    private void addPhoneAction(){
         if(!phoneHBox2.isVisible()){
             phoneHBox2.setVisible(true);
             phoneHBox2.setDisable(false);
@@ -120,11 +120,17 @@ public class AddEmployeeController extends Controller{
 
             AccountModel accountModel = new AccountModel();
             Account account = accountModel.generate(employeer.getLastName()+employeer.getFirstName());
-            if(account != null)
-            employeer.setAccount(account);
+            if(account != null) {
+                employeer.setAccount(account);
 
-            employeeModel.pushToDatabase(employeer);
-
+                employeeModel.pushToDatabase(employeer);
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Błąd dodawania pracownika");
+                alert.setHeaderText("Pracwonik istnieje w systemie");
+                alert.showAndWait();
+            }
             /*FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));
             anchorPane.getChildren().clear();
             try {

@@ -60,19 +60,7 @@ public class EmployeeModel implements BaseModel<Employee>{
         }
         return validateFlag;
     }
-/*
-    public static String getEmployeeType(Employee employee){
-        EntityManager entityManager = GlobalManager.getManager();
-        long employeeId = employee.getId();
 
-        entityManager.getTransaction().begin();
-        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where id = :id", Employee.class);
-        query.setParameter("id", employeeId);
-        Employee employee = query.getSingleResult();
-        entityManager.getTransaction().commit();
-
-        return employee.getClass().getSimpleName();
-    }*/
 
     public static void addPermission(Driver driver, Permission permission)
     {
