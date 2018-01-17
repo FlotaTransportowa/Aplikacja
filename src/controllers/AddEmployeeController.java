@@ -128,7 +128,7 @@ public class AddEmployeeController extends Controller{
             else{
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Błąd dodawania pracownika");
-                alert.setHeaderText("Pracwonik istnieje w systemie");
+                alert.setHeaderText("Pracownik istnieje w systemie");
                 alert.showAndWait();
             }
             /*FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));

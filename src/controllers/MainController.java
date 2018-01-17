@@ -109,6 +109,6 @@ public class MainController {
 
     @FXML void welcomePanelMenuItemOpen()
     {
-        loggedController.addNewTab(loggedController.getWelcomePanel(),"Karta powitalna");
+        //loggedController.addNewTab(loggedController.getWelcomePanel(),"Karta powitalna");
     }
 }

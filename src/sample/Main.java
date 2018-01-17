@@ -194,7 +194,7 @@ public class Main extends Application {
         order.setComment("Default comment");
         order.setTitle("Zlecenie budowy domu");
         Address address2 = new Address("Warszawa", "20-103", "abc", "321c");
-        order.setAddress(address2);
+        order.setAddressOfOrder(address2);
 
         Order order2 = new Order();
         order2.setType("remont");
@@ -202,7 +202,7 @@ public class Main extends Application {
         order2.setComment("Komentarz");
         order.setTitle("Zlecenie transportu materiału budowlanego");
         Address address3 = new Address("Poznań", "20-333", "abc", "11b");
-        order2.setAddress(address3);
+        order2.setAddressOfOrder(address3);
 
         Track track = new Track();
         track.setDriver(employee);

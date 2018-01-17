@@ -104,7 +104,6 @@ public class AddNewTaskController extends LoggedController
 
     @FXML void cancelTask() throws IOException
     {
-        cancelSelectedView();
     }
 
     @FXML void addTask() throws IOException
