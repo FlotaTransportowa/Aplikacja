@@ -24,7 +24,6 @@ public class AddPermisionController {
     void initialize() throws IOException {
         vBox.getChildren().add(newPermissionForm());
         vBox.getChildren().add(newPermissionForm());
-
     }
     @FXML
     private void action()

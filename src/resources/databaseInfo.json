@@ -1,9 +1,0 @@
-{
-  "mainConnectionString":[{
-      "url": "jdbc:mysql://23179.m.tld.pl:3306/baza23179_norbert",
-      "user": "admin23179_norbert",
-      "pass": "nor4422G"
-
-  }]
-
-}
