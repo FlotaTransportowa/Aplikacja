@@ -5,6 +5,7 @@ import database.Permission;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import models.DriverModel;
@@ -63,11 +64,25 @@ public class PermissionController {
         button.setText("Dodaj");
         button.setOnAction(e->{
             Permission perm = (Permission) choiceBox.getSelectionModel().getSelectedItem();
-            DriverModel.addDriverPermission(driver,perm);
-            try {
-                addPermisionController.createCurrentPermissions();
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            if(driver==null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Błąd - niepoprawny kierowca");
+                alert.setHeaderText("Kierowca jest nieprawidłowy");
+                alert.showAndWait();
+            }
+            else if(perm==null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Błąd - Nie wybrano uprawnienia");
+                alert.setHeaderText("Wybierz uprawnienie do dodania");
+                alert.showAndWait();
+            }
+            else {
+                DriverModel.addDriverPermission(driver, perm);
+                try {
+                    addPermisionController.createCurrentPermissions();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }
