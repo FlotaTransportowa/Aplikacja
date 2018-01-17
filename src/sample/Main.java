@@ -2,19 +2,13 @@ package sample;
 
 import database.*;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import models.EmployeeModel;
-import models.MachineModel;
-import models.TrackModel;
+import manager.GlobalManager;
 import security.HashPassword;
 
-import javax.crypto.Mac;
 import javax.persistence.*;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -43,7 +37,7 @@ public class Main extends Application {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        TypedQuery<Machine> query = entityManager.createQuery("select m from Machine m where m.id = :id", Machine.class);
+        TypedQuery<Machine> query = entityManager.createQuery("select m from Maszyny m where m.id = :id", Machine.class);
         query.setParameter("id", machineId);
         machine = query.getSingleResult();
         entityManager.getTransaction().commit();
@@ -59,7 +53,7 @@ public class Main extends Application {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Pracownicy e where e.id = :id", Employee.class);
         query.setParameter("id", employeeId);
         employee = query.getSingleResult();
         entityManager.getTransaction().commit();
@@ -89,20 +83,10 @@ public class Main extends Application {
 
 
     public static void createBasic() throws NoSuchAlgorithmException {
+        EntityManager entityManager = GlobalManager.getManager();
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-
-        Principal employee = new Principal();
+        Principal employee = new Principal("Jan", "Nowak", 22, "Mężczyzna","Kierownik","a@wp.pl", 3000.0);
         Account account = new Account();
-        //ustawiamy pola pracownika
-        employee.setFirstName("Hubert");
-        employee.setLastName("Januszek");
-        employee.setAge(22);
-        employee.setEmail("aaa");
-        employee.setSalary(3000.0);
-        employee.setGender("M");
         employee.setAccount(account);
         //ustawiamy login i haslo dla konta
         account.setLogin("kierownik");
@@ -120,11 +104,7 @@ public class Main extends Application {
         //ustawiamy liste telefonow dla pracownika
         employee.setPhones(phones);
         //tworzymy adres
-        Address address = new Address();
-        address.setLocality("Kielce");
-        address.setPostalCode("23-103");
-        address.setStreet("Sienkiewicza");
-        address.setApartmentNumber("23/2");
+        Address address = new Address("Kielce", "23-093", "Sienkiewicza", "240");
         employee.setAddress(address);
 
         Permission permission1 = new Permission();
@@ -143,14 +123,7 @@ public class Main extends Application {
 
 
         entityManager.getTransaction().begin();
-        //dodajemy kazdy!!! obiekt
         entityManager.persist(employee);
-        entityManager.persist(account);
-        entityManager.persist(phone1);
-        entityManager.persist(phone2);
-        entityManager.persist(address);
-        entityManager.persist(permission1);
-        entityManager.persist(permission2);
         entityManager.getTransaction().commit();
 
         //ZADANIE NR 1 - WPROWADZIC DO BAZY PRACOWNIKA TECHNICZNEGO
@@ -169,7 +142,6 @@ public class Main extends Application {
         entityManager.getTransaction().begin();
         //dodajemy kazdy!!! obiekt
         entityManager.persist(machine);
-        entityManager.persist(machineType);
         entityManager.getTransaction().commit();
 
         //dodaj zgloszenie
@@ -177,14 +149,13 @@ public class Main extends Application {
         NotifyTheft notification = new NotifyTheft();
         Date today = new Date();
         notification.setDate(today);
-        notification.setDescription("Domyślnie ukradły samochód");
+        notification.setDescription("Domyślny opis");
         notification.setStatus("wysłane");
         notification.setEmployee(employee);
         notification.setMachine(machine);
         notification.setIfVictims(false);
 
         entityManager.getTransaction().begin();
-        //dodajemy kazdy!!! obiekt
         entityManager.persist(notification);
         entityManager.getTransaction().commit();
 
@@ -210,10 +181,7 @@ public class Main extends Application {
         reportRepair.setResult("naprawiony");
 
         entityManager.getTransaction().begin();
-        //dodajemy kazdy!!! obiekt
         entityManager.persist(reportRepair);
-        entityManager.persist(repairPart1);
-        entityManager.persist(repairPart2);
         entityManager.getTransaction().commit();
 
         //ZADANIE NR 2 - WPROWADZIC DO BAZY RAPORT NADZORCZY
@@ -222,22 +190,16 @@ public class Main extends Application {
         order.setType("budowa");
         order.setTimeLimitForCompletion(today);
         order.setComment("Default comment");
-        Address address2 = new Address();
-        address2.setLocality("Warszawa");
-        address2.setPostalCode("20-103");
-        address2.setStreet("abc");
-        address2.setApartmentNumber("321c");
+        order.setTitle("Zlecenie budowy domu");
+        Address address2 = new Address("Warszawa", "20-103", "abc", "321c");
         order.setAddress(address2);
 
         Order order2 = new Order();
         order2.setType("remont");
         order2.setTimeLimitForCompletion(today);
         order2.setComment("Komentarz");
-        Address address3 = new Address();
-        address3.setLocality("Poznań");
-        address3.setPostalCode("20-333");
-        address3.setStreet("abc");
-        address3.setApartmentNumber("11b");
+        order.setTitle("Zlecenie transportu materiału budowlanego");
+        Address address3 = new Address("Poznań", "20-333", "abc", "11b");
         order2.setAddress(address3);
 
         Track track = new Track();
@@ -251,28 +213,13 @@ public class Main extends Application {
         track.setExecuted(false);
 
         entityManager.getTransaction().begin();
-        //dodajemy kazdy!!! obiekt
         entityManager.persist(track);
-        entityManager.persist(order);
-        entityManager.persist(address2);
-        entityManager.persist(order2);
-        entityManager.persist(address3);
         entityManager.getTransaction().commit();
-
-        entityManager.close();
-        entityManagerFactory.close();
     }
 
     public static void useCreateMethod() throws NoSuchAlgorithmException{
-        Driver employee = new Driver();
+        Driver employee = new Driver("Adam", "Kowalski", 25, "Mężczyzna","Kierowca","abc@wp.pl", 2200.0);
         Account account = new Account();
-        //ustawiamy pola pracownika
-        employee.setFirstName("Adam");
-        employee.setLastName("Kowalski");
-        employee.setAge(30);
-        employee.setEmail("123@wp.pl");
-        employee.setSalary(2000.0);
-        employee.setGender("M");
         employee.setAccount(account);
         //ustawiamy login i haslo dla konta
         account.setLogin("adam");
@@ -287,11 +234,7 @@ public class Main extends Application {
         //ustawiamy liste telefonow dla pracownika
         employee.setPhones(phones);
         //tworzymy adres
-        Address address = new Address();
-        address.setLocality("Staszów");
-        address.setPostalCode("12-002");
-        address.setStreet("-");
-        address.setApartmentNumber("89a");
+        Address address = new Address("Staszów", "12-002", "-", "89a");
         employee.setAddress(address);
 
         Permission permission1 = new Permission();
@@ -308,38 +251,15 @@ public class Main extends Application {
 
         employee.setPermissions(permissions);
 
-        List<Object> lista = new ArrayList<>();
-        lista.add(employee);
-        lista.add(account);
-        lista.add(phone1);
-        lista.add(address);
-        lista.add(permission1);
-        lista.add(permission2);
-
-        create(lista);
-    }
-
-    public static ObservableList<Object> getAll(){
-        ObservableList<Object> list = FXCollections.observableArrayList();
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        entityManager.getTransaction().begin();
-        TypedQuery<Object> query = entityManager.createQuery("select e from Employee e", Object.class);
-        List<Object> listOfObjects = query.getResultList();
-        entityManager.getTransaction().commit();
-
-        list.addAll(listOfObjects);
-
-        entityManager.close();
-        entityManagerFactory.close();
-        return list;
+        GlobalManager.getManager().getTransaction().begin();
+        GlobalManager.getManager().persist(employee);
+        GlobalManager.getManager().getTransaction().commit();
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-//        createBasic(); // tworzenie rekodrów
+//        createBasic();
+//        useCreateMethod();
         launch(args); //Uruchomienie okienka aplikacji
-
-
+        GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
     }
 }

@@ -99,8 +99,7 @@ public class AddPermission extends Controller{
         EmployeeModel employeeModel = new EmployeeModel();
         PhoneModel phoneModel = new PhoneModel();
         AddressModel addressModel = new AddressModel();
-        //Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
-        ArrayList<Phone> phones ;//= new ArrayList<>();
+        ArrayList<Phone> phones ;
 
         if(employeeModel.valid(addNameField.getText(), addSurnameField.getText(), addAgeField.getText(), addEmailField.getText(), addSalaryField.getText()) && addressModel.valid(addPostalCodeField.getText(), addLocalityField.getText(), addStreetField.getText(), addHousenumField.getText())) {
             System.out.println("Correct!");
@@ -182,6 +181,7 @@ public class AddPermission extends Controller{
                 employeer = null;
         }
     }
+
     private void setEmployeer()
     {
         employeer.setFirstName(addNameField.getText());
@@ -267,6 +267,7 @@ public class AddPermission extends Controller{
         }
 
     }
+
     public void setToEmployee(Employee employee)
     {
         this.employeer = (Driver) employee;

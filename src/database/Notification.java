@@ -15,10 +15,10 @@ public abstract class Notification {
     private String description;
     private String status;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "machineId")
+    @JoinColumn(name = "machineID")
     private Machine machine;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId")
+    @JoinColumn(name = "employeeID")
     private Employee employee;
 
     public long getId() {

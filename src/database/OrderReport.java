@@ -13,10 +13,10 @@ public class OrderReport {
     private double kilometers;
     private double profit;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "driverId")
+    @JoinColumn(name = "driverID")
     private Driver driver;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "orderId")
+    @JoinColumn(name = "orderID")
     private Order order;
 
     public Driver getDriver() {

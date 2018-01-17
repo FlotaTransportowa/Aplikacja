@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class ReportRepair extends Report{
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "reportId")
+    @JoinColumn(name = "reportID")
     private List<RepairPart> repairParts;
     private double repairCost;
     private String result;
