@@ -44,7 +44,7 @@
                <tabs>
                   <Tab styleClass="tab-item" text="Karta powitalna">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="1010.0">
+                        <AnchorPane fx:id="welcomePanel" minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="1010.0">
                            <children>
                               <Text fill="#393939" fontSmoothingType="LCD" layoutX="30.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzień dobry!" wrappingWidth="348.13671875">
                                  <font>

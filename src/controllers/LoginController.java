@@ -30,6 +30,9 @@ public class LoginController extends Controller {
     @FXML private StackPane stackPane;
     private Account account = null;
 
+    private static AnchorPane welcomePanel;
+    private LoggedController loggedController;
+
 
     @FXML private void check() throws IOException, SQLException, NoSuchAlgorithmException {
         String userString = login.getText();
@@ -54,7 +57,7 @@ public class LoginController extends Controller {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/loggedScreen.fxml"));
         AnchorPane pane = loader.load();
         mainController.setScreen(pane);
-        LoggedController loggedController = loader.getController();
+        loggedController = loader.getController();
         loggedController.setMainController(mainController);
         mainController.setLoggedController(loggedController);
         mainController.setAccountLogin(Login);
@@ -90,5 +93,6 @@ public class LoginController extends Controller {
         login.setText("");
         password.setText("");
     }
+
 
 }

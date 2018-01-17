@@ -73,7 +73,7 @@ public class AccountModel {
         }
 
 
-
+        entityManager.getTransaction().commit();
         account.setLogin(login);
         account.setPassword(HashPassword.hashPassword(login));
         return account;
