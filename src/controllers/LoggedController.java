@@ -20,7 +20,7 @@ import java.util.List;
 
 public class LoggedController extends Controller {
 
-    private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
+    private List<AddPermission> addEmployeeControllers = new ArrayList<>();
 
     @FXML private TabPane tabMenu;
     @FXML private ListView lastTasks;
@@ -111,7 +111,7 @@ public class LoggedController extends Controller {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
             newTaskTab.setContent((Node) loader.load());
 
-            AddEmployeeController addEmployeeController = loader.getController();
+            AddPermission addEmployeeController = loader.getController();
             addEmployeeControllers.add(addEmployeeController);
             addEmployeeController.setToEmployee(employee);
 
@@ -146,8 +146,11 @@ public class LoggedController extends Controller {
             Tab newShowEmployeeTab = new Tab("Dodawanie uprawnień");
             tabMenu.getTabs().add(newShowEmployeeTab);
 
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermisionScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));
             newShowEmployeeTab.setContent((Node) loader.load());
+
+            AddPermisionController addPermisionController = loader.getController();
+            addPermisionController.setEmployee(employee);
 
 //            ShowEmployeeController showEmployeeController = loader.getController();
 //            showEmployeeController.setLoggedController(this);

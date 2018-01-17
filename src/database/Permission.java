@@ -46,4 +46,9 @@ public class Permission {
     public void setDrivers(List<Driver> drivers) {
         this.drivers = drivers;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

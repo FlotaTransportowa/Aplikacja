@@ -30,11 +30,11 @@ public class AccountModel {
     }
     public static String getEmployeeType(Account account){
         EntityManager entityManager = GlobalManager.getManager();
-        long idEmployee = account.getId();
+        long idAccount = account.getId();
 
         entityManager.getTransaction().begin();
-        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
-        query.setParameter("id", idEmployee);
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where accountID = :id", Employee.class);
+        query.setParameter("id", idAccount);
         Employee employee = query.getSingleResult();
         entityManager.getTransaction().commit();
 
@@ -43,11 +43,11 @@ public class AccountModel {
 
     public static String getEmployeeTypePL(Account account){
         EntityManager entityManager = GlobalManager.getManager();
-        long idEmployee = account.getId();
+        long idAccount = account.getId();
 
         entityManager.getTransaction().begin();
-        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.id = :id", Employee.class);
-        query.setParameter("id", idEmployee);
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where accountID = :id", Employee.class);
+        query.setParameter("id", idAccount);
         Employee employee = query.getSingleResult();
         entityManager.getTransaction().commit();
 

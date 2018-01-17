@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import manager.GlobalManager;
-import models.BaseModel;
 import models.EmployeeModel;
 
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.util.List;
 public class ShowEmployeeController extends Controller {
 
     private LoggedController loggedController;
-    private List<AddEmployeeController> addEmployeeControllers;
+    private List<AddPermission> addEmployeeControllers;
 
     @FXML private TableView<Employee> employeeTable;
     private TableColumn employeeEdit;
