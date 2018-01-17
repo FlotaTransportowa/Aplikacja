@@ -13,7 +13,7 @@ import models.PermissionModel;
 
 import java.io.IOException;
 
-public class PermissionController {
+public class PermissionController extends Controller{
     private static PermissionModel permissionModel = new PermissionModel();
     private ObservableList<Permission> permissions;
     private AddPermisionController addPermisionController;

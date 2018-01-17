@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddPermisionController {
+public class AddPermisionController extends Controller{
     @FXML private Label label;
     @FXML private VBox  vBox;
     @FXML private  HBox addNewHBox;

@@ -95,6 +95,11 @@ public class AddEmployeeController extends Controller{
         phoneHBox3.setDisable(true);
     }
 
+    @FXML private void removeTab()
+    {
+        loggedController.removeTab(super.getThisTab());
+    }
+
     @FXML private void checkClick() throws NoSuchAlgorithmException {
         EmployeeModel employeeModel = new EmployeeModel();
         PhoneModel phoneModel = new PhoneModel();
@@ -291,4 +296,7 @@ public class AddEmployeeController extends Controller{
     }
 
 
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
+    }
 }

@@ -89,11 +89,30 @@ public class LoggedController extends Controller {
         newOrderTab.setContent(node);
         SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
         selectionModel.select(newOrderTab);
+
+    }
+
+    public void addNewTab(FXMLLoader loader,String title) throws IOException {
+        Node node = loader.load();
+        Tab newOrderTab = new Tab(title);
+        tabMenu.getTabs().add(newOrderTab);
+        newOrderTab.setContent(node);
+        SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
+        selectionModel.select(newOrderTab);
+        Controller controller = loader.getController();
+        controller.setThisTab(newOrderTab);
+
+    }
+
+    public void removeTab(Tab tab)
+    {
+        tabMenu.getTabs().remove(tab);
     }
 
     @FXML void addNewOrder() throws IOException {
         try {
-            addNewTab((Node) FXMLLoader.load(this.getClass().getResource("/fxml/addNewTask.fxml")),"Utwórz nowe zlecenie");
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTask.fxml"));
+            addNewTab((Node) loader.load(),"Utwórz nowe zlecenie");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,9 +121,11 @@ public class LoggedController extends Controller {
     @FXML void addNewEmployee() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
-            addNewTab((Node) loader.load(),"Dodaj pracownika");
-
-            addEmployeeControllers.add(loader.getController());
+            //addNewTab((Node) loader.load(),"Dodaj pracownika");
+            addNewTab(loader,"Dodaj pracownika");
+            AddEmployeeController addEmployeeController = loader.getController();
+            addEmployeeControllers.add(addEmployeeController);
+            addEmployeeController.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

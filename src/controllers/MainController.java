@@ -13,7 +13,7 @@ import java.io.IOException;
 
 //import javafx.event.EventHandler;
 
-public class MainController {
+public class MainController extends Controller{
 
     private String AccountType = "";
     private String AccountLogin = "";
