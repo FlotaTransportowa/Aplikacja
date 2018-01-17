@@ -258,11 +258,71 @@ public class Main extends Application {
         GlobalManager.getManager().getTransaction().commit();
     }
 
+    public static void insertPermissions() throws NoSuchAlgorithmException{
+        EntityManager entityManager = GlobalManager.getManager();
+
+        Permission permission1 = new Permission();
+        Permission permission2 = new Permission();
+        Permission permission3 = new Permission();
+        Permission permission4 = new Permission();
+        Permission permission5 = new Permission();
+        Permission permission6 = new Permission();
+        Permission permission7 = new Permission();
+        Permission permission8 = new Permission();
+        Permission permission9 = new Permission();
+        Permission permission10 = new Permission();
+
+
+        permission1.setName("Koparki jednonaczyniowe do 25 ton masy całkowitej");
+        permission1.setDescription("Uprawnienie do prowadzenia dużych koparek");
+
+        permission2.setName("Koparkoładowarki");
+        permission2.setDescription("Uprawnienie do operowania koparkoładowarkami");
+
+        permission3.setName("Koparki wielonaczyniowe");
+        permission3.setDescription("Uprawnienie do operowania koparkami wielonaczyniowymi");
+
+        permission4.setName("Koparki wielonaczyniowe łańcuchowe do rowów");
+        permission4.setDescription("Uprawnienie do operowania w rowach");
+
+        permission5.setName("Spycharki - wszystkie typy");
+        permission5.setDescription("Uprawnienie do jazdy wszystkimi rodzajami spychów");
+
+        permission6.setName("Koparkospycharki");
+        permission6.setDescription("Uprawnienie do jazdy koparkospycharkami");
+
+        permission7.setName("Prawo jazdy kategorii B");
+        permission7.setDescription("Prawo jazdy do prowadzenia pojazdów do 3.5 tony");
+
+        permission8.setName("Prawo jazdy kategorii C");
+        permission8.setDescription("Prawo jazdy do prowadzenia pojazdów powyżej 3.5 tony bez przyczepy");
+
+        permission9.setName("Prawo jazdy kategorii C+E");
+        permission9.setDescription("Prawo jazdy do prowadzenia pojazdów powyżej 3.5 tony z przyczepami");
+
+        permission10.setName("Prawo jazdy kategorii T");
+        permission10.setDescription("Prawo jazdy do prowadzenia pojazdów wolnobieżnych");
+
+        entityManager.getTransaction().begin();
+            GlobalManager.getManager().persist(permission1);
+            GlobalManager.getManager().persist(permission2);
+            GlobalManager.getManager().persist(permission3);
+            GlobalManager.getManager().persist(permission4);
+            GlobalManager.getManager().persist(permission5);
+            GlobalManager.getManager().persist(permission6);
+            GlobalManager.getManager().persist(permission7);
+            GlobalManager.getManager().persist(permission8);
+            GlobalManager.getManager().persist(permission9);
+            GlobalManager.getManager().persist(permission10);
+        entityManager.getTransaction().commit();
+    }
+
     public static void main(String[] args) throws NoSuchAlgorithmException {
 //        createBasic();
 //        useCreateMethod();
+//        insertPermissions();
         launch(args); //Uruchomienie okienka aplikacji
-        GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
+//        GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
         //aaaaa
     }
 }
