@@ -132,18 +132,6 @@ public class LoggedController extends Controller {
             ShowEmployeeController showEmployeeController = loader.getController();
             showEmployeeControllerList.add(showEmployeeController);
             showEmployeeController.setLoggedController(this);
-
-
-            /*
-            Tab newShowEmployeeTab = new Tab("Pracownicy floty");
-            tabMenu.getTabs().add(newShowEmployeeTab);
-
-
-            newShowEmployeeTab.setContent((Node) loader.load());
-
-
-            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
-            selectionModel.select(newShowEmployeeTab);*/
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -158,19 +146,6 @@ public class LoggedController extends Controller {
             addPermisionController.setDriver((Driver) employee);
             addPermisionController.createCurrentPermissions();
             addPermisionController.createNewPermission();
-
-
-            /*
-            Tab newShowEmployeeTab = new Tab("Dodawanie uprawnień");
-            tabMenu.getTabs().add(newShowEmployeeTab);
-
-
-            newShowEmployeeTab.setContent((Node) loader.load());
-
-
-
-            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
-            selectionModel.select(newShowEmployeeTab);*/
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -180,13 +155,6 @@ public class LoggedController extends Controller {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTask.fxml"));
             addNewTab((Node) loader.load(), "Lista zleceń");
-            /*
-            Tab newTaskTab = new Tab("Lista zleceń");
-            tabMenu.getTabs().add(newTaskTab);
-
-            newTaskTab.setContent((Node) loader.load());
-            SingleSelectionModel<Tab> selectionModel = tabMenu.getSelectionModel();
-            selectionModel.select(newTaskTab);*/
         } catch (IOException e) {
             e.printStackTrace();
         }
