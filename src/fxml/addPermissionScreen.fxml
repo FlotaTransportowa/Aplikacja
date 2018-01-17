@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="396.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPermisionController">
+   <children>
+      <Label fx:id="label" layoutX="50.0" layoutY="14.0" prefHeight="54.0" prefWidth="180.0" text="Dodano użytkownika" textFill="#1ca748">
+         <font>
+            <Font name="Garamond" size="20.0" />
+         </font>
+      </Label>
+      <VBox fx:id="vBox" layoutX="50.0" layoutY="68.0" prefHeight="203.0" prefWidth="276.0" />
+      <Button layoutX="50.0" layoutY="297.0" mnemonicParsing="false" onAction="#action" text="Button" />
+   </children>
+</AnchorPane>
