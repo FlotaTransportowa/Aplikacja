@@ -6,4 +6,5 @@ public class Pattern {
     public static String postalCodePattern = "^[0-9]{2}-[0-9]{3}$";
     public static String phoneNumberPattern = "^[1-9]{1}[0-9]{2}-[0-9]{3}-[0-9]{3}$";
     public static String phoneNumberHomePattern = "^[1-9]{2}-[1-9]{1}[0-9]{2}-[0-9]{2}-[0-9]{2}$";
+    public static String registrationNumber = "^[A-Z\\s0-9]{8}$";
 }

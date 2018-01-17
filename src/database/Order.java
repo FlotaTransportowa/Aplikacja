@@ -1,7 +1,10 @@
 package database;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Orders") //Okazuje się że w MySQL nie może być tabeli o nazwie Order ze względu na słowo kluczowe ORDER
@@ -64,5 +67,13 @@ public class Order {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Address getAddressOfOrder() {
+        return addressOfOrder;
+    }
+
+    public void setAddressOfOrder(Address addressOfOrder) {
+        this.addressOfOrder = addressOfOrder;
     }
 }

@@ -23,5 +23,4 @@ public class Driver extends Employee {
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
     }
-
 }

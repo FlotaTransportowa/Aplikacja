@@ -24,10 +24,10 @@ public abstract class Employee {
     private String email;
     private double salary;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId")
+    @JoinColumn(name = "accountID")
     private Account account;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId")
+    @JoinColumn(name = "employeeID")
     private List<Phone> phones;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressID", referencedColumnName = "id")
