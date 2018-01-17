@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import manager.GlobalManager;
+import manager.ScreenManager;
 import security.HashPassword;
 
 import javax.persistence.*;
@@ -21,10 +22,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        ScreenManager screenManager = new ScreenManager();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/mainScreen.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("FSB - System zarzadzania");
-        Scene scene = new Scene(root, 1280, 850);
+        Scene scene = new Scene(root, 1280, screenManager.getHeight()*0.9);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -261,5 +263,6 @@ public class Main extends Application {
 //        useCreateMethod();
         launch(args); //Uruchomienie okienka aplikacji
         GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
+        //aaaaa
     }
 }
