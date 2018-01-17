@@ -131,13 +131,6 @@ public class AddEmployeeController extends Controller{
                 alert.setHeaderText("Pracownik istnieje w systemie");
                 alert.showAndWait();
             }
-            /*FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));
-            anchorPane.getChildren().clear();
-            try {
-                anchorPane.getChildren().add(loader.load());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
         }
     }
 
