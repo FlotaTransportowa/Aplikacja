@@ -22,12 +22,7 @@
          <children>
             <Pane prefHeight="56.0" prefWidth="980.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">
                <children>
-                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelTask" onMouseClicked="#cancelTask" prefHeight="29.0" prefWidth="67.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
-                  <Text fx:id="newTaskStatus" layoutX="462.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodawanie . . . (10%)">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Text>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeTab" onMouseClicked="#removeTab" prefHeight="29.0" prefWidth="67.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
                   <Button layoutX="846.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="29.0" prefWidth="120.0" stylesheets="@../resources/general.css" text="Zapisz zlecenie" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                      <font>
                         <Font name="Roboto" size="12.0" />
@@ -35,7 +30,7 @@
                   </Button>
                </children>
             </Pane>
-            <TextField fx:id="newTaskTitle" layoutX="5.0" layoutY="63.0" prefHeight="34.0" prefWidth="1141.0" promptText="Wpisz nazwe dla konkretnego zlecenia" style="-fx-border-width: 0px; -fx-background-color: transparent;">
+            <TextField fx:id="newTaskTitle" layoutX="14.0" layoutY="63.0" prefHeight="34.0" prefWidth="950.0" promptText="Wpisz nazwe dla konkretnego zlecenia" style="-fx-border-width: 0px; -fx-background-color: transparent;">
                <font>
                   <Font size="13.0" />
                </font>

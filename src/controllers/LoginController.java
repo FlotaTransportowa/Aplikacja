@@ -35,14 +35,11 @@ public class LoginController extends Controller {
 
 
     @FXML private void check() throws IOException, SQLException, NoSuchAlgorithmException {
-        String userString = login.getText();
-        String passwordString = password.getText();
-
-        account = AccountModel.getAccount(userString, HashPassword.hashPassword(passwordString));
+        account = AccountModel.getAccount(login.getText(), HashPassword.hashPassword(password.getText()));
 
         if(account != null)
         {
-            initSystem(account.getLogin(), AccountModel.getEmployeeType(account));
+            initSystem(account.getLogin());
             mainController.logIn();
         }
         else{
@@ -53,7 +50,9 @@ public class LoginController extends Controller {
         }
     }
 
-    private void initSystem(String Login, String Type) throws IOException {
+    private void initSystem(String Login) throws IOException {
+        if(account == null)
+            return;
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/loggedScreen.fxml"));
         AnchorPane pane = loader.load();
         mainController.setScreen(pane);
@@ -61,14 +60,11 @@ public class LoginController extends Controller {
         loggedController.setMainController(mainController);
         mainController.setLoggedController(loggedController);
         mainController.setAccountLogin(Login);
-        mainController.setAccountLogin(Type);
         loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeTypePL(account));
     }
     @FXML private void checkKey() {}
     public void initialize()
     {
-       /* imageView.fitWidthProperty().bind(stackPane.widthProperty());
-        imageView.fitHeightProperty().bind(stackPane.heightProperty());*/
         login.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 try {
@@ -93,6 +89,4 @@ public class LoginController extends Controller {
         login.setText("");
         password.setText("");
     }
-
-
 }

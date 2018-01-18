@@ -11,6 +11,8 @@ import models.AccountModel;
 import models.AddressModel;
 import models.EmployeeModel;
 import models.PhoneModel;
+import validation.Pattern;
+import validation.Validation;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -102,71 +104,59 @@ public class AddEmployeeController extends Controller{
 
     @FXML private void checkClick() throws NoSuchAlgorithmException {
         EmployeeModel employeeModel = new EmployeeModel();
-        PhoneModel phoneModel = new PhoneModel();
         AddressModel addressModel = new AddressModel();
-        //Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
-        ArrayList<Phone> phones ;//= new ArrayList<>();
+        ArrayList<Phone> phones;
 
-        if(employeeModel.valid(addNameField.getText(), addSurnameField.getText(), addAgeField.getText(), addEmailField.getText(), addSalaryField.getText()) && addressModel.valid(addPostalCodeField.getText(), addLocalityField.getText(), addStreetField.getText(), addHousenumField.getText())) {
-            System.out.println("Correct!");
+        if(!valid())
+            return;
 
-            phones = getPhones(phoneModel);
-            Address address = getAdress();
+        phones = getPhones();
+        Address address = getAdress();
 
-            String type = getType();
-            String gender = getGender();
-            newEmployeer(type,gender);
+        String type = getType();
+        String gender = getGender();
+        newEmployeer(type,gender);
 
 
-            employeer.setAddress(address);
-            employeer.setPhones(phones);
+        employeer.setAddress(address);
+        employeer.setPhones(phones);
 
-            //tu dodajemy gołego pracownika bez uprawnień, by potem móc je nadać w osobnej karcie
+        AccountModel accountModel = new AccountModel();
+        Account account = accountModel.generate(employeer.getLastName()+employeer.getFirstName());
+        if(account != null) {
+            employeer.setAccount(account);
 
-            AccountModel accountModel = new AccountModel();
-            Account account = accountModel.generate(employeer.getLastName()+employeer.getFirstName());
-            if(account != null) {
-                employeer.setAccount(account);
-
-                employeeModel.pushToDatabase(employeer);
-            }
-            else{
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Błąd dodawania pracownika");
-                alert.setHeaderText("Pracownik istnieje w systemie");
-                alert.showAndWait();
-            }
+            employeeModel.pushToDatabase(employeer);
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd dodawania pracownika");
+            alert.setHeaderText("Pracownik istnieje w systemie");
+            alert.showAndWait();
         }
     }
 
-    private ArrayList<Phone> getPhones(PhoneModel phoneModel)
+    private ArrayList<Phone> getPhones()
     {
         Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
         ArrayList<Phone> phones = new ArrayList<>();
         if(!phoneHBox1.isDisable()) {
-            if(phoneModel.valid(phone1.getText(), phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
                 numberOfPhone1 = new Phone();
                 numberOfPhone1.setNumber(phone1.getText());
                 numberOfPhone1.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
                 phones.add(numberOfPhone1);
-            }
         }
         if(!phoneHBox2.isDisable()) {
-            if(phoneModel.valid(phone2.getText(), phoneTypeChoiseBox1.getSelectionModel().getSelectedItem().toString())){
                 numberOfPhone2 = new Phone();
                 numberOfPhone2.setNumber(phone2.getText());
                 numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
                 phones.add(numberOfPhone2);
-            }
         }
         if(!phoneHBox3.isDisable()) {
-            if(phoneModel.valid(phone3.getText(), phoneTypeChoiseBox2.getSelectionModel().getSelectedItem().toString())){
                 numberOfPhone3 = new Phone();
                 numberOfPhone3.setNumber(phone3.getText());
                 numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
                 phones.add(numberOfPhone3);
-            }
-
         }
         return phones;
     }
@@ -186,6 +176,7 @@ public class AddEmployeeController extends Controller{
                 employeer = null;
         }
     }
+
     private void setEmployeer()
     {
         employeer.setFirstName(addNameField.getText());
@@ -196,6 +187,7 @@ public class AddEmployeeController extends Controller{
         employeer.setEmail(addEmailField.getText());
         employeer.setSalary(Double.parseDouble(addSalaryField.getText()));
     }
+
     private String getType()
     {
         return typeOfEmployeeChoiceBox.getSelectionModel().getSelectedItem().toString();
@@ -205,10 +197,12 @@ public class AddEmployeeController extends Controller{
     {
         return group.getSelectedToggle().getUserData().toString();
     }
+
     private Address getAdress()
     {
         return new Address(addLocalityField.getText(), addPostalCodeField.getText(), addStreetField.getText(), addHousenumField.getText());
     }
+
     private void setEmployee(Employee employee)
     {
         addNameField.setText(employee.getFirstName());
@@ -271,6 +265,7 @@ public class AddEmployeeController extends Controller{
         }
 
     }
+
     public void setToEmployee(Employee employee)
     {
         this.employeer = (Driver) employee;
@@ -288,15 +283,121 @@ public class AddEmployeeController extends Controller{
         actionButton.setOnAction(e->{
             setEmployeer();
             employeer.setAddress(getAdress());
-            PhoneModel phoneModel = new PhoneModel();
-            employeer.setPhones(getPhones(phoneModel));
+            List<Phone> phones1;
+            phones1 = getPhones();
+            if(phones1 == null)
+                return;
+
+            employeer.setPhones(phones1);
 
             pushToDatabase();
         });
     }
 
-
     public void setLoggedController(LoggedController loggedController) {
         this.loggedController = loggedController;
     }
+
+    @FXML
+    private boolean valid(){
+        boolean validateFlag = true, validAdressFlag, validPhoneNumbersFlag;
+        if(!Validation.regexChecker(Pattern.stringPattern, addNameField.getText()) || addNameField.getText().isEmpty()){
+            addNameField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addNameField.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, addSurnameField.getText())  || addSurnameField.getText().isEmpty()){
+            addSurnameField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addSurnameField.setStyle(validStyle);
+        if(!Validation.isInteger(addAgeField.getText()) || addAgeField.getText().isEmpty()){
+            addAgeField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addAgeField.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.emailPattern, addEmailField.getText())  || addEmailField.getText().isEmpty()){
+            addEmailField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addEmailField.setStyle(validStyle);
+        if(!Validation.isDouble(addSalaryField.getText()) || addSalaryField.getText().isEmpty()) {
+            addSalaryField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addSalaryField.setStyle(validStyle);
+
+        validAdressFlag = validAddressFields();
+        validPhoneNumbersFlag = validAllPhoneNumbers();
+
+        return validateFlag & validAdressFlag & validPhoneNumbersFlag;
+    }
+
+    @FXML
+    private boolean validPhoneNumber(TextField phone, String type) {
+        boolean validateFlag = true;
+
+        if(type.equals("Domowy")){
+            if(!Validation.regexChecker(Pattern.phoneNumberHomePattern, phone.getText())) {
+                phone.setStyle(nonValidStyle);
+                validateFlag = false;
+            } else phone.setStyle(validStyle);
+        } else if(type.equals("Komórkowy")){
+            if(!Validation.regexChecker(Pattern.phoneNumberPattern, phone.getText())){
+                phone.setStyle(nonValidStyle);
+                validateFlag = false;
+            } else phone.setStyle(validStyle);
+        }else {
+            if(!Validation.regexChecker(Pattern.phoneNumberPattern, phone.getText()) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, phone.getText())){
+                phone.setStyle(nonValidStyle);
+                validateFlag = false;
+            } else phone.setStyle(validStyle);
+        }
+
+        return validateFlag;
+    }
+    @FXML
+    private boolean validAllPhoneNumbers(){
+        boolean validateFlag = true;
+
+        if(!phoneHBox1.isDisable()) {
+            if(!validPhoneNumber(phone1, phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
+                phone1.setStyle(nonValidStyle);
+                validateFlag = false;
+            }else phone1.setStyle(validStyle);
+        }
+        if(!phoneHBox2.isDisable()) {
+            if(!validPhoneNumber(phone2, phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
+                phone2.setStyle(nonValidStyle);
+                validateFlag = false;
+            }else phone2.setStyle(validStyle);
+        }
+        if(!phoneHBox3.isDisable()) {
+            if(!validPhoneNumber(phone3, phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString())){
+                phone3.setStyle(nonValidStyle);
+                validateFlag = false;
+            }else phone3.setStyle(validStyle);
+        }
+
+        return validateFlag;
+    }
+
+    @FXML
+    private boolean validAddressFields(){
+        boolean validateFlag = true;
+        if(!Validation.regexChecker(Pattern.postalCodePattern, addPostalCodeField.getText()) || addPostalCodeField.getText().isEmpty()){
+            addPostalCodeField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addPostalCodeField.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, addLocalityField.getText()) || addLocalityField.getText().isEmpty()){
+            addLocalityField.setStyle(nonValidStyle);
+            validateFlag = false;
+        }else addLocalityField.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, addStreetField.getText()) || addStreetField.getText().isEmpty()){
+            addStreetField.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addStreetField.setStyle(validStyle);
+        if(addHousenumField.getText().isEmpty()){
+            addHousenumField.setStyle(nonValidStyle);
+            validateFlag = false;
+        }else addHousenumField.setStyle(validStyle);
+
+        return validateFlag;
+    }
+
 }

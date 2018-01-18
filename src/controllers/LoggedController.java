@@ -121,7 +121,6 @@ public class LoggedController extends Controller {
     @FXML void addNewEmployee() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
-            //addNewTab((Node) loader.load(),"Dodaj pracownika");
             addNewTab(loader,"Dodaj pracownika");
             AddEmployeeController addEmployeeController = loader.getController();
             addEmployeeControllers.add(addEmployeeController);

@@ -12,109 +12,136 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="554.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEmployeeController">
    <children>
-      <GridPane layoutX="35.0" layoutY="32.0" prefHeight="244.0" prefWidth="330.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="97.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="208.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <AnchorPane layoutY="33.0" prefHeight="517.0" prefWidth="1020.0" style="-fx-background-color: #fff;">
          <children>
-            <TextField fx:id="addNameField" text="Andrzej" GridPane.columnIndex="1" />
-            <Label text="Imię" />
-            <Label text="Nazwisko" GridPane.rowIndex="1" />
-            <TextField fx:id="addSurnameField" text="Kowalski" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Wiek" GridPane.rowIndex="2" />
-            <Label text="E-mail" GridPane.rowIndex="3" />
-            <Label text="Płeć" GridPane.rowIndex="4" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <GridPane layoutX="17.0" layoutY="106.0" prefHeight="244.0" prefWidth="346.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="97.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="208.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <RadioButton fx:id="woman" mnemonicParsing="false" text="Kobieta" />
-                  <RadioButton fx:id="man" mnemonicParsing="false" selected="true" text="Mężczyzna" />
+                  <TextField fx:id="addNameField" text="Andrzej" GridPane.columnIndex="1" />
+                  <Label text="Imię" />
+                  <Label text="Nazwisko" GridPane.rowIndex="1" />
+                  <TextField fx:id="addSurnameField" text="Kowalski" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Wiek" GridPane.rowIndex="2" />
+                  <Label text="E-mail" GridPane.rowIndex="3" />
+                  <Label text="Płeć" GridPane.rowIndex="4" />
+                  <VBox prefHeight="200.0" prefWidth="116.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <RadioButton fx:id="woman" mnemonicParsing="false" text="Kobieta" />
+                        <RadioButton fx:id="man" mnemonicParsing="false" selected="true" text="Mężczyzna" />
+                     </children>
+                  </VBox>
+                  <Label text="Pensja" GridPane.rowIndex="5" />
+                  <TextField fx:id="addAgeField" text="30" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="addEmailField" text="abc@onet.pl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="addSalaryField" text="2200" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="Typ pracownika" GridPane.rowIndex="6" />
+                  <ChoiceBox fx:id="typeOfEmployeeChoiceBox" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+            <GridPane layoutX="559.0" layoutY="103.0" prefHeight="141.0" prefWidth="359.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Kod pocztowy" />
+                  <Label text="Miejscowość" GridPane.rowIndex="1" />
+                  <Label text="Ulica" GridPane.rowIndex="2" />
+                  <Label text="Numer domu" GridPane.rowIndex="3" />
+                  <TextField fx:id="addPostalCodeField" text="25-031" GridPane.columnIndex="1" />
+                  <TextField fx:id="addLocalityField" text="Poznań" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="addStreetField" text="Wojska Polskiego" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="addHousenumField" text="23/12" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <VBox layoutX="557.0" layoutY="321.0" prefHeight="168.0" prefWidth="359.0">
+               <children>
+                  <HBox fx:id="phoneHBox1" prefHeight="80.0" prefWidth="433.0">
+                     <children>
+                        <TextField fx:id="phone1" text="41-234-22-22" />
+                        <ChoiceBox fx:id="phoneTypeChoiseBox" prefWidth="150.0" />
+                        <Button mnemonicParsing="false" onAction="#addPhoneAction" prefHeight="31.0" prefWidth="43.0" text="+" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="phoneHBox2" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
+                     <children>
+                        <TextField fx:id="phone2" />
+                        <ChoiceBox fx:id="phoneTypeChoiseBox1" prefWidth="150.0" />
+                        <Button mnemonicParsing="false" onAction="#remove2ndPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="phoneHBox3" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
+                     <children>
+                        <TextField fx:id="phone3" />
+                        <ChoiceBox fx:id="phoneTypeChoiseBox2" prefWidth="150.0" />
+                        <Button mnemonicParsing="false" onAction="#remove3rdPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
+                     </children>
+                  </HBox>
+                  <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
-            <Label text="Pensja" GridPane.rowIndex="5" />
-            <TextField fx:id="addAgeField" text="30" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="addEmailField" text="abc@onet.pl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="addSalaryField" text="2200" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="386.0" layoutY="32.0" prefHeight="159.0" prefWidth="238.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Kod pocztowy" />
-            <Label text="Miejscowość" GridPane.rowIndex="1" />
-            <Label text="Ulica" GridPane.rowIndex="2" />
-            <Label text="Numer domu" GridPane.rowIndex="3" />
-            <TextField fx:id="addPostalCodeField" text="25-031" GridPane.columnIndex="1" />
-            <TextField fx:id="addLocalityField" text="Poznań" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="addStreetField" text="Wojska Polskiego" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="addHousenumField" text="23/12" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-         </children>
-      </GridPane>
-      <VBox layoutX="33.0" layoutY="289.0" prefHeight="111.0" prefWidth="420.0">
-         <children>
-            <HBox fx:id="phoneHBox1" prefHeight="80.0" prefWidth="433.0">
+            <GridPane alignment="CENTER" layoutX="13.0" layoutY="14.0" prefHeight="37.0" prefWidth="992.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <TextField fx:id="phone1" text="41-234-22-22" />
-                  <ChoiceBox fx:id="phoneTypeChoiseBox" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" onAction="#addPhoneAction" prefHeight="31.0" prefWidth="43.0" text="+" />
+                  <Button fx:id="actionButton" mnemonicParsing="false" onAction="#checkClick" prefHeight="25.0" prefWidth="162.0" text="Dalej" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                <Button mnemonicParsing="false" onAction="#removeTab" prefHeight="25.0" prefWidth="161.0" text="Anuluj" GridPane.halignment="LEFT" />
                </children>
-            </HBox>
-            <HBox fx:id="phoneHBox2" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
+            </GridPane>
+            <GridPane layoutY="62.0" prefHeight="30.0" prefWidth="980.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <TextField fx:id="phone2" />
-                  <ChoiceBox fx:id="phoneTypeChoiseBox1" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" onAction="#remove2ndPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
+                  <Label text="Dane pracownika" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="Aparajita" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label text="Adres" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="Aparajita" size="25.0" />
+                     </font>
+                  </Label>
                </children>
-            </HBox>
-            <HBox fx:id="phoneHBox3" disable="true" prefHeight="80.0" prefWidth="433.0" visible="false">
-               <children>
-                  <TextField fx:id="phone3" />
-                  <ChoiceBox fx:id="phoneTypeChoiseBox2" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" onAction="#remove3rdPhoneBox" prefHeight="31.0" prefWidth="43.0" text="x" />
-               </children>
-            </HBox>
-            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-              <buttons>
-                <Button mnemonicParsing="false" onAction="#removeTab" text="Anuluj" />
-                  <Button fx:id="actionButton" mnemonicParsing="false" onAction="#checkClick" text="Dalej" />
-              </buttons>
-            </ButtonBar>
+            </GridPane>
+            <Label layoutX="665.0" layoutY="264.0" text="Numery telefonów">
+               <font>
+                  <Font name="Aparajita" size="25.0" />
+               </font>
+            </Label>
          </children>
-      </VBox>
-      <GridPane layoutX="386.0" layoutY="191.0" prefHeight="90.0" prefWidth="238.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ChoiceBox fx:id="typeOfEmployeeChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" />
-            <Label text="Typ pracownika" />
-         </children>
-      </GridPane>
+      </AnchorPane>
    </children>
 </AnchorPane>

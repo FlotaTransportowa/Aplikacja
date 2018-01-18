@@ -15,19 +15,19 @@ public class AccountModel {
         EntityManager entityManager = GlobalManager.getManager();
         Account account = null;
         try {
-            System.out.println(login + " " + passw);
             entityManager.getTransaction().begin();
             TypedQuery<Account> query = entityManager.createQuery("select a from Account a where a.login = :log and a.password = :pass", Account.class);
             query.setParameter("log", login);
             query.setParameter("pass", passw);
             account = query.getSingleResult();
-            entityManager.getTransaction().commit();
-
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
         }
         return account;
     }
+
     public static String getEmployeeType(Account account){
         EntityManager entityManager = GlobalManager.getManager();
         long idAccount = account.getId();
@@ -71,7 +71,6 @@ public class AccountModel {
         }catch(Exception e){
 
         }
-
 
         entityManager.getTransaction().commit();
         account.setLogin(login);

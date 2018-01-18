@@ -26,21 +26,4 @@ public class PhoneModel implements BaseModel<Phone>{
         phones.addAll(phones1);
         return phones;
     }
-
-    public boolean valid(String phoneNum, String type) {
-        boolean validateFlag = true;
-        if(type.equals("Domowy")){
-            if(!Validation.regexChecker(Pattern.phoneNumberHomePattern, phoneNum))
-                validateFlag = false;
-        } else if(type.equals("Komórkowy")){
-            if(!Validation.regexChecker(Pattern.phoneNumberPattern, phoneNum)){
-                validateFlag = false;
-            }
-        }else {
-            if(!Validation.regexChecker(Pattern.phoneNumberPattern, phoneNum) && !Validation.regexChecker(Pattern.phoneNumberHomePattern, phoneNum)){
-                validateFlag = false;
-            }
-        }
-        return validateFlag;
-    }
 }

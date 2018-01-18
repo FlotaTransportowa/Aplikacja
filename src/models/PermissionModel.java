@@ -45,8 +45,6 @@ public class PermissionModel implements BaseModel<Permission>{
         return perms;
     }
 
-
-
     public Permission getPermision(String perm)
     {
         EntityManager entityManager = GlobalManager.getManager();

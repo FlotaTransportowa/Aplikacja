@@ -30,38 +30,6 @@ public class EmployeeModel implements BaseModel<Employee>{
         return employees;
     }
 
-    public boolean valid(String name, String surname, String age, String email, String salary) {
-        boolean validateFlag = true;
-
-        if(!Validation.regexChecker(Pattern.stringPattern, name) || name.isEmpty()){
-            //ustaw TextField Imię na czerwono
-            System.out.println("Błąd z imieniem");
-            validateFlag = false;
-        }
-        if(!Validation.regexChecker(Pattern.stringPattern, surname)  || surname.isEmpty()){
-            //ustaw TextField Nazwisko na czerwono
-            System.out.println("Błąd z nazwiskiem");
-            validateFlag = false;
-        }
-        if(!Validation.isInteger(age) || age.isEmpty()){
-            //ustaw TextField Wiek na czerwono
-            System.out.println("Błąd z wiekiem");
-            validateFlag = false;
-        }
-        if(!Validation.regexChecker(Pattern.emailPattern, email)  || email.isEmpty()){
-            //ustaw TextField E-mail na czerwono
-            System.out.println("Błąd z emailem");
-            validateFlag = false;
-        }
-        if(!Validation.isDouble(salary) || salary.isEmpty()) {
-            //ustaw TextField Pensja na czerwono
-            System.out.println("Błąd z pensją");
-            validateFlag = false;
-        }
-        return validateFlag;
-    }
-
-
     public static void addPermission(Driver driver, Permission permission)
     {
         if(driver.getPermissions()==null){
@@ -73,10 +41,4 @@ public class EmployeeModel implements BaseModel<Employee>{
             driver.getPermissions().add(permission);
         }
     }
-
-    public static void getPermission()
-    {
-
-    }
-
 }
