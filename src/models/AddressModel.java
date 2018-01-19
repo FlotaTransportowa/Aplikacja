@@ -24,18 +24,20 @@ public class AddressModel implements BaseModel<Address>{
 
         try {
             entityManager.getTransaction().begin();
-            TypedQuery<Address> query = entityManager.createQuery("select a from Address a where postalCode = :code and locality = :local and street = :street and apartmentNumber = :houseNum", Address.class);
+            TypedQuery<Address> query = entityManager.createQuery("select a from Address a where postalCode = :code and locality = :local and street = :street and apartmentNumber = :houseNum ", Address.class);
             query.setParameter("code", address.getPostalCode());
             query.setParameter("local", address.getLocality());
             query.setParameter("street", address.getStreet());
             query.setParameter("houseNum", address.getApartmentNumber());
+            query.setMaxResults(1);
             existAddress = query.getSingleResult();
         } catch (Exception e){
             e.printStackTrace();
         } finally {
             entityManager.getTransaction().commit();
+            return existAddress;
         }
 
-        return existAddress;
+
     }
 }
