@@ -216,6 +216,7 @@ public class AddEmployeeController extends Controller{
         }
         addSalaryField.setText(String.valueOf(employee.getSalary()));
     }
+
     private void setAdress(Address address)
     {
         addPostalCodeField.setText(address.getPostalCode());
@@ -281,6 +282,8 @@ public class AddEmployeeController extends Controller{
 
         actionButton.setText("Zapisz");
         actionButton.setOnAction(e->{
+            if(!valid())
+                return;
             setEmployeer();
             employeer.setAddress(getAdress());
             List<Phone> phones1;
