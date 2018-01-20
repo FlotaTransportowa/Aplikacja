@@ -7,6 +7,8 @@ import java.util.List;
 public class Driver extends Employee {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Permission> permissions;
+    @OneToMany(mappedBy = "driverOfTrack")
+    private List<Track> tracks;
 
     public Driver(){
         super(" ", "", 0, "", "", "", 0.0);
@@ -22,5 +24,13 @@ public class Driver extends Employee {
 
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
+    }
+
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
     }
 }

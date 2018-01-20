@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import manager.GlobalManager;
 import models.EmployeeModel;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
@@ -47,8 +48,16 @@ public class ShowEmployeeController extends Controller {
             );
             Button deleteButton = new Button("Usuń");
             deleteButton.setOnAction(ev->{
+                        EntityManager entityManager = GlobalManager.getManager();
+                        entityManager.getTransaction().begin();
+                        try {
+                            entityManager.remove(e);
+                        }catch (Exception ex){
+                            ex.printStackTrace();
+                        } finally {
+                            entityManager.getTransaction().commit();
+                        }
                         System.out.println("Usunięto "+e.getId());
-                        GlobalManager.getManager().remove(e);
                         try {
                             initialize();
                         } catch (Exception e1) {

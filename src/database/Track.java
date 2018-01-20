@@ -10,12 +10,12 @@ public class Track {
     private long id;
     private boolean executed;
     private boolean assigned;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "driverID")
-    private Driver driver;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "machineID")
-    private Machine machine;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "driverID", referencedColumnName = "id")
+    private Driver driverOfTrack;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "machineID", referencedColumnName = "id")
+    private Machine machineOfTrack;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "trackID")
     private List<Order> orders;
@@ -45,19 +45,19 @@ public class Track {
     }
 
     public Driver getDriver() {
-        return driver;
+        return driverOfTrack;
     }
 
     public void setDriver(Driver driver) {
-        this.driver = driver;
+        this.driverOfTrack = driver;
     }
 
     public Machine getMachine() {
-        return machine;
+        return machineOfTrack;
     }
 
     public void setMachine(Machine machine) {
-        this.machine = machine;
+        this.machineOfTrack = machine;
     }
 
     public List<Order> getOrders() {

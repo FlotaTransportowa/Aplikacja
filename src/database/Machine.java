@@ -1,6 +1,7 @@
 package database;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Machine {
@@ -11,6 +12,8 @@ public class Machine {
     private String registrationNumber;
     private boolean busy;
     private boolean efficient;
+    @OneToMany(mappedBy = "machineOfTrack")
+    private List<Track> tracks;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "typeID", referencedColumnName = "id")
     private MachineType type;
@@ -61,5 +64,13 @@ public class Machine {
 
     public void setEfficient(boolean efficient) {
         this.efficient = efficient;
+    }
+
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
     }
 }
