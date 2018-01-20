@@ -31,9 +31,11 @@ public class AddPermisionController extends Controller{
 
     public void createCurrentPermissions() throws IOException {
         vBox.getChildren().clear();
-        for (Permission p:
-             permissions) {
+        if(permissions!=null) {
+            for (Permission p :
+                    permissions) {
                 vBox.getChildren().add(currentPermissionForm(p));
+            }
         }
     }
 

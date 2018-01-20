@@ -10,7 +10,7 @@ public class Permission {
     private long id;
     private String name;
     private String description;
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "permissions")
+    @ManyToMany(mappedBy = "permissions")
     private List<Driver> drivers;
 
     public Permission(){}
