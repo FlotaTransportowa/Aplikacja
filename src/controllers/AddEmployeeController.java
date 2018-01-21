@@ -141,40 +141,28 @@ public class AddEmployeeController extends Controller{
         Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
         ArrayList<Phone> phones = new ArrayList<>();
         if(!phoneHBox1.isDisable()) {
-                numberOfPhone1 = new Phone();
-                numberOfPhone1.setNumber(phone1.getText());
-                numberOfPhone1.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
-                phones.add(numberOfPhone1);
+            numberOfPhone1 = new Phone();
+            numberOfPhone1.setNumber(phone1.getText());
+            numberOfPhone1.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+            phones.add(numberOfPhone1);
         }
         if(!phoneHBox2.isDisable()) {
-                numberOfPhone2 = new Phone();
-                numberOfPhone2.setNumber(phone2.getText());
-                numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
-                phones.add(numberOfPhone2);
+            numberOfPhone2 = new Phone();
+            numberOfPhone2.setNumber(phone2.getText());
+            numberOfPhone2.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+            phones.add(numberOfPhone2);
         }
         if(!phoneHBox3.isDisable()) {
-                numberOfPhone3 = new Phone();
-                numberOfPhone3.setNumber(phone3.getText());
-                numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
-                phones.add(numberOfPhone3);
+            numberOfPhone3 = new Phone();
+            numberOfPhone3.setNumber(phone3.getText());
+            numberOfPhone3.setType(phoneTypeChoiseBox.getSelectionModel().getSelectedItem().toString());
+            phones.add(numberOfPhone3);
         }
         return phones;
     }
 
     private void newEmployeer(String type, String gender){
-        switch (type){
-            case "Dyspozytor":
-                employeer = new Dispatcher(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
-                break;
-            case "Kierownik":
-                employeer = new Principal(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
-                break;
-            case "Kierowca":
-                employeer = new Driver(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
-                break;
-            default:
-                employeer = null;
-        }
+        employeer = EmployeeModel.getEmployee(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
     }
 
     private void setEmployeer()

@@ -17,7 +17,12 @@ public interface BaseModel<T> {
         EntityManager entityManager = GlobalManager.getManager();
 
         entityManager.getTransaction().begin();
-        entityManager.persist(object);
-        entityManager.getTransaction().commit();
+        try {
+            entityManager.persist(object);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
     }
 }

@@ -22,11 +22,16 @@ public class EmployeeModel implements BaseModel<Employee>{
         EntityManager entityManager = GlobalManager.getManager();
 
         entityManager.getTransaction().begin();
-        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e", Employee.class);
-        List<Employee> employees1 = query.getResultList();
-        entityManager.getTransaction().commit();
+        try {
+            TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e", Employee.class);
+            List<Employee> employees1 = query.getResultList();
+            employees.addAll(employees1);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
 
-        employees.addAll(employees1);
         return employees;
     }
 
@@ -41,4 +46,18 @@ public class EmployeeModel implements BaseModel<Employee>{
             driver.getPermissions().add(permission);
         }
     }
+
+    public static Employee getEmployee(String name, String lastName, int age, String gender, String type, String email, double salary){
+        switch (type){
+            case "Dyspozytor":
+                return new Dispatcher(name, lastName, age, gender, type, email, salary);
+            case "Kierownik":
+                return new Principal(name, lastName, age, gender, type, email, salary);
+            case "Kierowca":
+                return new Driver(name, lastName, age, gender, type, email, salary);
+        }
+        return null;
+    }
+
+
 }

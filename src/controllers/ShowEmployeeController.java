@@ -80,7 +80,6 @@ public class ShowEmployeeController extends Controller {
             ButtonBar.setButtonData(permissionButton, ButtonBar.ButtonData.BIG_GAP);
             buttonBar.getButtons().addAll(editButton,deleteButton,permissionButton);
         }
-        //employeeEdit = getTableColumnByName(employeeTable,"col4");
     }
 
 

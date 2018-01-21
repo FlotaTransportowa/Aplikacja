@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Driver extends Employee {
+public class Driver extends Employee{
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Permission> permissions;
     @OneToMany(mappedBy = "driverOfTrack")
@@ -33,4 +33,5 @@ public class Driver extends Employee {
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
+
 }
