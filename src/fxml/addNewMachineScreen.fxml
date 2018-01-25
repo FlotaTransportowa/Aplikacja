@@ -56,7 +56,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" text="Dodaj" GridPane.columnIndex="1" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addMachine" text="Dodaj" GridPane.columnIndex="1" />
                   <Button mnemonicParsing="false" text="Anuluj" />
                </children>
             </GridPane>

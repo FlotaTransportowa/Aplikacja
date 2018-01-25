@@ -117,8 +117,12 @@ public class AddEmployeeController extends Controller{
         String gender = getGender();
         newEmployeer(type,gender);
 
-
-        employeer.setAddress(address);
+        Address addrTmp = AddressModel.retExist(address);
+        if(addrTmp != null){
+            employeer.setAddress(addrTmp);
+        } else{
+            employeer.setAddress(address);
+        }
         employeer.setPhones(phones);
 
         AccountModel accountModel = new AccountModel();
@@ -381,7 +385,7 @@ public class AddEmployeeController extends Controller{
             addLocalityField.setStyle(nonValidStyle);
             validateFlag = false;
         }else addLocalityField.setStyle(validStyle);
-        if(!Validation.regexChecker(Pattern.stringPattern, addStreetField.getText()) || addStreetField.getText().isEmpty()){
+        if(!Validation.regexChecker(Pattern.streetPattern, addStreetField.getText()) || addStreetField.getText().isEmpty()){
             addStreetField.setStyle(nonValidStyle);
             validateFlag = false;
         } else addStreetField.setStyle(validStyle);

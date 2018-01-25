@@ -16,14 +16,14 @@ public class Machine {
     private List<Track> tracks;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "typeID", referencedColumnName = "id")
-    private MachineType type;
+    private MachineType typeOfMachine;
 
     public MachineType getType() {
-        return type;
+        return typeOfMachine;
     }
 
     public void setType(MachineType type) {
-        this.type = type;
+        this.typeOfMachine = type;
     }
 
     public long getId() {

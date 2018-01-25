@@ -32,12 +32,11 @@ public class AddressModel implements BaseModel<Address>{
             query.setMaxResults(1);
             existAddress = query.getSingleResult();
         } catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Adres nie istnieje i został utworzony.");
         } finally {
             entityManager.getTransaction().commit();
             return existAddress;
         }
-
 
     }
 }

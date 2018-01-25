@@ -11,7 +11,7 @@ public class MachineType {
     private String mark;
     private String model;
     private String type;
-    @OneToMany(mappedBy = "type")
+    @OneToMany(mappedBy = "typeOfMachine")
     private List<Machine> machines;
 
     public long getId() {

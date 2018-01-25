@@ -1,7 +1,12 @@
 package controllers;
 
+import database.Machine;
+import database.MachineType;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import models.MachineModel;
+import validation.Pattern;
+import validation.Validation;
 
 public class AddMachineController extends Controller{
 
@@ -13,5 +18,56 @@ public class AddMachineController extends Controller{
 
     @FXML
     void initialize(){
+    }
+
+    @FXML
+    private void addMachine(){
+        if(!valid())
+            return;
+        MachineModel machineModel = new MachineModel();
+        MachineType existType = null, newType = new MachineType(), type = null;
+        newType.setModel(addModel.getText());
+        newType.setType(addType.getText());
+        newType.setMark(addMark.getText());
+
+        existType = machineModel.retExist(newType);
+
+        if(existType != null){
+            type = existType;
+        } else{
+            type = newType;
+        }
+
+
+        Machine machine = machineModel.getMachine(type, addRegistrationNum.getText(), addVIN.getText());
+        machineModel.pushToDatabase(machine);
+    }
+
+    @FXML
+    private boolean valid(){
+        boolean validateFlag = true;
+
+        if(!Validation.regexChecker(Pattern.stringPattern, addModel.getText()) || addModel.getText().isEmpty()){
+            addModel.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addModel.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, addMark.getText())  || addMark.getText().isEmpty()){
+            addMark.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addMark.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, addType.getText())  || addType.getText().isEmpty()){
+            addType.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addType.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.registrationNumberPattern, addRegistrationNum.getText())  || addRegistrationNum.getText().isEmpty()){
+            addRegistrationNum.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addRegistrationNum.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.VINPattern, addVIN.getText())  || addVIN.getText().isEmpty()){
+            addVIN.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else addVIN.setStyle(validStyle);
+
+        return validateFlag;
     }
 }

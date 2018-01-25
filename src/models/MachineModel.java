@@ -1,6 +1,8 @@
 package models;
 
+import database.Address;
 import database.Machine;
+import database.MachineType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import manager.GlobalManager;
@@ -25,5 +27,36 @@ public class MachineModel implements BaseModel<Machine>{
 
         machines.addAll(machines1);
         return machines;
+    }
+
+    public static Machine getMachine(MachineType type, String registrationNum, String VINNum){
+        Machine machine = new Machine();
+        machine.setType(type);
+        machine.setBusy(false);
+        machine.setEfficient(true);
+        machine.setRegistrationNumber(registrationNum);
+        machine.setVIN(VINNum);
+        return machine;
+    }
+
+    public MachineType retExist(MachineType type){
+        MachineType existType = null;
+        EntityManager entityManager = GlobalManager.getManager();
+
+        try {
+            entityManager.getTransaction().begin();
+            TypedQuery<MachineType> query = entityManager.createQuery("select a from MachineType a where mark = :mark and model = :model and type = :type", MachineType.class);
+            query.setParameter("mark", type.getMark());
+            query.setParameter("model", type.getModel());
+            query.setParameter("type", type.getType());
+            query.setMaxResults(1);
+            existType = query.getSingleResult();
+        } catch (Exception e){
+            System.out.println("Typ maszyny nie istnieje i został utworzony.");
+        } finally {
+            entityManager.getTransaction().commit();
+            return existType;
+        }
+
     }
 }
