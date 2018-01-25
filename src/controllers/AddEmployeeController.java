@@ -167,6 +167,7 @@ public class AddEmployeeController extends Controller{
 
     private void setEmployeer()
     {
+        System.out.println("Ustawienie: " + employeer.getClass().getSimpleName());
         employeer.setFirstName(addNameField.getText());
         employeer.setLastName(addSurnameField.getText());
         employeer.setAge(Integer.valueOf(addAgeField.getText()));
@@ -238,8 +239,10 @@ public class AddEmployeeController extends Controller{
         typeOfEmployeeChoiceBox.getSelectionModel().select(type);
     }
 
+    //ToDo rzutowanie downcast nie dziala, trzeba znaleźć inne rozwiązanie
     private void pushToDatabase()
     {
+        System.out.println(employeer.getClass().getSimpleName());
         EmployeeModel employeeModel = new EmployeeModel();
         switch (getType()){
             case "Kierowca":
@@ -252,7 +255,6 @@ public class AddEmployeeController extends Controller{
                 employeeModel.pushToDatabase((Dispatcher) employeer);
                 break;
         }
-
     }
 
     public void setToEmployee(Employee employee)

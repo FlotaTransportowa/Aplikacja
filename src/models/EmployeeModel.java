@@ -58,6 +58,4 @@ public class EmployeeModel implements BaseModel<Employee>{
         }
         return null;
     }
-
-
 }
