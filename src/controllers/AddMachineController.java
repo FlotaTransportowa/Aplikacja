@@ -30,14 +30,13 @@ public class AddMachineController extends Controller{
         newType.setType(addType.getText());
         newType.setMark(addMark.getText());
 
-        existType = machineModel.retExist(newType);
+        existType = machineModel.retExistType(newType);
 
         if(existType != null){
             type = existType;
         } else{
             type = newType;
         }
-
 
         Machine machine = machineModel.getMachine(type, addRegistrationNum.getText(), addVIN.getText());
         machineModel.pushToDatabase(machine);

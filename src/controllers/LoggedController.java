@@ -139,6 +139,15 @@ public class LoggedController extends Controller {
         }
     }
 
+    @FXML void addNewTrack() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTrackScreen.fxml"));
+            addNewTab((Node) loader.load(),"Stwórz trasę");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void editEmployee(Employee employee) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));

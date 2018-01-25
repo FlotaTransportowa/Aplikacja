@@ -19,12 +19,11 @@ import java.util.List;
 public class ShowEmployeeController extends Controller {
 
     private LoggedController loggedController;
-    private List<AddEmployeeController> addEmployeeControllers;
 
     @FXML private TableView<Employee> employeeTable;
-    private TableColumn employeeEdit;
     private static ObservableList<Employee> data;
     private EmployeeModel employeeModel = new EmployeeModel();
+
     @FXML void initialize() throws Exception {
         data=FXCollections.observableArrayList(employeeModel.getAll());
         employeeTable.setItems(data);

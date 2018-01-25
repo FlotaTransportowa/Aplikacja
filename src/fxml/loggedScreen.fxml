@@ -194,7 +194,7 @@
                                  <content>
                                     <FlowPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Dodaj nową trasę">
+                                          <Button mnemonicParsing="false" onAction="#addNewTrack" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Dodaj nową trasę">
                                              <FlowPane.margin>
                                                 <Insets />
                                              </FlowPane.margin>

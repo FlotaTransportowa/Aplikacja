@@ -39,7 +39,7 @@ public class MachineModel implements BaseModel<Machine>{
         return machine;
     }
 
-    public MachineType retExist(MachineType type){
+    public MachineType retExistType(MachineType type){
         MachineType existType = null;
         EntityManager entityManager = GlobalManager.getManager();
 

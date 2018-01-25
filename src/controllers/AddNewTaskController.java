@@ -109,7 +109,7 @@ public class AddNewTaskController extends Controller
         if(!valid())
             return;
 
-        Order order = setBasic(Date.from(instant), type);
+        Order order = setBasic((Date) Date.from(instant), type);
 
         Address address = setAddress();
 

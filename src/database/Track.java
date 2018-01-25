@@ -8,6 +8,7 @@ public class Track {
     @Id
     @GeneratedValue
     private long id;
+    private String name;
     private boolean executed;
     private boolean assigned;
     @ManyToOne(cascade = CascadeType.ALL)
@@ -19,6 +20,14 @@ public class Track {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "trackID")
     private List<Order> orders;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public long getId() {
         return id;
