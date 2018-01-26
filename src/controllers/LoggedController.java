@@ -2,6 +2,7 @@ package controllers;
 
 import database.Driver;
 import database.Employee;
+import database.Machine;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -24,6 +25,8 @@ public class LoggedController extends Controller {
 
     private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
     private List<ShowEmployeeController> showEmployeeControllerList = new ArrayList<>();
+    private List<AddMachineController> addMachineControllers = new ArrayList<>();
+    private List<ShowMachineController> showMachineControllerList = new ArrayList<>();
 
     @FXML private TabPane tabMenu;
     @FXML private ListView lastTasks;
@@ -134,6 +137,31 @@ public class LoggedController extends Controller {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
             addNewTab((Node) loader.load(),"Dodaj maszynę");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML void showMachine() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showMachineForm.fxml"));
+            addNewTab((Node) loader.load(),"Pojazdy floty");
+
+            ShowMachineController showMachineController = loader.getController();
+            showMachineControllerList.add(showMachineController);
+            showMachineController.setLoggedController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editMachine(Machine machine) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
+            addNewTab(loader,"Edytuj maszynę");
+
+            AddMachineController addMachineController = loader.getController();
+            addMachineControllers.add(addMachineController);
         } catch (IOException e) {
             e.printStackTrace();
         }

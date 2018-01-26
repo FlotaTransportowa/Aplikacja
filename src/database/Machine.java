@@ -1,5 +1,7 @@
 package database;
 
+import javafx.scene.control.ButtonBar;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class Machine {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "typeID", referencedColumnName = "id")
     private MachineType typeOfMachine;
+
+    @Transient
+    private ButtonBar buttonBar = new ButtonBar();
 
     public MachineType getType() {
         return typeOfMachine;
@@ -72,5 +77,9 @@ public class Machine {
 
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
+    }
+
+    public ButtonBar getButtonBar() {
+        return buttonBar;
     }
 }
