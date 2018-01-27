@@ -97,6 +97,28 @@ public class ViewNotConfirmedTasksController extends Controller{
     }
 
     @FXML
+    void removeSelectOrder(){
+        Order toRemoveOrder = null;
+        toRemoveOrder = notConfirmedTasksTable.getSelectionModel().getSelectedItem();
+        if(toRemoveOrder == null) {
+            statusBar.setText("Należy zaznaczyć zlecenie w tabeli...");
+            return;
+        }
+
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.remove(toRemoveOrder);
+            statusBar.setText("Usunięto zlecenie: " + toRemoveOrder.getTitle());
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        refreshView();
+    }
+
+    @FXML
     void confirmSelectedTask(){
         Order toConfirmOrder = null;
         toConfirmOrder = notConfirmedTasksTable.getSelectionModel().getSelectedItem();
