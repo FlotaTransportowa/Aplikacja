@@ -6,22 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AddNewTaskController.java" afterPath="$PROJECT_DIR$/src/controllers/AddNewTaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AddNewTrackController.java" afterPath="$PROJECT_DIR$/src/controllers/AddNewTrackController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoggedController.java" afterPath="$PROJECT_DIR$/src/controllers/LoggedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Order.java" afterPath="$PROJECT_DIR$/src/database/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Track.java" afterPath="$PROJECT_DIR$/src/database/Track.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/addNewTask.fxml" afterPath="$PROJECT_DIR$/src/fxml/addNewTask.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/addNewTrackScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/addNewTrackScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/loggedScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/loggedScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/showEmployeeForm.fxml" afterPath="$PROJECT_DIR$/src/fxml/showEmployeeForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/OrderModel.java" afterPath="$PROJECT_DIR$/src/models/OrderModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/validation/Validation.java" afterPath="$PROJECT_DIR$/src/validation/Validation.java" />
-    </list>
+    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
     <ignored path=".idea/artifacts/Odpalamy.xml" />
@@ -1033,7 +1018,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516901827908</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Hubert Januszek update">
+      <created>1517074872940</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1517074872941</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView">

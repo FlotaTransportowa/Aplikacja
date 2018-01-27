@@ -109,21 +109,6 @@ public class Main extends Application {
         Address address = new Address("Kielce", "23-093", "Sienkiewicza", "240");
         employee.setAddress(address);
 
-        Permission permission1 = new Permission();
-        Permission permission2 = new Permission();
-
-        permission1.setName("Uprawnienie 1");
-        permission1.setDescription("Uprawnienie do prowadzenia...");
-
-        permission2.setName("Uprawnienie 2");
-        permission2.setDescription("Uprawnienie do operowania...");
-        List<Permission> permissions = new ArrayList<>();
-        permissions.add(permission1);
-        permissions.add(permission2);
-
-        employee.setPermissions(permissions);
-
-
         entityManager.getTransaction().begin();
         entityManager.persist(employee);
         entityManager.getTransaction().commit();
@@ -189,6 +174,8 @@ public class Main extends Application {
         //ZADANIE NR 2 - WPROWADZIC DO BAZY RAPORT NADZORCZY
 
         Order order = new Order();
+        OrderState state = new OrderNotConfirmed();
+        order.setState(state);
         order.setType("budowa");
         order.setTimeLimitForCompletion(today);
         order.setComment("Default comment");
@@ -197,10 +184,11 @@ public class Main extends Application {
         order.setAddressOfOrder(address2);
 
         Order order2 = new Order();
+        order2.setState(state);
         order2.setType("remont");
         order2.setTimeLimitForCompletion(today);
         order2.setComment("Komentarz");
-        order.setTitle("Zlecenie transportu materiału budowlanego");
+        order2.setTitle("Zlecenie transportu materiału budowlanego");
         Address address3 = new Address("Poznań", "20-333", "abc", "11b");
         order2.setAddressOfOrder(address3);
 
@@ -211,11 +199,32 @@ public class Main extends Application {
         orders.add(order2);
         track.setOrders(orders);
         track.setMachine(machine);
-        track.setAssigned(false);
         track.setExecuted(false);
+
+        Order order3 = new Order();
+        order3.setState(state);
+        order3.setType("budowa");
+        order3.setTimeLimitForCompletion(today);
+        order3.setComment("Default comment");
+        order3.setTitle("Zlecenie budowy domu");
+        order3.setAddressOfOrder(address2);
+
+        Order order4 = new Order();
+        order4.setState(state);
+        order4.setType("remont");
+        order4.setTimeLimitForCompletion(today);
+        order4.setComment("Komentarz");
+        order4.setTitle("Zlecenie transportu materiału budowlanego");
+        order4.setAddressOfOrder(address3);
+
+        entityManager.getTransaction().begin();
+
+        entityManager.getTransaction().commit();
 
         entityManager.getTransaction().begin();
         entityManager.persist(track);
+        entityManager.persist(order3);
+        entityManager.persist(order4);
         entityManager.getTransaction().commit();
     }
 
@@ -238,20 +247,6 @@ public class Main extends Application {
         //tworzymy adres
         Address address = new Address("Staszów", "12-002", "-", "89a");
         employee.setAddress(address);
-
-        Permission permission1 = new Permission();
-        Permission permission2 = new Permission();
-
-        permission1.setName("Uprawnienie 1");
-        permission1.setDescription("Uprawnienie do prowadzenia...");
-
-        permission2.setName("Uprawnienie 2");
-        permission2.setDescription("Uprawnienie do operowania...");
-        List<Permission> permissions = new ArrayList<>();
-        permissions.add(permission1);
-        permissions.add(permission2);
-
-        employee.setPermissions(permissions);
 
         GlobalManager.getManager().getTransaction().begin();
         GlobalManager.getManager().persist(employee);
@@ -317,12 +312,30 @@ public class Main extends Application {
         entityManager.getTransaction().commit();
     }
 
+    public static void insertOrderStates(){
+        EntityManager entityManager = GlobalManager.getManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(new OrderNotConfirmed());
+        entityManager.persist(new OrderNotAssigned());
+        entityManager.persist(new OrderWaiting());
+        entityManager.persist(new OrderStillPerformed());
+        entityManager.persist(new OrderDone());
+        entityManager.persist(new OrderCanceled());
+        entityManager.persist(new OrderPaused());
+        entityManager.getTransaction().commit();
+    }
+
+    public static void allInserts() throws NoSuchAlgorithmException {
+        insertOrderStates();
+        createBasic();
+        useCreateMethod();
+        insertPermissions();
+    }
+
     public static void main(String[] args) throws NoSuchAlgorithmException {
-//        createBasic();
-//        useCreateMethod();
-//        insertPermissions();
+        EntityManager entityManager = GlobalManager.getManager();
+//        allInserts();
         launch(args); //Uruchomienie okienka aplikacji
-//        GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
-        //aaaaa
+        GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
     }
 }
