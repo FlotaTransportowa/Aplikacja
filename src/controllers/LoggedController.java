@@ -240,7 +240,7 @@ public class LoggedController extends Controller {
 
     @FXML void viewTasksList() throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTask.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
             addNewTab((Node) loader.load(), "Lista zleceń");
         } catch (IOException e) {
             e.printStackTrace();

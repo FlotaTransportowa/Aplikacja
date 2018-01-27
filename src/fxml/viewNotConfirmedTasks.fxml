@@ -48,8 +48,8 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="536.0" layoutY="379.0" mnemonicParsing="false" onAction="#confirmSelectedTask" prefHeight="25.0" prefWidth="455.0" text="Zatwierdź" />
-            <Button layoutX="14.0" layoutY="379.0" mnemonicParsing="false" onAction="#editSelectedTask" prefHeight="25.0" prefWidth="455.0" text="Edytuj" />
+            <Button layoutX="739.0" layoutY="379.0" mnemonicParsing="false" onAction="#confirmSelectedTask" prefHeight="25.0" prefWidth="252.0" text="Zatwierdź" />
+            <Button layoutX="14.0" layoutY="379.0" mnemonicParsing="false" onAction="#editSelectedTask" prefHeight="25.0" prefWidth="252.0" text="Edytuj" />
             <Pane fx:id="editPane" layoutX="15.0" layoutY="422.0" prefHeight="220.0" prefWidth="977.0" style="-fx-border-width: 1px; -fx-border-color: rgb(230,230,230); -fx-background-color: #fff;">
                <children>
                   <TextField fx:id="editTaskTitle" layoutX="17.0" layoutY="14.0" prefHeight="34.0" prefWidth="950.0" style="-fx-border-width: 0px; -fx-background-color: transparent;">
@@ -92,6 +92,7 @@
                   <Button layoutX="17.0" layoutY="187.0" mnemonicParsing="false" onAction="#cancelEdit" text="Anuluj" />
                </children>
             </Pane>
+            <Button layoutX="370.0" layoutY="379.0" mnemonicParsing="false" onAction="#removeSelectOrder" prefHeight="25.0" prefWidth="252.0" text="Usuń" />
          </children>
       </AnchorPane>
       <StatusBar fx:id="statusBar" layoutX="16.0" layoutY="649.0" prefWidth="970.0" text="" />
