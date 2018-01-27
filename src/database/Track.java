@@ -10,7 +10,6 @@ public class Track {
     private long id;
     private String name;
     private boolean executed;
-    private boolean assigned;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "driverID", referencedColumnName = "id")
     private Driver driverOfTrack;
@@ -43,14 +42,6 @@ public class Track {
 
     public void setExecuted(boolean executed) {
         this.executed = executed;
-    }
-
-    public boolean isAssigned() {
-        return assigned;
-    }
-
-    public void setAssigned(boolean assigned) {
-        this.assigned = assigned;
     }
 
     public Driver getDriver() {

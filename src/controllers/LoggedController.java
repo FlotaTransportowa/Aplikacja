@@ -133,6 +133,16 @@ public class LoggedController extends Controller {
         }
     }
 
+    @FXML
+    void viewNotConfirmedTasksList(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/viewNotConfirmedTasks.fxml"));
+            addNewTab((Node) loader.load(),"Niezatwierdzone zlecenia");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML void addNewMachine() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));

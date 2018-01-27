@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.StatusBar?>
 
 <AnchorPane prefHeight="587.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddNewTrackController">
    <children>
@@ -71,6 +72,7 @@
             <Button layoutX="628.0" layoutY="243.0" mnemonicParsing="false" onAction="#addOrderToTrack" prefHeight="25.0" prefWidth="149.0" text="Dodaj" />
             <TextField fx:id="trackName" layoutX="14.0" layoutY="302.0" prefHeight="25.0" prefWidth="769.0" promptText="Nazwa trasy" />
             <Button layoutX="628.0" layoutY="531.0" mnemonicParsing="false" onAction="#removeOrderFromTrack" prefHeight="25.0" prefWidth="149.0" text="Usuń" />
+            <StatusBar fx:id="statusBar" layoutX="6.0" layoutY="568.0" prefWidth="769.0" text="" />
          </children>
       </AnchorPane>
       <Button layoutX="630.0" layoutY="16.0" mnemonicParsing="false" onAction="#addTrack" prefHeight="25.0" prefWidth="149.0" text="Zatwierdź" />

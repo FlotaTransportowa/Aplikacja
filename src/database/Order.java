@@ -1,5 +1,6 @@
 package database;
 
+import models.OrderModel;
 import org.hibernate.annotations.JoinColumnOrFormula;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Orders") //Okazuje się że w MySQL nie może być tabeli o nazwie Order ze względu na słowo kluczowe ORDER
-public class Order {
+public class Order{
     @Id
     @GeneratedValue
     private long id;
@@ -20,13 +21,25 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressID", referencedColumnName = "id")
     private Address addressOfOrder;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "stateID")
+    private OrderState orderState;
+
+    public OrderState getState() {
+        return orderState;
+    }
+
+    public void setState(OrderState state) {
+        OrderState tmpState = null;
+        tmpState = OrderModel.retExistState(state);
+        if(tmpState == null)
+            this.orderState = state;
+        else
+            this.orderState = tmpState;
+    }
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getType() {
@@ -67,5 +80,15 @@ public class Order {
 
     public void setAddressOfOrder(Address addressOfOrder) {
         this.addressOfOrder = addressOfOrder;
+    }
+
+    public Order(){}
+
+    public Order(String title, String type, Date deadline, String comment, Address address){
+        this.title = title;
+        this.type = type;
+        this.timeLimitForCompletion = deadline;
+        this.comment = comment;
+        this.addressOfOrder = address;
     }
 }

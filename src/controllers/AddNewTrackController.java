@@ -4,30 +4,44 @@ package controllers;
 
 
 import database.Order;
+import database.Track;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import models.BaseModel;
 import models.OrderModel;
+import models.TrackModel;
 import org.controlsfx.control.PropertySheet;
+import org.controlsfx.control.StatusBar;
+import validation.Pattern;
+import validation.Validation;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddNewTrackController extends Controller{
 
+    @FXML private TextField searchField;
+    @FXML private TextField trackName;
+    @FXML private StatusBar statusBar;
     @FXML private TableView<Order> beforeAddTable;
     @FXML private TableView<Order> afterAddTable;
     private static ObservableList<Order> beforeData;
-    private static ObservableSet<Order> afterData = FXCollections.observableSet();
+    private static ObservableSet<Order> afterData;
     private OrderModel orderModel = new OrderModel();
 
     @FXML
     void initialize(){
-        beforeData= FXCollections.observableArrayList(orderModel.getAll());
-        beforeAddTable.setItems(beforeData);
+        refreshView();
     }
 
     @FXML
@@ -49,15 +63,93 @@ public class AddNewTrackController extends Controller{
 
     @FXML
     void addTrack(){
+        int counter = 0;
+        Track track = new Track();
+        List<Order> orders = new ArrayList<>();
 
+        if(!valid()) {
+            statusBar.setText("Wprowadź poprawną nazwę trasy...");
+            return;
+        }
+
+        for(Order t : afterData) {
+            orders.add(t);
+            counter++;
+        }
+
+        if(counter == 0) {
+            statusBar.setText("Należy dodać przynajmniej jedno zlecenie do trasy...");
+            return;
+        }
+
+        track.setName(trackName.getText());
+        track.setExecuted(false);
+        track.setOrders(orders);
+
+        TrackModel trackModel = new TrackModel();
+        trackModel.pushToDatabase(track);
+
+        statusBar.setText("Pomyślnie utworzono trasę " + trackName.getText() + "!");
+
+        refreshView();
     }
 
+    private void refreshView(){
+        trackName.clear();
 
+        for ( int i = 0; i<afterAddTable.getItems().size(); i++) {
+            afterAddTable.getItems().clear();
+        }
 
-    private <T> TableColumn<T, ?> getTableColumnByName(TableView<T> tableView, String name) {
-        for (TableColumn<T, ?> col : tableView.getColumns())
-            if (col.getText().equals(name)) return col ;
-        return null ;
+        afterData = FXCollections.observableSet();
+
+        beforeData= FXCollections.observableArrayList(orderModel.getAllAlone());
+        beforeAddTable.setItems(beforeData);
+
+        setSearchField();
+    }
+
+    private boolean valid(){
+        boolean validateFlag = true;
+        if(!Validation.regexChecker(Pattern.stringPattern, trackName.getText()) || trackName.getText().isEmpty()){
+            trackName.setStyle(nonValidStyle);
+            validateFlag = false;
+        }else trackName.setStyle(validStyle);
+
+        return  validateFlag;
+    }
+
+    @FXML
+    void setSearchField(){
+        FilteredList<Order> filteredOrders = new FilteredList<Order>(beforeData, p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredOrders.setPredicate(order -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if(Validation.isInteger(newValue) ){
+                    if(order.getId() == Integer.parseInt(newValue.toLowerCase()))
+                        return true;
+                } else {
+                    if (order.getTitle().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (order.getType().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        });
+
+        SortedList<Order> sortedData = new SortedList<>(filteredOrders);
+
+        sortedData.comparatorProperty().bind(beforeAddTable.comparatorProperty());
+
+        beforeAddTable.setItems(sortedData);
     }
 
 }

@@ -23,14 +23,15 @@
             <Pane prefHeight="56.0" prefWidth="980.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">
                <children>
                   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeTab" onMouseClicked="#removeTab" prefHeight="29.0" prefWidth="67.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
-                  <Button layoutX="846.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="29.0" prefWidth="120.0" stylesheets="@../resources/general.css" text="Zapisz zlecenie" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                  <Button layoutX="846.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="29.0" prefWidth="120.0" stylesheets="@../resources/general.css" text="Zapisz i zatwierdź" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                      <font>
                         <Font name="Roboto" size="12.0" />
                      </font>
                   </Button>
+                  <Button layoutX="451.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#addIncompleteTask" stylesheets="@../resources/general.css" text="Zapisz zlecenie" />
                </children>
             </Pane>
-            <TextField fx:id="newTaskTitle" layoutX="14.0" layoutY="63.0" prefHeight="34.0" prefWidth="950.0" promptText="Wpisz nazwe dla konkretnego zlecenia" style="-fx-border-width: 0px; -fx-background-color: transparent;">
+            <TextField fx:id="newTaskTitle" layoutX="14.0" layoutY="63.0" prefHeight="34.0" prefWidth="950.0" promptText="Wpisz nazwę zlecenia" style="-fx-border-width: 0px; -fx-background-color: transparent;">
                <font>
                   <Font size="13.0" />
                </font>
@@ -70,7 +71,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Text>
-            <TextArea fx:id="newTaskComment" layoutX="105.0" layoutY="291.0" prefHeight="132.0" prefWidth="861.0" promptText="Dopisz komentarz..." style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px;">
+            <TextArea fx:id="newTaskComment" layoutX="105.0" layoutY="291.0" prefHeight="132.0" prefWidth="861.0" promptText="Dodaj komentarz" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px;">
                <font>
                   <Font size="13.0" />
                </font>

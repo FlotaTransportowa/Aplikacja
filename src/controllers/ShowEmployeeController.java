@@ -3,23 +3,23 @@ package controllers;
 import database.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import manager.GlobalManager;
 import models.EmployeeModel;
+import validation.Validation;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
-import java.util.List;
 
 
 public class ShowEmployeeController extends Controller {
 
     private LoggedController loggedController;
 
+    @FXML private TextField searchField;
     @FXML private TableView<Employee> employeeTable;
     private static ObservableList<Employee> data;
     private EmployeeModel employeeModel = new EmployeeModel();
@@ -27,6 +27,38 @@ public class ShowEmployeeController extends Controller {
     @FXML void initialize() throws Exception {
         data=FXCollections.observableArrayList(employeeModel.getAll());
         employeeTable.setItems(data);
+
+        FilteredList<Employee> filteredOrders = new FilteredList<Employee>(data, p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredOrders.setPredicate(employeer -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if(Validation.isInteger(newValue) ){
+                    if(employeer.getId() == Integer.parseInt(newValue.toLowerCase()))
+                        return true;
+                } else {
+                    if (employeer.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (employeer.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (employeer.getType().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        });
+
+        SortedList<Employee> sortedData = new SortedList<>(filteredOrders);
+
+        sortedData.comparatorProperty().bind(employeeTable.comparatorProperty());
+
+        employeeTable.setItems(sortedData);
 
         for (Employee e:data
              ) {

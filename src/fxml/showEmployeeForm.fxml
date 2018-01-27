@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,9 +10,9 @@
 
 <AnchorPane prefHeight="441.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEmployeeController">
    <children>
-      <VBox prefHeight="441.0" prefWidth="1006.0">
+      <VBox layoutY="38.0" prefHeight="403.0" prefWidth="1006.0">
          <children>
-            <TableView fx:id="employeeTable" prefHeight="426.0" prefWidth="1006.0">
+            <TableView fx:id="employeeTable" prefHeight="419.0" prefWidth="1006.0">
               <columns>
                 <TableColumn id="col1" editable="true" maxWidth="500.0" prefWidth="233.0" text="Imię">
                   <cellValueFactory>
@@ -46,5 +47,6 @@
             </TableView>
          </children>
       </VBox>
+      <TextField fx:id="searchField" layoutX="-1.0" layoutY="9.0" prefHeight="25.0" prefWidth="1006.0" promptText="Wyszukaj" />
    </children>
 </AnchorPane>

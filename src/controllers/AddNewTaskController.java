@@ -2,6 +2,8 @@ package controllers;
 
 import database.Address;
 import database.Order;
+import database.OrderNotAssigned;
+import database.OrderNotConfirmed;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,7 +21,6 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class AddNewTaskController extends Controller
@@ -33,9 +34,7 @@ public class AddNewTaskController extends Controller
     @FXML private DatePicker newTaskDate;
     @FXML private TextField newTaskTitle;
     @FXML private ChoiceBox newTaskType;
-    @FXML private ChoiceBox newTaskLocation;
     @FXML private TextArea newTaskComment;
-    @FXML private Text newTaskStatus;
     @FXML private TextField postalCode, locality, street, houseNumber;
 
     @FXML void initialize() throws Exception
@@ -105,11 +104,12 @@ public class AddNewTaskController extends Controller
         String type = newTaskType.getSelectionModel().getSelectedItem().toString();
         LocalDate date = newTaskDate.getValue();
         Instant instant = Instant.from(date.atStartOfDay(ZoneId.systemDefault()));
+        Date myDate = Date.from(instant);
 
-        if(!valid())
+        if(!validComplete())
             return;
 
-        Order order = setBasic((Date) Date.from(instant), type);
+        Order order = setBasic(myDate, type, true);
 
         Address address = setAddress();
 
@@ -125,6 +125,37 @@ public class AddNewTaskController extends Controller
         EntityManager entityManager = GlobalManager.getManager();
         entityManager.getTransaction().begin();
         entityManager.persist(order);
+        entityManager.refresh(order);
+        entityManager.getTransaction().commit();
+    }
+
+    @FXML void addIncompleteTask() throws IOException
+    {
+        String type = newTaskType.getSelectionModel().getSelectedItem().toString();
+        LocalDate date = newTaskDate.getValue();
+        Instant instant = Instant.from(date.atStartOfDay(ZoneId.systemDefault()));
+        Date myDate = Date.from(instant);
+
+        if(!validIncomplete())
+            return;
+
+        Order order = setBasic(myDate, type, false);
+
+        Address address = setAddress();
+
+        if(address == null)
+            return;
+        Address addrTmp = AddressModel.retExist(address);
+        if(addrTmp != null){
+            order.setAddressOfOrder(addrTmp);
+        } else{
+            order.setAddressOfOrder(address);
+        }
+
+        EntityManager entityManager = GlobalManager.getManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(order);
+        entityManager.refresh(order);
         entityManager.getTransaction().commit();
     }
 
@@ -139,12 +170,16 @@ public class AddNewTaskController extends Controller
     }
 
     @FXML
-    private Order setBasic(Date deadline, String type){
+    private Order setBasic(Date deadline, String type, boolean isComplete){
         Order order = new Order();
 
         order.setTitle(newTaskTitle.getText());
         order.setComment(newTaskComment.getText());
         order.setTimeLimitForCompletion(deadline);
+        if(!isComplete)
+            order.setState(new OrderNotConfirmed());
+        else
+            order.setState(new OrderNotAssigned());
         if(type.equals(buildPattern))
             order.setType("budowa");
         else if(type.equals(renovationPattern))
@@ -158,7 +193,7 @@ public class AddNewTaskController extends Controller
     }
 
     @FXML
-    private boolean valid(){
+    private boolean validComplete(){
         boolean validateFlag = true;
         if(!Validation.regexChecker(Pattern.postalCodePattern, postalCode.getText()) || postalCode.getText().isEmpty()){
             postalCode.setStyle(nonValidStyle);
@@ -184,6 +219,33 @@ public class AddNewTaskController extends Controller
             newTaskComment.setStyle(nonValidStyle);
             validateFlag = false;
         }else newTaskComment.setStyle(validStyle);
+
+        return validateFlag;
+    }
+
+    @FXML
+    private boolean validIncomplete(){
+        boolean validateFlag = true;
+        if(!Validation.regexChecker(Pattern.postalCodePattern, postalCode.getText()) || postalCode.getText().isEmpty()){
+            postalCode.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else postalCode.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, locality.getText()) || locality.getText().isEmpty()){
+            locality.setStyle(nonValidStyle);
+            validateFlag = false;
+        }else locality.setStyle(validStyle);
+        if(!Validation.regexChecker(Pattern.stringPattern, street.getText()) || street.getText().isEmpty()){
+            street.setStyle(nonValidStyle);
+            validateFlag = false;
+        } else street.setStyle(validStyle);
+        if(houseNumber.getText().isEmpty()){
+            houseNumber.setStyle(nonValidStyle);
+            validateFlag = false;
+        }else houseNumber.setStyle(validStyle);
+        if(newTaskTitle.getText().isEmpty()){
+            newTaskTitle.setStyle("-fx-background-color:#f9a7a7;");
+            validateFlag = false;
+        }else newTaskTitle.setStyle("-fx-background-color:#fff;");
 
         return validateFlag;
     }
