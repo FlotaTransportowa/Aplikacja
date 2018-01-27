@@ -159,8 +159,11 @@ public class LoggedController extends Controller {
 
             ShowMachineController showMachineController = loader.getController();
             showMachineControllerList.add(showMachineController);
+            showMachineController.start();
             showMachineController.setLoggedController(this);
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
