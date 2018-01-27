@@ -6,12 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="Hubert Januszek update">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoggedController.java" afterPath="$PROJECT_DIR$/src/controllers/LoggedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowMachineController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowMachineController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/showMachineForm.fxml" afterPath="$PROJECT_DIR$/src/fxml/showMachineForm.fxml" />
-    </list>
+    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="Hubert Januszek update" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
     <ignored path=".idea/artifacts/Odpalamy.xml" />
@@ -33,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LoggedController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoggedController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/LoggedController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="200" column="0" lean-forward="true" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+            <state relative-caret-position="145">
+              <caret line="187" column="32" lean-forward="true" selection-start-line="187" selection-start-column="32" selection-end-line="187" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowMachineController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShowMachineController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/ShowMachineController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+            <state relative-caret-position="369">
+              <caret line="74" column="66" lean-forward="true" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -155,8 +150,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="336" />
-    <option name="y" value="5" />
+    <option name="x" value="16" />
+    <option name="y" value="20" />
     <option name="width" value="1089" />
     <option name="height" value="1056" />
   </component>
@@ -927,7 +922,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="336" y="5" width="1089" height="1056" extended-state="0" />
+    <frame x="16" y="20" width="1089" height="1056" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266129" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
@@ -939,7 +934,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2826087" sideWeight="0.46875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1845175" sideWeight="0.48958334" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29130435" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29130435" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24295433" sideWeight="0.49473685" order="0" side_tool="false" content_ui="combo" />
@@ -1512,21 +1507,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/ShowMachineController.java">
+    <entry file="file://$PROJECT_DIR$/src/controllers/LoggedController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="145">
+          <caret line="187" column="32" lean-forward="true" selection-start-line="187" selection-start-column="32" selection-end-line="187" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/LoggedController.java">
+    <entry file="file://$PROJECT_DIR$/src/controllers/ShowMachineController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="200" column="0" lean-forward="true" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="369">
+          <caret line="74" column="66" lean-forward="true" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
