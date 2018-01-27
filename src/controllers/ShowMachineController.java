@@ -30,7 +30,7 @@ public class ShowMachineController extends Controller{
         StackPane root = new StackPane();
 
         table = new TableView<>();
-        //table.setPrefWidth(500);
+        table.setPrefWidth(500);
 
         TableRowExpanderColumn<Machine> expander = new TableRowExpanderColumn<>(this::createEditor);
 
