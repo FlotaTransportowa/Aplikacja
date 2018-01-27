@@ -1,6 +1,7 @@
 package models;
 
 import database.Order;
+import database.OrderNotAssigned;
 import database.OrderNotConfirmed;
 import database.OrderState;
 import javafx.collections.FXCollections;
@@ -35,11 +36,13 @@ public class OrderModel implements BaseModel<Order>{
 
     public ObservableList<Order> getAllAlone() {
         ObservableList<Order> orders = FXCollections.observableArrayList();
+        OrderState state = OrderModel.retExistState(new OrderNotAssigned());
         EntityManager entityManager = GlobalManager.getManager();
 
         try{
             entityManager.getTransaction().begin();
-            TypedQuery<Order> query = entityManager.createQuery("select o from Order o where trackID = null", Order.class);
+            TypedQuery<Order> query = entityManager.createQuery("select o from Order o where trackID = null and stateID = :stateIdentifier", Order.class);
+            query.setParameter("stateIdentifier", state.getId());
             List<Order> orders1 = query.getResultList();
             orders.addAll(orders1);
         } catch (Exception e){

@@ -20,12 +20,17 @@ public class MachineModel implements BaseModel<Machine>{
         ObservableList<Machine> machines = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();
 
-        entityManager.getTransaction().begin();
-        TypedQuery<Machine> query = entityManager.createQuery("select e from Machine e", Machine.class);
-        List<Machine> machines1 = query.getResultList();
-        entityManager.getTransaction().commit();
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<Machine> query = entityManager.createQuery("select e from Machine e", Machine.class);
+            List<Machine> machines1 = query.getResultList();
+            machines.addAll(machines1);
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            entityManager.getTransaction().commit();
+        }
 
-        machines.addAll(machines1);
         return machines;
     }
 

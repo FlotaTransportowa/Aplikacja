@@ -111,7 +111,7 @@ public class AddNewTrackController extends Controller{
 
     private boolean valid(){
         boolean validateFlag = true;
-        if(!Validation.regexChecker(Pattern.stringPattern, trackName.getText()) || trackName.getText().isEmpty()){
+        if(!Validation.regexChecker(Pattern.streetPattern, trackName.getText()) || trackName.getText().isEmpty()){
             trackName.setStyle(nonValidStyle);
             validateFlag = false;
         }else trackName.setStyle(validStyle);
