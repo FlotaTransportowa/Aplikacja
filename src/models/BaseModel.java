@@ -24,5 +24,6 @@ public interface BaseModel<T> {
         } finally {
             entityManager.getTransaction().commit();
         }
+        entityManager.refresh(object);
     }
 }

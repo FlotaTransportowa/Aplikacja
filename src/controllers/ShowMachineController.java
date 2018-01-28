@@ -1,80 +1,67 @@
 package controllers;
 
-import database.Machine;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import models.MachineModel;
-import org.controlsfx.control.table.TableRowExpanderColumn;
+import javafx.scene.control.*;
+import fxModels.MachineFX;
+import validation.Validation;
 
 
 public class ShowMachineController extends Controller{
-    private LoggedController loggedController;
+    @FXML
+    private TableView<MachineFX> machineShowTable;
+    @FXML
+    private ObservableList<MachineFX> data = FXCollections.observableArrayList();
+    @FXML
+    private TextField searchField;
 
-    @FXML private TableView<Machine> table;
-    private static ObservableList<Machine> data;
-    private MachineModel machineModel = new MachineModel();
 
     @FXML
     public void initialize() {
-        StackPane root = new StackPane();
-
-        table = new TableView<>();
-
-        TableRowExpanderColumn<Machine> expander = new TableRowExpanderColumn<>(this::createEditor);
-
-        TableColumn<Machine, String> vin = new TableColumn<>("VIN");
-        vin.setCellValueFactory(new PropertyValueFactory<>("VIN"));
-
-        TableColumn<Machine, String> nrRej = new TableColumn<>("Numer rejestracyjny");
-        nrRej.setCellValueFactory(new PropertyValueFactory<>("registrationNumber"));
-
-        table.getColumns().addAll(expander, vin, nrRej);
-        table.setItems(FXCollections.observableArrayList(machineModel.getAll()));
-
-        root.getChildren().add(table);
+        data=FXCollections.observableArrayList(MachineFX.getMachines());
+        machineShowTable.setItems(data);
+        setSearchField();
     }
 
     @FXML
-    private GridPane createEditor(TableRowExpanderColumn.TableRowDataFeatures<Machine> param){
-        GridPane editor = new GridPane();
-        editor.setPadding(new Insets(10));
-        editor.setHgap(10);
-        editor.setVgap(5);
+    void setSearchField(){
+        FilteredList<MachineFX> filteredOrders = new FilteredList<MachineFX>(data, p -> true);
 
-        Machine machine = param.getValue();
-        TextField vinText = new TextField(machine.getVIN());
-        TextField nrRejText = new TextField(machine.getRegistrationNumber());
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredOrders.setPredicate(machineFX -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
 
-        Button save = new Button("Zapisz");
-        save.setOnAction(e -> {
-            machine.setVIN(vinText.getText());
-            machine.setRegistrationNumber(nrRejText.getText());
-            param.toggleExpanded();
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if(Validation.isInteger(newValue) ){
+                    if(machineFX.getMachineID() == Integer.parseInt(newValue.toLowerCase()))
+                        return true;
+                } else {
+                    if (machineFX.getMark().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (machineFX.getModel().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (machineFX.getType().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (machineFX.getRegistrationNumber().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (machineFX.getVIN().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
         });
 
-        Button cancel = new Button("Anuluj");
-        cancel.setOnAction(e1 -> param.toggleExpanded());
+        SortedList<MachineFX> sortedData = new SortedList<>(filteredOrders);
 
-        editor.addRow(2, save, cancel);
+        sortedData.comparatorProperty().bind(machineShowTable.comparatorProperty());
 
-        return editor;
+        machineShowTable.setItems(sortedData);
     }
-
-    @FXML
-    public void setLoggedController(LoggedController loggedController){
-        this.loggedController = loggedController;
-    }
-
 }
