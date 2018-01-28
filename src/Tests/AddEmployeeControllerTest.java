@@ -21,7 +21,7 @@ class AddEmployeeControllerTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
     }
 
 
@@ -31,6 +31,7 @@ class AddEmployeeControllerTest {
 
     @Before
     public void setUp() throws Exception {
+//        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
     }
 
     @After
@@ -41,7 +42,7 @@ class AddEmployeeControllerTest {
     @Test
     void setToEmployee() {
 //        Employee driver = new Driver("Jan","Kowalski",43,"Mężczyzna","Kierowca", "JanKowalski@ms.com", 2200);
-
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
         System.out.println(entityManagerFactory);
         System.out.println(entityManager);
         assertEquals(2,1+1);

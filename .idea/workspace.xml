@@ -6,11 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="Hubert Januszek update">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Tests/AddEmployeeControllerTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Tests/META-INF/persistence.xml" />
+    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Aplikacja.iml" afterPath="$PROJECT_DIR$/Aplikacja.iml" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/AddEmployeeControllerTest.java" afterPath="$PROJECT_DIR$/src/Tests/AddEmployeeControllerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
@@ -40,9 +38,11 @@
       <file leaf-file-name="AddEmployeeControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Tests/AddEmployeeControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="194">
+              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -649,13 +649,6 @@
       <option name="presentableId" value="Default" />
       <updated>1513679844632</updated>
     </task>
-    <task id="LOCAL-00003" summary="update">
-      <created>1514535842082</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1514535842082</updated>
-    </task>
     <task id="LOCAL-00004" summary="update">
       <created>1514535968195</created>
       <option name="number" value="00004" />
@@ -992,16 +985,17 @@
       <option name="project" value="LOCAL" />
       <updated>1517098403876</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="DD - JUnit">
+      <created>1517137831306</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1517137831306</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnity - 2018.01.28 at 11h 54m 06s.xml">
-      <configuration name="JUnity" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JUnity - 2018.01.28 at 11h 55m 28s.xml">
-      <configuration name="JUnity" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JUnity - 2018.01.28 at 11h 56m 13s.xml">
       <configuration name="JUnity" configurationId="JUnit" />
     </history-entry>
@@ -1024,6 +1018,12 @@
       <configuration name="JUnity" configurationId="JUnit" />
     </history-entry>
     <history-entry file="JUnity - 2018.01.28 at 12h 08m 59s.xml">
+      <configuration name="JUnity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnity - 2018.01.28 at 12h 12m 21s.xml">
+      <configuration name="JUnity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JUnity - 2018.01.28 at 12h 12m 53s.xml">
       <configuration name="JUnity" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1049,7 +1049,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.275" sideWeight="0.5314499" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34021738" sideWeight="0.4914712" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.46855012" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.46855012" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2947761" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29220778" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1118,7 +1118,8 @@
     <MESSAGE value="DD - Permisions" />
     <MESSAGE value="DD - Synchro" />
     <MESSAGE value="Hubert Januszek update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hubert Januszek update" />
+    <MESSAGE value="DD - JUnit" />
+    <option name="LAST_COMMIT_MESSAGE" value="DD - JUnit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1591,9 +1592,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/AddEmployeeControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="194">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
