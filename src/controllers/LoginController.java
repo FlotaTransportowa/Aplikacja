@@ -61,6 +61,7 @@ public class LoginController extends Controller {
         mainController.setLoggedController(loggedController);
         mainController.setAccountLogin(Login);
         loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeTypePL(account));
+        loggedController.initPermissions();
     }
     @FXML private void checkKey() {}
     public void initialize()
