@@ -84,6 +84,7 @@ public class LoginController extends Controller {
             }
         });
     }
+
     @FXML void clearForm()
     {
         login.setText("");

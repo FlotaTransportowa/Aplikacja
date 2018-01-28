@@ -159,11 +159,8 @@ public class LoggedController extends Controller {
 
             ShowMachineController showMachineController = loader.getController();
             showMachineControllerList.add(showMachineController);
-            showMachineController.start();
             showMachineController.setLoggedController(this);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -241,6 +238,26 @@ public class LoggedController extends Controller {
     @FXML void viewTasksList() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista zleceń");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void assignTrack(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista zleceń");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showAllTracks(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
             addNewTab((Node) loader.load(), "Lista zleceń");
         } catch (IOException e) {
             e.printStackTrace();

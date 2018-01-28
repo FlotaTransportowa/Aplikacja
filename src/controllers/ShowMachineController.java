@@ -26,26 +26,27 @@ public class ShowMachineController extends Controller{
     private static ObservableList<Machine> data;
     private MachineModel machineModel = new MachineModel();
 
-    public void start() throws Exception{
+    @FXML
+    public void initialize() {
         StackPane root = new StackPane();
 
         table = new TableView<>();
-        table.setPrefWidth(500);
 
         TableRowExpanderColumn<Machine> expander = new TableRowExpanderColumn<>(this::createEditor);
 
         TableColumn<Machine, String> vin = new TableColumn<>("VIN");
         vin.setCellValueFactory(new PropertyValueFactory<>("VIN"));
 
-        TableColumn<Machine, String> nrRej = new TableColumn<>("Numer rejestracyjnyyyyy");
+        TableColumn<Machine, String> nrRej = new TableColumn<>("Numer rejestracyjny");
         nrRej.setCellValueFactory(new PropertyValueFactory<>("registrationNumber"));
 
         table.getColumns().addAll(expander, vin, nrRej);
-        table.setItems(initialize());
+        table.setItems(FXCollections.observableArrayList(machineModel.getAll()));
 
         root.getChildren().add(table);
     }
 
+    @FXML
     private GridPane createEditor(TableRowExpanderColumn.TableRowDataFeatures<Machine> param){
         GridPane editor = new GridPane();
         editor.setPadding(new Insets(10));
@@ -72,10 +73,6 @@ public class ShowMachineController extends Controller{
     }
 
     @FXML
-    public ObservableList<Machine> initialize() throws Exception {
-        return FXCollections.observableArrayList(machineModel.getAll());
-    }
-
     public void setLoggedController(LoggedController loggedController){
         this.loggedController = loggedController;
     }

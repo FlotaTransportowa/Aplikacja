@@ -6,6 +6,6 @@ import javax.persistence.Entity;
 public class OrderNotConfirmed extends OrderState{
     @Override
     public void edit(Order order) {
-        System.out.println("Wolno jemu edytować " + order.getType());
+        System.out.println("Wolno edytować " + order.getType());
     }
 }
