@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="396.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPermisionController">
+<AnchorPane prefHeight="478.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPermisionController">
    <children>
-      <Label fx:id="label" layoutX="50.0" layoutY="14.0" prefHeight="54.0" prefWidth="180.0" text="Dodano użytkownika" textFill="#1ca748">
+      <Label fx:id="label" layoutX="41.0" prefHeight="56.0" prefWidth="214.0" text="Uprawnienia pracownika" textFill="#1ca748">
          <font>
             <Font name="Garamond" size="20.0" />
          </font>
       </Label>
-      <VBox fx:id="vBox" layoutX="50.0" layoutY="68.0" prefHeight="203.0" prefWidth="276.0">
-         <children>
-            <ScrollBar orientation="VERTICAL" prefHeight="203.0" prefWidth="2.0" />
-         </children></VBox>
-      <HBox fx:id="addNewHBox" layoutX="50.0" layoutY="271.0" prefHeight="100.0" prefWidth="200.0" />
+      <ScrollPane layoutY="82.0" prefHeight="249.0" prefWidth="527.0">
+         <content>
+            <VBox fx:id="vBox" prefHeight="246.0" prefWidth="512.0" />
+         </content>
+      </ScrollPane>
+      <HBox fx:id="addNewHBox" layoutY="331.0" prefHeight="100.0" prefWidth="301.0" />
+      <TextField fx:id="textField" editable="false" layoutX="41.0" layoutY="44.0" prefHeight="23.0" prefWidth="193.0" />
    </children>
 </AnchorPane>

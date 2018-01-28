@@ -271,6 +271,63 @@ public class LoggedController extends Controller {
         double value = sizeOfTrasyTable.getValue();
         sizeOfTrasyTableTextField.setText(Double.toString(value));
     }
+    private void initDriver() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeForms/driverAccordionForm.fxml"));
+            accord.getPanes().clear();
+            accord.getPanes().addAll(((Accordion) loader.load()).getPanes());
+            PermissionAccordionController permissionAccordionController = loader.getController();
+            if(permissionAccordionController !=null) {
+                permissionAccordionController.setLoggedController(this);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void initDispatcher()
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeForms/dispatcherAccordionForm.fxml"));
+            accord.getPanes().clear();
+            accord.getPanes().addAll(((Accordion) loader.load()).getPanes());
+            PermissionAccordionController permissionAccordionController = loader.getController();
+            if(permissionAccordionController !=null) {
+                permissionAccordionController.setLoggedController(this);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void initPrincipal()
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeForms/principalAccordionForm.fxml"));
+            accord.getPanes().clear();
+            accord.getPanes().addAll(((Accordion) loader.load()).getPanes());
+            PermissionAccordionController permissionAccordionController = loader.getController();
+            if(permissionAccordionController !=null) {
+                permissionAccordionController.setLoggedController(this);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void initPermissions() throws IOException {
+        switch (typKonta.getText()){
+            case "Kierownik":
+                initPrincipal();
+                break;
+            case "Dyspozytor":
+                initDispatcher();
+                break;
+            case "Kierowca":
+                initDriver();
+                break;
+        }
+    }
+
+
 
     public AnchorPane getWelcomePanel() {
         return welcomePanel;
