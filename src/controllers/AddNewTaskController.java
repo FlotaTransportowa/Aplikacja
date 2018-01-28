@@ -67,6 +67,7 @@ public class AddNewTaskController extends Controller
             }
         };
 
+
         newTaskDate.setConverter(converter);
         newTaskDate.setPromptText(pattern.toLowerCase());
         newTaskDate.requestFocus();
@@ -93,11 +94,11 @@ public class AddNewTaskController extends Controller
         newTaskDate.setDayCellFactory(dayCellFactory);
         newTaskDate.setValue(LocalDate.now());
     }
-
-    @FXML private void removeTab()
+    @FXML  private void removeTab()
     {
         loggedController.removeTab(super.getThisTab());
     }
+
 
     @FXML void addTask() throws IOException
     {

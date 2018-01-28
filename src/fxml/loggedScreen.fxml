@@ -103,7 +103,7 @@
             </TabPane>
             <Pane prefHeight="598.0" prefWidth="200.0">
                <children>
-                  <GridPane prefHeight="779.0" prefWidth="261.0">
+                  <GridPane fx:id="gridPane" prefHeight="779.0" prefWidth="261.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -140,14 +140,14 @@
                            </children></Pane>
                         <Accordion fx:id="accord" prefHeight="650.0" prefWidth="256.0" GridPane.rowIndex="1">
                           <panes>
-                            <TitledPane fx:id="pane1" prefHeight="557.0" prefWidth="261.0" text="Zlecenia">
+                            <TitledPane fx:id="paneZlecen" prefHeight="557.0" prefWidth="261.0" text="Zlecenia">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <content>
-                                    <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                    <FlowPane fx:id="flowPaneTasks" prefHeight="447.0" prefWidth="260.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#addNewOrder" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Dodaj nowe zlecenie">
+                                          <Button fx:id="addNewOrderButton" mnemonicParsing="false" onAction="#addNewOrder" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Dodaj nowe zlecenie">
                                              <FlowPane.margin>
                                                 <Insets />
                                              </FlowPane.margin>
@@ -178,7 +178,7 @@
                                                 <Insets top="10.0" />
                                              </FlowPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#viewTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Wyświetl twoje zlecenia">
+                                          <Button fx:id="viewTaskLIstButton" mnemonicParsing="false" onAction="#viewTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Wyświetl twoje zlecenia">
                                              <FlowPane.margin>
                                                 <Insets top="10.0" />
                                              </FlowPane.margin>
@@ -187,7 +187,7 @@
                                     </FlowPane>
                                  </content>
                             </TitledPane>
-                            <TitledPane expanded="false" text="Trasy">
+                            <TitledPane fx:id="paneTras" expanded="false" text="Trasy">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -232,7 +232,7 @@
                                     </FlowPane>
                                  </content>
                             </TitledPane>
-                            <TitledPane expanded="false" text="Maszyny">
+                            <TitledPane fx:id="paneMaszyn" expanded="false" text="Maszyny">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -299,7 +299,7 @@
                                     </FlowPane>
                                  </content>
                             </TitledPane>
-                              <TitledPane expanded="false" text="Konserwacje">
+                              <TitledPane fx:id="paneKonserwacji" expanded="false" text="Konserwacje">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
@@ -307,7 +307,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </TitledPane>
-                              <TitledPane animated="false" text="Pracownicy">
+                              <TitledPane fx:id="panePracownikow" animated="false" text="Pracownicy">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

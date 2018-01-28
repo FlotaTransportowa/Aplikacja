@@ -27,25 +27,20 @@ public class LoggedController extends Controller {
     private List<ShowEmployeeController> showEmployeeControllerList = new ArrayList<>();
     private List<AddMachineController> addMachineControllers = new ArrayList<>();
     private List<ShowMachineController> showMachineControllerList = new ArrayList<>();
+    private List<PermissionAccordionController> permissionAccordionControllerList = new ArrayList<>();
 
     @FXML private TabPane tabMenu;
     @FXML private ListView lastTasks;
     @FXML private SplitPane splitPane;
     private List<String> stringList  = new ArrayList<>(5);
-    @FXML private Slider sizeOfTrasyTable;
-    @FXML private TextField sizeOfTrasyTableTextField;
-    @FXML private ToggleButton zgloszenieToggleButton;
-    @FXML private ToggleButton zgloszenieToggleButton2;
-    @FXML private ToggleButton zgloszenieToggleButton3;
-    @FXML private SegmentedButton zgloszenieSegmentButton;
+
+
     @FXML private Text login;
     @FXML private Text typKonta;
 
     @FXML private AnchorPane welcomePanel;
     @FXML
-    private Accordion accord;
-    @FXML
-    private TitledPane pane1;
+    private Accordion accord = new Accordion();
 
     @FXML void closeAllTabs(){
         tabMenu.getTabs().clear();
@@ -60,16 +55,9 @@ public class LoggedController extends Controller {
         stringList.add("Przewóz materiału");
         observableList.setAll(stringList);
         lastTasks.setItems(observableList);
-        accord.setExpandedPane(pane1);
+        //accord.setExpandedPane(pane1);
 
-        sizeOfTrasyTable.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable,
-                                Number oldValue, Number newValue) {
-                sizeOfTrasyTableTextField.setText(Integer.toString(newValue.intValue()));
-            }
-        });
-        zgloszenieSegmentButton.getButtons().addAll(zgloszenieToggleButton, zgloszenieToggleButton2, zgloszenieToggleButton3);
+
     }
 
     @FXML void setAccountDetails(String Login, String Type) throws IOException {
@@ -267,10 +255,68 @@ public class LoggedController extends Controller {
         mainController.logout();
     }
 
-    @FXML void changeSizeOfTrasyTable() throws IOException {
+    /*@FXML void changeSizeOfTrasyTable() throws IOException {
         double value = sizeOfTrasyTable.getValue();
         sizeOfTrasyTableTextField.setText(Double.toString(value));
+    }*/
+    private void initDriver() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionAccordionForms/driverAccordionForm.fxml"));
+            accord.getPanes().clear();
+            accord.getPanes().addAll(((Accordion) loader.load()).getPanes());
+            PermissionAccordionController permissionAccordionController = loader.getController();
+            if(permissionAccordionController !=null) {
+                permissionAccordionController.setLoggedController(this);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    private void initDispatcher()
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionAccordionForms/dispatcherAccordionForm.fxml"));
+            accord.getPanes().clear();
+            accord.getPanes().addAll(((Accordion) loader.load()).getPanes());
+            PermissionAccordionController permissionAccordionController = loader.getController();
+            if(permissionAccordionController !=null) {
+                permissionAccordionController.setLoggedController(this);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void initPrincipal()
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionAccordionForms/principalAccordionForm.fxml"));
+            accord.getPanes().clear();
+            accord.getPanes().addAll(((Accordion) loader.load()).getPanes());
+            PermissionAccordionController permissionAccordionController = loader.getController();
+            if(permissionAccordionController !=null) {
+                permissionAccordionController.setLoggedController(this);
+                permissionAccordionControllerList.add(permissionAccordionController);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void initPermissions() throws IOException {
+        switch (typKonta.getText()){
+            case "Kierownik":
+                initPrincipal();
+                break;
+            case "Dyspozytor":
+                initDispatcher();
+                break;
+            case "Kierowca":
+                initDriver();
+                break;
+        }
+    }
+
+
 
     public AnchorPane getWelcomePanel() {
         return welcomePanel;

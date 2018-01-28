@@ -5,6 +5,7 @@ import database.Permission;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.EmployeeModel;
@@ -17,6 +18,7 @@ public class AddPermisionController extends Controller{
     @FXML private Label label;
     @FXML private VBox  vBox;
     @FXML private  HBox addNewHBox;
+    @FXML private TextField textField;
 
     private Driver driver;
     private List<PermissionController> permissionControllers = new ArrayList<PermissionController>();
@@ -37,6 +39,7 @@ public class AddPermisionController extends Controller{
                 vBox.getChildren().add(currentPermissionForm(p));
             }
         }
+        textField.setText(driver.getFirstName()+" "+driver.getLastName());
     }
 
     @FXML
