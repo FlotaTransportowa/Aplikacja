@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="commons-io-2.6">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/commons-io-2.6.jar!/" />
-      <root url="jar://$PROJECT_DIR$/json-20171018.jar!/" />
       <root url="jar://$PROJECT_DIR$/../soft/hibernate-release-4.3.5.Final/lib/jpa/hibernate-entitymanager-4.3.5.Final.jar!/" />
       <root url="jar://$PROJECT_DIR$/../soft/hibernate-release-4.3.5.Final/lib/required/antlr-2.7.7.jar!/" />
       <root url="jar://$PROJECT_DIR$/../soft/hibernate-release-4.3.5.Final/lib/required/dom4j-1.6.1.jar!/" />

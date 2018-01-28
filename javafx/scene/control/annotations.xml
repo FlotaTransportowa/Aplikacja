@@ -1,0 +1,5 @@
+<root>
+    <item name='javafx.scene.control.TableView'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

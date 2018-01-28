@@ -159,7 +159,6 @@ public class LoggedController extends Controller {
 
             ShowMachineController showMachineController = loader.getController();
             showMachineControllerList.add(showMachineController);
-            showMachineController.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -247,8 +246,8 @@ public class LoggedController extends Controller {
     @FXML
     void assignTrack(){
         try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
-            addNewTab((Node) loader.load(), "Lista zleceń");
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/assignTrackScreen.fxml"));
+            addNewTab((Node) loader.load(), "Przydziel trasę");
         } catch (IOException e) {
             e.printStackTrace();
         }
