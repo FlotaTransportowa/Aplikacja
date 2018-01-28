@@ -36,8 +36,8 @@ public class AssignTrackController {
         expander.setMinWidth(30);
         expander.setMaxWidth(30);
         //obrazek
-//        Image image = new Image(getClass().getResourceAsStream("downPointerLabel.jpg"));
-//        expander.setGraphic(new ImageView(image));
+        Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("resources/arrow_down.png"));
+        expander.setGraphic(new ImageView(image));
 
         TableColumn<DriverWithPermsFX, Long> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("employeeID"));

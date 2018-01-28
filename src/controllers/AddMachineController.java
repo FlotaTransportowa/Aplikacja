@@ -46,7 +46,7 @@ public class AddMachineController extends Controller{
     private boolean valid(){
         boolean validateFlag = true;
 
-        if(!Validation.regexChecker(Pattern.stringPattern, addModel.getText()) || addModel.getText().isEmpty()){
+        if(!Validation.regexChecker(Pattern.streetPattern, addModel.getText()) || addModel.getText().isEmpty()){
             addModel.setStyle(nonValidStyle);
             validateFlag = false;
         } else addModel.setStyle(validStyle);
