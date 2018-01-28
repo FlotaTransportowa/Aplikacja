@@ -94,6 +94,18 @@ public class PermissionAccordionController extends Controller {
         getLoggedController().showEmployee();
     }
 
+    @FXML private void addNewNotify()
+    {
+        if(zgloszenieToggleButton.isSelected()){
+
+        }
+        else if(zgloszenieToggleButton2.isSelected()){
+
+        }
+        else if (zgloszenieToggleButton3.isSelected()) {
+
+        }
+    }
 
     public LoggedController getLoggedController() {
         return this.loggedController;
