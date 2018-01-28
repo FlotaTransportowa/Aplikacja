@@ -24,16 +24,6 @@
          <content>
             <FlowPane fx:id="flowPaneTasks" prefHeight="447.0" prefWidth="260.0">
                <children>
-                  <Button fx:id="addNewOrderButton" mnemonicParsing="false" onAction="#addNewOrder" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj nowe zlecenie">
-                     <FlowPane.margin>
-                        <Insets />
-                     </FlowPane.margin>
-                  </Button>
-                  <Separator prefHeight="4.0" prefWidth="234.0">
-                     <FlowPane.margin>
-                        <Insets bottom="10.0" top="15.0" />
-                     </FlowPane.margin>
-                  </Separator>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liczba zleceń do wyświetlenia" wrappingWidth="235.13671875">
                      <FlowPane.margin>
                         <Insets bottom="7.0" />
@@ -71,16 +61,6 @@
          <content>
             <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addNewTrack" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj nową trasę">
-                     <FlowPane.margin>
-                        <Insets />
-                     </FlowPane.margin>
-                  </Button>
-                  <Separator prefHeight="4.0" prefWidth="234.0">
-                     <FlowPane.margin>
-                        <Insets bottom="10.0" top="15.0" />
-                     </FlowPane.margin>
-                  </Separator>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liczba tras do wyświetlenia" wrappingWidth="235.13671875">
                      <FlowPane.margin>
                         <Insets bottom="7.0" />
@@ -116,16 +96,6 @@
          <content>
             <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addNewMachine" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj nową maszynę">
-                     <FlowPane.margin>
-                        <Insets />
-                     </FlowPane.margin>
-                  </Button>
-                  <Separator prefHeight="4.0" prefWidth="234.0">
-                     <FlowPane.margin>
-                        <Insets bottom="10.0" top="15.0" />
-                     </FlowPane.margin>
-                  </Separator>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liczba maszyn do wyświetlenia" wrappingWidth="235.13671875">
                      <FlowPane.margin>
                         <Insets bottom="7.0" />
