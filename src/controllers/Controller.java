@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Tab;
@@ -7,7 +8,7 @@ import manager.GlobalManager;
 
 import javax.persistence.EntityManager;
 
-public abstract class Controller {
+public abstract class Controller{
     @FXML
     protected MainController mainController;
     private Tab thisTab;

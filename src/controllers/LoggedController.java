@@ -244,6 +244,26 @@ public class LoggedController extends Controller {
         }
     }
 
+    @FXML
+    void assignTrack(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista zleceń");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showAllTracks(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista zleceń");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML void logOut() throws IOException {
         mainController.logout();
     }

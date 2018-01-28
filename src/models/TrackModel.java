@@ -16,12 +16,17 @@ public class TrackModel implements BaseModel<Track>{
         ObservableList<Track> tracks = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();
 
-        entityManager.getTransaction().begin();
-        TypedQuery<Track> query = entityManager.createQuery("select e from Track e", Track.class);
-        List<Track> tracks1 = query.getResultList();
-        entityManager.getTransaction().commit();
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<Track> query = entityManager.createQuery("select e from Track e", Track.class);
+            List<Track> tracks1 = query.getResultList();
+            tracks.addAll(tracks1);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
 
-        tracks.addAll(tracks1);
         return tracks;
     }
 }

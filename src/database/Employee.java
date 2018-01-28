@@ -48,7 +48,6 @@ public abstract class Employee {
     @Transient
     private ButtonBar buttonBar = new ButtonBar();
 
-
     public List<Phone> getPhones() {
         return phones;
     }
