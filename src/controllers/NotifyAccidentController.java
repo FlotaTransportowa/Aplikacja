@@ -32,7 +32,7 @@ public class NotifyAccidentController extends Controller {
     private ObservableList<Machine> machineObservableList;
     private PermissionAccordionController permissionAccordionController;
     private Date date;
-    enum NotifyType{
+    public enum NotifyType{
         DEFECT,THEFT,ACCIDENT
     }
     private NotifyType notifyType;

@@ -133,6 +133,10 @@ public class PermissionAccordionController extends Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+}
+    @FXML void showAllNotifications()
+    {
+        getLoggedController().showAllNotifications();
     }
 
     public LoggedController getLoggedController() {

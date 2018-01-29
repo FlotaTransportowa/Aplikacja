@@ -173,6 +173,11 @@
                         <Insets top="10.0" />
                      </FlowPane.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#showAllNotifications" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl wszystkie zgłoszenia">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
                </children>
             </FlowPane>
          </content>

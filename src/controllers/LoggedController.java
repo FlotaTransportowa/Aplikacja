@@ -3,8 +3,6 @@ package controllers;
 import database.Driver;
 import database.Employee;
 import database.Machine;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +13,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import org.controlsfx.control.SegmentedButton;
+import models.NotificationModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +32,7 @@ public class LoggedController extends Controller {
     @FXML private SplitPane splitPane;
     private List<String> stringList  = new ArrayList<>(5);
     private Employee loggedEmployee = null;
+    private static NotificationModel notificationModel = new NotificationModel();
 
     @FXML private Text login;
     @FXML private Text typKonta;
@@ -242,7 +241,7 @@ public class LoggedController extends Controller {
     void showAllTracks(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
-            addNewTab((Node) loader.load(), "Lista zleceń");
+            addNewTab((Node) loader.load(), "Lista tras");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -329,5 +328,17 @@ public class LoggedController extends Controller {
 
     public void setLoggedEmployee(Employee loggedEmployee) {
         this.loggedEmployee = loggedEmployee;
+    }
+
+    public void showAllNotifications() {
+        ShowAllNotificationsController showAllNotificationsController = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
+            addNewTab(loader, "Lista tras");
+            showAllNotificationsController = loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
