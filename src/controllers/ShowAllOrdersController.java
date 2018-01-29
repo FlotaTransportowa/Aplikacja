@@ -177,18 +177,6 @@ public class ShowAllOrdersController extends Controller {
         refreshView();
     }
 
-    @FXML
-    void deleteOrder(){
-        OrderFX toRemoveOrder = getSelectedValue();
-
-        if(!checkSelect(toRemoveOrder)) return;
-
-        Order order = findOrder(toRemoveOrder);
-
-        order.getState().removeOrder(order, statusBar);
-
-        refreshView();
-    }
 
     @FXML
     void setUnconfirmOrder(){

@@ -248,10 +248,24 @@ public class LoggedController extends Controller {
         }
     }
 
+    @FXML
+    void showYourTracks(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/driversTracksScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista tras");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML void logOut() throws IOException {
         mainController.logout();
     }
 
+    /*@FXML void changeSizeOfTrasyTable() throws IOException {
+        double value = sizeOfTrasyTable.getValue();
+        sizeOfTrasyTableTextField.setText(Double.toString(value));
+    }*/
     private void initDriver() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionAccordionForms/driverAccordionForm.fxml"));
@@ -265,6 +279,7 @@ public class LoggedController extends Controller {
             e.printStackTrace();
         }
     }
+
     private void initDispatcher()
     {
         try {

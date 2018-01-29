@@ -48,6 +48,24 @@ public class EmployeeModel implements BaseModel<Employee>{
         }
     }
 
+    public static Driver getDriverByAccount(Account account){
+        Driver driver = null;
+        EntityManager entityManager = GlobalManager.getManager();
+
+        entityManager.getTransaction().begin();
+        try {
+            TypedQuery<Driver> query = entityManager.createQuery("select e from Driver e where e.account = :account", Driver.class);
+            query.setParameter("account", account);
+            driver = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return driver;
+    }
+
     public static Employee getEmployee(String name, String lastName, int age, String gender, String type, String email, double salary){
         switch (type){
             case "Dyspozytor":

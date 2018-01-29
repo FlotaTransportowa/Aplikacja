@@ -52,6 +52,26 @@ public class TrackModel implements BaseModel<Track>{
         return tracks;
     }
 
+    public ObservableList<Track> getAllDriverTracks(Driver driver) {
+        ObservableList<Track> tracks = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<Track> query = entityManager.createQuery("select e from Track e where e.driverOfTrack = driver", Track.class);
+            query.setParameter("driver", driver);
+            List<Track> tracks1 = query.getResultList();
+            tracks.addAll(tracks1);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return tracks;
+    }
+
+
     public static void assignTrack(Machine machine, Track track, Driver driver){
         EntityManager entityManager = GlobalManager.getManager();
         try{
