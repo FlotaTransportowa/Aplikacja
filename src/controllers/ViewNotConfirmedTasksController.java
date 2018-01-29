@@ -104,16 +104,8 @@ public class ViewNotConfirmedTasksController extends Controller{
             statusBar.setText("Należy zaznaczyć zlecenie w tabeli...");
             return;
         }
-
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.remove(toRemoveOrder);
-            statusBar.setText("Usunięto zlecenie: " + toRemoveOrder.getTitle());
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            entityManager.getTransaction().commit();
-        }
+        toRemoveOrder.getState().removeOrder(toRemoveOrder);
+        statusBar.setText("Usunięto zlecenie: " + toRemoveOrder.getTitle());
 
         refreshView();
     }
@@ -132,9 +124,9 @@ public class ViewNotConfirmedTasksController extends Controller{
             return;
         }
 
-        Order order = entityManager.find(Order.class, toConfirmOrder.getId());
-        order.setState(new OrderNotAssigned());
-        statusBar.setText("Zatwierdzono zlecenie: " + order.getTitle());
+        toConfirmOrder.getState().confirmOrder(toConfirmOrder, entityManager);
+
+        statusBar.setText("Zatwierdzono zlecenie: " + toConfirmOrder.getTitle());
 
         refreshView();
     }
@@ -144,19 +136,11 @@ public class ViewNotConfirmedTasksController extends Controller{
         LocalDate date = editTaskDate.getValue();
         Instant instant = Instant.from(date.atStartOfDay(ZoneId.systemDefault()));
 
-        Order order = null;
-        try{
-            entityManager.getTransaction().begin();
-            order = entityManager.find(Order.class, orderForEdit.getId());
-            order.setTitle(editTaskTitle.getText());
-            order.setComment(editTaskComment.getText());
-            order.setTimeLimitForCompletion(Date.from(instant));
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            entityManager.getTransaction().commit();
-            entityManager.refresh(order);
-        }
+        orderForEdit.setTitle(editTaskTitle.getText());
+        orderForEdit.setComment(editTaskComment.getText());
+        orderForEdit.setTimeLimitForCompletion(Date.from(instant));
+
+        orderForEdit.getState().edit(orderForEdit);
 
         refreshView();
     }

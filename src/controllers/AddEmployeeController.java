@@ -3,18 +3,15 @@ package controllers;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import models.AccountModel;
 import models.AddressModel;
 import models.EmployeeModel;
-import models.PhoneModel;
 import validation.Pattern;
 import validation.Validation;
 
-import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;

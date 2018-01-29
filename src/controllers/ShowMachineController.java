@@ -21,7 +21,7 @@ public class ShowMachineController extends Controller{
 
     @FXML
     public void initialize() {
-        data=FXCollections.observableArrayList(MachineFX.getMachines());
+        data=FXCollections.observableArrayList(MachineFX.getAll());
         machineShowTable.setItems(data);
         setSearchField();
     }

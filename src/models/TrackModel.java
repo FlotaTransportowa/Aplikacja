@@ -29,4 +29,22 @@ public class TrackModel implements BaseModel<Track>{
 
         return tracks;
     }
+
+    public ObservableList<Track> getAllNotAssigned() {
+        ObservableList<Track> tracks = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<Track> query = entityManager.createQuery("select e from Track e where driverOfTrack = null and machineOfTrack = null", Track.class);
+            List<Track> tracks1 = query.getResultList();
+            tracks.addAll(tracks1);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return tracks;
+    }
 }

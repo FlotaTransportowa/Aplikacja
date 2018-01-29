@@ -1,8 +1,6 @@
 package fxModels;
 
-import database.Machine;
-import database.MachineType;
-import database.Permission;
+import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.MachineModel;
@@ -17,7 +15,7 @@ public class MachineFX {
     private String registrationNumber;
     private String VIN;
 
-    public static ObservableList<MachineFX> getMachines(){
+    public static ObservableList<MachineFX> getAll(){
         ObservableList<MachineFX> machinesFX = FXCollections.observableArrayList();
         ObservableList<Machine> machines = FXCollections.observableArrayList();
         MachineModel machineModel = new MachineModel();
