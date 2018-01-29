@@ -8,7 +8,7 @@ import java.util.Date;
 @DiscriminatorColumn(name = "typeOfNotify")
 public abstract class Notification {
     public enum NotifyStatus {
-        SENT
+        SENT, ACCEPTED, REJECTED
     }
 
     @Id
@@ -18,10 +18,10 @@ public abstract class Notification {
     private Date date;
     private String description;
     private NotifyStatus status;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "machineID")
     private Machine machine;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employeeID")
     private Employee employee;
 

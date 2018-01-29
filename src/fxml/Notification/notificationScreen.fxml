@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NotifyAccidentController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddNotificationController">
    <children>
       <Pane layoutX="13.0" layoutY="10.0" prefHeight="402.0" prefWidth="949.0" style="-fx-border-width: 1px; -fx-border-color: rgb(230,230,230); -fx-background-color: #fff;" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="12.0">
          <children>

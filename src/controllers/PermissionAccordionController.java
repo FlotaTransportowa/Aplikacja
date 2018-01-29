@@ -9,9 +9,9 @@ import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
 
-import static controllers.NotifyAccidentController.NotifyType.ACCIDENT;
-import static controllers.NotifyAccidentController.NotifyType.DEFECT;
-import static controllers.NotifyAccidentController.NotifyType.THEFT;
+import static controllers.AddNotificationController.NotifyType.ACCIDENT;
+import static controllers.AddNotificationController.NotifyType.DEFECT;
+import static controllers.AddNotificationController.NotifyType.THEFT;
 
 
 public class PermissionAccordionController extends Controller {
@@ -26,7 +26,7 @@ public class PermissionAccordionController extends Controller {
     @FXML private Slider sizeOfTrasyTable, sizeOfTrasyTable1,sizeOfTrasyTable2;
 
     private String title = new String();
-    private NotifyAccidentController.NotifyType notifyType;
+    private AddNotificationController.NotifyType notifyType;
 
     public PermissionAccordionController()
     {
@@ -127,13 +127,13 @@ public class PermissionAccordionController extends Controller {
     @FXML private void addNewNotify()
     {
         if(findSelectedType()) {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notifyAccidentScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notificationScreen.fxml"));
             try {
                 loggedController.addNewTab(loader, title);
-                NotifyAccidentController notifyAccidentController = loader.getController();
-                notifyAccidentController.setPermissionAccordionController(this);
-                notifyAccidentController.setNotifyType(notifyType);
-                notifyAccidentController.initNofity();
+                AddNotificationController addNotificationController = loader.getController();
+                addNotificationController.setPermissionAccordionController(this);
+                addNotificationController.setNotifyType(notifyType);
+                addNotificationController.initNofity();
             } catch (IOException e) {
                 e.printStackTrace();
             }

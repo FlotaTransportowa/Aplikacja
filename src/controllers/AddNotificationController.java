@@ -16,7 +16,7 @@ import models.NotificationModel;
 import java.sql.Date;
 import java.util.Calendar;
 
-public class NotifyAccidentController extends Controller {
+public class AddNotificationController extends Controller {
 
     private static NotificationModel notificationModel = new NotificationModel();
 
@@ -53,7 +53,7 @@ public class NotifyAccidentController extends Controller {
     }
     private NotifyType notifyType;
 
-    public NotifyAccidentController()
+    public AddNotificationController()
     {
         date = new Date(Calendar.getInstance().getTime().getTime());
     }
@@ -85,6 +85,7 @@ public class NotifyAccidentController extends Controller {
         String description = descriptionTextArea.getText();
         Notification.NotifyStatus status = Notification.NotifyStatus.SENT;
         Machine machine = (Machine) machineChoiceBox.getSelectionModel().getSelectedItem();
+        machine.setBusy(true);
         Employee employee = permissionAccordionController.getLoggedController().getLoggedEmployee();
         switch (notifyType){
             case ACCIDENT:

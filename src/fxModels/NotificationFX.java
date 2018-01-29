@@ -1,16 +1,20 @@
 package fxModels;
 
-import controllers.NotifyAccidentController;
+import controllers.AddNotificationController;
+import controllers.ShowAllNotificationsController;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import manager.GlobalManager;
 import models.NotificationModel;
 
-import static controllers.NotifyAccidentController.NotifyType.*;
+import static controllers.AddNotificationController.NotifyType.*;
 
 public class NotificationFX {
 
-    private NotifyAccidentController.NotifyType notifyType;
+    private AddNotificationController.NotifyType notifyType;
     private Notification notification;
     private long id;
     private java.util.Date date;
@@ -18,9 +22,12 @@ public class NotificationFX {
     private Notification.NotifyStatus status;
     private Employee employee;
     private Machine machine;
+    private ButtonBar buttonBar;
+    private Button actionButton1, actionButton2;
 
     private static NotificationModel notificationModel = new NotificationModel();
     private Boolean aBoolean;
+    private ShowAllNotificationsController showAllNotificationController;
 
     public NotificationFX(Notification notification) {
         switch (notification.getClass().getSimpleName().toString()){
@@ -39,6 +46,52 @@ public class NotificationFX {
 
         this.notification = notification;
         decompositeValues();
+        buttonBar = new ButtonBar();
+        switch (status)
+        {
+            case SENT:
+                actionButton1=new Button("Zatwierdź");
+                actionButton2=new Button("Odrzuć");
+                actionButton1.setOnAction(e->{
+                    notifyAccept();
+                    this.showAllNotificationController.initNofity();
+                });
+                actionButton2.setOnAction(e->{
+                    notifyReject();
+                    this.showAllNotificationController.initNofity();
+                });
+                buttonBar.getButtons().addAll(actionButton1,actionButton2);
+                break;
+            case ACCEPTED:
+                actionButton1=new Button("Usuń");
+                actionButton1.setOnAction(e->{
+                    GlobalManager.remove(notification);
+                    this.showAllNotificationController.initNofity();
+                });
+                buttonBar.getButtons().add(actionButton1);
+                break;
+            case REJECTED:
+                actionButton1=new Button("Usuń");
+                actionButton1.setOnAction(e->{
+                    GlobalManager.remove(notification);
+                    this.showAllNotificationController.initNofity();
+                });
+                buttonBar.getButtons().add(actionButton1);
+                break;
+        }
+
+
+    }
+
+    private void notifyReject() {
+        this.notification.setStatus(Notification.NotifyStatus.REJECTED);
+        this.machine.setBusy(false);
+    }
+
+    private void notifyAccept() {
+        this.notification.setStatus(Notification.NotifyStatus.ACCEPTED);
+        this.machine.setBusy(false);
+        this.machine.setEfficient(false);
     }
 
     private void decompositeValues() {
@@ -62,20 +115,26 @@ public class NotificationFX {
         }
         return notificationFXES;
     }
-    public static ObservableList<NotificationFX> getAllOfType(NotifyAccidentController.NotifyType notifyType){
+    public static ObservableList<NotificationFX> getAllOfType(AddNotificationController.NotifyType notifyType, ShowAllNotificationsController showAllNotificationsController){
         ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();
         ObservableList<Notification> notifications = null;
 
         notifications = notificationModel.getAllOfType(notifyType);
         if(notifications!=null) {
             for (Notification n : notifications) {
-                notificationFXES.add(new NotificationFX(n));
+                NotificationFX notificationFX = new NotificationFX(n);
+                notificationFX.setShowAllNotificationController(showAllNotificationsController);
+                notificationFXES.add(notificationFX);
             }
         }
         return notificationFXES;
     }
 
-    public NotifyAccidentController.NotifyType getNotifyType() {
+    private void setShowAllNotificationController(ShowAllNotificationsController showAllNotificationsController) {
+        this.showAllNotificationController = showAllNotificationsController;
+    }
+
+    public AddNotificationController.NotifyType getNotifyType() {
         return notifyType;
     }
 
@@ -113,5 +172,9 @@ public class NotificationFX {
 
     public boolean getABoolean() {
         return aBoolean;
+    }
+
+    public ButtonBar getButtonBar() {
+        return buttonBar;
     }
 }

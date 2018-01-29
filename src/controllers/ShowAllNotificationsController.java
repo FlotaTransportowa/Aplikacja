@@ -2,18 +2,17 @@ package controllers;
 
 import database.Employee;
 import database.Machine;
+import database.Notification;
 import fxModels.NotificationFX;
-import fxModels.TrackFX;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.controlsfx.control.table.TableRowExpanderColumn;
-import validation.Validation;
 
 import java.util.Date;
 
@@ -24,11 +23,14 @@ public class ShowAllNotificationsController extends Controller {
     private static ObservableList<NotificationFX> data;
 
     private PermissionAccordionController permissionAccordionController;
-    private NotifyAccidentController.NotifyType notifyType;
+    private AddNotificationController.NotifyType notifyType;
     private FilteredList<NotificationFX> notificationFXES;
+    private boolean initializing;
+
     @FXML
     private void initialize()
     {
+        initializing=true;
         TableColumn<NotificationFX,Date> dateCol = new TableColumn<>("Data");
         dateCol.setCellValueFactory(new PropertyValueFactory("date"));
         TableColumn<NotificationFX,String> descriptionCol = new TableColumn<>("Opis");
@@ -38,7 +40,12 @@ public class ShowAllNotificationsController extends Controller {
         TableColumn<NotificationFX, Machine> machineCol = new TableColumn<>("Maszyna");
         machineCol.setCellValueFactory(new PropertyValueFactory<>("machine"));
 
-        tableView.getColumns().addAll(dateCol,descriptionCol,employeeCol,machineCol);
+        TableColumn<NotificationFX, Notification.NotifyStatus> notifyStatusCol = new TableColumn<>("Status zgłoszenia");
+        notifyStatusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
+        TableColumn<NotificationFX, ButtonBar> buttonBarCol = new TableColumn<>("Akcja");
+        buttonBarCol.setCellValueFactory(new PropertyValueFactory<>("buttonBar"));
+
+        tableView.getColumns().addAll(dateCol,descriptionCol,employeeCol,machineCol,notifyStatusCol,buttonBarCol);
 
 //        TableRowExpanderColumn<NotificationFX> expander = new TableRowExpanderColumn<NotificationFX>(this::createTrackExpander);
 //        expander.setMinWidth(30);
@@ -47,8 +54,9 @@ public class ShowAllNotificationsController extends Controller {
 
     public void initNofity()
     {
-        data=NotificationFX.getAllOfType(notifyType);
-        booleanChoiceInit();
+        data=NotificationFX.getAllOfType(notifyType,this);
+        if(initializing)
+            booleanChoiceInit();
         tableView.setItems(data);
         initSearchField();
     }
@@ -67,6 +75,7 @@ public class ShowAllNotificationsController extends Controller {
                             ||notificationFX.getEmployee().toString().toLowerCase().contains(lowerCaseFilter)
                             ||notificationFX.getMachine().toString().toLowerCase().contains(lowerCaseFilter)
                             ||notificationFX.getDate().toString().toLowerCase().contains(lowerCaseFilter)
+                            ||notificationFX.getStatus().toString().toLowerCase().contains(lowerCaseFilter)
                             )
                         return true;
                     else
@@ -94,13 +103,15 @@ public class ShowAllNotificationsController extends Controller {
                 tableView.getColumns().add(collision);
                 break;
         }
+
+        initializing=false;
     }
 
     public void setPermissionAccordionController(PermissionAccordionController permissionAccordionController) {
         this.permissionAccordionController = permissionAccordionController;
     }
 
-    public void setNotifyType(NotifyAccidentController.NotifyType notifyType) {
+    public void setNotifyType(AddNotificationController.NotifyType notifyType) {
         this.notifyType = notifyType;
     }
 
