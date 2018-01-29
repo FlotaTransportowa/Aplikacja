@@ -55,9 +55,6 @@ public class LoggedController extends Controller {
         stringList.add("Przewóz materiału");
         observableList.setAll(stringList);
         lastTasks.setItems(observableList);
-        //accord.setExpandedPane(pane1);
-
-
     }
 
     @FXML void setAccountDetails(String Login, String Type) throws IOException {

@@ -73,6 +73,7 @@ public class AddNewTrackController extends Controller{
         }
 
         for(Order t : afterData) {
+            t.setTrack(track);
             orders.add(t);
             counter++;
         }

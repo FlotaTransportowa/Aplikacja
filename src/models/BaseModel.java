@@ -1,15 +1,10 @@
 package models;
 
-import database.Dispatcher;
-import database.Driver;
-import database.Employee;
-import database.Principal;
+
 import javafx.collections.ObservableList;
 import manager.GlobalManager;
 
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
-import java.util.List;
 
 public interface BaseModel<T> {
     abstract ObservableList<T> getAll();
@@ -23,7 +18,7 @@ public interface BaseModel<T> {
             e.printStackTrace();
         } finally {
             entityManager.getTransaction().commit();
+            entityManager.refresh(object);
         }
-        entityManager.refresh(object);
     }
 }

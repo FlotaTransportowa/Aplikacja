@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import manager.GlobalManager;
-import manager.ScreenManager;
 import security.HashPassword;
 
 import javax.persistence.*;
@@ -22,11 +21,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        ScreenManager screenManager = new ScreenManager();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/mainScreen.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("FSB - System zarzadzania");
-        Scene scene = new Scene(root, 1280, screenManager.getHeight()*0.9);
+        Scene scene = new Scene(root, 1280, 810);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -194,6 +192,7 @@ public class Main extends Application {
 
         Track track = new Track();
         track.setDriver(employee);
+        track.setName("Przykładowa nazwa");
         List<Order> orders = new ArrayList<>();
         orders.add(order);
         orders.add(order2);
@@ -314,14 +313,29 @@ public class Main extends Application {
 
     public static void insertOrderStates(){
         EntityManager entityManager = GlobalManager.getManager();
+        OrderState orderNotConfirmed = new OrderNotConfirmed();
+        orderNotConfirmed.setName("niezatwiedzone");
+        OrderState orderNotAssigned = new OrderNotAssigned();
+        orderNotAssigned.setName("nieprzydzielone");
+        OrderState orderWaiting = new OrderWaiting();
+        orderWaiting.setName("oczekujące");
+        OrderState orderStillPerformed = new OrderStillPerformed();
+        orderStillPerformed.setName("wykonywane");
+        OrderState orderDone = new OrderDone();
+        orderDone.setName("wykonane");
+        OrderState orderCanceled = new OrderCanceled();
+        orderCanceled.setName("anulowane");
+        OrderState orderPaused = new OrderPaused();
+        orderPaused.setName("wstrzymane");
+
         entityManager.getTransaction().begin();
-        entityManager.persist(new OrderNotConfirmed());
-        entityManager.persist(new OrderNotAssigned());
-        entityManager.persist(new OrderWaiting());
-        entityManager.persist(new OrderStillPerformed());
-        entityManager.persist(new OrderDone());
-        entityManager.persist(new OrderCanceled());
-        entityManager.persist(new OrderPaused());
+        entityManager.persist(orderNotConfirmed);
+        entityManager.persist(orderNotAssigned);
+        entityManager.persist(orderWaiting);
+        entityManager.persist(orderStillPerformed);
+        entityManager.persist(orderDone);
+        entityManager.persist(orderCanceled);
+        entityManager.persist(orderPaused);
         entityManager.getTransaction().commit();
     }
 
@@ -333,7 +347,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        EntityManager entityManager = GlobalManager.getManager();
 //        allInserts();
         launch(args); //Uruchomienie okienka aplikacji
         GlobalManager.closeManager(); //zamknięcie Singletonu EntityManagera
