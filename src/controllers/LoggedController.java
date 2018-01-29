@@ -15,6 +15,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import models.NotificationModel;
 import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
