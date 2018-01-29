@@ -24,8 +24,8 @@ public class AccountModel {
             e.printStackTrace();
         } finally {
             entityManager.getTransaction().commit();
+            return account;
         }
-        return account;
     }
 
     public static String getEmployeeType(Account account){

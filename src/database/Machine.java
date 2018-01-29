@@ -1,6 +1,7 @@
 package database;
 
 import javafx.scene.control.ButtonBar;
+import models.MachineTypeModel;
 
 import javax.persistence.*;
 import java.util.List;
@@ -81,5 +82,10 @@ public class Machine {
 
     public ButtonBar getButtonBar() {
         return buttonBar;
+    }
+
+    @Override
+    public String toString() {
+        return typeOfMachine +": "+ registrationNumber;
     }
 }

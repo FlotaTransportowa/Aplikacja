@@ -12,6 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import models.AccountModel;
+import models.EmployeeModel;
 import security.HashPassword;
 
 import javax.persistence.EntityManager;
@@ -62,6 +63,7 @@ public class LoginController extends Controller {
         mainController.setAccountLogin(Login);
         loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeTypePL(account));
         loggedController.initPermissions();
+        loggedController.setLoggedEmployee(EmployeeModel.getEmployee(account));
     }
     @FXML private void checkKey() {}
     public void initialize()

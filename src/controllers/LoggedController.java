@@ -33,7 +33,7 @@ public class LoggedController extends Controller {
     @FXML private ListView lastTasks;
     @FXML private SplitPane splitPane;
     private List<String> stringList  = new ArrayList<>(5);
-
+    private Employee loggedEmployee = null;
 
     @FXML private Text login;
     @FXML private Text typKonta;
@@ -320,5 +320,17 @@ public class LoggedController extends Controller {
 
     public AnchorPane getWelcomePanel() {
         return welcomePanel;
+    }
+
+    public void showYoursTracks(Employee employee) {
+
+    }
+
+    public Employee getLoggedEmployee() {
+        return loggedEmployee;
+    }
+
+    public void setLoggedEmployee(Employee loggedEmployee) {
+        this.loggedEmployee = loggedEmployee;
     }
 }

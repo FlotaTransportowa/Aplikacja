@@ -4,6 +4,7 @@ import controllers.Controller;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Accordion;
 import manager.GlobalManager;
 import security.HashPassword;
 import validation.Pattern;
@@ -57,5 +58,23 @@ public class EmployeeModel implements BaseModel<Employee>{
                 return new Driver(name, lastName, age, gender, type, email, salary);
         }
         return null;
+    }
+
+    public static Employee getEmployee(Account account)
+    {
+        EntityManager entityManager = GlobalManager.getManager();
+        Employee employee = null;
+        entityManager.getTransaction().begin();
+        try {
+            TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where accountId = :accId", Employee.class);
+            query.setParameter("accId",account.getId());
+            employee = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return employee;
     }
 }

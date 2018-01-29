@@ -3,13 +3,15 @@ package controllers;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
-import javafx.scene.control.ToggleButton;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
+
+import static controllers.NotifyAccidentController.NotifyType.ACCIDENT;
+import static controllers.NotifyAccidentController.NotifyType.DEFECT;
+import static controllers.NotifyAccidentController.NotifyType.THEFT;
 
 
 public class PermissionAccordionController extends Controller {
@@ -22,6 +24,7 @@ public class PermissionAccordionController extends Controller {
     @FXML private SegmentedButton zgloszenieSegmentButton;
     @FXML private TextField sizeOfTrasyTableTextField,  sizeOfTrasyTableTextField1,  sizeOfTrasyTableTextField2;
     @FXML private Slider sizeOfTrasyTable, sizeOfTrasyTable1,sizeOfTrasyTable2;
+
 
     public PermissionAccordionController()
     {
@@ -76,6 +79,9 @@ public class PermissionAccordionController extends Controller {
     {
         getLoggedController().showAllTracks();
     }
+    @FXML private void showYoursTracks(){
+        getLoggedController().showYoursTracks(getLoggedController().getLoggedEmployee());
+    }
     @FXML private void assignTrack()
     {
         getLoggedController().assignTrack();
@@ -96,14 +102,36 @@ public class PermissionAccordionController extends Controller {
 
     @FXML private void addNewNotify()
     {
+        String title = new String();
+        NotifyAccidentController.NotifyType notifyType;
         if(zgloszenieToggleButton.isSelected()){
-
+            title = "Zgłoszenie usterki";
+            notifyType = DEFECT;
         }
         else if(zgloszenieToggleButton2.isSelected()){
-
+            title = "Zgłoszenie kradzieży";
+            notifyType = THEFT;
         }
         else if (zgloszenieToggleButton3.isSelected()) {
-
+            title = "Zgłoszenie wypadku";
+            notifyType = ACCIDENT;
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd tworzenia zgłoszenia");
+            alert.setHeaderText("Nie wybrano typu zgłoszenia");
+            alert.showAndWait();
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notifyAccidentScreen.fxml"));
+        try {
+            loggedController.addNewTab(loader,title);
+            NotifyAccidentController notifyAccidentController = loader.getController();
+            notifyAccidentController.setPermissionAccordionController(this);
+            notifyAccidentController.setNotifyType(notifyType);
+            notifyAccidentController.initNofity();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

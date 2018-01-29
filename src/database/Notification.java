@@ -21,6 +21,17 @@ public abstract class Notification {
     @JoinColumn(name = "employeeID")
     private Employee employee;
 
+    public Notification(){
+    }
+
+    public Notification(Date date, String description, String status, Machine machine, Employee employee) {
+        this.date = date;
+        this.description = description;
+        this.status = status;
+        this.machine = machine;
+        this.employee = employee;
+    }
+
     public long getId() {
         return id;
     }
