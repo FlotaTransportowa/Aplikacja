@@ -1,9 +1,6 @@
 package controllers;
 
 import database.Order;
-import database.OrderNotAssigned;
-import database.OrderNotConfirmed;
-import database.OrderState;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -13,12 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import manager.GlobalManager;
 import models.OrderModel;
 import org.controlsfx.control.StatusBar;
 import validation.Validation;
 
-import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -104,7 +99,7 @@ public class ViewNotConfirmedTasksController extends Controller{
             statusBar.setText("Należy zaznaczyć zlecenie w tabeli...");
             return;
         }
-        toRemoveOrder.getState().removeOrder(toRemoveOrder);
+        toRemoveOrder.getState().removeOrder(toRemoveOrder, statusBar);
         statusBar.setText("Usunięto zlecenie: " + toRemoveOrder.getTitle());
 
         refreshView();
@@ -124,7 +119,7 @@ public class ViewNotConfirmedTasksController extends Controller{
             return;
         }
 
-        toConfirmOrder.getState().confirmOrder(toConfirmOrder, entityManager);
+        toConfirmOrder.getState().confirmOrder(toConfirmOrder, entityManager, statusBar);
 
         statusBar.setText("Zatwierdzono zlecenie: " + toConfirmOrder.getTitle());
 

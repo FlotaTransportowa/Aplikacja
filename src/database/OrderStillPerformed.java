@@ -1,5 +1,7 @@
 package database;
 
+import org.controlsfx.control.StatusBar;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 
@@ -22,17 +24,17 @@ public class OrderStillPerformed extends OrderState{
     }
 
     @Override
-    public void confirmOrder(Order order, EntityManager entityManager) {
+    public void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void removeOrder(Order order) {
+    public void removeOrder(Order order, StatusBar statusBar) {
 
     }
 
     @Override
-    public void unconfirmOrder(Order order, EntityManager entityManager) {
+    public void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
@@ -42,7 +44,7 @@ public class OrderStillPerformed extends OrderState{
     }
 
     @Override
-    public void cancelOrder(Order toCancelOrder, EntityManager entityManager) {
+    public void cancelOrder(Order toCancelOrder, EntityManager entityManager, StatusBar statusBar) {
         Order order = null;
         try{
             order = entityManager.find(Order.class, toCancelOrder.getId());
@@ -53,7 +55,7 @@ public class OrderStillPerformed extends OrderState{
     }
 
     @Override
-    public void pauseOrder(Order toPauseOrder, EntityManager entityManager) {
+    public void pauseOrder(Order toPauseOrder, EntityManager entityManager, StatusBar statusBar) {
         Order order = null;
         try{
             order = entityManager.find(Order.class, toPauseOrder.getId());
@@ -64,7 +66,7 @@ public class OrderStillPerformed extends OrderState{
     }
 
     @Override
-    public void unpauseOrder(Order order, EntityManager entityManager) {
+    public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
@@ -77,5 +79,10 @@ public class OrderStillPerformed extends OrderState{
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void postTheOrder(Order order, EntityManager entityManager) {
+
     }
 }

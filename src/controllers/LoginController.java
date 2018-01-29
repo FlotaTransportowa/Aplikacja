@@ -24,14 +24,12 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import static controllers.Controller.*;
+
 public class LoginController extends Controller {
     @FXML private TextField login;
     @FXML private TextField password;
-    @FXML private ImageView imageView;
-    @FXML private StackPane stackPane;
-    private Account account = null;
 
-    private static AnchorPane welcomePanel;
     private LoggedController loggedController;
 
 

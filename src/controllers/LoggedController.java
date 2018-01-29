@@ -3,6 +3,8 @@ package controllers;
 import database.Driver;
 import database.Employee;
 import database.Machine;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +15,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import models.NotificationModel;
+import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -241,6 +243,16 @@ public class LoggedController extends Controller {
     void showAllTracks(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista tras");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showYourTracks(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/driversTracksScreen.fxml"));
             addNewTab((Node) loader.load(), "Lista tras");
         } catch (IOException e) {
             e.printStackTrace();

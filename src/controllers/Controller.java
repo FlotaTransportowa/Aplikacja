@@ -1,9 +1,6 @@
 package controllers;
 
-import database.Address;
-import database.Driver;
-import database.Machine;
-import database.Order;
+import database.*;
 import fxModels.OrderFX;
 import fxModels.TrackFX;
 import javafx.application.Application;
@@ -20,6 +17,7 @@ import manager.GlobalManager;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +29,8 @@ public abstract class Controller{
     public final String nonValidStyle = "-fx-background-color:#f9a7a7; -fx-border-width: 1px ; -fx-border-color: #a8a8a8; -fx-border-radius: 2px;";
 
     public static EntityManager entityManager = GlobalManager.getManager();
+
+    protected Account account = null;
 
     void setMainController(MainController par)
     {
@@ -116,4 +116,20 @@ public abstract class Controller{
 
         return editor;
     }
+
+    public Order findOrder(OrderFX orderFX){
+        Order order = null;
+        try {
+            entityManager.getTransaction().begin();
+            TypedQuery<Order> query = entityManager.createQuery("select o from Order o where id = :identifier", Order.class);
+            query.setParameter("identifier", orderFX.getId());
+            order = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+        return order;
+    }
+
 }

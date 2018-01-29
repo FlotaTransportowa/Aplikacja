@@ -1,6 +1,6 @@
 package database;
 
-import manager.GlobalManager;
+import org.controlsfx.control.StatusBar;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -25,21 +25,20 @@ public class OrderNotAssigned extends OrderState{
 
     @Override
     public void unassignOrder(Order order, EntityManager entityManager) {
+    }
+
+    @Override
+    public void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
+        statusBar.setText("Wybrane zlecenie jest już zatwierdzone.");
+    }
+
+    @Override
+    public void removeOrder(Order order, StatusBar statusBar) {
 
     }
 
     @Override
-    public void confirmOrder(Order order, EntityManager entityManager) {
-
-    }
-
-    @Override
-    public void removeOrder(Order order) {
-
-    }
-
-    @Override
-    public void unconfirmOrder(Order orderToUnconfirm, EntityManager entityManager) {
+    public void unconfirmOrder(Order orderToUnconfirm, EntityManager entityManager, StatusBar statusBar) {
         Order order = null;
         try{
             order = entityManager.find(Order.class, orderToUnconfirm.getId());
@@ -47,8 +46,7 @@ public class OrderNotAssigned extends OrderState{
         } catch (Exception e){
             e.printStackTrace();
         }
-
-        entityManager.refresh(order);
+        statusBar.setText("Cofnięto zatwierdzenie.");
     }
 
     @Override
@@ -57,22 +55,27 @@ public class OrderNotAssigned extends OrderState{
     }
 
     @Override
-    public void cancelOrder(Order order, EntityManager entityManager) {
+    public void cancelOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void pauseOrder(Order order, EntityManager entityManager) {
+    public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void unpauseOrder(Order order, EntityManager entityManager) {
+    public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager) {
+
+    }
+
+    @Override
+    public void postTheOrder(Order order, EntityManager entityManager) {
 
     }
 

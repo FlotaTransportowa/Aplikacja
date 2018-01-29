@@ -1,6 +1,5 @@
 package models;
 
-import database.Machine;
 import database.MachineType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,24 +28,5 @@ public class MachineTypeModel implements BaseModel<MachineType>{
         }
 
         return machineTypes;
-    }
-
-    public static MachineType getModel(String typeOfMachine) {
-
-        EntityManager entityManager = GlobalManager.getManager();
-        MachineType machineType = null;
-        try {
-            entityManager.getTransaction().begin();
-            TypedQuery<MachineType> query = entityManager.createQuery("select e from MachineType e where id = :typeId", MachineType.class);
-            query.setParameter(1,typeOfMachine);
-            machineType = query.getSingleResult();
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
-        }
-        finally {
-            entityManager.getTransaction().commit();
-        }
-        return machineType;
     }
 }

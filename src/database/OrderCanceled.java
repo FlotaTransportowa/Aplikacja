@@ -1,5 +1,7 @@
 package database;
 
+import org.controlsfx.control.StatusBar;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 
@@ -22,17 +24,17 @@ public class OrderCanceled extends OrderState{
     }
 
     @Override
-    public void confirmOrder(Order order, EntityManager entityManager) {
+    public void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void removeOrder(Order order) {
+    public void removeOrder(Order order, StatusBar statusBar) {
 
     }
 
     @Override
-    public void unconfirmOrder(Order order, EntityManager entityManager) {
+    public void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
@@ -42,22 +44,27 @@ public class OrderCanceled extends OrderState{
     }
 
     @Override
-    public void cancelOrder(Order order, EntityManager entityManager) {
+    public void cancelOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void pauseOrder(Order order, EntityManager entityManager) {
+    public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void unpauseOrder(Order order, EntityManager entityManager) {
+    public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager) {
+
+    }
+
+    @Override
+    public void postTheOrder(Order order, EntityManager entityManager) {
 
     }
 }

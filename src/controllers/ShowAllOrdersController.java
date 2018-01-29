@@ -13,10 +13,20 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 import models.OrderModel;
+import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
+import java.security.PrivateKey;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 
@@ -27,6 +37,8 @@ public class ShowAllOrdersController extends Controller {
     @FXML
     private TableView<OrderFX> orderTable;
     private static ObservableList<OrderFX> dataOders;
+    @FXML private StatusBar statusBar;
+    OrderFX orderForEdit;
 
     @FXML
     void initialize() {
@@ -39,7 +51,7 @@ public class ShowAllOrdersController extends Controller {
         TableColumn<OrderFX, Long> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        TableColumn<OrderFX, String> titleCol = new TableColumn<>("Tytu");
+        TableColumn<OrderFX, String> titleCol = new TableColumn<>("Tytuł");
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
 
         TableColumn<OrderFX, String> typeCol = new TableColumn<>("Typ");
@@ -54,7 +66,6 @@ public class ShowAllOrdersController extends Controller {
         orderTable.getColumns().addAll(expander, idCol, titleCol, typeCol, deadlineCol, stateCol);
 
         orderTable.setItems(dataOders);
-
         setSearchField();
     }
 
@@ -77,6 +88,8 @@ public class ShowAllOrdersController extends Controller {
                     if (order.getTitle().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
                     } else if (order.getType().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    } else if (order.getOrderState().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
                     }
                 }
@@ -123,6 +136,112 @@ public class ShowAllOrdersController extends Controller {
             editor.addRow(++rowIndex, new Label("Zlecenie należy do trasy o identyfikatorze: " + track.getId()));
 
         return editor;
+    }
+
+    @FXML
+    void setCancelOrder(){
+        OrderFX toCancelOrder = getSelectedValue();
+
+        if(!checkSelect(toCancelOrder)) return;
+
+        Order order = findOrder(toCancelOrder);
+
+        order.getState().cancelOrder(order, entityManager, statusBar);
+
+        refreshView();
+    }
+
+    @FXML
+    void setPauseOrder(){
+        OrderFX toPauselOrder = getSelectedValue();
+
+        if(!checkSelect(toPauselOrder)) return;
+
+        Order order = findOrder(toPauselOrder);
+
+        order.getState().pauseOrder(order, entityManager, statusBar);
+
+        refreshView();
+    }
+
+    @FXML
+    void setUnpauseOrder(){
+        OrderFX toUnpauselOrder = getSelectedValue();
+
+        if(!checkSelect(toUnpauselOrder)) return;
+
+        Order order = findOrder(toUnpauselOrder);
+
+        order.getState().unpauseOrder(order, entityManager, statusBar);
+
+        refreshView();
+    }
+
+
+    @FXML
+    void setUnconfirmOrder(){
+        OrderFX toUnonfirmOrder = getSelectedValue();
+
+        if(!checkSelect(toUnonfirmOrder)) return;
+
+        Order order = findOrder(toUnonfirmOrder);
+
+        order.getState().unconfirmOrder(order, entityManager, statusBar);
+
+        refreshView();
+    }
+    @FXML
+    void setConfirmOrder(){
+        OrderFX toConfirmOrder = getSelectedValue();
+
+        if(!checkSelect(toConfirmOrder)) return;
+
+        if(checkFields(toConfirmOrder)) {
+            statusBar.setText("Zlecenie nie ma wypełnionego pola komentarza...");
+            return;
+        }
+
+        Order order = findOrder(toConfirmOrder);
+
+        order.getState().confirmOrder(order, entityManager, statusBar);
+
+        refreshView();
+    }
+
+    //ToDo Daniel jakbyś mógł tu obsłużyć tworzenie okna do Zaksięgowania zlecenia
+    @FXML
+    void setPostTheOrder(){
+
+    }
+
+    @FXML
+    OrderFX getSelectedValue(){
+        return orderTable.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    boolean checkSelect(OrderFX orderFX){
+        boolean flag = true;
+
+        if(orderFX == null) {
+            statusBar.setText("Należy zaznaczyć zlecenie w tabeli...");
+            flag = false;
+        }
+
+        return flag;
+    }
+
+    @FXML
+    boolean checkFields(OrderFX order){
+        return order.getComment().isEmpty();
+    }
+
+    @FXML
+    private void refreshView(){
+        dataOders = FXCollections.observableArrayList(OrderFX.getAll());
+        orderTable.setItems(dataOders);
+        orderTable.refresh();
+        setSearchField();
     }
 
 }

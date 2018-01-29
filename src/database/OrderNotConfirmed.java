@@ -1,11 +1,10 @@
 package database;
 
 import manager.GlobalManager;
-import models.OrderModel;
+import org.controlsfx.control.StatusBar;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import java.util.Date;
 
 @Entity
 public class OrderNotConfirmed extends OrderState{
@@ -23,8 +22,8 @@ public class OrderNotConfirmed extends OrderState{
             e.printStackTrace();
         } finally {
             entityManager.getTransaction().commit();
+            entityManager.refresh(order);
         }
-        entityManager.refresh(order);
     }
 
     @Override
@@ -38,7 +37,7 @@ public class OrderNotConfirmed extends OrderState{
     }
 
     @Override
-    public void confirmOrder(Order toConfirmOrder, EntityManager entityManager) {
+    public void confirmOrder(Order toConfirmOrder, EntityManager entityManager, StatusBar statusBar) {
         Order order = null;
         try{
             order = entityManager.find(Order.class, toConfirmOrder.getId());
@@ -46,10 +45,11 @@ public class OrderNotConfirmed extends OrderState{
         } catch (Exception e){
             e.printStackTrace();
         }
+        statusBar.setText("Zatwierdzono zlecenie: " + order.getTitle());
     }
 
     @Override
-    public void removeOrder(Order toRemoveOrder) {
+    public void removeOrder(Order toRemoveOrder, StatusBar statusBar) {
         EntityManager entityManager = GlobalManager.getManager();
         try{
             entityManager.getTransaction().begin();
@@ -62,7 +62,7 @@ public class OrderNotConfirmed extends OrderState{
     }
 
     @Override
-    public void unconfirmOrder(Order order, EntityManager entityManager) {
+    public void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
@@ -72,22 +72,27 @@ public class OrderNotConfirmed extends OrderState{
     }
 
     @Override
-    public void cancelOrder(Order order, EntityManager entityManager) {
+    public void cancelOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void pauseOrder(Order order, EntityManager entityManager) {
+    public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
-    public void unpauseOrder(Order order, EntityManager entityManager) {
+    public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager) {
+
+    }
+
+    @Override
+    public void postTheOrder(Order order, EntityManager entityManager) {
 
     }
 }

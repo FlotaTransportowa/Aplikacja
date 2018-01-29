@@ -46,6 +46,20 @@ public class TrackFX {
         return trackFX;
     }
 
+    public static ObservableList<TrackFX> getAllDriverTracks(Driver driver){
+        ObservableList<TrackFX> trackFX = FXCollections.observableArrayList();
+        ObservableList<Track> tracks = FXCollections.observableArrayList();
+        TrackModel trackModel = new TrackModel();
+
+        tracks = trackModel.getAllDriverTracks(driver);
+
+        for(Track t : tracks){
+            trackFX.add(new TrackFX(t.getId(), t.getName(), t.isExecuted(), t.getDriver(), t.getMachine(), t.getOrders()));
+        }
+
+        return trackFX;
+    }
+
     public TrackFX(long id, String name, boolean executed, Driver driver, Machine machine, List<Order> orders){
         this.id = id;
         this.name = name;
