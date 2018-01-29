@@ -7,35 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="Hubert Januszek update">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/manager/ScreenManager.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AddEmployeeController.java" afterPath="$PROJECT_DIR$/src/controllers/AddEmployeeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AddNewTaskController.java" afterPath="$PROJECT_DIR$/src/controllers/AddNewTaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AddNewTrackController.java" afterPath="$PROJECT_DIR$/src/controllers/AddNewTrackController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AssignTrackController.java" afterPath="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/Controller.java" afterPath="$PROJECT_DIR$/src/controllers/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoggedController.java" afterPath="$PROJECT_DIR$/src/controllers/LoggedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowAllTracksController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowAllTracksController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowMachineController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowMachineController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ViewNotConfirmedTasksController.java" afterPath="$PROJECT_DIR$/src/controllers/ViewNotConfirmedTasksController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Order.java" afterPath="$PROJECT_DIR$/src/database/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderCanceled.java" afterPath="$PROJECT_DIR$/src/database/OrderCanceled.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderDone.java" afterPath="$PROJECT_DIR$/src/database/OrderDone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderNotAssigned.java" afterPath="$PROJECT_DIR$/src/database/OrderNotAssigned.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderNotConfirmed.java" afterPath="$PROJECT_DIR$/src/database/OrderNotConfirmed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderPaused.java" afterPath="$PROJECT_DIR$/src/database/OrderPaused.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderState.java" afterPath="$PROJECT_DIR$/src/database/OrderState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderStillPerformed.java" afterPath="$PROJECT_DIR$/src/database/OrderStillPerformed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderWaiting.java" afterPath="$PROJECT_DIR$/src/database/OrderWaiting.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/Track.java" afterPath="$PROJECT_DIR$/src/database/Track.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxModels/MachineFX.java" afterPath="$PROJECT_DIR$/src/fxModels/MachineFX.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/assignTrackScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/assignTrackScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/showAllOrdersScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/showAllOrdersScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/showAllTracksScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/showAllTracksScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/BaseModel.java" afterPath="$PROJECT_DIR$/src/models/BaseModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/OrderModel.java" afterPath="$PROJECT_DIR$/src/models/OrderModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/TrackModel.java" afterPath="$PROJECT_DIR$/src/models/TrackModel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
@@ -266,7 +238,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="36" />
     <option name="y" value="88" />
     <option name="width" value="1612" />
@@ -1100,7 +1072,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266129" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
@@ -1358,7 +1330,7 @@
         <state relative-caret-position="-589">
           <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1368,7 +1340,7 @@
         <state relative-caret-position="204">
           <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1378,7 +1350,7 @@
         <state relative-caret-position="799">
           <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1388,7 +1360,7 @@
         <state relative-caret-position="153">
           <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1398,7 +1370,7 @@
         <state relative-caret-position="850">
           <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1457,7 +1429,7 @@
         <state relative-caret-position="323">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
