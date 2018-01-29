@@ -1,6 +1,6 @@
 package database;
 
-import org.hibernate.annotations.DiscriminatorOptions;
+import org.controlsfx.control.StatusBar;
 
 import javax.persistence.*;
 import java.util.List;
@@ -38,24 +38,26 @@ public abstract class OrderState {
 
     public abstract void edit(Order order);
 
-    public abstract void removeOrder(Order order);
+    public abstract void removeOrder(Order order, StatusBar statusBar);
 
     public abstract void assignOrder(Order order, EntityManager entityManager);
 
     public abstract void unassignOrder(Order order, EntityManager entityManager);
 
-    public abstract void confirmOrder(Order order, EntityManager entityManager);
+    public abstract void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
-    public abstract void unconfirmOrder(Order order, EntityManager entityManager);
+    public abstract void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
     public abstract void takeOrder(Order order, EntityManager entityManager);
 
-    public abstract void cancelOrder(Order order, EntityManager entityManager);
+    public abstract void cancelOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
-    public abstract void pauseOrder(Order order, EntityManager entityManager);
+    public abstract void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
-    public abstract void unpauseOrder(Order order, EntityManager entityManager);
+    public abstract void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
     public abstract void finishOrder(Order order, EntityManager entityManager);
+
+    public abstract void postTheOrder(Order order, EntityManager entityManager);
 
 }

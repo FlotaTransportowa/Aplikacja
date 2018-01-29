@@ -16,12 +16,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.layout.GridPane;
-import javafx.util.Pair;
+import models.TrackModel;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.Optional;
 
 public class AssignTrackController extends Controller{
 
@@ -226,6 +226,95 @@ public class AssignTrackController extends Controller{
 
     @FXML
     void assignTrack(){
+        MachineFX machineFX = getSelectedMachine();
+        TrackFX trackFX = getSelectedTrack();
+        DriverWithPermsFX driverWithPermsFX = getSelectedDriver();
 
+        if(!checkSelection(trackFX, machineFX, driverWithPermsFX))
+            return;
+
+        Machine machine = findMachine(machineFX);
+        Track track = findTrack(trackFX);
+        Driver driver = findDriver(driverWithPermsFX);
+
+        TrackModel.assignTrack(machine, track, driver);
+        TrackModel.setAssignOrders(track.getOrders());
+
+        refreshView();
+    }
+
+    @FXML
+    private void refreshView(){
+        trackData = FXCollections.observableArrayList(TrackFX.getAllNotAssigned());
+        trackAssignTable.setItems(trackData);
+    }
+
+    @FXML
+    public Machine findMachine(MachineFX machineFX){
+        Machine machine = null;
+        try {
+            entityManager.getTransaction().begin();
+            TypedQuery<Machine> query = entityManager.createQuery("select o from Machine o where id = :identifier", Machine.class);
+            query.setParameter("identifier", machineFX.getMachineID());
+            machine = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+        return machine;
+    }
+
+    @FXML
+    public Track findTrack(TrackFX trackFX){
+        Track track = null;
+        try {
+            entityManager.getTransaction().begin();
+            TypedQuery<Track> query = entityManager.createQuery("select o from Track o where id = :identifier", Track.class);
+            query.setParameter("identifier", trackFX.getId());
+            track = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+        return track;
+    }
+
+    @FXML
+    public Driver findDriver(DriverWithPermsFX driverWithPermsFX){
+        Driver driver = null;
+        try {
+            entityManager.getTransaction().begin();
+            TypedQuery<Driver> query = entityManager.createQuery("select o from Driver o where id = :identifier", Driver.class);
+            query.setParameter("identifier", driverWithPermsFX.getEmployeeID());
+            driver = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+        return driver;
+    }
+
+    @FXML
+    TrackFX getSelectedTrack(){
+        return trackAssignTable.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    DriverWithPermsFX getSelectedDriver(){
+        return driverWithPermsTable.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    MachineFX getSelectedMachine(){
+        return machineAssignTable.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    boolean checkSelection(TrackFX trackFX, MachineFX machineFX, DriverWithPermsFX driverWithPermsFX){
+        if(trackFX == null || machineFX == null || driverWithPermsFX == null) return false;
+        return true;
     }
 }
