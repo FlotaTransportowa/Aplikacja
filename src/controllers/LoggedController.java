@@ -344,14 +344,7 @@ public class LoggedController extends Controller {
     }
 
     public void showAllNotifications() {
-        ShowAllNotificationsController showAllNotificationsController = null;
-        try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
-            addNewTab(loader, "Lista tras");
-            showAllNotificationsController = loader.getController();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
     }
 }

@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="489.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowAllNotificationsController">
    <children>
-      <TableView fx:id="orderTable" layoutX="11.0" layoutY="52.0" prefHeight="430.0" prefWidth="922.0">
+      <TableView fx:id="tableView" layoutX="11.0" layoutY="52.0" prefHeight="430.0" prefWidth="922.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>

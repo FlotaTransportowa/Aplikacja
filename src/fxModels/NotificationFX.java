@@ -6,16 +6,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.NotificationModel;
 
-import java.sql.Date;
-
 import static controllers.NotifyAccidentController.NotifyType.*;
 
 public class NotificationFX {
 
     private NotifyAccidentController.NotifyType notifyType;
     private Notification notification;
+    private long id;
+    private java.util.Date date;
+    private String description;
+    private Notification.NotifyStatus status;
+    private Employee employee;
+    private Machine machine;
+
     private static NotificationModel notificationModel = new NotificationModel();
-    private boolean aBoolean;
+    private Boolean aBoolean;
 
     public NotificationFX(Notification notification) {
         switch (notification.getClass().getSimpleName().toString()){
@@ -31,83 +36,82 @@ public class NotificationFX {
                 this.notifyType=DEFECT;
                 break;
         }
+
         this.notification = notification;
+        decompositeValues();
+    }
+
+    private void decompositeValues() {
+        id=notification.getId();
+        date=notification.getDate();
+        description=notification.getDescription();
+        status=notification.getStatus();
+        employee=notification.getEmployee();
+        machine=notification.getMachine();
     }
 
     public static ObservableList<NotificationFX> getAll(){
         ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();
-        ObservableList<Notification> notifications = FXCollections.observableArrayList();
+        ObservableList<Notification> notifications = null;
 
         notifications = notificationModel.getAll();
-
-        for(Notification n : notifications){
-            notificationFXES.add(new NotificationFX(n));
+        if(notifications!=null) {
+            for (Notification n : notifications) {
+                notificationFXES.add(new NotificationFX(n));
+            }
         }
-
         return notificationFXES;
     }
+    public static ObservableList<NotificationFX> getAllOfType(NotifyAccidentController.NotifyType notifyType){
+        ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();
+        ObservableList<Notification> notifications = null;
 
+        notifications = notificationModel.getAllOfType(notifyType);
+        if(notifications!=null) {
+            for (Notification n : notifications) {
+                notificationFXES.add(new NotificationFX(n));
+            }
+        }
+        return notificationFXES;
+    }
 
     public NotifyAccidentController.NotifyType getNotifyType() {
         return notifyType;
     }
 
-    public void setNotifyType(NotifyAccidentController.NotifyType notifyType) {
-        this.notifyType = notifyType;
+    public Notification getNotification() {
+        return notification;
     }
+
     public long getId() {
-        return notification.getId();
-    }
-
-    public void setId(long id) {
-        notification.setId(id);
-    }
-
-    public String getDescription() {
-        return notification.getDescription();
-    }
-
-    public void setDescription(String description) {
-        notification.setDescription(description);
-    }
-
-    public String getStatus() {
-        return notification.getStatus();
-    }
-
-    public void setStatus(String status) {
-        notification.setStatus(status);
-    }
-
-    public Machine getMachine() {
-       return notification.getMachine();
-    }
-
-    public void setMachine(Machine machine) {
-        notification.setMachine(machine);
-    }
-
-    public Employee getEmployee() {
-        return notification.getEmployee();
-    }
-
-    public void setEmployee(Employee employee) {
-        notification.setEmployee(employee);
+        return id;
     }
 
     public java.util.Date getDate() {
-        return notification.getDate();
+        return date;
     }
 
-    public void setDate(java.util.Date date) {
-        notification.setDate(date);
+    public String getDescription() {
+        return description;
     }
 
-    public boolean isaBoolean() {
+    public Notification.NotifyStatus getStatus() {
+        return status;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public Machine getMachine() {
+        return machine;
+    }
+
+    public static NotificationModel getNotificationModel() {
+        return notificationModel;
+    }
+
+    public boolean getABoolean() {
         return aBoolean;
-    }
-
-    public void setaBoolean(boolean aBoolean) {
-        this.aBoolean = aBoolean;
     }
 }

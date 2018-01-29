@@ -25,6 +25,8 @@ public class PermissionAccordionController extends Controller {
     @FXML private TextField sizeOfTrasyTableTextField,  sizeOfTrasyTableTextField1,  sizeOfTrasyTableTextField2;
     @FXML private Slider sizeOfTrasyTable, sizeOfTrasyTable1,sizeOfTrasyTable2;
 
+    private String title = new String();
+    private NotifyAccidentController.NotifyType notifyType;
 
     public PermissionAccordionController()
     {
@@ -99,11 +101,8 @@ public class PermissionAccordionController extends Controller {
     @FXML private void showEmployee() throws IOException {
         getLoggedController().showEmployee();
     }
-
-    @FXML private void addNewNotify()
+    private boolean findSelectedType()
     {
-        String title = new String();
-        NotifyAccidentController.NotifyType notifyType;
         if(zgloszenieToggleButton.isSelected()){
             title = "Zgłoszenie usterki";
             notifyType = DEFECT;
@@ -121,22 +120,40 @@ public class PermissionAccordionController extends Controller {
             alert.setTitle("Błąd tworzenia zgłoszenia");
             alert.setHeaderText("Nie wybrano typu zgłoszenia");
             alert.showAndWait();
-            return;
+            return false;
         }
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notifyAccidentScreen.fxml"));
-        try {
-            loggedController.addNewTab(loader,title);
-            NotifyAccidentController notifyAccidentController = loader.getController();
-            notifyAccidentController.setPermissionAccordionController(this);
-            notifyAccidentController.setNotifyType(notifyType);
-            notifyAccidentController.initNofity();
-        } catch (IOException e) {
-            e.printStackTrace();
+        return true;
+    }
+    @FXML private void addNewNotify()
+    {
+        if(findSelectedType()) {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notifyAccidentScreen.fxml"));
+            try {
+                loggedController.addNewTab(loader, title);
+                NotifyAccidentController notifyAccidentController = loader.getController();
+                notifyAccidentController.setPermissionAccordionController(this);
+                notifyAccidentController.setNotifyType(notifyType);
+                notifyAccidentController.initNofity();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-}
+    }
     @FXML void showAllNotifications()
     {
-        getLoggedController().showAllNotifications();
+        if(findSelectedType()) {
+            ShowAllNotificationsController showAllNotificationsController = null;
+            try {
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllNotificationScreen.fxml"));
+                loggedController.addNewTab(loader, "Lista zgłoszeń");
+                showAllNotificationsController = loader.getController();
+                showAllNotificationsController.setPermissionAccordionController(this);
+                showAllNotificationsController.setNotifyType(notifyType);
+                showAllNotificationsController.initNofity();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public LoggedController getLoggedController() {

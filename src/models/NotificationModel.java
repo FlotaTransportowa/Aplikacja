@@ -1,5 +1,6 @@
 package models;
 
+import controllers.NotifyAccidentController;
 import database.Employee;
 import database.Notification;
 import javafx.collections.FXCollections;
@@ -26,8 +27,25 @@ public class NotificationModel implements BaseModel{
             e.printStackTrace();
         } finally {
             entityManager.getTransaction().commit();
+            return notificationObservableList;
         }
+    }
 
-        return notificationObservableList;
+    public ObservableList<Notification> getAllOfType(NotifyAccidentController.NotifyType notifyType) {
+        ObservableList<Notification> notificationObservableList = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+
+        entityManager.getTransaction().begin();
+        try {
+            TypedQuery<Notification> query = entityManager.createQuery("select e from Notification e where typeOfNotify= :type", Notification.class);
+            query.setParameter("type",NotifyAccidentController.notifyTypeToString(notifyType));
+            List<Notification> notifications = query.getResultList();
+            notificationObservableList.addAll(notifications);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+            return notificationObservableList;
+        }
     }
 }

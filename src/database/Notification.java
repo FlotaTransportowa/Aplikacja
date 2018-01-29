@@ -7,13 +7,17 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeOfNotify")
 public abstract class Notification {
+    public enum NotifyStatus {
+        SENT
+    }
+
     @Id
     @GeneratedValue
     private long id;
     @Temporal(TemporalType.DATE)
     private Date date;
     private String description;
-    private String status;
+    private NotifyStatus status;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "machineID")
     private Machine machine;
@@ -24,7 +28,7 @@ public abstract class Notification {
     public Notification(){
     }
 
-    public Notification(Date date, String description, String status, Machine machine, Employee employee) {
+    public Notification(Date date, String description, NotifyStatus status, Machine machine, Employee employee) {
         this.date = date;
         this.description = description;
         this.status = status;
@@ -48,11 +52,11 @@ public abstract class Notification {
         this.description = description;
     }
 
-    public String getStatus() {
+    public NotifyStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(NotifyStatus status) {
         this.status = status;
     }
 

@@ -35,6 +35,22 @@ public class NotifyAccidentController extends Controller {
     public enum NotifyType{
         DEFECT,THEFT,ACCIDENT
     }
+    public static String notifyTypeToString(NotifyType notifyType)
+    {
+        String value = new String();
+        switch (notifyType){
+            case THEFT:
+                value = "NotifyTheft";
+                break;
+            case DEFECT:
+                value = "NotifyDefect";
+                break;
+            case ACCIDENT:
+                value = "NotifyAccident";
+                break;
+        }
+        return value;
+    }
     private NotifyType notifyType;
 
     public NotifyAccidentController()
@@ -54,8 +70,6 @@ public class NotifyAccidentController extends Controller {
     }
     public void initNofity()
     {
-        System.out.println(permissionAccordionController.getLoggedController().getLoggedEmployee().getClass().getSimpleName());
-        System.out.println(date);
         booleanChoiceInit();
     }
 
@@ -69,7 +83,7 @@ public class NotifyAccidentController extends Controller {
     private Notification createNotification()
     {
         String description = descriptionTextArea.getText();
-        String status = "wysłane";
+        Notification.NotifyStatus status = Notification.NotifyStatus.SENT;
         Machine machine = (Machine) machineChoiceBox.getSelectionModel().getSelectedItem();
         Employee employee = permissionAccordionController.getLoggedController().getLoggedEmployee();
         switch (notifyType){

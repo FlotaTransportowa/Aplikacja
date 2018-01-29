@@ -13,7 +13,7 @@ public class NotifyTheft extends Notification{
 
     }
 
-    public NotifyTheft(Date date, String description, String status, Machine machine, Employee employee, boolean ifVictims) {
+    public NotifyTheft(Date date, String description, NotifyStatus status, Machine machine, Employee employee, boolean ifVictims) {
         super(date, description, status, machine, employee);
         this.ifVictims = ifVictims;
     }

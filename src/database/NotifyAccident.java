@@ -8,7 +8,11 @@ import java.util.Date;
 public class NotifyAccident extends Notification{
     private boolean ifCollision;
 
-    public NotifyAccident(Date date, String description, String status, Machine machine, Employee employee, boolean ifCollision) {
+    public NotifyAccident() {
+        super();
+    }
+
+    public NotifyAccident(Date date, String description, NotifyStatus status, Machine machine, Employee employee, boolean ifCollision) {
         super(date, description, status, machine, employee);
         this.ifCollision = ifCollision;
     }
