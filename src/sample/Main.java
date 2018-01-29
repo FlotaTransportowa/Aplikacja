@@ -135,7 +135,7 @@ public class Main extends Application {
         Date today = new Date();
         notification.setDate(today);
         notification.setDescription("Domyślny opis");
-        notification.setStatus("wysłane");
+        notification.setStatus(Notification.NotifyStatus.SENT);
         notification.setEmployee(employee);
         notification.setMachine(machine);
         notification.setIfVictims(false);
@@ -327,6 +327,9 @@ public class Main extends Application {
         orderCanceled.setName("anulowane");
         OrderState orderPaused = new OrderPaused();
         orderPaused.setName("wstrzymane");
+        OrderState orderPosted = new OrderPosted();
+        orderPosted.setName("zaksięgowane");
+
 
         entityManager.getTransaction().begin();
         entityManager.persist(orderNotConfirmed);
@@ -336,6 +339,7 @@ public class Main extends Application {
         entityManager.persist(orderDone);
         entityManager.persist(orderCanceled);
         entityManager.persist(orderPaused);
+        entityManager.persist(orderPosted);
         entityManager.getTransaction().commit();
     }
 
