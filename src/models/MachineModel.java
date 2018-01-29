@@ -34,6 +34,24 @@ public class MachineModel implements BaseModel<Machine>{
         return machines;
     }
 
+    public ObservableList<Machine> getAllAvailable(){
+        ObservableList<Machine> machines = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<Machine> query = entityManager.createQuery("select e from Machine e where e.busy = false and e.efficient = true", Machine.class);
+            List<Machine> machines1 = query.getResultList();
+            machines.addAll(machines1);
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return machines;
+    }
+
     public static Machine getMachine(MachineType type, String registrationNum, String VINNum){
         Machine machine = new Machine();
         machine.setType(type);

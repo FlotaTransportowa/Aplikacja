@@ -36,7 +36,7 @@ public class AssignTrackController extends Controller{
     @FXML
     private void initialize() {
         driverData = FXCollections.observableArrayList(DriverWithPermsFX.getAll());
-        machineData = FXCollections.observableArrayList(MachineFX.getAll());
+        machineData = FXCollections.observableArrayList(MachineFX.getAllAvailable());
         trackData = FXCollections.observableArrayList(TrackFX.getAllNotAssigned());
 
         setTrackTable();

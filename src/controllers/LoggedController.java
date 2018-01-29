@@ -242,7 +242,7 @@ public class LoggedController extends Controller {
     void showAllTracks(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
-            addNewTab((Node) loader.load(), "Lista zleceń");
+            addNewTab((Node) loader.load(), "Lista tras");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -252,10 +252,6 @@ public class LoggedController extends Controller {
         mainController.logout();
     }
 
-    /*@FXML void changeSizeOfTrasyTable() throws IOException {
-        double value = sizeOfTrasyTable.getValue();
-        sizeOfTrasyTableTextField.setText(Double.toString(value));
-    }*/
     private void initDriver() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionAccordionForms/driverAccordionForm.fxml"));

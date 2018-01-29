@@ -111,7 +111,7 @@ public abstract class Controller{
             editor.addRow(++rowIndex, new Label("Przydzielona maszyna"));
             editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getMachine().getId())));
             editor.addRow(++rowIndex, new Label("Przydzielony kierowca"));
-            editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getDriver())));
+            editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getDriver().getId())));
         }
 
 
