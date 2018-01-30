@@ -28,6 +28,9 @@ import validation.Validation;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kontroler do tworzenia tras
+ */
 public class AddNewTrackController extends Controller{
 
     @FXML private TextField searchField;
@@ -95,6 +98,9 @@ public class AddNewTrackController extends Controller{
         refreshView();
     }
 
+    /**
+     * Odświeża widok
+     */
     private void refreshView(){
         trackName.clear();
 

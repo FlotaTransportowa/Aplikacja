@@ -10,6 +10,9 @@ import models.EmployeeModel;
 
 import java.util.List;
 
+/**
+ * Model Kierowcy z uprawnieniami
+ */
 public class DriverWithPermsFX {
     private long employeeID;
     private String firstName;
@@ -20,7 +23,7 @@ public class DriverWithPermsFX {
 
     /**
      * Pobranie wszystkich kierowców z uprawnieniami
-     * @return Zwraca ObservableList<DriverWithPermsFX>
+     * @return Zwraca listę zgłoszeń jako model DriverWithPermsFX
      */
     public static ObservableList<DriverWithPermsFX> getAll(){
         ObservableList<DriverWithPermsFX> driversWithPermsFX = FXCollections.observableArrayList();

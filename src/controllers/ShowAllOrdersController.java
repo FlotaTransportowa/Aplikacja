@@ -19,6 +19,9 @@ import validation.Validation;
 import java.io.IOException;
 
 
+/**
+ * Kontroler pokazujące listę zleceń
+ */
 public class ShowAllOrdersController extends Controller {
     private LoggedController loggedController;
 

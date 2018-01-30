@@ -13,6 +13,9 @@ import java.io.IOException;
 
 //import javafx.event.EventHandler;
 
+/**
+ * Kontroler inicjujący okno aplikacji
+ */
 public class MainController extends Controller{
 
     private String AccountType = "";

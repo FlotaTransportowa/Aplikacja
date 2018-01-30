@@ -5,6 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+/**
+ * Implementacja wzorca Singleton dla bazy danych
+ */
 public class GlobalManager {
     private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
     private static EntityManager entityManager = null;

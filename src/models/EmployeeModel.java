@@ -16,6 +16,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model pracownika
+ */
 public class EmployeeModel implements BaseModel<Employee>{
     /**
      * @return Zwraca wszystkich pracowników
@@ -41,8 +44,8 @@ public class EmployeeModel implements BaseModel<Employee>{
 
     /**
      * Dodaje kierowcy driver uprawnienie permission
-     * @param driver
-     * @param permission
+     * @param driver kierowca
+     * @param permission uprawnienie
      */
     public static void addPermission(Driver driver, Permission permission)
     {
@@ -58,7 +61,7 @@ public class EmployeeModel implements BaseModel<Employee>{
 
     /**
      * Sprawdza czy podane konto ma przypisanego pracownika
-     * @param account
+     * @param account Konto do sprawdzenia
      * @return Zwraca konto lub null gdy nie znaleziono
      */
     public static Driver getDriverByAccount(Account account){
@@ -81,13 +84,13 @@ public class EmployeeModel implements BaseModel<Employee>{
 
     /**
      * Tworzy pracownika o podanych parametrach
-     * @param name
-     * @param lastName
-     * @param age
-     * @param gender
-     * @param type
-     * @param email
-     * @param salary
+     * @param name imie
+     * @param lastName nazwisko
+     * @param age wiek
+     * @param gender płeć (Mężczyzna lub Kobieta)
+     * @param type typ pracownika
+     * @param email adres e-mail
+     * @param salary Podstawa pensji
      * @return Zwraca jedną z klas dziedziczących po Employee
      */
     public static Employee getEmployee(String name, String lastName, int age, String gender, String type, String email, double salary){
@@ -104,7 +107,7 @@ public class EmployeeModel implements BaseModel<Employee>{
 
     /**
      * Szuka pracownika przypisanego do konta
-     * @param account
+     * @param account konto do sprawdzenia
      * @return Zwraca do pracownika lub null gdy nieznaleziono
      */
     public static Employee getEmployee(Account account){

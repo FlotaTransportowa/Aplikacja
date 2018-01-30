@@ -24,6 +24,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kontroler obsługujący zalogowanego użytkownika
+ */
 public class LoggedController extends Controller {
 
     private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
@@ -119,9 +122,8 @@ public class LoggedController extends Controller {
 
     /**
      * Dodanie nowej karty z dodaniem zlecenia
-     * @throws IOException
      */
-    @FXML void addNewOrder() throws IOException {
+    @FXML void addNewOrder()  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTask.fxml"));
             addNewTab((Node) loader.load(),"Utwórz nowe zlecenie");
@@ -131,9 +133,8 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z dodaniem pracownika
-     * @throws IOException
      */
-    @FXML void addNewEmployee() throws IOException {
+    @FXML void addNewEmployee() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
             addNewTab(loader,"Dodaj pracownika");
@@ -147,7 +148,6 @@ public class LoggedController extends Controller {
 
     /**
      * Dodanie nowej karty z widokiem niezatwierdzonych zleceń
-     * @throws IOException
      */
     @FXML
     void viewNotConfirmedTasksList(){
@@ -160,9 +160,8 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z dodaniem maszyny
-     * @throws IOException
      */
-    @FXML void addNewMachine() throws IOException {
+    @FXML void addNewMachine()  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
             addNewTab((Node) loader.load(),"Dodaj maszynę");
@@ -172,9 +171,8 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z widokiem maszyn
-     * @throws IOException
      */
-    @FXML void showMachine() throws IOException {
+    @FXML void showMachine()  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showMachineForm.fxml"));
             addNewTab((Node) loader.load(),"Pojazdy floty");
@@ -187,10 +185,9 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z edycją maszyn
-     * @param machine
-     * @throws IOException
+     * @param machine MAszyna do edycji
      */
-    public void editMachine(Machine machine) throws IOException {
+    public void editMachine(Machine machine)  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
             addNewTab(loader,"Edytuj maszynę");
@@ -203,9 +200,8 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z dodaniem trasy
-     * @throws IOException
      */
-    @FXML void addNewTrack() throws IOException {
+    @FXML void addNewTrack() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTrackScreen.fxml"));
             addNewTab((Node) loader.load(),"Stwórz trasę");
@@ -215,10 +211,9 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z edycją pracownika
-     * @param employee
-     * @throws IOException
+     * @param employee Pracownik do edycji
      */
-    public void editEmployee(Employee employee) throws IOException {
+    public void editEmployee(Employee employee) {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addEmployeeScreen.fxml"));
             addNewTab(loader,"Edytuj pracownika");
@@ -233,10 +228,9 @@ public class LoggedController extends Controller {
         }
     }
     /**
-     * Dodanie nowej karty z widokiem pracownikóa
-     * @throws IOException
+     * Dodanie nowej karty z widokiem pracowników
      */
-    @FXML void showEmployee() throws IOException {
+    @FXML void showEmployee() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllEmployeesScreen.fxml"));
             addNewTab((Node) loader.load(),"Pracownicy floty");
@@ -251,10 +245,9 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z księgowaniem zleceń
-     * @param  order
-     * @throws IOException
+     * @param  order Zlecenie do zaksięgowania
      */
-    public void toPostOrder(Order order) throws IOException {
+    public void toPostOrder(Order order) {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/postOrderScreen.fxml"));
             addNewTab(loader,"Zaksięguj zlecenie");
@@ -269,7 +262,6 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z raportem zleceń
-     * @throws IOException
      */
     public void showOrderReports(){
         try {
@@ -285,10 +277,9 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z dodaniem uprawnień dla pracownika przekazanego przez paramter
-     * @param employee
-     * @throws IOException
+     * @param employee Pracownik do dodania uprawnienia
      */
-    void addEmployeePermission(Employee employee) throws IOException {
+    void addEmployeePermission(Employee employee)  {
         try {
             Tab newShowEmployeeTab = new Tab("Dodawanie uprawnień");
             tabMenu.getTabs().add(newShowEmployeeTab);
@@ -309,9 +300,8 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z widokiem listy zleceń
-     * @throws IOException
      */
-    @FXML void viewTasksList() throws IOException {
+    @FXML void viewTasksList() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
             addNewTab(loader, loggedEmployee+": Lista zleceń ");
@@ -324,7 +314,6 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z widokiem zleceń zalogowanego pracownika
-     * @throws IOException
      */
     @FXML void viewYoursTasksList() {
         try {
@@ -339,7 +328,6 @@ public class LoggedController extends Controller {
     }
     /**
      * Dodanie nowej karty z widokiem przydzielenia trasy
-     * @throws IOException
      */
     @FXML
     void assignTrack(){
@@ -353,7 +341,6 @@ public class LoggedController extends Controller {
 
     /**
      * Dodanie nowej karty z widokiem listy tras
-     * @throws IOException
      */
     @FXML
     void showAllTracks(){
@@ -370,7 +357,6 @@ public class LoggedController extends Controller {
 
     /**
      * Dodanie nowej karty z widokiem tras do wzięcia
-     * @throws IOException
      */
     @FXML
     void showDriverTracksForTake(){
@@ -384,7 +370,6 @@ public class LoggedController extends Controller {
 
     /**
      * Dodanie nowej karty z lista tras zalogowanego pracownika
-     * @throws IOException
      */
     @FXML
     void showYoursTracks(){
@@ -402,9 +387,8 @@ public class LoggedController extends Controller {
 
     /**
      * Metoda do wylogowania
-     * @throws IOException
      */
-    @FXML void logOut() throws IOException {
+    @FXML void logOut()  {
         mainController.logout();
     }
 
@@ -415,9 +399,8 @@ public class LoggedController extends Controller {
 
     /**
      * Metoda ustawiająca widok dla uprawnień kierowcy
-     * @throws IOException
      */
-    private void initDriver() throws IOException {
+    private void initDriver() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionAccordionForms/driverAccordionForm.fxml"));
             accord.getPanes().clear();
@@ -432,7 +415,6 @@ public class LoggedController extends Controller {
     }
     /**
      * Metoda ustawiająca widok dla uprawnień dyspozytora
-     * @throws IOException
      */
     private void initDispatcher()
     {
@@ -450,7 +432,6 @@ public class LoggedController extends Controller {
     }
     /**
      * Metoda ustawiająca widok dla uprawnień kierownika
-     * @throws IOException
      */
     private void initPrincipal()
     {
@@ -470,7 +451,7 @@ public class LoggedController extends Controller {
     }
     /**
      * Metoda ustawiająca uprawnienia w zależności od typu zalogowanego konta
-     * @throws IOException
+     * @throws IOException Wyjątek
      */
     public void initPermissions() throws IOException {
         switch (typKonta.getText()){

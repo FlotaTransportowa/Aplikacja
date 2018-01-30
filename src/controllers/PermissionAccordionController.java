@@ -14,6 +14,9 @@ import static controllers.AddNotificationController.NotifyType.DEFECT;
 import static controllers.AddNotificationController.NotifyType.THEFT;
 
 
+/**
+ * Kontroler zarządzający uprawnieniami użytkownika
+ */
 public class PermissionAccordionController extends Controller {
 
     @FXML private TitledPane paneZlecen;
@@ -122,6 +125,10 @@ public class PermissionAccordionController extends Controller {
         getLoggedController().showOrderReports();
     }
 
+    /**
+     * Sprawdzenie czy został wybrany typ zgłoszenia oraz ustawienie odpowiednich pól na danych typ
+     * @return Prawdę gdy wybrano jakiś typ, fałsz w przeciwnym przypadku
+     */
     private boolean findSelectedType() {
         if(zgloszenieToggleButton.isSelected()){
             title = "Zgłoszenie usterki";
@@ -145,6 +152,9 @@ public class PermissionAccordionController extends Controller {
         return true;
     }
 
+    /**
+     * Dodanie nowej karty do dodania zgłoszenia
+     */
     @FXML private void addNewNotify() {
         if(findSelectedType()) {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notificationScreen.fxml"));
@@ -160,7 +170,11 @@ public class PermissionAccordionController extends Controller {
         }
     }
 
-    @FXML void showAllNotifications() {
+    /**
+     * Dodanie nowerj karty wyświetlające wszystkie zgłoszenia wybranego typu dla notifyType
+     */
+    @FXML
+    private void showAllNotifications() {
         if(findSelectedType()) {
             ShowAllNotificationsController showAllNotificationsController = null;
             try {

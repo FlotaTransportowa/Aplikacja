@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kontroler do doodawania uprawnień
+ */
 public class AddPermisionController extends Controller{
     @FXML private Label label;
     @FXML private VBox  vBox;
@@ -62,7 +65,7 @@ public class AddPermisionController extends Controller{
     /**
      * Tworzy UI do pokazania pojedyńczego posiadanego uprawnieniaa
      * @param permission
-     * @return
+     * @return Zwraca HBox z utworzonym widokiem, z utawionym uprawnieniem
      * @throws IOException
      */
     private HBox currentPermissionForm(Permission permission) throws IOException {
@@ -78,6 +81,11 @@ public class AddPermisionController extends Controller{
         return node;
     }
 
+    /**
+     * Tworzy formatkę do dodania uprawnienia
+     * @return Zraca HBox z widokiem dodania uprawnienia
+     * @throws IOException
+     */
     private HBox newPermissionForm() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionForm.fxml"));
         HBox node = loader.load();

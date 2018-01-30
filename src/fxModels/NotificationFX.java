@@ -12,6 +12,9 @@ import models.NotificationModel;
 
 import static controllers.AddNotificationController.NotifyType.*;
 
+/**
+ * Model zgłoszenia
+ */
 public class NotificationFX {
 
     private AddNotificationController.NotifyType notifyType;
@@ -108,7 +111,7 @@ public class NotificationFX {
 
     /**
      * Pobranie wszystkich zgłoszeń
-     * @return ObservableList<NotificationFX>
+     * @return Listę wszystkich zgłoszeń jako model NotificationFX
      */
     public static ObservableList<NotificationFX> getAll(){
         ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();
@@ -125,9 +128,9 @@ public class NotificationFX {
 
     /**
      * Pobranie wszystkich zgłoszeń typu notifyType
-     * @param notifyType
+     * @param notifyType Typ zgłoszenia
      * @param showAllNotificationsController Kontroler, który będzie obsługiwał wyświetlanie listy
-     * @return
+     * @return Zwraca listę zgłoszenia jako model NotificationFX
      */
     public static ObservableList<NotificationFX> getAllOfType(AddNotificationController.NotifyType notifyType, ShowAllNotificationsController showAllNotificationsController){
         ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();

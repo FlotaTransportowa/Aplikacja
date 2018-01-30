@@ -10,6 +10,9 @@ import fxModels.MachineFX;
 import validation.Validation;
 
 
+/**
+ * Kontroler pokazujący listę maszyn
+ */
 public class ShowMachineController extends Controller{
     @FXML
     private TableView<MachineFX> machineShowTable;

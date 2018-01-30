@@ -3,6 +3,9 @@ package security;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Klasa hasująca hasło algorytmem MD5
+ */
 public class HashPassword {
     public static String hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("MD5");

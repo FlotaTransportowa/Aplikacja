@@ -106,7 +106,7 @@ public class AddEmployeeController extends Controller{
 
     /**
      * Akcja dodająca pracownika do bazy danych na podstawie wypełnionych pól formularza
-     * @throws NoSuchAlgorithmException
+     * @throws NoSuchAlgorithmException wyjątek
      */
     @FXML private void checkClick() throws NoSuchAlgorithmException {
         EmployeeModel employeeModel = new EmployeeModel();
@@ -147,6 +147,10 @@ public class AddEmployeeController extends Controller{
         statusBar.setText("Dodawanie pracownika przebiegło pomyślnie.");
     }
 
+    /**
+     * Pobiera listę telefonów z pól tekstowych
+     * @return Listę telefonów
+     */
     private ArrayList<Phone> getPhones()
     {
         Phone numberOfPhone1 = null, numberOfPhone2 = null, numberOfPhone3 = null;
@@ -172,9 +176,15 @@ public class AddEmployeeController extends Controller{
         return phones;
     }
 
+    /**
+     * Tworzy pracwonika na podstawie uzupełnionego fomrularza
+     * @param type typ
+     * @param gender Płeć (Mężczyzna lub Kobieta)
+     */
     private void newEmployeer(String type, String gender){
         employeer = EmployeeModel.getEmployee(addNameField.getText(), addSurnameField.getText(), Integer.parseInt(addAgeField.getText()), gender, type, addEmailField.getText(), Double.parseDouble(addSalaryField.getText()));
     }
+
 
     private void setEmployeer()
     {
@@ -251,6 +261,9 @@ public class AddEmployeeController extends Controller{
         typeOfEmployeeChoiceBox.getSelectionModel().select(type);
     }
 
+    /**
+     * Dodaj do bazy danych
+     */
     private void pushToDatabase()
     {
         System.out.println(employeer.getClass().getSimpleName());
@@ -312,6 +325,10 @@ public class AddEmployeeController extends Controller{
         this.loggedController = loggedController;
     }
 
+    /**
+     * Walidacja poprawności wprowadzonych pól
+     * @return Prawdę jeśli walidacja przeszła, fałsz w przeciwnym przypadku
+     */
     @FXML
     private boolean valid(){
         boolean validateFlag = true, validAdressFlag, validPhoneNumbersFlag;
@@ -341,7 +358,10 @@ public class AddEmployeeController extends Controller{
 
         return validateFlag & validAdressFlag & validPhoneNumbersFlag;
     }
-
+    /**
+     * Walidacja poprawności pojedyńczego numeru telefonu
+     * @return Prawdę jeśli walidacja przeszła, fałsz w przeciwnym przypadku
+     */
     @FXML
     private boolean validPhoneNumber(TextField phone, String type) {
         boolean validateFlag = true;
@@ -365,6 +385,10 @@ public class AddEmployeeController extends Controller{
 
         return validateFlag;
     }
+    /**
+     * Walidacja poprawności wszystkich numerów telefonów
+     * @return Prawdę jeśli walidacja przeszła, fałsz w przeciwnym przypadku
+     */
     @FXML
     private boolean validAllPhoneNumbers(){
         boolean validateFlag = true;
@@ -391,6 +415,10 @@ public class AddEmployeeController extends Controller{
         return validateFlag;
     }
 
+    /**
+     * Walidacja poprawności adresu
+     * @return Prawdę jeśli walidacja przeszła, fałsz w przeciwnym przypadku
+     */
     @FXML
     private boolean validAddressFields(){
         boolean validateFlag = true;

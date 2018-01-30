@@ -26,6 +26,9 @@ import java.sql.SQLException;
 
 import static controllers.Controller.*;
 
+/**
+ * KOntroler logowania do systemu
+ */
 public class LoginController extends Controller {
     @FXML private TextField login;
     @FXML private TextField password;
@@ -33,6 +36,12 @@ public class LoginController extends Controller {
     private LoggedController loggedController;
 
 
+    /**
+     * Metoda Spradzająca poprawność danych logowania
+     * @throws IOException Wyjątek
+     * @throws SQLException Wyjątek
+     * @throws NoSuchAlgorithmException Wyjątek
+     */
     @FXML private void check() throws IOException, SQLException, NoSuchAlgorithmException {
         account = AccountModel.getAccount(login.getText(), HashPassword.hashPassword(password.getText()));
 
@@ -49,6 +58,11 @@ public class LoginController extends Controller {
         }
     }
 
+    /**
+     * Uruchomienie metody logującej do systemu oraz zmieniającej widok na widok zalogwanej używtkownika
+     * @param Login Login
+     * @throws IOException Wyjątek
+     */
     private void initSystem(String Login) throws IOException {
         if(account == null)
             return;
