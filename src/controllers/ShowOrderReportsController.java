@@ -15,8 +15,6 @@ import models.OrderReportModel;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
 public class ShowOrderReportsController extends Controller{
     private LoggedController loggedController;
 

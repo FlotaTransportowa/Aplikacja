@@ -58,7 +58,7 @@ public class OrderFX {
      * @param employee
      * @return Zwraca wszystkie zlecenia przypisane do employee
      */
-    public static ObservableList<OrderFX>  getEmployeeOrders(Employee employee) {
+    public static ObservableList<OrderFX> getEmployeeOrders(Employee employee) {
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();
         OrderModel orderModel = new OrderModel();
