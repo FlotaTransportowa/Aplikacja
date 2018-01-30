@@ -4,6 +4,7 @@ import database.OrderReport;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import database.Order;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -100,7 +101,17 @@ public class PostOrderController extends Controller{
 
         order.getState().postTheOrder(order, entityManager);
 
-        statusBar.setText("Zlecenie zostało zaksięgowane. Raport został wygenerowany.");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setGraphic(null);
+        alert.setContentText("Wygenerowano raport. Zlecenie zostało zaksięgowane.");
+        alert.showAndWait();
+
+        removeTab();
+    }
+
+    @FXML private void removeTab()
+    {
+        loggedController.removeTab(super.getThisTab());
     }
 
     private OrderReport getFillOrderReport(){

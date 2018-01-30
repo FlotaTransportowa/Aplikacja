@@ -30,6 +30,7 @@ public class LoggedController extends Controller {
     private List<ShowAllEmployeesController> showEmployeeControllerList = new ArrayList<>();
     private List<AddMachineController> addMachineControllers = new ArrayList<>();
     private List<ShowAllOrdersController> showAllOrdersControllerList = new ArrayList<>();
+    private List<ShowOrderReportsController> showOrderReportsList = new ArrayList<>();
     private List<PostOrderController> postOrderControllerList = new ArrayList<>();
     private List<ShowMachineController> showMachineControllerList = new ArrayList<>();
     private List<PermissionAccordionController> permissionAccordionControllerList = new ArrayList<>();
@@ -204,7 +205,7 @@ public class LoggedController extends Controller {
             e.printStackTrace();
         }
     }
-    //ToDo tutaj
+
     public void toPostOrder(Order order) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/postOrderScreen.fxml"));
@@ -214,6 +215,19 @@ public class LoggedController extends Controller {
             postOrderControllerList.add(postOrderController);
             postOrderController.setOrder(order);
             postOrderController.setLoggedController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showOrderReports(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showOrderReportsScreen.fxml"));
+            addNewTab(loader,"Raporty zleceń");
+
+            ShowOrderReportsController showOrderReportsController = loader.getController();
+            showOrderReportsList.add(showOrderReportsController);
+            showOrderReportsController.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

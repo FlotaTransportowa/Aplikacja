@@ -118,6 +118,10 @@ public class PermissionAccordionController extends Controller {
         getLoggedController().showEmployee();
     }
 
+    @FXML private void showOrderReports() throws IOException{
+        getLoggedController().showOrderReports();
+    }
+
     private boolean findSelectedType() {
         if(zgloszenieToggleButton.isSelected()){
             title = "Zgłoszenie usterki";
