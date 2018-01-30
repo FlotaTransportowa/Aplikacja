@@ -56,22 +56,22 @@ public class OrderNotAssigned extends OrderState{
 
     @Override
     public void cancelOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zatwierdzone - jego anulowanie nie jest jeszcze możliwe");
     }
 
     @Override
     public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zatwierdzone - jego wstrzymanie jest niemożliwe.");
     }
 
     @Override
     public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zatwierdzone - jego wznowienie jest niemożliwe.");
     }
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zatwierdzone - jego zakończenie nie jest jeszcze możliwe.");
     }
 
     @Override
