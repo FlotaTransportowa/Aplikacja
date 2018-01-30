@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoggedController.java" afterPath="$PROJECT_DIR$/src/controllers/LoggedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/PermissionAccordionController.java" afterPath="$PROJECT_DIR$/src/controllers/PermissionAccordionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/PostOrderController.java" afterPath="$PROJECT_DIR$/src/controllers/PostOrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/permissionAccordionForms/principalAccordionForm.fxml" afterPath="$PROJECT_DIR$/src/fxml/permissionAccordionForms/principalAccordionForm.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/Controller.java" afterPath="$PROJECT_DIR$/src/controllers/Controller.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
@@ -85,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostOrderController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostOrderController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/PostOrderController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-62">
@@ -112,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="115" selection-end-column="5" />
+            <state relative-caret-position="240">
+              <caret line="109" column="85" lean-forward="false" selection-start-line="109" selection-start-column="85" selection-end-line="109" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -181,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/database/OrderPaused.java" />
         <option value="$PROJECT_DIR$/src/database/OrderPosted.java" />
         <option value="$PROJECT_DIR$/src/database/OrderWaiting.java" />
-        <option value="$PROJECT_DIR$/src/controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/controllers/ShowAllEmployeeController.java" />
         <option value="$PROJECT_DIR$/src/fxml/showAllEmployeesScreen.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" />
@@ -214,6 +210,7 @@
         <option value="$PROJECT_DIR$/src/controllers/PermissionAccordionController.java" />
         <option value="$PROJECT_DIR$/src/controllers/ShowOrderReportsController.java" />
         <option value="$PROJECT_DIR$/src/controllers/PostOrderController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/Controller.java" />
       </list>
     </option>
   </component>
@@ -827,13 +824,6 @@
       <option name="presentableId" value="Default" />
       <updated>1513679844632</updated>
     </task>
-    <task id="LOCAL-00013" summary="update Daniel">
-      <created>1515361389298</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1515361389298</updated>
-    </task>
     <task id="LOCAL-00014" summary="update Daniel">
       <created>1515517983987</created>
       <option name="number" value="00014" />
@@ -1170,7 +1160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517329834802</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Hubert Januszek update">
+      <created>1517332911551</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1517332911551</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1762,14 +1759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="115" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -1823,6 +1812,14 @@
             <element signature="e#3716#3717#0" expanded="true" />
             <element signature="e#3778#3779#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="109" column="85" lean-forward="false" selection-start-line="109" selection-start-column="85" selection-end-line="109" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>

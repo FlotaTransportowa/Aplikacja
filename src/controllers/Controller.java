@@ -105,12 +105,23 @@ public abstract class Controller{
         editor.addRow(++rowIndex, new Label("Komentarz"));
         editor.addRow(++rowIndex, new Label(param.getValue().getComment()));
         editor.addRow(++rowIndex, new Separator());
-        if(param.getValue().getTrack().getMachine() != null && param.getValue().getTrack().getDriver() != null){
-            editor.addRow(++rowIndex, new Label("Przydzielona maszyna"));
-            editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getMachine().getId())));
-            editor.addRow(++rowIndex, new Label("Przydzielony kierowca"));
-            editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getDriver())));
+
+        if(param.getValue().getTrack() == null) {
+            editor.addRow(++rowIndex, new Label("Zlecenie nie należy do żadnej trasy."));
+            return editor;
         }
+
+        Machine machine = param.getValue().getTrack().getMachine();
+        Driver driver = param.getValue().getTrack().getDriver();
+
+        if(machine == null) return editor;
+        editor.addRow(++rowIndex, new Label("Przydzielona maszyna"));
+        editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getMachine().getId())));
+
+        if(driver == null) return editor;
+        editor.addRow(++rowIndex, new Label("Przydzielony kierowca"));
+        editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getDriver())));
+
 
         return editor;
     }
