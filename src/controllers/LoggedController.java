@@ -4,6 +4,7 @@ import database.Driver;
 import database.Employee;
 import database.Order;
 import database.Machine;
+import fxModels.OrderFX;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import models.EmployeeModel;
 import models.NotificationModel;
 import models.TrackModel;
 import org.controlsfx.control.SegmentedButton;
@@ -58,11 +60,14 @@ public class LoggedController extends Controller {
 
     @FXML void initialize() throws Exception
     {
+        ObservableList<OrderFX> dataOders = FXCollections.observableArrayList(OrderFX.getEmployeeOrders(EmployeeModel.getEmployee(account)));
         ObservableList observableList = FXCollections.observableArrayList();
-        stringList.add("Przewóz materiałów");
-        stringList.add("Transport sprzętu budowlanego do Kielc");
-        stringList.add("Wywóz sprzętu budowlanego");
-        stringList.add("Przewóz materiału");
+
+        lastTasks.setPlaceholder(new Label("Obecenie nie przydzielono Ci żadnych zleceń."));
+
+        for(OrderFX o : dataOders)
+            stringList.add(o.getTitle());
+
         observableList.setAll(stringList);
         lastTasks.setItems(observableList);
     }
@@ -304,7 +309,7 @@ public class LoggedController extends Controller {
     @FXML void viewTasksList() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
-            addNewTab(loader, loggedEmployee+": Lista zleceń ");
+            addNewTab(loader, "Lista zleceń ");
             ShowAllOrdersController showAllOrdersController = loader.getController();
             showAllOrdersController.setLoggedController(this);
             showAllOrdersController.initAll();
