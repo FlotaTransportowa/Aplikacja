@@ -31,26 +31,7 @@ public class ShowAllOrdersController extends Controller {
 
     @FXML
     void initialize() {
-        TableRowExpanderColumn<OrderFX> expander = new TableRowExpanderColumn<OrderFX>(this::createOrderExpander);
-        expander.setMinWidth(30);
-        expander.setMaxWidth(30);
-
-        TableColumn<OrderFX, Long> idCol = new TableColumn<>("ID");
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-        TableColumn<OrderFX, String> titleCol = new TableColumn<>("Tytuł");
-        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-
-        TableColumn<OrderFX, String> typeCol = new TableColumn<>("Typ");
-        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
-
-        TableColumn<OrderFX, String> deadlineCol = new TableColumn<>("Deadline");
-        deadlineCol.setCellValueFactory(new PropertyValueFactory<>("timeLimitForCompletion"));
-
-        TableColumn<OrderFX, String> stateCol = new TableColumn<>("Stan zlecenia");
-        stateCol.setCellValueFactory(new PropertyValueFactory<>("orderState"));
-
-        orderTable.getColumns().addAll(expander, idCol, titleCol, typeCol, deadlineCol, stateCol);
+        orderTable.setPlaceholder(new Label("Brak zleceń."));
     }
 
     public void initAll()
@@ -60,9 +41,9 @@ public class ShowAllOrdersController extends Controller {
         orderTable.setItems(dataOders);
         setSearchField();
     }
+
     public void initYours() {
         dataOders = FXCollections.observableArrayList(OrderFX.getEmployeeOrders(loggedController.getLoggedEmployee()));
-
         orderTable.setItems(dataOders);
         setSearchField();
     }

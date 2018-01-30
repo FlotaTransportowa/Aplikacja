@@ -28,7 +28,7 @@ public class ShowAllTracksController extends Controller{
 
     @FXML
     void initialize(){
-
+        trackTable.setPlaceholder(new Label("Brak tras."));
 
         TableRowExpanderColumn<TrackFX> expander = new TableRowExpanderColumn<TrackFX>(this::createTrackExpander);
         expander.setMinWidth(30);

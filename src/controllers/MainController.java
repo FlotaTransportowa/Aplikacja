@@ -91,12 +91,10 @@ public class MainController extends Controller{
     @FXML
     void about()
     {
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O programie");
         alert.setHeaderText("Zarządzanie flotą samochodów w firmie budowlanej\nwersja 0.1");
         alert.setContentText("©2017 \nDaniel Dymiński\nNorbert Gil\nMaksymilian Jagodziński\nHubert Januszek ");
-
         alert.showAndWait();
     }
 

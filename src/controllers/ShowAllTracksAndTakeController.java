@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -39,6 +40,9 @@ public class ShowAllTracksAndTakeController extends Controller{
     @FXML
     void initialize(){
         orderPane.setVisible(false);
+        trackTable.setPlaceholder(new Label("Brak tras."));
+        orderTable.setPlaceholder(new Label("Brak zleceń w trasie."));
+
         data = FXCollections.observableArrayList(TrackFX.getAllNotExecutedDriverTracks(EmployeeModel.getDriverByAccount(account)));
 
         TableRowExpanderColumn<TrackFX> expander = new TableRowExpanderColumn<TrackFX>(this::createTrackExpander);

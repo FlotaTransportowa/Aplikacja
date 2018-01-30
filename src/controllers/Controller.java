@@ -90,7 +90,6 @@ public abstract class Controller{
     }
 
     public GridPane createOrderExpander(TableRowExpanderColumn.TableRowDataFeatures<OrderFX> param) {
-        System.out.println("witam");
         GridPane editor = new GridPane();
         editor.setPadding(new Insets(10));
         editor.setHgap(2);

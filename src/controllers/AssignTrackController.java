@@ -3,7 +3,6 @@ package controllers;
 import database.*;
 import fxModels.DriverWithPermsFX;
 import fxModels.MachineFX;
-import fxModels.OrderFX;
 import fxModels.TrackFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +15,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import models.TrackModel;
 import org.controlsfx.control.table.TableRowExpanderColumn;
@@ -43,6 +41,7 @@ public class AssignTrackController extends Controller{
 
         setTrackTable();
         setDriverTable();
+        setNoContentInTableViewText();
 
         trackAssignTable.setItems(trackData);
         machineAssignTable.setItems(machineData);
@@ -51,6 +50,12 @@ public class AssignTrackController extends Controller{
         setSearchTrackField();
         setSearchMachineField();
         setSearchEmployeeField();
+    }
+
+    void setNoContentInTableViewText(){
+        trackAssignTable.setPlaceholder(new Label("Brak tras do przydzielenia"));
+        machineAssignTable.setPlaceholder(new Label("Brak dostępnych maszyn"));
+        driverWithPermsTable.setPlaceholder(new Label("Brak dostępnych pracowników"));
     }
 
     private GridPane createPermissionExpander(TableRowExpanderColumn.TableRowDataFeatures<DriverWithPermsFX> param) {

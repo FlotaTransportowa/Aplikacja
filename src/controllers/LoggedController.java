@@ -3,8 +3,6 @@ package controllers;
 import database.Driver;
 import database.Employee;
 import database.Machine;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,8 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import models.NotificationModel;
-import models.TrackModel;
-import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +22,7 @@ import java.util.List;
 public class LoggedController extends Controller {
 
     private List<AddEmployeeController> addEmployeeControllers = new ArrayList<>();
-    private List<ShowEmployeeController> showEmployeeControllerList = new ArrayList<>();
+    private List<ShowAllEmployeesController> showEmployeeControllerList = new ArrayList<ShowAllEmployeesController>();
     private List<AddMachineController> addMachineControllers = new ArrayList<>();
     private List<ShowMachineController> showMachineControllerList = new ArrayList<>();
     private List<PermissionAccordionController> permissionAccordionControllerList = new ArrayList<>();
@@ -190,19 +186,19 @@ public class LoggedController extends Controller {
 
     @FXML void showEmployee() throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showEmployeeForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllEmployeesScreen.fxml"));
             addNewTab((Node) loader.load(),"Pracownicy floty");
 
-            ShowEmployeeController showEmployeeController = loader.getController();
-            showEmployeeControllerList.add(showEmployeeController);
-            showEmployeeController.setLoggedController(this);
+            ShowAllEmployeesController showAllEmployeesController = loader.getController();
+            showEmployeeControllerList.add(showAllEmployeesController);
+            showAllEmployeesController.setLoggedController(this);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    void addEmployeePermission(Employee employee) throws IOException {
+    void addEmployeePermission(Driver driver) throws IOException {
         try {
             Tab newShowEmployeeTab = new Tab("Dodawanie uprawnień");
             tabMenu.getTabs().add(newShowEmployeeTab);
@@ -211,7 +207,7 @@ public class LoggedController extends Controller {
             newShowEmployeeTab.setContent((Node) loader.load());
 
             AddPermisionController addPermisionController = loader.getController();
-            addPermisionController.setDriver((Driver) employee);
+            addPermisionController.setDriver(driver);
             addPermisionController.createCurrentPermissions();
             addPermisionController.createNewPermission();
 

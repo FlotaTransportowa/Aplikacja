@@ -38,6 +38,10 @@ public class ViewNotConfirmedTasksController extends Controller{
     @FXML
     void initialize(){
         refreshView();
+        setDatePicker();
+    }
+
+    void setDatePicker(){
         checkIn = new DatePicker();
         editTaskDate.getEditor().setDisable(true);
         editTaskDate.setValue(LocalDate.now());
