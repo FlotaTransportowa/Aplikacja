@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddNewTaskController">
+   <children>
+      <Pane layoutX="12.0" layoutY="14.0" prefHeight="460.0" prefWidth="983.0" style="-fx-border-width: 1px; -fx-border-color: rgb(230,230,230); -fx-background-color: #fff;" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Pane prefHeight="56.0" prefWidth="980.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">
+               <children>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeTab" onMouseClicked="#removeTab" prefHeight="29.0" prefWidth="67.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
+                  <Button layoutX="846.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="29.0" prefWidth="120.0" stylesheets="@../resources/general.css" text="Zapisz i zatwierdź" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font name="Roboto" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="451.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#addIncompleteTask" stylesheets="@../resources/general.css" text="Zapisz zlecenie" />
+               </children>
+            </Pane>
+            <TextField fx:id="newTaskTitle" layoutX="14.0" layoutY="63.0" prefHeight="34.0" prefWidth="950.0" promptText="Wpisz nazwę zlecenia" style="-fx-border-width: 0px; -fx-background-color: transparent;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Separator layoutX="14.0" layoutY="97.0" prefHeight="13.0" prefWidth="950.0">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Separator>
+            <Text fill="#656565" layoutX="14.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ zlecenia">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Separator layoutX="14.0" layoutY="139.0" prefWidth="950.0">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Separator>
+            <Text fill="#656565" layoutX="509.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deadline">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="#656565" layoutX="14.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Separator layoutX="17.0" layoutY="278.0" prefWidth="950.0">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Separator>
+            <Text fill="#656565" layoutX="16.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Komentarz">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="newTaskComment" layoutX="105.0" layoutY="291.0" prefHeight="132.0" prefWidth="861.0" promptText="Dodaj komentarz" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextArea>
+            <DatePicker fx:id="newTaskDate" layoutX="586.0" layoutY="110.0" prefHeight="27.0" prefWidth="378.0" style="-fx-border-color: rgb(230,230,230);" />
+            <ChoiceBox fx:id="newTaskType" layoutX="103.0" layoutY="111.0" prefHeight="25.0" prefWidth="388.0" />
+            <Separator layoutX="497.0" layoutY="103.0" orientation="VERTICAL" prefHeight="41.0" />
+            <GridPane layoutX="103.0" layoutY="152.0" prefHeight="120.0" prefWidth="861.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="382.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="466.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Kod pocztowy" />
+                  <Label text="Miejscowość" GridPane.rowIndex="1" />
+                  <Label text="Ulica" GridPane.rowIndex="2" />
+                  <Label text="Numer domu" GridPane.rowIndex="3" />
+                  <TextField fx:id="postalCode" prefHeight="25.0" prefWidth="425.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="locality" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="street" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="houseNumber" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -4,12 +4,9 @@ import database.Phone;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import manager.GlobalManager;
-import validation.Pattern;
-import validation.Validation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

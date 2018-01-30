@@ -1,15 +1,11 @@
 package models;
 
 import database.Address;
-import database.Employee;
 import javafx.collections.ObservableList;
 import manager.GlobalManager;
-import validation.Pattern;
-import validation.Validation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 
 /**
  * Model adresu

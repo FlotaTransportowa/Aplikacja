@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.SegmentedButton?>
+
+<Accordion fx:id="accord" prefHeight="650.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PermissionAccordionController">
+   <panes>
+      <TitledPane fx:id="paneZlecen" prefHeight="557.0" prefWidth="261.0" text="Zlecenia">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <content>
+            <FlowPane fx:id="flowPaneTasks" prefHeight="447.0" prefWidth="260.0">
+               <children>
+                  <Button fx:id="addNewOrderButton" mnemonicParsing="false" onAction="#addNewOrder" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj nowe zlecenie">
+                     <FlowPane.margin>
+                        <Insets />
+                     </FlowPane.margin>
+                  </Button>
+                  <Separator prefHeight="4.0" prefWidth="234.0">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Separator>
+                  <Button mnemonicParsing="false" onAction="#viewNotConfirmedTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Niezatwierdzone zlecenia">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#viewTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl listę zleceń">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button fx:id="viewYoursTaskLIstButton" mnemonicParsing="false" onAction="#viewYoursTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl twoje zlecenia">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="paneTras" expanded="false" text="Trasy">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <content>
+            <FlowPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addNewTrack" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj nową trasę">
+                     <FlowPane.margin>
+                        <Insets />
+                     </FlowPane.margin>
+                  </Button>
+                  <Separator prefHeight="4.0" prefWidth="234.0">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Separator>
+                  <Button mnemonicParsing="false" onAction="#showAllTracks" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl trasy">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#showYoursTracks" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl twoje trasy">
+                     <FlowPane.margin>
+                        <Insets top="12.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#assignTrack" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Przydziel trasę">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#showDriverTracksForTake" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Podejmij trasę">
+                     <padding>
+                        <Insets bottom="15.0" top="10.0" />
+                     </padding>
+                     <FlowPane.margin>
+                        <Insets top="12.0" />
+                     </FlowPane.margin>
+                  </Button>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="paneMaszyn" expanded="false" text="Maszyny">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <content>
+            <FlowPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addNewMachine" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj nową maszynę">
+                     <FlowPane.margin>
+                        <Insets />
+                     </FlowPane.margin>
+                  </Button>
+                  <Separator prefHeight="4.0" prefWidth="234.0">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Separator>
+                  <Button mnemonicParsing="false" onAction="#showMachine" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl listę maszyn">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Separator prefHeight="4.0" prefWidth="234.0">
+                     <FlowPane.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </FlowPane.margin>
+                  </Separator>
+                  <SegmentedButton fx:id="zgloszenieSegmentButton">
+                     <FlowPane.margin>
+                        <Insets top="15.0" />
+                     </FlowPane.margin>
+                  </SegmentedButton>
+                  <ToggleButton fx:id="zgloszenieToggleButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="69.0" text="Usterka" />
+                  <ToggleButton fx:id="zgloszenieToggleButton2" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="Kradzież" />
+                  <ToggleButton fx:id="zgloszenieToggleButton3" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Wypadek" />
+                  <Button mnemonicParsing="false" onAction="#addNewNotify" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Stwórz zgłoszenie">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#showAllNotifications" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl zgłoszenia">
+                     <FlowPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </FlowPane.margin>
+                  </Button>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="panePracownikow1" animated="false" text="Raporty">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <content>
+            <FlowPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#showOrderReports" prefHeight="27.0" prefWidth="233.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Raporty z wykonanych zleceń" />
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="panePracownikow" animated="false" text="Pracownicy">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <content>
+            <FlowPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addNewEmployee" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Dodaj pracownika" />
+                  <Button mnemonicParsing="false" onAction="#showEmployee" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl pracowników">
+                     <FlowPane.margin>
+                        <Insets top="12.0" />
+                     </FlowPane.margin></Button>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+   </panes>
+</Accordion>

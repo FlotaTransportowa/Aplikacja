@@ -5,7 +5,6 @@ import database.MachineType;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import models.MachineModel;
-import validation.Pattern;
 import validation.Validation;
 
 /**

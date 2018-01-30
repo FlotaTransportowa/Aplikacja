@@ -5,24 +5,17 @@ package controllers;
 
 import database.Order;
 import database.Track;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import models.BaseModel;
 import models.OrderModel;
 import models.TrackModel;
-import org.controlsfx.control.PropertySheet;
 import org.controlsfx.control.StatusBar;
-import validation.Pattern;
 import validation.Validation;
 
 import java.util.ArrayList;

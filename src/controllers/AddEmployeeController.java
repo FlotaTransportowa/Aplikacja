@@ -10,7 +10,6 @@ import models.AccountModel;
 import models.AddressModel;
 import models.EmployeeModel;
 import org.controlsfx.control.StatusBar;
-import validation.Pattern;
 import validation.Validation;
 
 import java.security.NoSuchAlgorithmException;
