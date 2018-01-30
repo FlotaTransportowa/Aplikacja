@@ -173,7 +173,7 @@ public class LoggedController extends Controller {
     @FXML void addNewMachine()  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
-            addNewTab(loader,"Dodaj maszynę");
+            addNewTab(loader,"Dodaj maszyne");
             AddMachineController controller = loader.getController();
             controller.setLoggedController(this);
         } catch (IOException e) {
@@ -201,7 +201,7 @@ public class LoggedController extends Controller {
     public void editMachine(Machine machine)  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
-            addNewTab(loader,"Edytuj maszynę");
+            addNewTab(loader,"Edytuj maszyne");
 
             AddMachineController addMachineController = loader.getController();
             addMachineControllers.add(addMachineController);
@@ -215,7 +215,7 @@ public class LoggedController extends Controller {
     @FXML void addNewTrack() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTrackScreen.fxml"));
-            addNewTab(loader,"Stwórz trasę");
+            addNewTab(loader,"Stworz trase");
             AddNewTrackController controller = loader.getController();
             controller.setLoggedController(this);
         } catch (IOException e) {
@@ -263,7 +263,7 @@ public class LoggedController extends Controller {
     public void toPostOrder(Order order) {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/postOrderScreen.fxml"));
-            addNewTab(loader,"Zaksięguj zlecenie");
+            addNewTab(loader,"Zaksieguj zlecenie");
 
             PostOrderController postOrderController = loader.getController();
             postOrderControllerList.add(postOrderController);
@@ -294,7 +294,7 @@ public class LoggedController extends Controller {
      */
     void addEmployeePermission(Employee employee)  {
         try {
-            Tab newShowEmployeeTab = new Tab("Dodawanie uprawnień");
+            Tab newShowEmployeeTab = new Tab("Dodawanie uprawnien");
             tabMenu.getTabs().add(newShowEmployeeTab);
 
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addPermissionScreen.fxml"));
@@ -317,7 +317,7 @@ public class LoggedController extends Controller {
     @FXML void viewTasksList() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
-            addNewTab(loader, "Lista zleceń ");
+            addNewTab(loader, "Lista zlecen ");
             ShowAllOrdersController showAllOrdersController = loader.getController();
             showAllOrdersController.setLoggedController(this);
             showAllOrdersController.initAll();
@@ -331,7 +331,7 @@ public class LoggedController extends Controller {
     @FXML void viewYoursTasksList() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
-            addNewTab(loader, loggedEmployee+": Lista zleceń ");
+            addNewTab(loader, loggedEmployee+": Lista zlecen ");
             ShowAllOrdersController showAllOrdersController = loader.getController();
             showAllOrdersController.setLoggedController(this);
             showAllOrdersController.initYours();
@@ -346,7 +346,7 @@ public class LoggedController extends Controller {
     void assignTrack(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/assignTrackScreen.fxml"));
-            addNewTab((Node) loader.load(), "Przydziel trasę");
+            addNewTab((Node) loader.load(), "Przydziel trase");
         } catch (IOException e) {
             e.printStackTrace();
         }
