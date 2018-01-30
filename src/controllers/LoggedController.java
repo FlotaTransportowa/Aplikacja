@@ -269,6 +269,17 @@ public class LoggedController extends Controller {
     }
 
     @FXML
+    void showDriverTracksForTake(){
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksAndTakeScreen.fxml"));
+            addNewTab((Node) loader.load(), "Lista tras");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     void showYoursTracks(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/driversTracksScreen.fxml"));

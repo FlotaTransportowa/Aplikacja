@@ -30,7 +30,7 @@ public abstract class Controller{
 
     public static EntityManager entityManager = GlobalManager.getManager();
 
-    protected Account account = null;
+    public static Account account;
 
     void setMainController(MainController par)
     {
@@ -89,8 +89,8 @@ public abstract class Controller{
         return editor;
     }
 
-    private GridPane createOrderExpander(TableRowExpanderColumn.TableRowDataFeatures<OrderFX> param) {
-
+    public GridPane createOrderExpander(TableRowExpanderColumn.TableRowDataFeatures<OrderFX> param) {
+        System.out.println("witam");
         GridPane editor = new GridPane();
         editor.setPadding(new Insets(10));
         editor.setHgap(2);
@@ -112,7 +112,6 @@ public abstract class Controller{
             editor.addRow(++rowIndex, new Label("Przydzielony kierowca"));
             editor.addRow(++rowIndex, new Label(String.valueOf(param.getValue().getTrack().getDriver())));
         }
-
 
         return editor;
     }

@@ -46,12 +46,12 @@ public class TrackFX {
         return trackFX;
     }
 
-    public static ObservableList<TrackFX> getAllDriverTracks(Driver driver){
+    public static ObservableList<TrackFX> getAllNotExecutedDriverTracks(Driver driver){
         ObservableList<TrackFX> trackFX = FXCollections.observableArrayList();
         ObservableList<Track> tracks = FXCollections.observableArrayList();
         TrackModel trackModel = new TrackModel();
 
-        tracks = trackModel.getAllDriverTracks(driver);
+        tracks = trackModel.getAllNotExecutedDriverTracks(driver);
 
         for(Track t : tracks){
             trackFX.add(new TrackFX(t.getId(), t.getName(), t.isExecuted(), t.getDriver(), t.getMachine(), t.getOrders()));

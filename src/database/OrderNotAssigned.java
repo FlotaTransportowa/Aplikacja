@@ -70,7 +70,7 @@ public class OrderNotAssigned extends OrderState{
     }
 
     @Override
-    public void finishOrder(Order order, EntityManager entityManager) {
+    public void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 

@@ -103,6 +103,29 @@ public class OrderModel implements BaseModel<Order>{
             List<Order> orders1 = query.getResultList();
             orders.addAll(orders1);
         } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return orders;
+    }
+
+    public ObservableList<Order> getTrackOrdersWithoutCanceledAndDone(long trackID) {
+        ObservableList<Order> orders = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+        OrderState cancelOrder = OrderModel.retExistState(new OrderCanceled());
+        OrderState doneOrder = OrderModel.retExistState(new OrderDone());
+
+        try{
+            entityManager.getTransaction().begin();
+            TypedQuery<Order> query = entityManager.createQuery("select o from Order o where trackID = :trackId and orderState != :cancel and orderState != :done", Order.class);
+            query.setParameter("trackId", trackID);
+            query.setParameter("cancel", cancelOrder);
+            query.setParameter("done", doneOrder);
+            List<Order> orders1 = query.getResultList();
+            orders.addAll(orders1);
+        } catch (Exception e){
         } finally {
             entityManager.getTransaction().commit();
         }

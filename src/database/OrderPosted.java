@@ -2,7 +2,6 @@ package database;
 
 import org.controlsfx.control.StatusBar;
 
-import database.Order;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 
@@ -59,7 +58,7 @@ public class OrderPosted extends OrderState{
     }
 
     @Override
-    public void finishOrder(Order order, EntityManager entityManager) {
+    public void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
 
     }
 

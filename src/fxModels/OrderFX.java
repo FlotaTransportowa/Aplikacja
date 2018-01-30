@@ -78,6 +78,21 @@ public class OrderFX {
         return ordersFX;
     }
 
+    public static ObservableList<OrderFX> getTrackOrdersWithoutCanceledAndDone(TrackFX track){
+        ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
+        ObservableList<Order> orders = FXCollections.observableArrayList();
+        OrderModel orderModel = new OrderModel();
+
+        orders = orderModel.getTrackOrdersWithoutCanceledAndDone(track.getId());
+
+        for(Order t : orders){
+            ordersFX.add(new OrderFX(t.getId(), t.getTitle(), t.getType(), t.getTimeLimitForCompletion(), t.getComment(), t.getAddressOfOrder().getPostalCode(),
+                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getOrderState().getName(), t.getTrack()));
+        }
+
+        return ordersFX;
+    }
+
     public long getId() {
         return id;
     }

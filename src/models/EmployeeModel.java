@@ -52,9 +52,9 @@ public class EmployeeModel implements BaseModel<Employee>{
         Driver driver = null;
         EntityManager entityManager = GlobalManager.getManager();
 
-        entityManager.getTransaction().begin();
         try {
-            TypedQuery<Driver> query = entityManager.createQuery("select e from Driver e where e.account = :account", Driver.class);
+            entityManager.getTransaction().begin();
+            TypedQuery<Driver> query = entityManager.createQuery("select e from Driver e where account = :account", Driver.class);
             query.setParameter("account", account);
             driver = query.getSingleResult();
         } catch (Exception e){
@@ -78,14 +78,14 @@ public class EmployeeModel implements BaseModel<Employee>{
         return null;
     }
 
-    public static Employee getEmployee(Account account)
-    {
-        EntityManager entityManager = GlobalManager.getManager();
+    public static Employee getEmployee(Account account){
         Employee employee = null;
-        entityManager.getTransaction().begin();
+        EntityManager entityManager = GlobalManager.getManager();
+
         try {
-            TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where accountId = :accId", Employee.class);
-            query.setParameter("accId",account.getId());
+            entityManager.getTransaction().begin();
+            TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where account = :account", Employee.class);
+            query.setParameter("account", account);
             employee = query.getSingleResult();
         } catch (Exception e){
             e.printStackTrace();

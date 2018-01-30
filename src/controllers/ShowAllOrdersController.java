@@ -101,40 +101,6 @@ public class ShowAllOrdersController extends Controller {
         orderTable.setItems(sortedData);
     }
 
-    private GridPane createExpander(TableRowExpanderColumn.TableRowDataFeatures<OrderFX> param) {
-
-        GridPane editor = new GridPane();
-        editor.setPadding(new Insets(10));
-        editor.setHgap(10);
-        editor.setVgap(5);
-
-        int rowIndex = 0;
-        editor.addRow(rowIndex, new Label("Adres"));
-        editor.addRow(++rowIndex, new Label("Kod pocztowy: "), new Label(param.getValue().getPostalCode()));
-        editor.addRow(++rowIndex, new Label("Miejscowość: "), new Label(param.getValue().getLocality()));
-        editor.addRow(++rowIndex, new Label("Ulica: "), new Label(param.getValue().getStreet()));
-        editor.addRow(++rowIndex, new Label("Numer domu: "), new Label(param.getValue().getApartmentNumer()));
-        editor.addRow(++rowIndex, new Separator());
-
-        if (param.getValue().getComment() == null) {
-            editor.addRow(++rowIndex, new Label("Komentarz"));
-            editor.addRow(++rowIndex, new Label(param.getValue().getComment()));
-        } else {
-            editor.addRow(++rowIndex, new Label(""));
-        }
-
-        editor.addRow(++rowIndex, new Separator());
-
-        Track track = param.getValue().getTrack();
-
-        if(track == null)
-            editor.addRow(++rowIndex, new Label("Zlecenie nie należy do żadnej trasy."));
-        else
-            editor.addRow(++rowIndex, new Label("Zlecenie należy do trasy o identyfikatorze: " + track.getId()));
-
-        return editor;
-    }
-
     @FXML
     void setCancelOrder(){
         OrderFX toCancelOrder = getSelectedValue();
