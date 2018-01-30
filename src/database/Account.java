@@ -3,6 +3,7 @@ package database;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Accounts")
 public class Account {
     @Id
     @GeneratedValue
