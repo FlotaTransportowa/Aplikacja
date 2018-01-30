@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Entity
+@Table(name = "Employees")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeOfEmployee")
 public abstract class Employee {
