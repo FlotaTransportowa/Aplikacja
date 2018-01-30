@@ -67,27 +67,39 @@ public class PermissionAccordionController extends Controller {
     private void addNewOrder() throws IOException {
         getLoggedController().addNewOrder();
     }
+
     @FXML private void  viewNotConfirmedTasksList()
     {
         getLoggedController().viewNotConfirmedTasksList();
     }
+
     @FXML private void viewTasksList() throws IOException {
         getLoggedController().viewTasksList();
     }
+
     @FXML private void addNewTrack() throws IOException {
+
         getLoggedController().addNewTrack();
     }
+
     @FXML private void showAllTracks()
     {
         getLoggedController().showAllTracks();
     }
+
+    @FXML private void showDriverTracksForTake(){
+        getLoggedController().showDriverTracksForTake();
+    }
+
     @FXML private void showYoursTracks(){
         getLoggedController().showYoursTracks(getLoggedController().getLoggedEmployee());
     }
+
     @FXML private void assignTrack()
     {
         getLoggedController().assignTrack();
     }
+
     @FXML private void addNewMachine() throws IOException {
         getLoggedController().addNewMachine();
     }
@@ -98,11 +110,12 @@ public class PermissionAccordionController extends Controller {
     @FXML private void addNewEmployee() throws IOException {
         getLoggedController().addNewEmployee();
     }
+
     @FXML private void showEmployee() throws IOException {
         getLoggedController().showEmployee();
     }
-    private boolean findSelectedType()
-    {
+
+    private boolean findSelectedType() {
         if(zgloszenieToggleButton.isSelected()){
             title = "Zgłoszenie usterki";
             notifyType = DEFECT;
@@ -124,8 +137,8 @@ public class PermissionAccordionController extends Controller {
         }
         return true;
     }
-    @FXML private void addNewNotify()
-    {
+
+    @FXML private void addNewNotify() {
         if(findSelectedType()) {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notificationScreen.fxml"));
             try {
@@ -139,8 +152,8 @@ public class PermissionAccordionController extends Controller {
             }
         }
     }
-    @FXML void showAllNotifications()
-    {
+
+    @FXML void showAllNotifications() {
         if(findSelectedType()) {
             ShowAllNotificationsController showAllNotificationsController = null;
             try {

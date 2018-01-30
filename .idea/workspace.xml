@@ -7,7 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AssignTrackController.java" afterPath="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/Controller.java" afterPath="$PROJECT_DIR$/src/controllers/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoggedController.java" afterPath="$PROJECT_DIR$/src/controllers/LoggedController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/PermissionAccordionController.java" afterPath="$PROJECT_DIR$/src/controllers/PermissionAccordionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderCanceled.java" afterPath="$PROJECT_DIR$/src/database/OrderCanceled.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderDone.java" afterPath="$PROJECT_DIR$/src/database/OrderDone.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderNotAssigned.java" afterPath="$PROJECT_DIR$/src/database/OrderNotAssigned.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderNotConfirmed.java" afterPath="$PROJECT_DIR$/src/database/OrderNotConfirmed.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderPaused.java" afterPath="$PROJECT_DIR$/src/database/OrderPaused.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderPosted.java" afterPath="$PROJECT_DIR$/src/database/OrderPosted.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderState.java" afterPath="$PROJECT_DIR$/src/database/OrderState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderStillPerformed.java" afterPath="$PROJECT_DIR$/src/database/OrderStillPerformed.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/OrderWaiting.java" afterPath="$PROJECT_DIR$/src/database/OrderWaiting.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxModels/OrderFX.java" afterPath="$PROJECT_DIR$/src/fxModels/OrderFX.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxModels/TrackFX.java" afterPath="$PROJECT_DIR$/src/fxModels/TrackFX.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/permissionAccordionForms/driverAccordionForm.fxml" afterPath="$PROJECT_DIR$/src/fxml/permissionAccordionForms/driverAccordionForm.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/EmployeeModel.java" afterPath="$PROJECT_DIR$/src/models/EmployeeModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/OrderModel.java" afterPath="$PROJECT_DIR$/src/models/OrderModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/TrackModel.java" afterPath="$PROJECT_DIR$/src/models/TrackModel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
@@ -30,11 +51,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <file leaf-file-name="ShowAllTracksAndTakeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllTracksAndTakeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="355" column="14" lean-forward="false" selection-start-line="355" selection-start-column="14" selection-end-line="355" selection-end-column="14" />
+            <state relative-caret-position="323">
+              <caret line="189" column="37" lean-forward="false" selection-start-line="189" selection-start-column="37" selection-end-line="189" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrackFX.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fxModels/TrackFX.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Track.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/database/Track.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrackModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/TrackModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="60" column="133" lean-forward="false" selection-start-line="60" selection-start-column="133" selection-end-line="60" selection-end-column="133" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+              <folding>
+                <element signature="e#2119#2128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeModel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/EmployeeModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -79,10 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/controllers/AddMachineController.java" />
-        <option value="$PROJECT_DIR$/src/fxml/addNewTrackScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/validation/Validation.java" />
-        <option value="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" />
         <option value="$PROJECT_DIR$/src/controllers/VievNotConfirmedTasksController.java" />
         <option value="$PROJECT_DIR$/src/fxml/showAllTasksScreen.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/ShowAllTasksController.java" />
@@ -98,38 +169,42 @@
         <option value="$PROJECT_DIR$/src/controllers/AddNewTrackController.java" />
         <option value="$PROJECT_DIR$/src/database/Order.java" />
         <option value="$PROJECT_DIR$/src/controllers/ViewNotConfirmedTasksController.java" />
-        <option value="$PROJECT_DIR$/src/fxModels/OrderFX.java" />
         <option value="$PROJECT_DIR$/src/controllers/ShowAllTracksController.java" />
         <option value="$PROJECT_DIR$/src/database/OrderState.java" />
         <option value="$PROJECT_DIR$/src/database/OrderDone.java" />
         <option value="$PROJECT_DIR$/src/database/OrderCanceled.java" />
         <option value="$PROJECT_DIR$/src/database/OrderPaused.java" />
-        <option value="$PROJECT_DIR$/src/database/OrderStillPerformed.java" />
         <option value="$PROJECT_DIR$/src/database/OrderWaiting.java" />
         <option value="$PROJECT_DIR$/src/database/OrderNotAssigned.java" />
         <option value="$PROJECT_DIR$/src/database/OrderNotConfirmed.java" />
         <option value="$PROJECT_DIR$/src/fxml/viewNotConfirmedTasks.fxml" />
         <option value="$PROJECT_DIR$/src/models/BaseModel.java" />
         <option value="$PROJECT_DIR$/src/models/MachineTypeModel.java" />
-        <option value="$PROJECT_DIR$/src/models/OrderModel.java" />
         <option value="$PROJECT_DIR$/src/fxml/postTheOrderView.fxml" />
         <option value="$PROJECT_DIR$/src/fxModels/MachineFX.java" />
         <option value="$PROJECT_DIR$/src/models/MachineModel.java" />
         <option value="$PROJECT_DIR$/src/controllers/ShowMachineController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
         <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java" />
-        <option value="$PROJECT_DIR$/src/models/TrackModel.java" />
-        <option value="$PROJECT_DIR$/src/fxModels/TrackFX.java" />
         <option value="$PROJECT_DIR$/src/fxml/driversTracksScreen.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/driversTracksController.java" />
         <option value="$PROJECT_DIR$/src/controllers/DriversTracksController.java" />
-        <option value="$PROJECT_DIR$/src/models/EmployeeModel.java" />
-        <option value="$PROJECT_DIR$/src/controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/controllers/LoggedController.java" />
         <option value="$PROJECT_DIR$/src/database/OrderPosted.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/fxml/showAllTracksAndTakeScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java" />
+        <option value="$PROJECT_DIR$/src/database/OrderStillPerformed.java" />
+        <option value="$PROJECT_DIR$/src/controllers/LoggedController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/PermissionAccordionController.java" />
+        <option value="$PROJECT_DIR$/src/models/OrderModel.java" />
+        <option value="$PROJECT_DIR$/src/fxModels/OrderFX.java" />
+        <option value="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/models/TrackModel.java" />
+        <option value="$PROJECT_DIR$/src/fxModels/TrackFX.java" />
+        <option value="$PROJECT_DIR$/src/controllers/ShowAllTracksAndTakeController.java" />
+        <option value="$PROJECT_DIR$/src/models/EmployeeModel.java" />
+        <option value="$PROJECT_DIR$/javafx/beans/binding/annotations.xml" />
       </list>
     </option>
   </component>
@@ -505,16 +580,11 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/Controller.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/LoggedController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/NotifyAccidentController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/PermissionAccordionController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/Employee.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/ShowAllNotificationsController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/Notification.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/NotifyAccident.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/NotifyDefect.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/NotifyTheft.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxml/permissionAccordionForms/principalAccordionForm.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxModels/NotificationFX.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxml/permissionAccordionForms/dispatcherAccordionForm.fxml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/models/NotificationModel.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -523,9 +593,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/ShowAllNotificationsController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxModels/NotificationFX.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxml/showAllNotificationScreen.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/AddNotificationController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxml/Notification/notificationScreen.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -533,6 +602,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controllers/NotifyAccidentController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/fxml/Notification/notifyAccidentScreen.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1114,8 +1185,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24675325" sideWeight="0.5293177" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27380952" sideWeight="0.4706823" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16883117" sideWeight="0.4914712" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29220778" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16883117" sideWeight="0.4914712" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29220778" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042644" sideWeight="0.49473685" order="0" side_tool="false" content_ui="combo" />
@@ -1266,111 +1337,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/jdk/internal/reflect/DelegatingMethodAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxml/assignTrackScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxModels/OrderFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="57" column="56" lean-forward="false" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4289#4290#0" expanded="false" />
-            <element signature="e#4323#4324#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderPaused.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/Permission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderCanceled.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderDone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="65" column="24" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderNotAssigned.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderWaiting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxml/viewNotConfirmedTasks.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/PermissionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/DriverModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/BaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1379,34 +1345,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/OrderModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ViewNotConfirmedTasksController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-128">
           <caret line="135" column="49" lean-forward="false" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/Track.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/PermissionAccordionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1473,28 +1415,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxml/mainScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/AssignTrackController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="38" column="83" lean-forward="false" selection-start-line="38" selection-start-column="83" selection-end-line="38" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1517244878642" expanded="true" signature="1831:1836" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fxModels/MachineFX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1527,69 +1447,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxModels/TrackFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="48" column="60" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="38" column="4" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/TrackModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllTracksController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="77" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/EmployeeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="56" column="86" lean-forward="false" selection-start-line="56" selection-start-column="86" selection-end-line="56" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/DriversTracksController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1630,26 +1494,18 @@
         <state relative-caret-position="102">
           <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding>
-            <marker date="1517261647170" expanded="false" signature="1400:1406" ph=" }" />
-            <marker date="1517261647170" expanded="false" signature="1439:1450" ph=" { " />
-            <marker date="1517261647170" expanded="false" signature="1465:1471" ph=" }" />
-            <marker date="1517261647170" expanded="false" signature="1516:1527" ph=" { " />
-            <marker date="1517261647170" expanded="false" signature="1550:1556" ph=" }" />
-            <marker date="1517261647170" expanded="false" signature="1591:1602" ph=" { " />
-            <marker date="1517261647170" expanded="false" signature="1618:1624" ph=" }" />
-            <marker date="1517261647170" expanded="false" signature="1672:1683" ph=" { " />
-            <marker date="1517261647170" expanded="false" signature="1708:1714" ph=" }" />
-            <marker date="1517261647170" expanded="false" signature="1741:1752" ph=" { " />
-            <marker date="1517261647170" expanded="false" signature="1764:1770" ph=" }" />
+            <marker date="1517273533476" expanded="false" signature="1422:1428" ph=" }" />
+            <marker date="1517273533476" expanded="false" signature="1461:1472" ph=" { " />
+            <marker date="1517273533476" expanded="false" signature="1487:1493" ph=" }" />
+            <marker date="1517273533476" expanded="false" signature="1538:1549" ph=" { " />
+            <marker date="1517273533476" expanded="false" signature="1572:1578" ph=" }" />
+            <marker date="1517273533476" expanded="false" signature="1613:1624" ph=" { " />
+            <marker date="1517273533476" expanded="false" signature="1640:1646" ph=" }" />
+            <marker date="1517273533476" expanded="false" signature="1694:1705" ph=" { " />
+            <marker date="1517273533476" expanded="false" signature="1730:1736" ph=" }" />
+            <marker date="1517273533476" expanded="false" signature="1763:1774" ph=" { " />
+            <marker date="1517273533476" expanded="false" signature="1786:1792" ph=" }" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1664,45 +1520,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/LoggedController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="260" column="5" lean-forward="false" selection-start-line="260" selection-start-column="5" selection-end-line="260" selection-end-column="5" />
-          <folding>
-            <element signature="e#1677#1678#0" expanded="true" />
-            <element signature="e#1718#1719#0" expanded="true" />
-            <element signature="e#3415#3416#0" expanded="true" />
-            <element signature="e#3460#3461#0" expanded="true" />
-            <element signature="e#12121#12122#0" expanded="true" />
-            <element signature="e#12156#12157#0" expanded="true" />
-            <element signature="e#12260#12261#0" expanded="true" />
-            <element signature="e#12297#12298#0" expanded="true" />
-            <element signature="e#12359#12360#0" expanded="true" />
-            <element signature="e#12411#12412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/OrderReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="50" column="30" lean-forward="false" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/OrderStillPerformed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="53" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1712,7 +1533,7 @@
         <state relative-caret-position="416">
           <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1725,10 +1546,246 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/mainScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/arrow_down.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/default1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/others/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/PermissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/showAllTracksAndTakeScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllTracksController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="77" column="5" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="77" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="355" column="14" lean-forward="false" selection-start-line="355" selection-start-column="14" selection-end-line="355" selection-end-column="14" />
+        <state relative-caret-position="484">
+          <caret line="356" column="5" lean-forward="true" selection-start-line="356" selection-start-column="5" selection-end-line="356" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/OrderWaiting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/permissionAccordionForms/driverAccordionForm.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/OrderState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="58" column="25" lean-forward="false" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/OrderStillPerformed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/OrderModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="101" column="48" lean-forward="false" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxModels/OrderFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="72" column="65" lean-forward="false" selection-start-line="72" selection-start-column="65" selection-end-line="72" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding>
+            <element signature="e#1409#1418#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AssignTrackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1517273534138" expanded="true" signature="1902:1907" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/PermissionAccordionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LoggedController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <folding>
+            <element signature="e#2119#2128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/Track.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/TrackModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="60" column="133" lean-forward="false" selection-start-line="60" selection-start-column="133" selection-end-line="60" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxModels/TrackFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllTracksAndTakeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="189" column="37" lean-forward="false" selection-start-line="189" selection-start-column="37" selection-end-line="189" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javafx/beans/binding/annotations.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/EmployeeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding />
         </state>
       </provider>

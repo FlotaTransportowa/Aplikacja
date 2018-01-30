@@ -21,7 +21,7 @@
          <content>
             <FlowPane fx:id="flowPaneTasks" prefHeight="447.0" prefWidth="260.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showAllTracks" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl twoje trasy" />
+                  <Button mnemonicParsing="false" onAction="#showDriverTracksForTake" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Podejmij trasę" />
                </children>
             </FlowPane>
          </content>

@@ -56,7 +56,7 @@ public abstract class OrderState {
 
     public abstract void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
-    public abstract void finishOrder(Order order, EntityManager entityManager);
+    public abstract void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar);
 
     public abstract void postTheOrder(Order order, EntityManager entityManager);
 
