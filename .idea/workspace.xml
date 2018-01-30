@@ -6,49 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="Hubert Januszek update">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/baseRefactoring.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/colors.scheme.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/debugger.renderers.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/debugger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/find.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/github_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/RepairPart.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/Report.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/ReportRepair.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/ReportSuperMonthly.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/ReportSuperQuarterly.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/ReportSuperYearly.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database/ReportSupervisory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/baseRefactoring.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/commons-io-2.6.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/debugger.renderers.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/debugger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/editor.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/find.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/font-awesome-4.7.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/general.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/jdk.table.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/json-20171018.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/login-bg.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/project.default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/ui.lnf.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/others/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/arrow_down.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/jfoenix-9.0.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/toStringTemplates.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ui.lnf.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usageView.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vcs.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/others/github_settings.xml" afterPath="$PROJECT_DIR$/src/resources/github_settings.xml" />
+    <list default="true" id="70bf10b6-0006-46c6-ad1b-fcfa08dbbd69" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/LoggedController.java" afterPath="$PROJECT_DIR$/src/controllers/LoggedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/ShowOrderReportsController.java" afterPath="$PROJECT_DIR$/src/controllers/ShowOrderReportsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxModels/OrderFX.java" afterPath="$PROJECT_DIR$/src/fxModels/OrderFX.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AssignTrackController.java" afterPath="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/assignTrackScreen.fxml" afterPath="$PROJECT_DIR$/src/fxml/assignTrackScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxml/permissionAccordionForms/principalAccordionForm.fxml" afterPath="$PROJECT_DIR$/src/fxml/permissionAccordionForms/principalAccordionForm.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Admin\IdeaProjects\Aplikacja2\.idea\shelf/" />
@@ -113,15 +75,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowOrderReportsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShowOrderReportsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/ShowOrderReportsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="272">
+              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#997#1010#0" expanded="true" />
                 <element signature="e#2380#2393#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssignTrackController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controllers/AssignTrackController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="333" column="74" lean-forward="true" selection-start-line="333" selection-start-column="74" selection-end-line="333" selection-end-column="74" />
+              <folding>
+                <element signature="e#12522#12523#0" expanded="true" />
+                <element signature="e#12603#12604#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,28 +128,6 @@
             <state relative-caret-position="69">
               <caret line="60" column="50" lean-forward="true" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/OrderModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowAllOrdersController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/ShowAllOrdersController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="72" column="39" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="72" selection-end-column="39" />
-              <folding>
-                <element signature="e#1034#1043#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -230,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/controllers/ShowEmployeeController.java" />
         <option value="$PROJECT_DIR$/src/controllers/MainController.java" />
         <option value="$PROJECT_DIR$/src/controllers/AddEmployeeController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
         <option value="$PROJECT_DIR$/src/controllers/DriversTracksController.java" />
         <option value="$PROJECT_DIR$/src/controllers/ShowAllEmployeesController.java" />
         <option value="$PROJECT_DIR$/src/controllers/ShowAllTracksAndTakeController.java" />
@@ -271,6 +223,7 @@
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/fxModels/OrderFX.java" />
         <option value="$PROJECT_DIR$/src/controllers/LoggedController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/AssignTrackController.java" />
       </list>
     </option>
   </component>
@@ -281,7 +234,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="28" />
+    <option name="x" value="91" />
     <option name="y" value="111" />
     <option name="width" value="1612" />
     <option name="height" value="876" />
@@ -908,13 +861,6 @@
       <option name="presentableId" value="Default" />
       <updated>1513679844632</updated>
     </task>
-    <task id="LOCAL-00016" summary="update Daniel">
-      <created>1515579220808</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1515579220808</updated>
-    </task>
     <task id="LOCAL-00017" summary="Hubert Januszek update">
       <created>1515611579675</created>
       <option name="number" value="00017" />
@@ -1251,7 +1197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517341398507</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Hubert Januszek update">
+      <created>1517346090453</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1517346090455</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1264,7 +1217,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="28" y="111" width="1612" height="876" extended-state="0" />
+    <frame x="91" y="111" width="1612" height="876" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32575756" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
@@ -1427,14 +1380,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/database/OrderDone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/AddNewTaskController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1661,14 +1606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/AssignTrackController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/AddPermisionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -1839,12 +1776,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ShowOrderReportsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="272">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#997#1010#0" expanded="true" />
             <element signature="e#2380#2393#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/assignTrackScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="83" column="30" lean-forward="false" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AssignTrackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="333" column="74" lean-forward="true" selection-start-line="333" selection-start-column="74" selection-end-line="333" selection-end-column="74" />
+          <folding>
+            <element signature="e#12522#12523#0" expanded="true" />
+            <element signature="e#12603#12604#0" expanded="true" />
           </folding>
         </state>
       </provider>

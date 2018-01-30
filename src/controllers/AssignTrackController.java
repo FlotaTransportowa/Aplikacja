@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.layout.GridPane;
 import models.TrackModel;
+import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
@@ -35,6 +36,7 @@ public class AssignTrackController extends Controller{
     @FXML private ObservableList<DriverWithPermsFX> driverData;
     @FXML private ObservableList<MachineFX> machineData;
     @FXML private ObservableList<TrackFX> trackData;
+    @FXML private StatusBar statusBar;
 
     @FXML
     private void initialize() {
@@ -250,8 +252,10 @@ public class AssignTrackController extends Controller{
         TrackFX trackFX = getSelectedTrack();
         DriverWithPermsFX driverWithPermsFX = getSelectedDriver();
 
-        if(!checkSelection(trackFX, machineFX, driverWithPermsFX))
+        if(!checkSelection(trackFX, machineFX, driverWithPermsFX)) {
+            statusBar.setText("Należy wybrac odpowiednią maszynę, zlecenie oraz kierowcę.");
             return;
+        }
 
         Machine machine = findMachine(machineFX);
         Track track = findTrack(trackFX);
@@ -260,6 +264,7 @@ public class AssignTrackController extends Controller{
         TrackModel.assignTrack(machine, track, driver);
         TrackModel.setAssignOrders(track.getOrders());
 
+        statusBar.setText("Przydzielono trasę.");
         refreshView();
     }
 
