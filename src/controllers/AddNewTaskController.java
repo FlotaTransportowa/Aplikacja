@@ -11,6 +11,7 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 import manager.GlobalManager;
 import models.AddressModel;
+import validation.Pattern;
 import validation.Validation;
 
 import javax.persistence.EntityManager;

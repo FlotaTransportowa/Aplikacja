@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import models.OrderModel;
 import models.TrackModel;
 import org.controlsfx.control.StatusBar;
+import validation.Pattern;
 import validation.Validation;
 
 import java.util.ArrayList;
