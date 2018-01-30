@@ -48,7 +48,7 @@ public class DriversTracksController extends Controller{
 
     public void initYours()
     {
-        data = FXCollections.observableArrayList(TrackFX.getAllDriverTracks((Driver) loggedController.getLoggedEmployee()));
+        data = FXCollections.observableArrayList(TrackFX.getAllNotExecutedDriverTracks((Driver) loggedController.getLoggedEmployee()));
         trackTable.setItems(data);
 
         setSearchField();

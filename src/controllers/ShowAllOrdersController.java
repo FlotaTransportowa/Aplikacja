@@ -31,7 +31,7 @@ public class ShowAllOrdersController extends Controller {
 
     @FXML
     void initialize() {
-        TableRowExpanderColumn<OrderFX> expander = new TableRowExpanderColumn<OrderFX>(this::createExpander);
+        TableRowExpanderColumn<OrderFX> expander = new TableRowExpanderColumn<OrderFX>(this::createOrderExpander);
         expander.setMinWidth(30);
         expander.setMaxWidth(30);
 
