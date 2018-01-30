@@ -3,8 +3,10 @@ package database;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "RepairParts")
 public class RepairPart {
     @Id
     @GeneratedValue
