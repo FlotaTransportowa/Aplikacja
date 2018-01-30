@@ -8,7 +8,8 @@ public class OrderReport {
     @Id
     @GeneratedValue
     private long id;
-    private Date date;
+    @Temporal(TemporalType.DATE)
+    private Date dateDone;
     private double fuel;
     private double kilometers;
     private double profit;
@@ -18,6 +19,9 @@ public class OrderReport {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderID")
     private Order order;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "machineID")
+    private Machine machine;
 
     public Driver getDriver() {
         return driver;
@@ -35,12 +39,20 @@ public class OrderReport {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateDone() {
+        return dateDone;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateDone(Date dateDone) {
+        this.dateDone = dateDone;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public double getFuel() {
@@ -66,4 +78,13 @@ public class OrderReport {
     public void setProfit(double profit) {
         this.profit = profit;
     }
+
+    public Machine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(Machine machine) {
+        this.machine = machine;
+    }
+
 }

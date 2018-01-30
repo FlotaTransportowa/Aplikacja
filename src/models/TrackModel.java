@@ -101,7 +101,7 @@ public class TrackModel implements BaseModel<Track>{
 
     public static void setAssignOrders(List<Order> orders){
         for(Order o : orders){
-            o.getOrderState().assignOrder(o, GlobalManager.getManager());
+            o.getState().assignOrder(o, GlobalManager.getManager());
         }
     }
 }

@@ -244,6 +244,7 @@ public class LoggedController extends Controller {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
             addNewTab(loader, loggedEmployee+": Lista zleceń ");
             ShowAllOrdersController showAllOrdersController = loader.getController();
+            showAllOrdersController.setLoggedController(this);
             showAllOrdersController.initAll();
         } catch (IOException e) {
             e.printStackTrace();

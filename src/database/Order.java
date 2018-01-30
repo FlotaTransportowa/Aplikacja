@@ -83,14 +83,6 @@ public class Order{
         this.addressOfOrder = addressOfOrder;
     }
 
-    public OrderState getOrderState() {
-        return orderState;
-    }
-
-    public void setOrderState(OrderState orderState) {
-        this.orderState = orderState;
-    }
-
     public Track getTrack() {
         return trackOfOrder;
     }

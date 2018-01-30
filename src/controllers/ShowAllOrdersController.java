@@ -176,13 +176,16 @@ public class ShowAllOrdersController extends Controller {
         OrderFX orderFX = getSelectedValue();
 
         if(!checkSelect(orderFX)) {
-            statusBar.setText("Należy wybrać pracownika do edycji.");
+            statusBar.setText("Należy zaznaczyć zlecenie w tabeli.");
             return;
         }
 
         Order order = findOrder(orderFX);
 
-        loggedController.toPostOrder(order);
+        if(order.getState().getName().equals("anulowane") || order.getState().getName().equals("wykonane"))
+            loggedController.toPostOrder(order);
+        else statusBar.setText("Zlecenie jest " + order.getState().getName() + " - jego zaksięgowanie jest niemożliwe.");
+
     }
 
     @FXML
@@ -195,7 +198,7 @@ public class ShowAllOrdersController extends Controller {
         boolean flag = true;
 
         if(orderFX == null) {
-            statusBar.setText("Należy zaznaczyć zlecenie w tabeli...");
+            statusBar.setText("Należy zaznaczyć zlecenie w tabeli.");
             flag = false;
         }
 

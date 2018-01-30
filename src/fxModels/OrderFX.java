@@ -44,7 +44,7 @@ public class OrderFX {
 
         for(Order t : orders){
             ordersFX.add(new OrderFX(t.getId(), t.getTitle(), t.getType(), t.getTimeLimitForCompletion(), t.getComment(), t.getAddressOfOrder().getPostalCode(),
-                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getOrderState().getName(), t.getTrack()));
+                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getState().getName(), t.getTrack()));
         }
 
         return ordersFX;
@@ -58,7 +58,7 @@ public class OrderFX {
 
         for(Order t : orders){
             ordersFX.add(new OrderFX(t.getId(), t.getTitle(), t.getType(), t.getTimeLimitForCompletion(), t.getComment(), t.getAddressOfOrder().getPostalCode(),
-                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getOrderState().getName(), t.getTrack()));
+                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getState().getName(), t.getTrack()));
         }
 
         return ordersFX;
@@ -72,7 +72,7 @@ public class OrderFX {
 
         for(Order t : orders){
             ordersFX.add(new OrderFX(t.getId(), t.getTitle(), t.getType(), t.getTimeLimitForCompletion(), t.getComment(), t.getAddressOfOrder().getPostalCode(),
-                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getOrderState().getName(), t.getTrack()));
+                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getState().getName(), t.getTrack()));
         }
 
         return ordersFX;
@@ -87,7 +87,7 @@ public class OrderFX {
 
         for(Order t : orders){
             ordersFX.add(new OrderFX(t.getId(), t.getTitle(), t.getType(), t.getTimeLimitForCompletion(), t.getComment(), t.getAddressOfOrder().getPostalCode(),
-                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getOrderState().getName(), t.getTrack()));
+                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getState().getName(), t.getTrack()));
         }
 
         return ordersFX;
