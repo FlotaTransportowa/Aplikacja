@@ -24,6 +24,9 @@ import validation.Validation;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Kontroler do przydzielania tras
+ */
 public class AssignTrackController extends Controller{
 
     @FXML private TextField machineSearch, employeeSearch, trackSearch;
@@ -59,7 +62,11 @@ public class AssignTrackController extends Controller{
         machineAssignTable.setPlaceholder(new Label("Brak dostępnych maszyn"));
         driverWithPermsTable.setPlaceholder(new Label("Brak dostępnych pracowników"));
     }
-
+    /**
+     * Służy utworzenia widoku pokazywanego podczas rozwijania wiersza TableView dla modelu DriverWithPermsFX
+     * @param param
+     * @return Zwraca GridPane z widokiem
+     */
     private GridPane createPermissionExpander(TableRowExpanderColumn.TableRowDataFeatures<DriverWithPermsFX> param) {
 
         GridPane editor = new GridPane();
@@ -87,6 +94,9 @@ public class AssignTrackController extends Controller{
         return editor;
     }
 
+    /**
+     * Inicjuje TableView kolumnami
+     */
     @FXML
     void setDriverTable(){
         TableRowExpanderColumn<DriverWithPermsFX> expander = new TableRowExpanderColumn<DriverWithPermsFX>(this::createPermissionExpander);
@@ -233,6 +243,9 @@ public class AssignTrackController extends Controller{
         driverWithPermsTable.setItems(sortedData);
     }
 
+    /**
+     * Przypisanie maszyny i kierowcy do trasy
+     */
     @FXML
     void assignTrack(){
         MachineFX machineFX = getSelectedMachine();

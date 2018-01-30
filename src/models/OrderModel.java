@@ -11,6 +11,9 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Model zlecenia
+ */
 public class OrderModel implements BaseModel<Order>{
 
     /**
@@ -39,7 +42,7 @@ public class OrderModel implements BaseModel<Order>{
 
     /**
      * Szuaka wszystkich zgłoszeń utworzonych przez pracownika przekazanego przez parametr
-     * @param employee
+     * @param employee Pracownik
      * @return Zwraca listę zgłoszeń
      */
     public ObservableList<Order> getEmployeeOrders(Employee employee) {

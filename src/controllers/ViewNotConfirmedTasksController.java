@@ -20,6 +20,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Kontroler pokazujący listę niepotwierdzonych zleceń
+ */
 public class ViewNotConfirmedTasksController extends Controller{
     @FXML private TextField searchField;
     @FXML private TableView<Order> notConfirmedTasksTable;

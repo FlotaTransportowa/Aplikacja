@@ -7,6 +7,9 @@ import models.MachineModel;
 
 import java.util.List;
 
+/**
+ * Model maszyny
+ */
 public class MachineFX {
     private String mark;
     private String model;
@@ -17,7 +20,7 @@ public class MachineFX {
 
     /**
      * Poberanie wszystkich nie zajętych maszyn
-     * @return ObservableList<MachineFX>
+     * @return Zwrca listę zgłoszeń
      */
     public static ObservableList<MachineFX> getAllAvailable(){
         ObservableList<MachineFX> machinesFX = FXCollections.observableArrayList();

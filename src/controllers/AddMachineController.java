@@ -8,6 +8,9 @@ import models.MachineModel;
 import validation.Pattern;
 import validation.Validation;
 
+/**
+ * Kontroler do dodawania maszyn
+ */
 public class AddMachineController extends Controller{
 
     @FXML private TextField addModel;
@@ -42,6 +45,10 @@ public class AddMachineController extends Controller{
         machineModel.pushToDatabase(machine);
     }
 
+    /**
+     * Walidacja poprawności wprowadzonych pól
+     * @return Prawdę jeśli walidacja przeszła, fałsz w przeciwnym przypadku
+     */
     @FXML
     private boolean valid(){
         boolean validateFlag = true;

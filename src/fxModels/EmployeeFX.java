@@ -8,6 +8,9 @@ import models.EmployeeModel;
 
 import java.util.List;
 
+/**
+ * Model Pracownika
+ */
 public class EmployeeFX {
     private long id;
     private String firstName;
@@ -24,7 +27,7 @@ public class EmployeeFX {
 
     /**
      * Pobranie wszystkich pracowników w postaci modelu EmployeeFX
-     * @return ObservableList<EmployeeFX>
+     * @return Zwraca listę zgłoszeń
      */
     public static ObservableList<EmployeeFX> getAll(){
         ObservableList<EmployeeFX> employeesFX = FXCollections.observableArrayList();

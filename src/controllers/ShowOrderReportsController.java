@@ -15,6 +15,11 @@ import models.OrderReportModel;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
+/**
+ * Kontroler pokazujący listę raportów księgowania trasy
+ */
 public class ShowOrderReportsController extends Controller{
     private LoggedController loggedController;
 

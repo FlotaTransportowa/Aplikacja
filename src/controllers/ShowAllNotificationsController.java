@@ -16,6 +16,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.Date;
 
+/**
+ * Kontroler pokazujący listę zgłoszeń
+ */
 public class ShowAllNotificationsController extends Controller {
     @FXML
     private TextField searchField;

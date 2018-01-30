@@ -21,6 +21,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Kontroler do księgowania zleceń
+ */
 public class PostOrderController extends Controller{
     private LoggedController loggedController;
     Order order = null;
@@ -131,6 +134,9 @@ public class PostOrderController extends Controller{
         return orderReport;
     }
 
+    /**Walidacja poprawności dodawanego zlecenia
+     * @return Zwraca prawdę, gdy zgłoszenie poprawne, fałsz w przeciwnym przypadku
+     */
     private boolean valid(){
         boolean validateFlag = true;
 

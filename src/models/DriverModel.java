@@ -10,6 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Model kieorwcy
+ */
 public class DriverModel{
 
     /**
@@ -53,8 +56,8 @@ public class DriverModel{
 
     /**
      * Usuwa kierowcy driver uprawnienie p
-     * @param driver
-     * @param p
+     * @param driver kierowca
+     * @param p uprawnienie
      */
     public static void deleteDriverPermission(Driver driver, Permission p) {
         driver.getPermissions().remove(p);
@@ -62,8 +65,8 @@ public class DriverModel{
     }
     /**
      * Dodaje kierowcy driver uprawnienie permission
-     * @param driver
-     * @param permission
+     * @param driver kierowca
+     * @param permission uprawnienie
      */
     public static void addDriverPermission(Driver driver, Permission permission)
     {

@@ -21,6 +21,9 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Abstrakcyjny kontroler z podstawowymi własnościami dla każdego potomka
+ */
 public abstract class Controller{
     @FXML
     protected MainController mainController;
@@ -103,7 +106,7 @@ public abstract class Controller{
     /**
      * Służy utworzenia widoku pokazywanego podczas rozwijania wiersza TableView dla modelu OrderFX
      * @param param
-     * @return Zwraca GridPane
+     * @return Zwraca GridPane z widokiem
      */
     public GridPane createOrderExpander(TableRowExpanderColumn.TableRowDataFeatures<OrderFX> param) {
         GridPane editor = new GridPane();

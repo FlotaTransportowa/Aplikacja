@@ -13,6 +13,9 @@ import models.PermissionModel;
 
 import java.io.IOException;
 
+/**
+ * Kontroler widoku uprawnienia
+ */
 public class PermissionController extends Controller{
     private static PermissionModel permissionModel = new PermissionModel();
     private ObservableList<Permission> permissions;
@@ -59,6 +62,10 @@ public class PermissionController extends Controller{
     public void setAddPermisionController(AddPermisionController addPermisionController) {
         this.addPermisionController = addPermisionController;
     }
+
+    /**
+     * Dodanie widoku doodającego nowego uprawnienie dla wybranego wcześniej kierowcy
+     */
     public void newForm()
     {
         button.setText("Dodaj");
@@ -86,6 +93,10 @@ public class PermissionController extends Controller{
             }
         });
     }
+
+    /**
+     *Utworzenie widoku pokazującego posiadane uprawnienie przez kierowcę z przyciskiem umożliwiającym jego usunięcie
+     */
     public void deleteForm() {
         choiceBox.setDisable(true);
         choiceBox.getSelectionModel().select(permission);

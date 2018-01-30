@@ -23,6 +23,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Kontroler do tworzenia zleceń
+ */
 public class AddNewTaskController extends Controller
 {
     private LoggedController loggedController;

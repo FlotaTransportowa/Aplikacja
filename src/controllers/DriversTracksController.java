@@ -15,6 +15,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
+/**
+ * Kontroler do pokazywania Tras
+ */
 public class DriversTracksController extends Controller{
     @FXML private TextField searchField;
     @FXML private TableView<TrackFX> trackTable;
