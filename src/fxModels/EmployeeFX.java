@@ -24,6 +24,20 @@ public class EmployeeFX {
 
     public static ObservableList<EmployeeFX> getAll(){
         ObservableList<EmployeeFX> employeesFX = FXCollections.observableArrayList();
+        ObservableList<Employee> employees = FXCollections.observableArrayList();
+        EmployeeModel employeeModel = new EmployeeModel();
+
+        employees = employeeModel.getAll();
+
+        for(Employee t : employees){
+            employeesFX.add(new EmployeeFX(t.getId(), t.getFirstName(), t.getLastName(), t.getAge(), t.getGender(), t.getType(), t.getEmail(), t.getSalary(), t.getAccount(), t.getPhones(), t.getAddress()));
+        }
+
+        return employeesFX;
+    }
+
+    public static ObservableList<EmployeeFX> getAllDrivers(){
+        ObservableList<EmployeeFX> employeesFX = FXCollections.observableArrayList();
         ObservableList<Driver> drivers = FXCollections.observableArrayList();
 
 
@@ -49,6 +63,20 @@ public class EmployeeFX {
         this.phones = phones;
         this.addressOfEmployee = address;
         this.permissions = permissions;
+    }
+
+    public EmployeeFX(long id, String firstName, String lastName, int age, String gender, String type, String email, double salary, Account account, List<Phone> phones, Address address){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.type = type;
+        this.email = email;
+        this.salary = salary;
+        this.account = account;
+        this.phones = phones;
+        this.addressOfEmployee = address;
     }
 
     public long getId() {

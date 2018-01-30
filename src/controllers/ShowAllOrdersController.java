@@ -16,8 +16,11 @@ import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
+import java.io.IOException;
+
 
 public class ShowAllOrdersController extends Controller {
+    private LoggedController loggedController;
 
     @FXML
     private TextField searchField;
@@ -25,13 +28,29 @@ public class ShowAllOrdersController extends Controller {
     private TableView<OrderFX> orderTable;
     private static ObservableList<OrderFX> dataOders;
     @FXML private StatusBar statusBar;
-    OrderFX orderForEdit;
-
-    private LoggedController loggedController;
 
     @FXML
     void initialize() {
-        orderTable.setPlaceholder(new Label("Brak zleceń."));
+        TableRowExpanderColumn<OrderFX> expander = new TableRowExpanderColumn<OrderFX>(this::createOrderExpander);
+        expander.setMinWidth(30);
+        expander.setMaxWidth(30);
+
+        TableColumn<OrderFX, Long> idCol = new TableColumn<>("ID");
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        TableColumn<OrderFX, String> titleCol = new TableColumn<>("Tytuł");
+        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+        TableColumn<OrderFX, String> typeCol = new TableColumn<>("Typ");
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+
+        TableColumn<OrderFX, String> deadlineCol = new TableColumn<>("Deadline");
+        deadlineCol.setCellValueFactory(new PropertyValueFactory<>("timeLimitForCompletion"));
+
+        TableColumn<OrderFX, String> stateCol = new TableColumn<>("Stan zlecenia");
+        stateCol.setCellValueFactory(new PropertyValueFactory<>("orderState"));
+
+        orderTable.getColumns().addAll(expander, idCol, titleCol, typeCol, deadlineCol, stateCol);
     }
 
     public void initAll()
@@ -41,9 +60,9 @@ public class ShowAllOrdersController extends Controller {
         orderTable.setItems(dataOders);
         setSearchField();
     }
-
     public void initYours() {
         dataOders = FXCollections.observableArrayList(OrderFX.getEmployeeOrders(loggedController.getLoggedEmployee()));
+
         orderTable.setItems(dataOders);
         setSearchField();
     }
@@ -152,10 +171,18 @@ public class ShowAllOrdersController extends Controller {
         refreshView();
     }
 
-    //ToDo Daniel jakbyś mógł tu obsłużyć tworzenie okna do Zaksięgowania zlecenia
     @FXML
-    void setPostTheOrder(){
+    void setPostTheOrder() throws IOException {
+        OrderFX orderFX = getSelectedValue();
 
+        if(!checkSelect(orderFX)) {
+            statusBar.setText("Należy wybrać pracownika do edycji.");
+            return;
+        }
+
+        Order order = findOrder(orderFX);
+
+        loggedController.toPostOrder(order);
     }
 
     @FXML
