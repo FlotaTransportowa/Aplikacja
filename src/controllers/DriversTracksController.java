@@ -1,5 +1,6 @@
 package controllers;
 
+import database.Driver;
 import fxModels.TrackFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,10 +18,11 @@ public class DriversTracksController extends Controller{
     @FXML private TextField searchField;
     @FXML private TableView<TrackFX> trackTable;
     private static ObservableList<TrackFX> data;
+    private LoggedController loggedController;
 
     @FXML
     void initialize(){
-        data = FXCollections.observableArrayList(TrackFX.getAll());
+
 
         TableRowExpanderColumn<TrackFX> expander = new TableRowExpanderColumn<TrackFX>(this::createTrackExpander);
         expander.setMinWidth(30);
@@ -34,6 +36,19 @@ public class DriversTracksController extends Controller{
 
         trackTable.getColumns().addAll(expander, idCol, nameCol);
 
+    }
+
+    public void initAll()
+    {
+        data = FXCollections.observableArrayList(TrackFX.getAll());
+        trackTable.setItems(data);
+
+        setSearchField();
+    }
+
+    public void initYours()
+    {
+        data = FXCollections.observableArrayList(TrackFX.getAllDriverTracks((Driver) loggedController.getLoggedEmployee()));
         trackTable.setItems(data);
 
         setSearchField();
@@ -70,5 +85,7 @@ public class DriversTracksController extends Controller{
         trackTable.setItems(sortedData);
     }
 
-
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
+    }
 }

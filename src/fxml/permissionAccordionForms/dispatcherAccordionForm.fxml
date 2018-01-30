@@ -45,7 +45,7 @@
                         <Insets top="10.0" />
                      </FlowPane.margin>
                   </Button>
-                  <Button fx:id="viewTaskLIstButton" mnemonicParsing="false" onAction="#viewTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl twoje zlecenia">
+                  <Button fx:id="viewYoursTaskLIstButton" mnemonicParsing="false" onAction="#viewYoursTasksList" prefHeight="27.0" prefWidth="235.0" styleClass="button-grey" stylesheets="@../../resources/general.css" text="Wyświetl twoje zlecenia">
                      <FlowPane.margin>
                         <Insets top="10.0" />
                      </FlowPane.margin>

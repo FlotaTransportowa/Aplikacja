@@ -74,6 +74,9 @@ public class PermissionAccordionController extends Controller {
     @FXML private void viewTasksList() throws IOException {
         getLoggedController().viewTasksList();
     }
+    @FXML private void viewYoursTasksList() throws IOException {
+        getLoggedController().viewYoursTasksList();
+    }
     @FXML private void addNewTrack() throws IOException {
         getLoggedController().addNewTrack();
     }
@@ -82,7 +85,7 @@ public class PermissionAccordionController extends Controller {
         getLoggedController().showAllTracks();
     }
     @FXML private void showYoursTracks(){
-        getLoggedController().showYoursTracks(getLoggedController().getLoggedEmployee());
+        getLoggedController().showYoursTracks();
     }
     @FXML private void assignTrack()
     {

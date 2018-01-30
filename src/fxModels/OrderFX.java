@@ -49,7 +49,20 @@ public class OrderFX {
 
         return ordersFX;
     }
+    public static ObservableList<OrderFX>  getEmployeeOrders(Employee employee) {
+        ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
+        ObservableList<Order> orders = FXCollections.observableArrayList();
+        OrderModel orderModel = new OrderModel();
 
+        orders = orderModel.getEmployeeOrders(employee);
+
+        for(Order t : orders){
+            ordersFX.add(new OrderFX(t.getId(), t.getTitle(), t.getType(), t.getTimeLimitForCompletion(), t.getComment(), t.getAddressOfOrder().getPostalCode(),
+                    t.getAddressOfOrder().getLocality(), t.getAddressOfOrder().getStreet(), t.getAddressOfOrder().getApartmentNumber(), t.getOrderState().getName(), t.getTrack()));
+        }
+
+        return ordersFX;
+    }
     public static ObservableList<OrderFX> getTrackOrders(TrackFX track){
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();
@@ -152,4 +165,6 @@ public class OrderFX {
     public void setTrack(Track track) {
         this.track = track;
     }
+
+
 }

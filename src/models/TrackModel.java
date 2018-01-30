@@ -58,7 +58,7 @@ public class TrackModel implements BaseModel<Track>{
 
         try{
             entityManager.getTransaction().begin();
-            TypedQuery<Track> query = entityManager.createQuery("select e from Track e where e.driverOfTrack = driver", Track.class);
+            TypedQuery<Track> query = entityManager.createQuery("select e from Track e where e.driverOfTrack = :driver", Track.class);
             query.setParameter("driver", driver);
             List<Track> tracks1 = query.getResultList();
             tracks.addAll(tracks1);

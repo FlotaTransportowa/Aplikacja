@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import models.NotificationModel;
+import models.TrackModel;
 import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
@@ -224,7 +225,21 @@ public class LoggedController extends Controller {
     @FXML void viewTasksList() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
-            addNewTab((Node) loader.load(), "Lista zleceń");
+            addNewTab(loader, loggedEmployee+": Lista zleceń ");
+            ShowAllOrdersController showAllOrdersController = loader.getController();
+            showAllOrdersController.initAll();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML void viewYoursTasksList() {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllOrdersScreen.fxml"));
+            addNewTab(loader, loggedEmployee+": Lista zleceń ");
+            ShowAllOrdersController showAllOrdersController = loader.getController();
+            showAllOrdersController.setLoggedController(this);
+            showAllOrdersController.initYours();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -243,18 +258,25 @@ public class LoggedController extends Controller {
     @FXML
     void showAllTracks(){
         try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllTracksScreen.fxml"));
-            addNewTab((Node) loader.load(), "Lista tras");
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/driversTracksScreen.fxml"));
+            addNewTab(loader, "Lista tras");
+            DriversTracksController controller = loader.getController();
+            controller.setLoggedController(this);
+            controller.initAll();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    void showYourTracks(){
+    void showYoursTracks(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/driversTracksScreen.fxml"));
-            addNewTab((Node) loader.load(), "Lista tras");
+            addNewTab(loader, loggedEmployee+": Lista tras");
+            DriversTracksController controller = loader.getController();
+            controller.setLoggedController(this);
+            controller.initYours();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -331,9 +353,7 @@ public class LoggedController extends Controller {
         return welcomePanel;
     }
 
-    public void showYoursTracks(Employee employee) {
 
-    }
 
     public Employee getLoggedEmployee() {
         return loggedEmployee;

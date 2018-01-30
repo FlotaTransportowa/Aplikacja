@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import manager.GlobalManager;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -20,6 +21,27 @@ public class OrderModel implements BaseModel<Order>{
         try {
             entityManager.getTransaction().begin();
             TypedQuery<Order> query = entityManager.createQuery("select o from Order o", Order.class);
+            List<Order> orders1 = query.getResultList();
+            orders.addAll(orders1);
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return orders;
+    }
+
+
+    public ObservableList<Order> getEmployeeOrders(Employee employee) {
+        ObservableList<Order> orders = FXCollections.observableArrayList();
+        EntityManager entityManager = GlobalManager.getManager();
+
+        try {
+            entityManager.getTransaction().begin();
+//            TypedQuery<Order> query = entityManager.createQuery("select o from Order o ", Order.class);
+            Query query = entityManager.createQuery("Select o from Order o where o.trackOfOrder.id in (select t.id from Track t where t.driverOfTrack.id = :employeID)");
+            query.setParameter("employeID",employee.getId());
             List<Order> orders1 = query.getResultList();
             orders.addAll(orders1);
         } catch (Exception e){
@@ -50,6 +72,7 @@ public class OrderModel implements BaseModel<Order>{
 
         return orders;
     }
+
 
     public ObservableList<Order> getAllNotConfirmed() {
         ObservableList<Order> orders = FXCollections.observableArrayList();

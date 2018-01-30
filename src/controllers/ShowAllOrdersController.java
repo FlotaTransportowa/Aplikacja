@@ -1,6 +1,5 @@
 package controllers;
 
-import database.Address;
 import database.Order;
 import database.Track;
 import fxModels.OrderFX;
@@ -13,21 +12,9 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.util.Callback;
-import javafx.util.StringConverter;
-import models.OrderModel;
 import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
-
-import java.security.PrivateKey;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 
 
 public class ShowAllOrdersController extends Controller {
@@ -40,10 +27,10 @@ public class ShowAllOrdersController extends Controller {
     @FXML private StatusBar statusBar;
     OrderFX orderForEdit;
 
+    private LoggedController loggedController;
+
     @FXML
     void initialize() {
-        dataOders = FXCollections.observableArrayList(OrderFX.getAll());
-
         TableRowExpanderColumn<OrderFX> expander = new TableRowExpanderColumn<OrderFX>(this::createExpander);
         expander.setMinWidth(30);
         expander.setMaxWidth(30);
@@ -64,11 +51,21 @@ public class ShowAllOrdersController extends Controller {
         stateCol.setCellValueFactory(new PropertyValueFactory<>("orderState"));
 
         orderTable.getColumns().addAll(expander, idCol, titleCol, typeCol, deadlineCol, stateCol);
+    }
+
+    public void initAll()
+    {
+        dataOders = FXCollections.observableArrayList(OrderFX.getAll());
 
         orderTable.setItems(dataOders);
         setSearchField();
     }
+    public void initYours() {
+        dataOders = FXCollections.observableArrayList(OrderFX.getEmployeeOrders(loggedController.getLoggedEmployee()));
 
+        orderTable.setItems(dataOders);
+        setSearchField();
+    }
     @FXML
     void setSearchField() {
         FilteredList<OrderFX> filteredOrders = new FilteredList<OrderFX>(dataOders, p -> true);
@@ -244,4 +241,7 @@ public class ShowAllOrdersController extends Controller {
         setSearchField();
     }
 
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
+    }
 }

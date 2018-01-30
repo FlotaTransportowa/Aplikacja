@@ -24,10 +24,11 @@ public class ShowAllTracksController extends Controller{
     @FXML private TextField searchField;
     @FXML private TableView<TrackFX> trackTable;
     private static ObservableList<TrackFX> data;
+    private LoggedController loggedController;
 
     @FXML
     void initialize(){
-        data = FXCollections.observableArrayList(TrackFX.getAll());
+
 
         TableRowExpanderColumn<TrackFX> expander = new TableRowExpanderColumn<TrackFX>(this::createTrackExpander);
         expander.setMinWidth(30);
@@ -41,6 +42,20 @@ public class ShowAllTracksController extends Controller{
 
         trackTable.getColumns().addAll(expander, idCol, nameCol);
 
+
+    }
+
+    public void initAll()
+    {
+        data = FXCollections.observableArrayList(TrackFX.getAll());
+        trackTable.setItems(data);
+
+        setSearchField();
+    }
+
+    public void initYours()
+    {
+        data = FXCollections.observableArrayList(TrackFX.getAllDriverTracks((Driver) loggedController.getLoggedEmployee()));
         trackTable.setItems(data);
 
         setSearchField();
@@ -75,5 +90,9 @@ public class ShowAllTracksController extends Controller{
         sortedData.comparatorProperty().bind(trackTable.comparatorProperty());
 
         trackTable.setItems(sortedData);
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
     }
 }
