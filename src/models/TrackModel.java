@@ -14,6 +14,9 @@ import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model trasy
+ */
 public class TrackModel implements BaseModel<Track>{
     /**
      * Szuka wszystkich tras
@@ -62,7 +65,7 @@ public class TrackModel implements BaseModel<Track>{
 
     /**
      * Szuka wszystkich niewykonanych przez kierowcę driver zgłoszeń
-     * @param driver
+     * @param driver kierowca do sprawdzenia
      * @return Zwraca listę zgłoszeń
      */
     public ObservableList<Track> getAllNotExecutedDriverTracks(Driver driver) {
@@ -87,9 +90,9 @@ public class TrackModel implements BaseModel<Track>{
 
     /**
      * Przydziela do trasy maszynę machine i kierowcę driver
-     * @param machine
-     * @param track
-     * @param driver
+     * @param machine Maszyna do dodania
+     * @param track Modyfikowana trasa
+     * @param driver Kierowca do dodania
      */
     public static void assignTrack(Machine machine, Track track, Driver driver){
         EntityManager entityManager = GlobalManager.getManager();
@@ -107,7 +110,7 @@ public class TrackModel implements BaseModel<Track>{
 
     /**
      * Ustala stan trasy przekazanej przez parametr na wykonany
-     * @param track
+     * @param track trasa do zmiany stanu
      */
     public static void setExecuted(Track track){
         EntityManager entityManager = GlobalManager.getManager();
@@ -124,7 +127,7 @@ public class TrackModel implements BaseModel<Track>{
 
     /**
      * Ustawia wszystkie zlecenia w liście na wykonywane
-     * @param orders
+     * @param orders zgłoszenie zmiany stanu
      */
     public static void setAssignOrders(List<Order> orders){
         for(Order o : orders){

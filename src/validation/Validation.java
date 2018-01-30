@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Klasa walidująca wprowadzane dane
+ */
 public class Validation {
         public static boolean regexChecker(String theRegex, String checkStr){
             Pattern checkRegex;

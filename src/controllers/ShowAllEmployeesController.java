@@ -20,6 +20,9 @@ import javax.persistence.TypedQuery;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Kontroler pokazujący listę pracowników
+ */
 public class ShowAllEmployeesController extends Controller{
 
     private LoggedController loggedController;

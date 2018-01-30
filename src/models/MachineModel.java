@@ -14,6 +14,9 @@ import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model maszyny
+ */
 public class MachineModel implements BaseModel<Machine>{
     /**
      * @return Zwraca wszystkie maszyny
@@ -61,9 +64,9 @@ public class MachineModel implements BaseModel<Machine>{
 
     /**
      * Tworzy maszynę o podanych parametrach
-     * @param type
-     * @param registrationNum
-     * @param VINNum
+     * @param type określa typ dodawanej maszyny
+     * @param registrationNum numer rejestracyjny maszyny
+     * @param VINNum numer VIN maszyny
      * @return Zwraca utworzoną maszynę
      */
     public static Machine getMachine(MachineType type, String registrationNum, String VINNum){
@@ -78,7 +81,7 @@ public class MachineModel implements BaseModel<Machine>{
 
     /**
      * Sprawdza czy w bazie występuje maszyna danego typu
-     * @param type
+     * @param type typ do sprawdzenia
      * @return Jeśli maszyna była już w bazie to ją zwraca, w przeciwnym przypadku zwraca null.
      */
     public MachineType retExistType(MachineType type){

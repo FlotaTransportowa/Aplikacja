@@ -17,12 +17,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.layout.GridPane;
 import models.TrackModel;
+import org.controlsfx.control.StatusBar;
 import org.controlsfx.control.table.TableRowExpanderColumn;
 import validation.Validation;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Kontroler do przydzielania tras
+ */
 public class AssignTrackController extends Controller{
 
     @FXML private TextField machineSearch, employeeSearch, trackSearch;
@@ -32,6 +36,7 @@ public class AssignTrackController extends Controller{
     @FXML private ObservableList<DriverWithPermsFX> driverData;
     @FXML private ObservableList<MachineFX> machineData;
     @FXML private ObservableList<TrackFX> trackData;
+    @FXML private StatusBar statusBar;
 
     @FXML
     private void initialize() {
@@ -57,7 +62,11 @@ public class AssignTrackController extends Controller{
         machineAssignTable.setPlaceholder(new Label("Brak dostępnych maszyn"));
         driverWithPermsTable.setPlaceholder(new Label("Brak dostępnych pracowników"));
     }
-
+    /**
+     * Służy utworzenia widoku pokazywanego podczas rozwijania wiersza TableView dla modelu DriverWithPermsFX
+     * @param param
+     * @return Zwraca GridPane z widokiem
+     */
     private GridPane createPermissionExpander(TableRowExpanderColumn.TableRowDataFeatures<DriverWithPermsFX> param) {
 
         GridPane editor = new GridPane();
@@ -85,6 +94,9 @@ public class AssignTrackController extends Controller{
         return editor;
     }
 
+    /**
+     * Inicjuje TableView kolumnami
+     */
     @FXML
     void setDriverTable(){
         TableRowExpanderColumn<DriverWithPermsFX> expander = new TableRowExpanderColumn<DriverWithPermsFX>(this::createPermissionExpander);
@@ -231,14 +243,19 @@ public class AssignTrackController extends Controller{
         driverWithPermsTable.setItems(sortedData);
     }
 
+    /**
+     * Przypisanie maszyny i kierowcy do trasy
+     */
     @FXML
     void assignTrack(){
         MachineFX machineFX = getSelectedMachine();
         TrackFX trackFX = getSelectedTrack();
         DriverWithPermsFX driverWithPermsFX = getSelectedDriver();
 
-        if(!checkSelection(trackFX, machineFX, driverWithPermsFX))
+        if(!checkSelection(trackFX, machineFX, driverWithPermsFX)) {
+            statusBar.setText("Należy wybrac odpowiednią maszynę, zlecenie oraz kierowcę.");
             return;
+        }
 
         Machine machine = findMachine(machineFX);
         Track track = findTrack(trackFX);
@@ -247,6 +264,7 @@ public class AssignTrackController extends Controller{
         TrackModel.assignTrack(machine, track, driver);
         TrackModel.setAssignOrders(track.getOrders());
 
+        statusBar.setText("Przydzielono trasę.");
         refreshView();
     }
 

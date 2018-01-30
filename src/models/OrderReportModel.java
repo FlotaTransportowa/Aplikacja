@@ -9,6 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Model księgowania zlecenia
+ */
 public class OrderReportModel implements BaseModel<OrderReport>{
     /**
      * Szuka wszystkich Raportów zgłoszeń

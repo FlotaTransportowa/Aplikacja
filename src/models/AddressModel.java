@@ -11,6 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 
+/**
+ * Model adresu
+ */
 public class AddressModel implements BaseModel<Address>{
 
     /**

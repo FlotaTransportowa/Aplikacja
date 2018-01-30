@@ -8,6 +8,9 @@ import models.OrderModel;
 
 import java.util.Date;
 
+/**
+ * Model zlecenia
+ */
 public class OrderFX {
     private long id;
     private String title;
@@ -55,10 +58,11 @@ public class OrderFX {
     }
 
     /**
-     * @param employee
-     * @return Zwraca wszystkie zlecenia przypisane do employee
+     * Szuka wszystkich zleceń przypisanych do pracownika
+     * @param employee Pracownik
+     * @return Zwraca listę zleceń
      */
-    public static ObservableList<OrderFX>  getEmployeeOrders(Employee employee) {
+    public static ObservableList<OrderFX> getEmployeeOrders(Employee employee) {
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();
         OrderModel orderModel = new OrderModel();
@@ -74,8 +78,9 @@ public class OrderFX {
     }
 
     /**
-     * @param track
-     * @return Zwraca wszystkie zgłoszenia przypisane do trasy track
+     * Szuka wszystkich zgłoszeń przypisanych do trasy
+     * @param track Trasa
+     * @return Zwraca listę tras
      */
     public static ObservableList<OrderFX> getTrackOrders(TrackFX track){
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
@@ -93,8 +98,9 @@ public class OrderFX {
     }
 
     /**
-     * @param track
-     * @return Zwraca wszystkie zgłoszenia nie odrzucone oraz nie skończone
+     * Szuka  wszystkich zgłoszeń ze stanem 'nieodrzucone' lub 'nieskończone'
+     * @param track Trasa
+     * @return Zwraca listę zgłoszeń
      */
     public static ObservableList<OrderFX> getTrackOrdersWithoutCanceledAndDone(TrackFX track){
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();

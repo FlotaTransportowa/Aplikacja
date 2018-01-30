@@ -12,6 +12,9 @@ import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model numeru telefonu
+ */
 public class PhoneModel implements BaseModel<Phone>{
     /**
      * Szuka wszystkich numerów telefonów

@@ -25,6 +25,9 @@ import validation.Validation;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Kontroler pokazujący listę tras do podjęcia
+ */
 public class ShowAllTracksAndTakeController extends Controller{
     @FXML
     private TextField searchField;
@@ -143,8 +146,8 @@ public class ShowAllTracksAndTakeController extends Controller{
 
     /**
      * Znalezienie trasy na podstawie modelu TrackFX
-     * @param trackFX
-     * @return
+     * @param trackFX Model trasy
+     * @return Zwraca znalezioną trasę
      */
     @FXML
     public Track findTrack(TrackFX trackFX){

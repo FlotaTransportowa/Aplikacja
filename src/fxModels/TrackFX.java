@@ -10,6 +10,9 @@ import models.TrackModel;
 
 import java.util.List;
 
+/**
+ * MOdel trasy
+ */
 public class TrackFX {
     private long id;
     private String name;
@@ -53,8 +56,9 @@ public class TrackFX {
     }
 
     /**
-     * @param driver
-     * @return Zwraca wszystkie nie zakończone trasy przez kierowcę driver
+     * Szuka wszystkich niezakończonych trass przez kierowcę
+     * @param driver Kierowca
+     * @return Zwraca listę tras
      */
     public static ObservableList<TrackFX> getAllNotExecutedDriverTracks(Driver driver){
         ObservableList<TrackFX> trackFX = FXCollections.observableArrayList();

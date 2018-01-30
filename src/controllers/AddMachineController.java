@@ -8,6 +8,9 @@ import models.MachineModel;
 import validation.Pattern;
 import validation.Validation;
 
+/**
+ * Kontroler do dodawania maszyn
+ */
 public class AddMachineController extends Controller{
 
     @FXML private TextField addModel;
@@ -16,10 +19,15 @@ public class AddMachineController extends Controller{
     @FXML private TextField addRegistrationNum;
     @FXML private TextField addVIN;
 
+    private LoggedController loggedController;
     @FXML
     void initialize(){
     }
 
+    @FXML private void removeTab()
+    {
+        loggedController.removeTab(super.getThisTab());
+    }
     @FXML
     private void addMachine(){
         if(!valid())
@@ -42,6 +50,10 @@ public class AddMachineController extends Controller{
         machineModel.pushToDatabase(machine);
     }
 
+    /**
+     * Walidacja poprawności wprowadzonych pól
+     * @return Prawdę jeśli walidacja przeszła, fałsz w przeciwnym przypadku
+     */
     @FXML
     private boolean valid(){
         boolean validateFlag = true;
@@ -68,5 +80,13 @@ public class AddMachineController extends Controller{
         } else addVIN.setStyle(validStyle);
 
         return validateFlag;
+    }
+
+    public LoggedController getLoggedController() {
+        return loggedController;
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
     }
 }

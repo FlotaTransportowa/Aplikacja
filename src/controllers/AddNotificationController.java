@@ -16,6 +16,9 @@ import models.NotificationModel;
 import java.sql.Date;
 import java.util.Calendar;
 
+/**
+ * Kontroler do tworzenia zgłoszeń
+ */
 public class AddNotificationController extends Controller {
 
     private static NotificationModel notificationModel = new NotificationModel();

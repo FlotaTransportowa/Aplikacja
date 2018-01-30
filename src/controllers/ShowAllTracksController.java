@@ -19,6 +19,9 @@ import validation.Validation;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Kontroler pokazujący listę tras
+ */
 public class ShowAllTracksController extends Controller{
 
     @FXML private TextField searchField;

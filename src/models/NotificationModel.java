@@ -10,6 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * Model zgłoszenia
+ */
 public class NotificationModel implements BaseModel{
 
     /**
@@ -36,7 +39,7 @@ public class NotificationModel implements BaseModel{
 
     /**
      * Szuaka zgłoszeń typu podanego przez parametr
-     * @param notifyType
+     * @param notifyType typ zgłoszenia do wyświetlenia
      * @return Zwraca listę typów maszyn
      */
     public ObservableList<Notification> getAllOfType(AddNotificationController.NotifyType notifyType) {

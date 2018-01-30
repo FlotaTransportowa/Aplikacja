@@ -20,6 +20,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Kontroler pokazujący listę niepotwierdzonych zleceń
+ */
 public class ViewNotConfirmedTasksController extends Controller{
     @FXML private TextField searchField;
     @FXML private TableView<Order> notConfirmedTasksTable;
@@ -33,6 +36,7 @@ public class ViewNotConfirmedTasksController extends Controller{
     private static ObservableList<Order> taskData;
     OrderModel orderModel = new OrderModel();
 
+    private LoggedController loggedController;
     private Order orderForEdit;
 
     @FXML
@@ -241,5 +245,13 @@ public class ViewNotConfirmedTasksController extends Controller{
         sortedData.comparatorProperty().bind(notConfirmedTasksTable.comparatorProperty());
 
         notConfirmedTasksTable.setItems(sortedData);
+    }
+
+    public LoggedController getLoggedController() {
+        return loggedController;
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
     }
 }

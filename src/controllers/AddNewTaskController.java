@@ -23,6 +23,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Kontroler do tworzenia zleceń
+ */
 public class AddNewTaskController extends Controller
 {
     private LoggedController loggedController;
@@ -36,6 +39,7 @@ public class AddNewTaskController extends Controller
     @FXML private ChoiceBox newTaskType;
     @FXML private TextArea newTaskComment;
     @FXML private TextField postalCode, locality, street, houseNumber;
+
 
     @FXML void initialize() throws Exception
     {
@@ -248,5 +252,13 @@ public class AddNewTaskController extends Controller
         }else newTaskTitle.setStyle("-fx-background-color:#fff;");
 
         return validateFlag;
+    }
+
+    public LoggedController getLoggedController() {
+        return loggedController;
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
     }
 }

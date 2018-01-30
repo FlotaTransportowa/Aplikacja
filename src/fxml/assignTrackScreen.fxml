@@ -10,10 +10,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import org.controlsfx.control.StatusBar?>
 
 <AnchorPane prefHeight="728.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AssignTrackController">
    <children>
-      <Pane fx:id="mainPane" prefHeight="726.0" prefWidth="984.0">
+      <Pane fx:id="mainPane" prefHeight="747.0" prefWidth="984.0">
          <children>
             <GridPane layoutX="14.0" layoutY="1.0" prefHeight="686.0" prefWidth="956.0">
               <columnConstraints>
@@ -80,6 +81,7 @@
                </children>
             </GridPane>
             <Button layoutX="782.0" layoutY="687.0" mnemonicParsing="false" onAction="#assignTrack" prefHeight="25.0" prefWidth="188.0" text="Przydziel" />
+            <StatusBar fx:id="statusBar" layoutX="14.0" layoutY="716.0" prefWidth="956.0" text="" />
          </children>
       </Pane>
    </children>
