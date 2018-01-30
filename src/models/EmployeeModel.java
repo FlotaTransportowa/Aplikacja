@@ -77,4 +77,22 @@ public class EmployeeModel implements BaseModel<Employee>{
         }
         return null;
     }
+
+    public static Employee getEmployee(Account account){
+        Employee employee = null;
+        EntityManager entityManager = GlobalManager.getManager();
+
+        try {
+            entityManager.getTransaction().begin();
+            TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where account = :account", Employee.class);
+            query.setParameter("account", account);
+            employee = query.getSingleResult();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            entityManager.getTransaction().commit();
+        }
+
+        return employee;
+    }
 }
