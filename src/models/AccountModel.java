@@ -11,6 +11,13 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class AccountModel {
+    /**
+     * Sprawdza czy istnieje kontro o podanym loginie i haśle
+     * @param login
+     * @param passw
+     * @return Zwraca konto lub null jeśli nie znaleziono
+     * @throws SQLException
+     */
     public static Account getAccount(String login, String passw) throws SQLException {
         EntityManager entityManager = GlobalManager.getManager();
         Account account = null;
@@ -24,10 +31,14 @@ public class AccountModel {
             e.printStackTrace();
         } finally {
             entityManager.getTransaction().commit();
+            return account;
         }
-        return account;
     }
 
+    /**
+     * @param account
+     * @return Zwraca typ pracownika przypisanego do konta
+     */
     public static String getEmployeeType(Account account){
         EntityManager entityManager = GlobalManager.getManager();
         long idAccount = account.getId();
@@ -41,6 +52,10 @@ public class AccountModel {
         return employee.getClass().getSimpleName();
     }
 
+    /**
+     * @param account
+     * @return Zwraca wartośc paremtru typ pracownika
+     */
     public static String getEmployeeTypePL(Account account){
         EntityManager entityManager = GlobalManager.getManager();
         long idAccount = account.getId();
@@ -54,6 +69,12 @@ public class AccountModel {
         return employee.getType();
     }
 
+    /**
+     * Tworzy konto o podanym loginie (login i hasło będą takie same)
+     * @param login
+     * @return Zwaraca konto lub null gdy login zajęty
+     * @throws NoSuchAlgorithmException
+     */
     public static Account generate(String login) throws NoSuchAlgorithmException {
         EntityManager entityManager = GlobalManager.getManager();
         Account accountExist;

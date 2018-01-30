@@ -3,25 +3,27 @@ package controllers;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import models.AccountModel;
 import models.AddressModel;
 import models.EmployeeModel;
-import models.PhoneModel;
+import org.controlsfx.control.StatusBar;
 import validation.Pattern;
 import validation.Validation;
 
-import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kontroler widoku dodawania nowego pracownika
+ */
 public class AddEmployeeController extends Controller{
     private LoggedController loggedController;
-    //private Employee employee;
+
+    @FXML private StatusBar statusBar;
 
     @FXML
     private ChoiceBox phoneTypeChoiseBox,phoneTypeChoiseBox1,phoneTypeChoiseBox2, typeOfEmployeeChoiceBox;
@@ -50,6 +52,7 @@ public class AddEmployeeController extends Controller{
     @FXML private Button actionButton;
 
     @FXML private AnchorPane anchorPane;
+    private List<Phone> phones;
 
     @FXML
     void initialize(){
@@ -91,7 +94,6 @@ public class AddEmployeeController extends Controller{
         phoneHBox2.setVisible(false);
         phoneHBox2.setDisable(true);
     }
-
     @FXML private  void remove3rdPhoneBox(){
         phoneHBox3.setVisible(false);
         phoneHBox3.setDisable(true);
@@ -102,6 +104,10 @@ public class AddEmployeeController extends Controller{
         loggedController.removeTab(super.getThisTab());
     }
 
+    /**
+     * Akcja dodająca pracownika do bazy danych na podstawie wypełnionych pól formularza
+     * @throws NoSuchAlgorithmException
+     */
     @FXML private void checkClick() throws NoSuchAlgorithmException {
         EmployeeModel employeeModel = new EmployeeModel();
         AddressModel addressModel = new AddressModel();
@@ -138,6 +144,7 @@ public class AddEmployeeController extends Controller{
             alert.setHeaderText("Pracownik istnieje w systemie");
             alert.showAndWait();
         }
+        statusBar.setText("Dodawanie pracownika przebiegło pomyślnie.");
     }
 
     private ArrayList<Phone> getPhones()
@@ -171,7 +178,6 @@ public class AddEmployeeController extends Controller{
 
     private void setEmployeer()
     {
-        System.out.println("Ustawienie: " + employeer.getClass().getSimpleName());
         employeer.setFirstName(addNameField.getText());
         employeer.setLastName(addSurnameField.getText());
         employeer.setAge(Integer.valueOf(addAgeField.getText()));
@@ -217,8 +223,10 @@ public class AddEmployeeController extends Controller{
         addStreetField.setText(address.getStreet());
         addHousenumField.setText(address.getApartmentNumber());
     }
+
     private void setPhones(List<Phone> phones)
     {
+        this.phones = phones;
         if(phones.size()>0){
             phoneHBox1.setDisable(false);
             phoneHBox1.setVisible(true);
@@ -243,7 +251,6 @@ public class AddEmployeeController extends Controller{
         typeOfEmployeeChoiceBox.getSelectionModel().select(type);
     }
 
-    //ToDo rzutowanie downcast nie dziala, trzeba znaleźć inne rozwiązanie
     private void pushToDatabase()
     {
         System.out.println(employeer.getClass().getSimpleName());
@@ -261,6 +268,10 @@ public class AddEmployeeController extends Controller{
         }
     }
 
+    /**
+     * Ustawienie pól formularza do przekazanego przez parametr pracownika
+     * @param employee Pracwonik
+     */
     public void setToEmployee(Employee employee)
     {
         this.employeer = (Driver) employee;
@@ -276,16 +287,22 @@ public class AddEmployeeController extends Controller{
 
         actionButton.setText("Zapisz");
         actionButton.setOnAction(e->{
-            if(!valid())
+            if(!valid()) {
+                statusBar.setText("Wszystkie pola muszą być poprawnie wypełnione.");
                 return;
+            }
             setEmployeer();
             employeer.setAddress(getAdress());
             List<Phone> phones1;
             phones1 = getPhones();
-            if(phones1 == null)
+            if(phones1 == null) {
+                statusBar.setText("Pracownik powinien posiadać przynajmniej jeden numer telefonu.");
                 return;
+            }
 
             employeer.setPhones(phones1);
+
+            statusBar.setText("Edycja pracownika przebiegła pomyślnie.");
 
             pushToDatabase();
         });

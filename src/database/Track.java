@@ -4,20 +4,23 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Tracks")
 public class Track {
     @Id
     @GeneratedValue
     private long id;
     private String name;
     private boolean executed;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "driverID", referencedColumnName = "id")
     private Driver driverOfTrack;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "machineID", referencedColumnName = "id")
     private Machine machineOfTrack;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "trackID")
+
+    @OneToMany(mappedBy = "trackOfOrder", cascade = CascadeType.ALL)
     private List<Order> orders;
 
     public String getName() {

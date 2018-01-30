@@ -3,13 +3,15 @@ package controllers;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
-import javafx.scene.control.ToggleButton;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import org.controlsfx.control.SegmentedButton;
 
 import java.io.IOException;
+
+import static controllers.AddNotificationController.NotifyType.ACCIDENT;
+import static controllers.AddNotificationController.NotifyType.DEFECT;
+import static controllers.AddNotificationController.NotifyType.THEFT;
 
 
 public class PermissionAccordionController extends Controller {
@@ -22,6 +24,9 @@ public class PermissionAccordionController extends Controller {
     @FXML private SegmentedButton zgloszenieSegmentButton;
     @FXML private TextField sizeOfTrasyTableTextField,  sizeOfTrasyTableTextField1,  sizeOfTrasyTableTextField2;
     @FXML private Slider sizeOfTrasyTable, sizeOfTrasyTable1,sizeOfTrasyTable2;
+
+    private String title = new String();
+    private AddNotificationController.NotifyType notifyType;
 
     public PermissionAccordionController()
     {
@@ -62,24 +67,42 @@ public class PermissionAccordionController extends Controller {
     private void addNewOrder() throws IOException {
         getLoggedController().addNewOrder();
     }
+
     @FXML private void  viewNotConfirmedTasksList()
     {
         getLoggedController().viewNotConfirmedTasksList();
     }
+
     @FXML private void viewTasksList() throws IOException {
         getLoggedController().viewTasksList();
     }
+
+    @FXML private void viewYoursTasksList() throws IOException {
+        getLoggedController().viewYoursTasksList();
+    }
+
     @FXML private void addNewTrack() throws IOException {
         getLoggedController().addNewTrack();
     }
+
     @FXML private void showAllTracks()
     {
         getLoggedController().showAllTracks();
     }
+
+    @FXML private void showDriverTracksForTake(){
+        getLoggedController().showDriverTracksForTake();
+    }
+
+    @FXML private void showYoursTracks(){
+        getLoggedController().showYoursTracks();
+    }
+
     @FXML private void assignTrack()
     {
         getLoggedController().assignTrack();
     }
+
     @FXML private void addNewMachine() throws IOException {
         getLoggedController().addNewMachine();
     }
@@ -90,20 +113,66 @@ public class PermissionAccordionController extends Controller {
     @FXML private void addNewEmployee() throws IOException {
         getLoggedController().addNewEmployee();
     }
+
     @FXML private void showEmployee() throws IOException {
         getLoggedController().showEmployee();
     }
 
-    @FXML private void addNewNotify()
-    {
-        if(zgloszenieToggleButton.isSelected()){
+    @FXML private void showOrderReports() throws IOException{
+        getLoggedController().showOrderReports();
+    }
 
+    private boolean findSelectedType() {
+        if(zgloszenieToggleButton.isSelected()){
+            title = "Zgłoszenie usterki";
+            notifyType = DEFECT;
         }
         else if(zgloszenieToggleButton2.isSelected()){
-
+            title = "Zgłoszenie kradzieży";
+            notifyType = THEFT;
         }
         else if (zgloszenieToggleButton3.isSelected()) {
+            title = "Zgłoszenie wypadku";
+            notifyType = ACCIDENT;
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd tworzenia zgłoszenia");
+            alert.setHeaderText("Nie wybrano typu zgłoszenia");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
 
+    @FXML private void addNewNotify() {
+        if(findSelectedType()) {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Notification/notificationScreen.fxml"));
+            try {
+                loggedController.addNewTab(loader, title);
+                AddNotificationController addNotificationController = loader.getController();
+                addNotificationController.setPermissionAccordionController(this);
+                addNotificationController.setNotifyType(notifyType);
+                addNotificationController.initNofity();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML void showAllNotifications() {
+        if(findSelectedType()) {
+            ShowAllNotificationsController showAllNotificationsController = null;
+            try {
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/showAllNotificationScreen.fxml"));
+                loggedController.addNewTab(loader, "Lista zgłoszeń");
+                showAllNotificationsController = loader.getController();
+                showAllNotificationsController.setPermissionAccordionController(this);
+                showAllNotificationsController.setNotifyType(notifyType);
+                showAllNotificationsController.initNofity();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

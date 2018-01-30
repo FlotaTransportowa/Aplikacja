@@ -17,6 +17,10 @@ import java.util.List;
 
 public class PermissionModel implements BaseModel<Permission>{
 
+    /**
+     * Szuka wszystkich uprawnień
+     * @return Zwraca listę uprawnień
+     */
     @Override
     public ObservableList getAll() {
         ObservableList<Permission> perms = FXCollections.observableArrayList();

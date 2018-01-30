@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="599.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowOrderReportsController">
+   <children>
+      <TableView fx:id="tableOrderReport" layoutX="14.0" layoutY="45.0" prefHeight="524.0" prefWidth="955.0">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy></TableView>
+      <TextField fx:id="searchField" layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="955.0" promptText="Wyszukaj" />
+   </children>
+</AnchorPane>

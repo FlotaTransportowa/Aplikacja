@@ -12,6 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import models.AccountModel;
+import models.EmployeeModel;
 import security.HashPassword;
 
 import javax.persistence.EntityManager;
@@ -23,14 +24,12 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import static controllers.Controller.*;
+
 public class LoginController extends Controller {
     @FXML private TextField login;
     @FXML private TextField password;
-    @FXML private ImageView imageView;
-    @FXML private StackPane stackPane;
-    private Account account = null;
 
-    private static AnchorPane welcomePanel;
     private LoggedController loggedController;
 
 
@@ -62,6 +61,7 @@ public class LoginController extends Controller {
         mainController.setAccountLogin(Login);
         loggedController.setAccountDetails(account.getLogin(), AccountModel.getEmployeeTypePL(account));
         loggedController.initPermissions();
+        loggedController.setLoggedEmployee(EmployeeModel.getEmployee(account));
     }
     @FXML private void checkKey() {}
     public void initialize()

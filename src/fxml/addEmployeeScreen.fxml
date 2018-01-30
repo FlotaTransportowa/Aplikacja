@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.StatusBar?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="554.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEmployeeController">
    <children>
@@ -141,6 +142,7 @@
                   <Font name="Aparajita" size="25.0" />
                </font>
             </Label>
+            <StatusBar fx:id="statusBar" layoutX="14.0" layoutY="459.0" prefWidth="992.0" text="" />
          </children>
       </AnchorPane>
    </children>

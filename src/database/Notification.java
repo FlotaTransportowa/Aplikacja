@@ -4,22 +4,38 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "Notifications")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeOfNotify")
 public abstract class Notification {
+    public enum NotifyStatus {
+        SENT, ACCEPTED, REJECTED
+    }
+
     @Id
     @GeneratedValue
     private long id;
     @Temporal(TemporalType.DATE)
     private Date date;
     private String description;
-    private String status;
-    @OneToOne(cascade = CascadeType.ALL)
+    private NotifyStatus status;
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "machineID")
     private Machine machine;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employeeID")
     private Employee employee;
+
+    public Notification(){
+    }
+
+    public Notification(Date date, String description, NotifyStatus status, Machine machine, Employee employee) {
+        this.date = date;
+        this.description = description;
+        this.status = status;
+        this.machine = machine;
+        this.employee = employee;
+    }
 
     public long getId() {
         return id;
@@ -37,11 +53,11 @@ public abstract class Notification {
         this.description = description;
     }
 
-    public String getStatus() {
+    public NotifyStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(NotifyStatus status) {
         this.status = status;
     }
 

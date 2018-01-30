@@ -31,6 +31,10 @@ public class AddPermisionController extends Controller{
 //       vBox.getChildren().add(newPermissionForm());
     }
 
+    /**
+     * Pokazanie uprawnień posiadanych przez kierowcę
+     * @throws IOException
+     */
     public void createCurrentPermissions() throws IOException {
         vBox.getChildren().clear();
         if(permissions!=null) {
@@ -54,6 +58,13 @@ public class AddPermisionController extends Controller{
             System.out.println(p.getDescription());
         }
     }
+
+    /**
+     * Tworzy UI do pokazania pojedyńczego posiadanego uprawnieniaa
+     * @param permission
+     * @return
+     * @throws IOException
+     */
     private HBox currentPermissionForm(Permission permission) throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/permissionForm.fxml"));
         HBox node = loader.load();

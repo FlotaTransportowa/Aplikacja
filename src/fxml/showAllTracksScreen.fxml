@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="481.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowAllTracksController">
+<AnchorPane prefHeight="687.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowAllTracksController">
    <children>
-      <TableView fx:id="trackTable" layoutX="14.0" layoutY="42.0" prefHeight="390.0" prefWidth="901.0">
-          <columns>
-              <TableColumn fx:id="trackID" prefWidth="75.0" text="ID">
-                  <cellValueFactory>
-                      <PropertyValueFactory property="id" />
-                  </cellValueFactory>
-              </TableColumn>
-              <TableColumn fx:id="trackName" prefWidth="75.0" text="Nazwa">
-                  <cellValueFactory>
-                      <PropertyValueFactory property="name" />
-                  </cellValueFactory>
-              </TableColumn>
-          </columns>
+      <TableView fx:id="trackTable" layoutX="14.0" layoutY="42.0" prefHeight="618.0" prefWidth="956.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="901.0" promptText="Wyszukaj" />
-      <Label layoutX="14.0" layoutY="432.0" text="Kliknij dwukrotnie w wiersz by zobaczyć szczegóły trasy." />
+      <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="956.0" promptText="Wyszukaj" />
    </children>
 </AnchorPane>

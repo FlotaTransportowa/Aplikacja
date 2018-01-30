@@ -1,8 +1,6 @@
 package fxModels;
 
-import database.Machine;
-import database.MachineType;
-import database.Permission;
+import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.MachineModel;
@@ -17,12 +15,16 @@ public class MachineFX {
     private String registrationNumber;
     private String VIN;
 
-    public static ObservableList<MachineFX> getMachines(){
+    /**
+     * Poberanie wszystkich nie zajętych maszyn
+     * @return ObservableList<MachineFX>
+     */
+    public static ObservableList<MachineFX> getAllAvailable(){
         ObservableList<MachineFX> machinesFX = FXCollections.observableArrayList();
         ObservableList<Machine> machines = FXCollections.observableArrayList();
         MachineModel machineModel = new MachineModel();
 
-        machines = machineModel.getAll();
+        machines = machineModel.getAllAvailable();
 
         for(Machine t : machines){
             machinesFX.add(new MachineFX(t.getType().getMark(), t.getType().getModel(), t.getType().getType(), t.getId(), t.getRegistrationNumber(), t.getVIN()));

@@ -57,12 +57,18 @@ public class MainController extends Controller{
         mainPane.getChildren().add(pane);
     }
 
+    /**
+     * Zalogowanie
+     */
     void logIn()
     {
         topMenuBar.setVisible(true);
         mainPane.setLayoutY(26);
     }
 
+    /**
+     * Wylogowanie
+     */
     @FXML void logout(){
         try {
             topMenuBar.setVisible(false);
@@ -75,6 +81,9 @@ public class MainController extends Controller{
         }
     }
 
+    /**
+     * Wyjście z aplikacji
+     */
     @FXML void exitApp(){
         System.exit(0);
         //Platform.exit();
@@ -88,15 +97,16 @@ public class MainController extends Controller{
         loggedController.closeAllTabs();
     }
 
+    /**
+     * Informację o twórcach
+     */
     @FXML
     void about()
     {
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O programie");
         alert.setHeaderText("Zarządzanie flotą samochodów w firmie budowlanej\nwersja 0.1");
         alert.setContentText("©2017 \nDaniel Dymiński\nNorbert Gil\nMaksymilian Jagodziński\nHubert Januszek ");
-
         alert.showAndWait();
     }
 

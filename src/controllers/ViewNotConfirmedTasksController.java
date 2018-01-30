@@ -1,9 +1,6 @@
 package controllers;
 
 import database.Order;
-import database.OrderNotAssigned;
-import database.OrderNotConfirmed;
-import database.OrderState;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -13,12 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import manager.GlobalManager;
 import models.OrderModel;
 import org.controlsfx.control.StatusBar;
 import validation.Validation;
 
-import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -43,6 +38,13 @@ public class ViewNotConfirmedTasksController extends Controller{
     @FXML
     void initialize(){
         refreshView();
+        setDatePicker();
+    }
+
+    /**
+     * Ustaw wartość pola kalendarza
+     */
+    void setDatePicker(){
         checkIn = new DatePicker();
         editTaskDate.getEditor().setDisable(true);
         editTaskDate.setValue(LocalDate.now());
@@ -96,6 +98,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         editTaskDate.setValue(LocalDate.now());
     }
 
+    /**
+     * Usunięcie wybranego zlecenia
+     */
     @FXML
     void removeSelectOrder(){
         Order toRemoveOrder = null;
@@ -104,20 +109,15 @@ public class ViewNotConfirmedTasksController extends Controller{
             statusBar.setText("Należy zaznaczyć zlecenie w tabeli...");
             return;
         }
-
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.remove(toRemoveOrder);
-            statusBar.setText("Usunięto zlecenie: " + toRemoveOrder.getTitle());
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            entityManager.getTransaction().commit();
-        }
+        toRemoveOrder.getState().removeOrder(toRemoveOrder, statusBar);
+        statusBar.setText("Usunięto zlecenie: " + toRemoveOrder.getTitle());
 
         refreshView();
     }
 
+    /**
+     * Zatwierdzenie zlecenia
+     */
     @FXML
     void confirmSelectedTask(){
         Order toConfirmOrder = null;
@@ -132,35 +132,33 @@ public class ViewNotConfirmedTasksController extends Controller{
             return;
         }
 
-        Order order = entityManager.find(Order.class, toConfirmOrder.getId());
-        order.setState(new OrderNotAssigned());
-        statusBar.setText("Zatwierdzono zlecenie: " + order.getTitle());
+        toConfirmOrder.getState().confirmOrder(toConfirmOrder, entityManager, statusBar);
+
+        statusBar.setText("Zatwierdzono zlecenie: " + toConfirmOrder.getTitle());
 
         refreshView();
     }
 
+    /**
+     * Zapisanie zmian
+     */
     @FXML
     void saveChanges(){
         LocalDate date = editTaskDate.getValue();
         Instant instant = Instant.from(date.atStartOfDay(ZoneId.systemDefault()));
 
-        Order order = null;
-        try{
-            entityManager.getTransaction().begin();
-            order = entityManager.find(Order.class, orderForEdit.getId());
-            order.setTitle(editTaskTitle.getText());
-            order.setComment(editTaskComment.getText());
-            order.setTimeLimitForCompletion(Date.from(instant));
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            entityManager.getTransaction().commit();
-            entityManager.refresh(order);
-        }
+        orderForEdit.setTitle(editTaskTitle.getText());
+        orderForEdit.setComment(editTaskComment.getText());
+        orderForEdit.setTimeLimitForCompletion(Date.from(instant));
+
+        orderForEdit.getState().edit(orderForEdit);
 
         refreshView();
     }
 
+    /**
+     * Edycja wybranego zlecenia
+     */
     @FXML
     void editSelectedTask(){
         Order editOrder = null;
@@ -172,6 +170,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         orderForEdit = editOrder;
     }
 
+    /**
+     * Usunięcie widoku edycji
+     */
     @FXML
     void cancelEdit(){
         editPane.setVisible(false);
@@ -191,6 +192,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         editTaskComment.setText(order.getComment());
     }
 
+    /**
+     * Odświeżenie widoku
+     */
     @FXML
     private void refreshView(){
         cancelEdit();

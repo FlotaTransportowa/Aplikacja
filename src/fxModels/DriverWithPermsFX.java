@@ -18,6 +18,10 @@ public class DriverWithPermsFX {
     private int age;
     private List<Permission> perms;
 
+    /**
+     * Pobranie wszystkich kierowców z uprawnieniami
+     * @return Zwraca ObservableList<DriverWithPermsFX>
+     */
     public static ObservableList<DriverWithPermsFX> getAll(){
         ObservableList<DriverWithPermsFX> driversWithPermsFX = FXCollections.observableArrayList();
         ObservableList<Driver> drivers = FXCollections.observableArrayList();

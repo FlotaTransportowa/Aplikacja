@@ -124,10 +124,9 @@ public class AddNewTaskController extends Controller
         }
 
         EntityManager entityManager = GlobalManager.getManager();
-        entityManager.getTransaction().begin();
         entityManager.persist(order);
-        entityManager.refresh(order);
         entityManager.getTransaction().commit();
+        entityManager.refresh(order);
     }
 
     @FXML void addIncompleteTask() throws IOException

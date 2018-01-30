@@ -7,11 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowMachineController">
+<AnchorPane prefHeight="742.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowMachineController">
    <children>
-      <Pane prefHeight="551.0" prefWidth="1027.0">
+      <Pane layoutX="14.0" layoutY="15.0" prefHeight="712.0" prefWidth="983.0" style="-fx-border-width: 1px; -fx-border-color: rgb(230,230,230); -fx-background-color: #fff;">
          <children>
-            <TableView fx:id="machineShowTable" layoutX="8.0" layoutY="40.0" prefHeight="513.0" prefWidth="1004.0">
+            <Pane prefHeight="56.0" prefWidth="980.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">
+               <children>
+                  <TextField fx:id="searchField" layoutX="14.0" layoutY="16.0" prefHeight="25.0" prefWidth="956.0" promptText="Wyszukaj" />
+               </children>
+            </Pane>
+            <TableView fx:id="machineShowTable" layoutX="14.0" layoutY="70.0" prefHeight="631.0" prefWidth="956.0">
               <columns>
                 <TableColumn fx:id="machineID" prefWidth="75.0" text="ID maszyny">
                     <cellValueFactory>
@@ -48,7 +53,6 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <TextField fx:id="searchField" layoutX="8.0" layoutY="14.0" prefHeight="25.0" prefWidth="1004.0" promptText="Wyszukaj" />
          </children>
       </Pane>
    </children>
