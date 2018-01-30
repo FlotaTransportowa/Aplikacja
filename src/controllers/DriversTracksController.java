@@ -39,6 +39,9 @@ public class DriversTracksController extends Controller{
 
     }
 
+    /**
+     * Uaktualnienie TableView wszystkimi trasami w bazie danych
+     */
     public void initAll()
     {
         data = FXCollections.observableArrayList(TrackFX.getAll());
@@ -48,6 +51,9 @@ public class DriversTracksController extends Controller{
         setSearchField();
     }
 
+    /**
+     * Uaktualnienie TableView trasami zalogowanego użytkownika
+     */
     public void initYours()
     {
         data = FXCollections.observableArrayList(TrackFX.getAllNotExecutedDriverTracks((Driver) loggedController.getLoggedEmployee()));
@@ -56,6 +62,9 @@ public class DriversTracksController extends Controller{
         setSearchField();
     }
 
+    /**
+     * Inicjalizacja obserwatora reagującego na wpisywane filtry
+     */
     @FXML
     void setSearchField(){
         FilteredList<TrackFX> filteredOrders = new FilteredList<TrackFX>(data, p -> true);

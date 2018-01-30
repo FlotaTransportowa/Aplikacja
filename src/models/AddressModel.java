@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 public class AddressModel implements BaseModel<Address>{
 
+    /**
+     * @return Zwraca wszystkie adresy
+     */
     @Override
     public ObservableList<Address> getAll() {
         return null;

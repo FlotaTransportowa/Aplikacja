@@ -45,6 +45,9 @@ public class ShowAllTracksController extends Controller{
 
     }
 
+    /**
+     * Wyświetlenie wszytkich tras
+     */
     public void initAll()
     {
         data = FXCollections.observableArrayList(TrackFX.getAll());
@@ -53,6 +56,9 @@ public class ShowAllTracksController extends Controller{
         setSearchField();
     }
 
+    /**
+     * Wyświetlenie tras zalogowanego pracownika
+     */
     public void initYours()
     {
         data = FXCollections.observableArrayList(TrackFX.getAllNotExecutedDriverTracks((Driver) loggedController.getLoggedEmployee()));

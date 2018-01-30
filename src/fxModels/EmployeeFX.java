@@ -22,6 +22,10 @@ public class EmployeeFX {
     private Address addressOfEmployee;
     private List<Permission> permissions;
 
+    /**
+     * Pobranie wszystkich pracowników w postaci modelu EmployeeFX
+     * @return ObservableList<EmployeeFX>
+     */
     public static ObservableList<EmployeeFX> getAll(){
         ObservableList<EmployeeFX> employeesFX = FXCollections.observableArrayList();
         ObservableList<Employee> employees = FXCollections.observableArrayList();

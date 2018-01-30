@@ -17,6 +17,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kontroler widoku dodawania nowego pracownika
+ */
 public class AddEmployeeController extends Controller{
     private LoggedController loggedController;
 
@@ -49,6 +52,7 @@ public class AddEmployeeController extends Controller{
     @FXML private Button actionButton;
 
     @FXML private AnchorPane anchorPane;
+    private List<Phone> phones;
 
     @FXML
     void initialize(){
@@ -90,7 +94,6 @@ public class AddEmployeeController extends Controller{
         phoneHBox2.setVisible(false);
         phoneHBox2.setDisable(true);
     }
-
     @FXML private  void remove3rdPhoneBox(){
         phoneHBox3.setVisible(false);
         phoneHBox3.setDisable(true);
@@ -101,6 +104,10 @@ public class AddEmployeeController extends Controller{
         loggedController.removeTab(super.getThisTab());
     }
 
+    /**
+     * Akcja dodająca pracownika do bazy danych na podstawie wypełnionych pól formularza
+     * @throws NoSuchAlgorithmException
+     */
     @FXML private void checkClick() throws NoSuchAlgorithmException {
         EmployeeModel employeeModel = new EmployeeModel();
         AddressModel addressModel = new AddressModel();
@@ -216,8 +223,10 @@ public class AddEmployeeController extends Controller{
         addStreetField.setText(address.getStreet());
         addHousenumField.setText(address.getApartmentNumber());
     }
+
     private void setPhones(List<Phone> phones)
     {
+        this.phones = phones;
         if(phones.size()>0){
             phoneHBox1.setDisable(false);
             phoneHBox1.setVisible(true);
@@ -259,6 +268,10 @@ public class AddEmployeeController extends Controller{
         }
     }
 
+    /**
+     * Ustawienie pól formularza do przekazanego przez parametr pracownika
+     * @param employee Pracwonik
+     */
     public void setToEmployee(Employee employee)
     {
         this.employeer = (Driver) employee;

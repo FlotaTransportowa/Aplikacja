@@ -57,12 +57,18 @@ public class MainController extends Controller{
         mainPane.getChildren().add(pane);
     }
 
+    /**
+     * Zalogowanie
+     */
     void logIn()
     {
         topMenuBar.setVisible(true);
         mainPane.setLayoutY(26);
     }
 
+    /**
+     * Wylogowanie
+     */
     @FXML void logout(){
         try {
             topMenuBar.setVisible(false);
@@ -75,6 +81,9 @@ public class MainController extends Controller{
         }
     }
 
+    /**
+     * Wyjście z aplikacji
+     */
     @FXML void exitApp(){
         System.exit(0);
         //Platform.exit();
@@ -88,6 +97,9 @@ public class MainController extends Controller{
         loggedController.closeAllTabs();
     }
 
+    /**
+     * Informację o twórcach
+     */
     @FXML
     void about()
     {

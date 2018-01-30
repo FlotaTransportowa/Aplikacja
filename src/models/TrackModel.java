@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrackModel implements BaseModel<Track>{
+    /**
+     * Szuka wszystkich tras
+     * @return Zwraca listę tras
+     */
     @Override
     public ObservableList<Track> getAll() {
         ObservableList<Track> tracks = FXCollections.observableArrayList();
@@ -34,6 +38,10 @@ public class TrackModel implements BaseModel<Track>{
         return tracks;
     }
 
+    /**
+     * Szuka wszystkich nieprzydzielonych tras
+     * @return Zwraca listę tras
+     */
     public ObservableList<Track> getAllNotAssigned() {
         ObservableList<Track> tracks = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();
@@ -52,6 +60,11 @@ public class TrackModel implements BaseModel<Track>{
         return tracks;
     }
 
+    /**
+     * Szuka wszystkich niewykonanych przez kierowcę driver zgłoszeń
+     * @param driver
+     * @return Zwraca listę zgłoszeń
+     */
     public ObservableList<Track> getAllNotExecutedDriverTracks(Driver driver) {
         ObservableList<Track> tracks = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();
@@ -72,6 +85,12 @@ public class TrackModel implements BaseModel<Track>{
     }
 
 
+    /**
+     * Przydziela do trasy maszynę machine i kierowcę driver
+     * @param machine
+     * @param track
+     * @param driver
+     */
     public static void assignTrack(Machine machine, Track track, Driver driver){
         EntityManager entityManager = GlobalManager.getManager();
         try{
@@ -86,6 +105,10 @@ public class TrackModel implements BaseModel<Track>{
         }
     }
 
+    /**
+     * Ustala stan trasy przekazanej przez parametr na wykonany
+     * @param track
+     */
     public static void setExecuted(Track track){
         EntityManager entityManager = GlobalManager.getManager();
         try{
@@ -99,6 +122,10 @@ public class TrackModel implements BaseModel<Track>{
         }
     }
 
+    /**
+     * Ustawia wszystkie zlecenia w liście na wykonywane
+     * @param orders
+     */
     public static void setAssignOrders(List<Order> orders){
         for(Order o : orders){
             o.getState().assignOrder(o, GlobalManager.getManager());

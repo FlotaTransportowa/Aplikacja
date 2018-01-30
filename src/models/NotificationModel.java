@@ -12,6 +12,10 @@ import java.util.List;
 
 public class NotificationModel implements BaseModel{
 
+    /**
+     * Szuaka wszystkich zgłoszeń
+     * @return Zwraca listę zgłoszeń
+     */
     @Override
     public ObservableList getAll() {
         ObservableList<Notification> notificationObservableList = FXCollections.observableArrayList();
@@ -30,6 +34,11 @@ public class NotificationModel implements BaseModel{
         }
     }
 
+    /**
+     * Szuaka zgłoszeń typu podanego przez parametr
+     * @param notifyType
+     * @return Zwraca listę typów maszyn
+     */
     public ObservableList<Notification> getAllOfType(AddNotificationController.NotifyType notifyType) {
         ObservableList<Notification> notificationObservableList = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();

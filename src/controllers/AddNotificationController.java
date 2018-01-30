@@ -35,6 +35,12 @@ public class AddNotificationController extends Controller {
     public enum NotifyType{
         DEFECT,THEFT,ACCIDENT
     }
+
+    /**
+     * Ustawia typ zgłoszenia
+     * @param notifyType
+     * @return
+     */
     public static String notifyTypeToString(NotifyType notifyType)
     {
         String value = new String();
@@ -73,6 +79,9 @@ public class AddNotificationController extends Controller {
         booleanChoiceInit();
     }
 
+    /**
+     * Dodanie zgłoszenia do bazy
+     */
     @FXML
     private void pushToDatabase()
     {
@@ -99,6 +108,9 @@ public class AddNotificationController extends Controller {
         return null;
     }
 
+    /**
+     * Ustawienie widoku w zależności od typu zgłoszenia
+     */
     private void booleanChoiceInit()
     {
         switch (notifyType){

@@ -37,14 +37,26 @@ public abstract class Controller{
         this.mainController=par;
     }
 
+    /**
+     Zwaraca zakładkę, w której wstrzyknięty jest wywołany widok
+     */
     public Tab getThisTab() {
         return thisTab;
     }
 
+    /**
+     * Służy do ustawienia referncji do zakładki, w której będzie przetrzymywany widok
+     * @param thisTab
+     */
     public void setThisTab(Tab thisTab) {
         this.thisTab = thisTab;
     }
 
+    /**
+     * Służy utworzenia widoku pokazywanego podczas rozwijania wiersza TableView dla modelu TrackFX
+     * @param param
+     * @return Zwraca GridPane
+     */
     public GridPane createTrackExpander(TableRowExpanderColumn.TableRowDataFeatures<TrackFX> param) {
 
         GridPane editor = new GridPane();
@@ -88,7 +100,11 @@ public abstract class Controller{
 
         return editor;
     }
-
+    /**
+     * Służy utworzenia widoku pokazywanego podczas rozwijania wiersza TableView dla modelu OrderFX
+     * @param param
+     * @return Zwraca GridPane
+     */
     public GridPane createOrderExpander(TableRowExpanderColumn.TableRowDataFeatures<OrderFX> param) {
         GridPane editor = new GridPane();
         editor.setPadding(new Insets(10));
@@ -127,6 +143,11 @@ public abstract class Controller{
     }
 
 
+    /**
+     * Służy do pobrania pojedyńczego zlecenia z bazy danych na podstawie modelu ORderFX
+     * @param orderFX   refere na OrderFX
+     * @return zwraca referencję na zamówienie
+     */
     public Order findOrder(OrderFX orderFX){
         Order order = null;
         try {

@@ -52,6 +52,9 @@ public class ShowAllNotificationsController extends Controller {
 //        expander.setMaxWidth(30);
     }
 
+    /**
+     * Ustawienie danych w widoku
+     */
     public void initNofity()
     {
         data=NotificationFX.getAllOfType(notifyType,this);

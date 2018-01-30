@@ -11,6 +11,10 @@ import java.util.List;
 
 public class MachineTypeModel implements BaseModel<MachineType>{
 
+    /**
+     * Szuka wszystkich typów maszyn
+     * @return Zwaraca listę typów maszyn
+     */
     @Override
     public ObservableList<MachineType> getAll() {
         ObservableList<MachineType> machineTypes = FXCollections.observableArrayList();

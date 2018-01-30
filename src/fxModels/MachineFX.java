@@ -15,6 +15,10 @@ public class MachineFX {
     private String registrationNumber;
     private String VIN;
 
+    /**
+     * Poberanie wszystkich nie zajętych maszyn
+     * @return ObservableList<MachineFX>
+     */
     public static ObservableList<MachineFX> getAllAvailable(){
         ObservableList<MachineFX> machinesFX = FXCollections.observableArrayList();
         ObservableList<Machine> machines = FXCollections.observableArrayList();

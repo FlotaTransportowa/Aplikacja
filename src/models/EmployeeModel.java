@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeModel implements BaseModel<Employee>{
+    /**
+     * @return Zwraca wszystkich pracowników
+     */
     @Override
     public ObservableList<Employee> getAll() {
         ObservableList<Employee> employees = FXCollections.observableArrayList();
@@ -36,6 +39,11 @@ public class EmployeeModel implements BaseModel<Employee>{
         return employees;
     }
 
+    /**
+     * Dodaje kierowcy driver uprawnienie permission
+     * @param driver
+     * @param permission
+     */
     public static void addPermission(Driver driver, Permission permission)
     {
         if(driver.getPermissions()==null){
@@ -48,6 +56,11 @@ public class EmployeeModel implements BaseModel<Employee>{
         }
     }
 
+    /**
+     * Sprawdza czy podane konto ma przypisanego pracownika
+     * @param account
+     * @return Zwraca konto lub null gdy nie znaleziono
+     */
     public static Driver getDriverByAccount(Account account){
         Driver driver = null;
         EntityManager entityManager = GlobalManager.getManager();
@@ -66,6 +79,17 @@ public class EmployeeModel implements BaseModel<Employee>{
         return driver;
     }
 
+    /**
+     * Tworzy pracownika o podanych parametrach
+     * @param name
+     * @param lastName
+     * @param age
+     * @param gender
+     * @param type
+     * @param email
+     * @param salary
+     * @return Zwraca jedną z klas dziedziczących po Employee
+     */
     public static Employee getEmployee(String name, String lastName, int age, String gender, String type, String email, double salary){
         switch (type){
             case "Dyspozytor":
@@ -78,6 +102,11 @@ public class EmployeeModel implements BaseModel<Employee>{
         return null;
     }
 
+    /**
+     * Szuka pracownika przypisanego do konta
+     * @param account
+     * @return Zwraca do pracownika lub null gdy nieznaleziono
+     */
     public static Employee getEmployee(Account account){
         Employee employee = null;
         EntityManager entityManager = GlobalManager.getManager();

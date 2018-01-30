@@ -53,6 +53,9 @@ public class ShowAllOrdersController extends Controller {
         orderTable.getColumns().addAll(expander, idCol, titleCol, typeCol, deadlineCol, stateCol);
     }
 
+    /**
+     * Wyświetlenie wszystkich zleceń
+     */
     public void initAll()
     {
         dataOders = FXCollections.observableArrayList(OrderFX.getAll());
@@ -60,6 +63,10 @@ public class ShowAllOrdersController extends Controller {
         orderTable.setItems(dataOders);
         setSearchField();
     }
+
+    /**
+     * Wyświetlenie zleceń zalogowanego pracownika
+     */
     public void initYours() {
         dataOders = FXCollections.observableArrayList(OrderFX.getEmployeeOrders(loggedController.getLoggedEmployee()));
 

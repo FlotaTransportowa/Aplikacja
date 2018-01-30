@@ -8,6 +8,11 @@ import javax.persistence.EntityManager;
 
 public interface BaseModel<T> {
     abstract ObservableList<T> getAll();
+
+    /**
+     * Dodaje do bazy danych obiekt przekazany przez parametr
+     * @param object
+     */
     public default void pushToDatabase(T object){
         EntityManager entityManager = GlobalManager.getManager();
 

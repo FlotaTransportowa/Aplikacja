@@ -94,6 +94,9 @@ public class NotificationFX {
         this.machine.setEfficient(false);
     }
 
+    /**
+     * Przypisanie wartości Zgłoszenia do modelu
+     */
     private void decompositeValues() {
         id=notification.getId();
         date=notification.getDate();
@@ -103,6 +106,10 @@ public class NotificationFX {
         machine=notification.getMachine();
     }
 
+    /**
+     * Pobranie wszystkich zgłoszeń
+     * @return ObservableList<NotificationFX>
+     */
     public static ObservableList<NotificationFX> getAll(){
         ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();
         ObservableList<Notification> notifications = null;
@@ -115,6 +122,13 @@ public class NotificationFX {
         }
         return notificationFXES;
     }
+
+    /**
+     * Pobranie wszystkich zgłoszeń typu notifyType
+     * @param notifyType
+     * @param showAllNotificationsController Kontroler, który będzie obsługiwał wyświetlanie listy
+     * @return
+     */
     public static ObservableList<NotificationFX> getAllOfType(AddNotificationController.NotifyType notifyType, ShowAllNotificationsController showAllNotificationsController){
         ObservableList<NotificationFX> notificationFXES = FXCollections.observableArrayList();
         ObservableList<Notification> notifications = null;

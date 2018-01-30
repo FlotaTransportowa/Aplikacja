@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MachineModel implements BaseModel<Machine>{
+    /**
+     * @return Zwraca wszystkie maszyny
+     */
     @Override
     public ObservableList<Machine> getAll() {
         ObservableList<Machine> machines = FXCollections.observableArrayList();
@@ -34,6 +37,10 @@ public class MachineModel implements BaseModel<Machine>{
         return machines;
     }
 
+    /**
+     * Szuka wszystkich dostępnych maszyn
+     * @return Zwraca listę maszyn
+     */
     public ObservableList<Machine> getAllAvailable(){
         ObservableList<Machine> machines = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();
@@ -52,6 +59,13 @@ public class MachineModel implements BaseModel<Machine>{
         return machines;
     }
 
+    /**
+     * Tworzy maszynę o podanych parametrach
+     * @param type
+     * @param registrationNum
+     * @param VINNum
+     * @return Zwraca utworzoną maszynę
+     */
     public static Machine getMachine(MachineType type, String registrationNum, String VINNum){
         Machine machine = new Machine();
         machine.setType(type);
@@ -62,6 +76,11 @@ public class MachineModel implements BaseModel<Machine>{
         return machine;
     }
 
+    /**
+     * Sprawdza czy w bazie występuje maszyna danego typu
+     * @param type
+     * @return Jeśli maszyna była już w bazie to ją zwraca, w przeciwnym przypadku zwraca null.
+     */
     public MachineType retExistType(MachineType type){
         MachineType existType = null;
         EntityManager entityManager = GlobalManager.getManager();

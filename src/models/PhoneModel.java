@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneModel implements BaseModel<Phone>{
+    /**
+     * Szuka wszystkich numerów telefonów
+     * @return Zwraca listę telefonów
+     */
     @Override
     public ObservableList<Phone> getAll() {
         ObservableList<Phone> phones = FXCollections.observableArrayList();

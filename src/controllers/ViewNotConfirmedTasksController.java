@@ -41,6 +41,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         setDatePicker();
     }
 
+    /**
+     * Ustaw wartość pola kalendarza
+     */
     void setDatePicker(){
         checkIn = new DatePicker();
         editTaskDate.getEditor().setDisable(true);
@@ -95,6 +98,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         editTaskDate.setValue(LocalDate.now());
     }
 
+    /**
+     * Usunięcie wybranego zlecenia
+     */
     @FXML
     void removeSelectOrder(){
         Order toRemoveOrder = null;
@@ -109,6 +115,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         refreshView();
     }
 
+    /**
+     * Zatwierdzenie zlecenia
+     */
     @FXML
     void confirmSelectedTask(){
         Order toConfirmOrder = null;
@@ -130,6 +139,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         refreshView();
     }
 
+    /**
+     * Zapisanie zmian
+     */
     @FXML
     void saveChanges(){
         LocalDate date = editTaskDate.getValue();
@@ -144,6 +156,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         refreshView();
     }
 
+    /**
+     * Edycja wybranego zlecenia
+     */
     @FXML
     void editSelectedTask(){
         Order editOrder = null;
@@ -155,6 +170,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         orderForEdit = editOrder;
     }
 
+    /**
+     * Usunięcie widoku edycji
+     */
     @FXML
     void cancelEdit(){
         editPane.setVisible(false);
@@ -174,6 +192,9 @@ public class ViewNotConfirmedTasksController extends Controller{
         editTaskComment.setText(order.getComment());
     }
 
+    /**
+     * Odświeżenie widoku
+     */
     @FXML
     private void refreshView(){
         cancelEdit();

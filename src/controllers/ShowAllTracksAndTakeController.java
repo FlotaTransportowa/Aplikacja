@@ -120,6 +120,9 @@ public class ShowAllTracksAndTakeController extends Controller{
         setSearchField();
     }
 
+    /**
+     * Podjęcie trasy
+     */
     @FXML
     void takeSelectedTrack(){
         trackFX = getSelectedTrack();
@@ -138,6 +141,11 @@ public class ShowAllTracksAndTakeController extends Controller{
         setOrderTable();
     }
 
+    /**
+     * Znalezienie trasy na podstawie modelu TrackFX
+     * @param trackFX
+     * @return
+     */
     @FXML
     public Track findTrack(TrackFX trackFX){
         Track track = null;
@@ -170,6 +178,9 @@ public class ShowAllTracksAndTakeController extends Controller{
         return flag;
     }
 
+    /**
+     * Zakończenie zlecenia
+     */
     @FXML
     void doneTheOrder(){
         OrderFX orderFX = getSelectedOrder();
@@ -183,6 +194,9 @@ public class ShowAllTracksAndTakeController extends Controller{
         refreshView();
     }
 
+    /**
+     * Odświeżenie widoku
+     */
     void refreshView(){
         dataOrders = FXCollections.observableArrayList(OrderFX.getTrackOrdersWithoutCanceledAndDone(trackFX));
         if(dataOrders.isEmpty()) {

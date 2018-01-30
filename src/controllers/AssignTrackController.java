@@ -256,6 +256,11 @@ public class AssignTrackController extends Controller{
         trackAssignTable.setItems(trackData);
     }
 
+    /**
+     * Znajdzuje maszynę w bazie danych na podstawie modelu MachineFX
+     * @param machineFX
+     * @return
+     */
     @FXML
     public Machine findMachine(MachineFX machineFX){
         Machine machine = null;
@@ -272,6 +277,11 @@ public class AssignTrackController extends Controller{
         return machine;
     }
 
+    /**
+     * Znajduje trasę w bazie danych na podstawie modelu TrackFX
+     * @param trackFX
+     * @return
+     */
     @FXML
     public Track findTrack(TrackFX trackFX){
         Track track = null;
@@ -289,6 +299,10 @@ public class AssignTrackController extends Controller{
     }
 
 
+    /**Znajduje kierowcę w bazie danych na podstawie modelu driverWithPermsFX
+     * @param driverWithPermsFX
+     * @return
+     */
     @FXML
     public Driver findDriver(DriverWithPermsFX driverWithPermsFX){
         Driver driver = null;
@@ -320,6 +334,12 @@ public class AssignTrackController extends Controller{
         return machineAssignTable.getSelectionModel().getSelectedItem();
     }
 
+    /**Sprawdzenie czy zostały wybrane wszystkie niezbędne pola do przypisania wartości do trasy
+     * @param trackFX
+     * @param machineFX
+     * @param driverWithPermsFX
+     * @return
+     */
     @FXML
     boolean checkSelection(TrackFX trackFX, MachineFX machineFX, DriverWithPermsFX driverWithPermsFX){
         if(trackFX == null || machineFX == null || driverWithPermsFX == null) return false;

@@ -35,6 +35,10 @@ public class OrderFX {
         this.track = track;
     }
 
+    /**
+     *
+     * @return Zwraca wszystkie zlecenia
+     */
     public static ObservableList<OrderFX> getAll(){
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();
@@ -49,6 +53,11 @@ public class OrderFX {
 
         return ordersFX;
     }
+
+    /**
+     * @param employee
+     * @return Zwraca wszystkie zlecenia przypisane do employee
+     */
     public static ObservableList<OrderFX>  getEmployeeOrders(Employee employee) {
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();
@@ -63,6 +72,11 @@ public class OrderFX {
 
         return ordersFX;
     }
+
+    /**
+     * @param track
+     * @return Zwraca wszystkie zgłoszenia przypisane do trasy track
+     */
     public static ObservableList<OrderFX> getTrackOrders(TrackFX track){
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();
@@ -78,6 +92,10 @@ public class OrderFX {
         return ordersFX;
     }
 
+    /**
+     * @param track
+     * @return Zwraca wszystkie zgłoszenia nie odrzucone oraz nie skończone
+     */
     public static ObservableList<OrderFX> getTrackOrdersWithoutCanceledAndDone(TrackFX track){
         ObservableList<OrderFX> ordersFX = FXCollections.observableArrayList();
         ObservableList<Order> orders = FXCollections.observableArrayList();

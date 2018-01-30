@@ -13,6 +13,10 @@ import java.util.List;
 
 public class OrderModel implements BaseModel<Order>{
 
+    /**
+     * Szuka wszystkich zgłoszeń
+     * @return Zwraca listę zgłoszeń
+     */
     @Override
     public ObservableList<Order> getAll() {
         ObservableList<Order> orders = FXCollections.observableArrayList();
@@ -33,6 +37,11 @@ public class OrderModel implements BaseModel<Order>{
     }
 
 
+    /**
+     * Szuaka wszystkich zgłoszeń utworzonych przez pracownika przekazanego przez parametr
+     * @param employee
+     * @return Zwraca listę zgłoszeń
+     */
     public ObservableList<Order> getEmployeeOrders(Employee employee) {
         ObservableList<Order> orders = FXCollections.observableArrayList();
         EntityManager entityManager = GlobalManager.getManager();

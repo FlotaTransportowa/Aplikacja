@@ -18,6 +18,9 @@ public class TrackFX {
     private Machine machine;
     private List<Order> orders;
 
+    /**
+     * @return Zwraca wszystkie trasy
+     */
     public static ObservableList<TrackFX> getAll(){
         ObservableList<TrackFX> trackFX = FXCollections.observableArrayList();
         ObservableList<Track> tracks = FXCollections.observableArrayList();
@@ -32,6 +35,9 @@ public class TrackFX {
         return trackFX;
     }
 
+    /**
+     * @return Zwraca wszystkie nieprzypisane trasy
+     */
     public static ObservableList<TrackFX> getAllNotAssigned(){
         ObservableList<TrackFX> trackFX = FXCollections.observableArrayList();
         ObservableList<Track> tracks = FXCollections.observableArrayList();
@@ -46,6 +52,10 @@ public class TrackFX {
         return trackFX;
     }
 
+    /**
+     * @param driver
+     * @return Zwraca wszystkie nie zakończone trasy przez kierowcę driver
+     */
     public static ObservableList<TrackFX> getAllNotExecutedDriverTracks(Driver driver){
         ObservableList<TrackFX> trackFX = FXCollections.observableArrayList();
         ObservableList<Track> tracks = FXCollections.observableArrayList();

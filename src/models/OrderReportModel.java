@@ -10,6 +10,10 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class OrderReportModel implements BaseModel<OrderReport>{
+    /**
+     * Szuka wszystkich Raportów zgłoszeń
+     * @return Zwraca listę zgłoszeń
+     */
     @Override
     public ObservableList<OrderReport> getAll() {
         ObservableList<OrderReport> reports = FXCollections.observableArrayList();
