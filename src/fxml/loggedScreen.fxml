@@ -55,7 +55,7 @@
                               </ImageView>
                               <Pane layoutX="30.0" layoutY="170.0" prefHeight="200.0" prefWidth="493.0">
                                  <children>
-                                    <Text layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ostatnio dodane zlecenia" />
+                                    <Text layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zlecenia wymagające Twojej uwagi" />
                                     <Line endX="20.0" layoutX="1.0" layoutY="20.0">
                                        <stroke>
                                           <LinearGradient endX="1.0" endY="1.0">
@@ -67,22 +67,6 @@
                                        </stroke>
                                     </Line>
                                     <ListView fx:id="lastTasks" editable="true" layoutY="29.0" onMouseClicked="#lastTasksClicked" prefHeight="173.0" prefWidth="493.0" styleClass="lastTree" stylesheets="@../resources/general.css" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="30.0" layoutY="400.0" prefHeight="200.0" prefWidth="493.0">
-                                 <children>
-                                    <Text layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ostatnio dodane protokoły czynności serwisowych" />
-                                    <Line endX="20.0" layoutY="20.0">
-                                       <stroke>
-                                          <LinearGradient endX="1.0" endY="1.0">
-                                             <stops>
-                                                <Stop color="#808080" />
-                                                <Stop color="WHITE" offset="1.0" />
-                                             </stops>
-                                          </LinearGradient>
-                                       </stroke>
-                                    </Line>
-                                    <ListView layoutY="27.0" prefHeight="173.0" prefWidth="493.0" styleClass="lastTree" stylesheets="@../resources/general.css" />
                                  </children>
                               </Pane>
                            </children>
