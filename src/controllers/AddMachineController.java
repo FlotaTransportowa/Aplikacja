@@ -19,10 +19,15 @@ public class AddMachineController extends Controller{
     @FXML private TextField addRegistrationNum;
     @FXML private TextField addVIN;
 
+    private LoggedController loggedController;
     @FXML
     void initialize(){
     }
 
+    @FXML private void removeTab()
+    {
+        loggedController.removeTab(super.getThisTab());
+    }
     @FXML
     private void addMachine(){
         if(!valid())
@@ -75,5 +80,13 @@ public class AddMachineController extends Controller{
         } else addVIN.setStyle(validStyle);
 
         return validateFlag;
+    }
+
+    public LoggedController getLoggedController() {
+        return loggedController;
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
     }
 }

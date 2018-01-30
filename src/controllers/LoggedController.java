@@ -131,7 +131,9 @@ public class LoggedController extends Controller {
     @FXML void addNewOrder()  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTask.fxml"));
-            addNewTab((Node) loader.load(),"Utwórz nowe zlecenie");
+            addNewTab(loader,"Utwórz nowe zlecenie");
+            AddNewTaskController addNewTaskController = loader.getController();
+            addNewTaskController.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -158,7 +160,9 @@ public class LoggedController extends Controller {
     void viewNotConfirmedTasksList(){
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/viewNotConfirmedTasks.fxml"));
-            addNewTab((Node) loader.load(),"Niezatwierdzone zlecenia");
+            addNewTab(loader,"Niezatwierdzone zlecenia");
+            ViewNotConfirmedTasksController controller = loader.getController();
+            controller.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -169,7 +173,9 @@ public class LoggedController extends Controller {
     @FXML void addNewMachine()  {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewMachineScreen.fxml"));
-            addNewTab((Node) loader.load(),"Dodaj maszynę");
+            addNewTab(loader,"Dodaj maszynę");
+            AddMachineController controller = loader.getController();
+            controller.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -209,7 +215,9 @@ public class LoggedController extends Controller {
     @FXML void addNewTrack() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/addNewTrackScreen.fxml"));
-            addNewTab((Node) loader.load(),"Stwórz trasę");
+            addNewTab(loader,"Stwórz trasę");
+            AddNewTrackController controller = loader.getController();
+            controller.setLoggedController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

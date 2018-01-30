@@ -16,7 +16,7 @@
             <Pane prefHeight="56.0" prefWidth="980.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">
                <children>
                   <Button layoutX="817.0" layoutY="14.0" mnemonicParsing="false" onAction="#addTrack" prefHeight="25.0" prefWidth="149.0" stylesheets="@../resources/general.css" text="Zatwierdź" textFill="WHITE" />
-                  <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
+                  <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#removeTab" prefHeight="25.0" prefWidth="122.0" styleClass="button-grey" stylesheets="@../resources/general.css" text="Anuluj" />
                </children>
             </Pane>
             <Pane layoutY="56.0" prefHeight="304.0" prefWidth="983.0" style="-fx-border-color: rgb(230,230,230); -fx-border-width: 0px 0px 1px 0px;">

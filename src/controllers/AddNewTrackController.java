@@ -41,7 +41,7 @@ public class AddNewTrackController extends Controller{
     private static ObservableList<Order> beforeData;
     private static ObservableSet<Order> afterData;
     private OrderModel orderModel = new OrderModel();
-
+    private LoggedController loggedController;
     @FXML
     void initialize(){
         refreshView();
@@ -62,6 +62,11 @@ public class AddNewTrackController extends Controller{
             afterData.remove(selectedItem);
             afterAddTable.getItems().remove(selectedItem);
         }
+    }
+
+    @FXML private void removeTab()
+    {
+        loggedController.removeTab(super.getThisTab());
     }
 
     @FXML
@@ -159,4 +164,11 @@ public class AddNewTrackController extends Controller{
         beforeAddTable.setItems(sortedData);
     }
 
+    public LoggedController getLoggedController() {
+        return loggedController;
+    }
+
+    public void setLoggedController(LoggedController loggedController) {
+        this.loggedController = loggedController;
+    }
 }
