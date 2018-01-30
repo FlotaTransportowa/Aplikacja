@@ -31,17 +31,17 @@ public class OrderWaiting extends OrderState{
 
     @Override
     public void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest oczekujące - jego zatwierdzenie jest niemożliwe.");
     }
 
     @Override
     public void removeOrder(Order order, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest oczekujące - jego usunięcie jest niemożliwe.");
     }
 
     @Override
     public void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest oczekujące - cofnięcie potwierdzenia jest niemożliwe.");
     }
 
     @Override
@@ -64,21 +64,22 @@ public class OrderWaiting extends OrderState{
         } catch (Exception e){
             e.printStackTrace();
         }
+        statusBar.setText("Zlecenie zostało anulowane.");
     }
 
     @Override
     public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest oczekujące - jego wstrzymanie jest niemożliwe.");
     }
 
     @Override
-    public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+    public void unpauseOrder(Order toUnpauseOrder, EntityManager entityManager, StatusBar statusBar) {
+        statusBar.setText("Zlecenie jest oczekujące - jego wznowienie jest niemożliwe.");
     }
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest oczekujące - jego zakończenie jest niemożliwe.");
     }
 
     @Override

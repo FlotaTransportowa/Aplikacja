@@ -25,17 +25,17 @@ public class OrderPaused extends OrderState{
 
     @Override
     public void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest wstrzymane - jego zatwierdzenie jest niemożliwe.");
     }
 
     @Override
     public void removeOrder(Order order, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest wstrzymane - jego usunięcie jest niemożliwe.");
     }
 
     @Override
     public void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest wstrzymane - cofnięcie potwierdzenia jest niemożliwe.");
     }
 
     @Override
@@ -56,7 +56,7 @@ public class OrderPaused extends OrderState{
 
     @Override
     public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest już wstrzymane.");
     }
 
     @Override
@@ -72,7 +72,7 @@ public class OrderPaused extends OrderState{
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest wstrzymane - jego zakończenie jest niemożliwe.");
     }
 
     @Override

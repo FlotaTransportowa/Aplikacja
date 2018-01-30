@@ -13,11 +13,6 @@ public class OrderPosted extends OrderState{
     }
 
     @Override
-    public void removeOrder(Order order, StatusBar statusBar) {
-
-    }
-
-    @Override
     public void assignOrder(Order order, EntityManager entityManager) {
 
     }
@@ -27,14 +22,20 @@ public class OrderPosted extends OrderState{
 
     }
 
+
     @Override
     public void confirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
+        statusBar.setText("Zlecenie jest zaksięgowane - jego zatwierdzenie jest niemożliwe.");
+    }
 
+    @Override
+    public void removeOrder(Order order, StatusBar statusBar) {
+        statusBar.setText("Zlecenie jest zaksięgowane - jego usunięcie jest niemożliwe.");
     }
 
     @Override
     public void unconfirmOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zaksięgowane - cofnięcie potwierdzenia jest niemożliwe.");
     }
 
     @Override
@@ -44,32 +45,26 @@ public class OrderPosted extends OrderState{
 
     @Override
     public void cancelOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zaksięgowane - jego anulowanie jest niemożliwe");
     }
 
     @Override
     public void pauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zaksięgowane - jego wstrzymanie jest niemożliwe.");
     }
 
     @Override
     public void unpauseOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zaksięgowane - jego wznowienie jest niemożliwe.");
     }
 
     @Override
     public void finishOrder(Order order, EntityManager entityManager, StatusBar statusBar) {
-
+        statusBar.setText("Zlecenie jest zaksięgowane - jego zakończenie jest niemożliwe.");
     }
 
     @Override
     public void postTheOrder(Order toPostOrder, EntityManager entityManager) {
-        Order order = null;
-        try{
-            order = entityManager.find(Order.class, toPostOrder.getId());
-            order.setState(new OrderPosted());
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
 }
