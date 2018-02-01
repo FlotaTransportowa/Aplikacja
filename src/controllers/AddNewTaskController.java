@@ -7,7 +7,6 @@ import database.OrderNotConfirmed;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import manager.GlobalManager;

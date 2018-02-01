@@ -144,31 +144,6 @@ public class Main extends Application {
         entityManager.persist(notification);
         entityManager.getTransaction().commit();
 
-        //dodaj raport
-        ReportRepair reportRepair = new ReportRepair();
-        reportRepair.setRepairCost(500.0);
-        reportRepair.setDate(today);
-        reportRepair.setTitle("Raport naprawy rozbitego auta");
-        reportRepair.setDescription("Tam uważać następnym razem");
-
-        RepairPart repairPart1 = new RepairPart();
-        RepairPart repairPart2 = new RepairPart();
-        repairPart1.setName("Lampa led");
-        repairPart1.setSymbol("23IG3");
-        repairPart1.setPrice(200.0);
-        repairPart2.setName("Część");
-        repairPart2.setSymbol("222G3");
-        repairPart2.setPrice(500.0);
-        List<RepairPart> repairParts = new ArrayList<>();
-        repairParts.add(repairPart1);
-        repairParts.add(repairPart2);
-        reportRepair.setRepairParts(repairParts);
-        reportRepair.setResult("naprawiony");
-
-        entityManager.getTransaction().begin();
-        entityManager.persist(reportRepair);
-        entityManager.getTransaction().commit();
-
         //ZADANIE NR 2 - WPROWADZIC DO BAZY RAPORT NADZORCZY
 
         Order order = new Order();

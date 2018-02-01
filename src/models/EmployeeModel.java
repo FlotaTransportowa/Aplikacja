@@ -1,18 +1,12 @@
 package models;
 
-import controllers.Controller;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Accordion;
 import manager.GlobalManager;
-import security.HashPassword;
-import validation.Pattern;
-import validation.Validation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 

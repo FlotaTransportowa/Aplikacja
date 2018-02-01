@@ -1,7 +1,6 @@
 package controllers;
 
 import database.OrderReport;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import database.Order;
 import javafx.scene.control.Alert;
@@ -12,7 +11,6 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 import models.OrderReportModel;
 import org.controlsfx.control.StatusBar;
-import validation.Pattern;
 import validation.Validation;
 
 import java.time.Instant;
